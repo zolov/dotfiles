@@ -1,0 +1,126 @@
+set ideajoin
+let mapleader=" "
+set easymotion
+set number relativenumber
+set showmode
+set ignorecase smartcase
+set multiple-cursors
+set incsearch
+set hlsearch
+set undolevels=100
+set mps+=<:>
+set keep-english-in-normal-and-restore-in-insert
+set idearefactormode=keep
+
+map <Leader> <Plug>(easymotion-prefix)
+map <Leader>m <Plug>(easymotion-jumptoanywhere)
+
+inoremap jj <Esc>
+nnoremap <space>q :action CloseContent<CR>
+nnoremap <space>Q :action ReopenClosedTab<CR>
+
+nnoremap <Leader>e :action SearchEverywhere<CR>
+nnoremap <Leader>g :action FindInPath<CR>
+nnoremap <Leader>s :action FileStructurePopup<CR>
+
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gb :action JumpToLastChange<CR>
+
+nnoremap U :action FindUsages<CR>
+nnoremap R :action RenameElement<CR>
+
+nnoremap == :action ReformatCode<CR>
+vnoremap == :action ReformatCode<CR>
+
+nnoremap cc :action CommentByLineComment<CR>
+vnoremap cc :action CommentByLineComment<CR>
+
+nnoremap <C-CR> :action ShowIntentionActions<CR>
+
+nnoremap <Leader>a :action GotoAction<CR>
+vnoremap <Leader>a :action GotoAction<CR>
+" easy system clipboard copy/paste
+noremap <Leader>y "*y
+noremap <Leader>yy "*Y
+noremap <Leader>p "*p
+noremap <Leader>P "*P
+" built-in navigation to navigated items works better
+nnoremap <c-o> :action Back<cr>
+nnoremap <c-i> :action Forward<cr>
+" but preserve ideavim defaults
+nnoremap g<c-o> <c-o>
+nnoremap g<c-i> <c-i>
+
+" built in search looks better
+nnoremap / :action Find<cr>
+" but preserve ideavim search
+nnoremap g/ /
+
+map й q
+map ц w
+map у e
+map к r
+map е t
+map н y
+map г u
+map ш i
+map щ o
+map з p
+map х [
+map ъ ]
+map ф a
+map ы s
+map в d
+map а f
+map п g
+map р h
+map о j
+map л k
+map д l
+map ж ;
+map э '
+map ё \
+map я z
+map ч x
+map с c
+map м v
+map и b
+map т n
+map ь m
+map б ,
+map ю .
+map Й Q
+map Ц W
+map У E
+map К R
+map Е T
+map Н Y
+map Г U
+map Ш I
+map Щ O
+map З P
+map Х {
+map Ъ }
+map Ф A
+map Ы S
+map В D
+map А F
+map П G
+map Р H
+map О J
+map Л K
+map Д L
+map Ж :
+map Э "
+map Я Z
+map Ч X
+map С C
+map М V
+map И B
+map Т N
+map Ь M
+map Б <
+map Ю >
+map Ё /|

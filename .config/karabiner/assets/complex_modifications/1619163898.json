@@ -1,0 +1,36 @@
+{
+  "title": "Left CMD -> ru, Left Opt -> en",
+  "rules": [
+    {"description": "Left CMD -> ru",
+     "manipulators" : [ {
+       "to_if_alone" : [ {
+         "select_input_source" : {
+           "language" : "ru"
+         }
+       } ],
+       "from" : {
+         "key_code" : "left_command"
+       },
+       "to" : [ {
+         "key_code" : "left_command"
+       } ],
+       "type" : "basic"
+     } ] },
+
+    {"description": "Left Opt -> en",
+     "manipulators": [ {
+       "to_if_alone" : [ {
+         "select_input_source" : {
+           "language" : "en"
+         }
+       } ],
+       "from" : {
+         "key_code" : "left_option"
+       },
+       "to" : [ {
+         "key_code" : "left_option"
+       } ],
+       "type" : "basic"
+     } ] }
+  ]
+}
