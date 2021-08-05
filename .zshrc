@@ -117,13 +117,13 @@ source $ZSH/oh-my-zsh.sh
 #
 # ALIASES
 alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
 alias g="git"
 alias rr=". ranger"
 alias qq=". ranger"
 alias clr="clear"
 alias vpn="bash /Users/zolov/Documents/vpn/vpn.sh"
 alias ls="exa --icons"
+alias lsa="exa --icons --all"
 alias ll="exa --icons --long --no-user --git"
 alias lla="exa --icons --long --no-user --git --all --git-ignore"
 alias tree="exa --icons --long --no-user --git --all --git-ignore --tree"

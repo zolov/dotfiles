@@ -8,7 +8,6 @@ Except for the case where I accidentally shared any personal data.
 
 ```bash
 alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
 alias g="git"
 alias rr=". ranger"
 alias qq=". ranger"
