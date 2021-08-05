@@ -133,6 +133,7 @@ alias k="kubectl"
 alias python="python3"
 alias pip="pip3"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias typora="open -a typora"
 complete -F __start_kubect
 
 # ------------------------------------
@@ -233,6 +234,10 @@ SPACESHIP_PROMPT_ORDER=(
   vi_mode       # Vi-mode indicator
   char          # Prompt character
 )
+
+# Key bindings
+bindkey '^ ' autosuggest-accept
+bindkey '^x' autosuggest-clear
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/zolov/.sdkman"
