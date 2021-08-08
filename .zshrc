@@ -58,35 +58,28 @@ ZSH_THEME="spaceship"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-git
 sudo
 git
+git-flow
+gitignore
+kubectl
 docker
 docker-compose
 zsh-autosuggestions
-fasd
 zsh-syntax-highlighting
-git-flow
-sublime
+fasd
 brew
 osx
-kubectl
 zsh-z
-colored-man-pages
-colorize
 common-aliases
 postgres
 spring
 vscode
 django
-dash
-gitignore
 )
 
 ZSH_DISABLE_COMPFIX="true"
@@ -116,7 +109,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # ALIASES
-alias zshconfig="vim ~/.zshrc"
+alias zshrc"vim ~/.zshrc"
 alias g="git"
 alias rr=". ranger"
 alias qq=". ranger"
@@ -124,8 +117,8 @@ alias clr="clear"
 alias vpn="bash /Users/zolov/Documents/vpn/vpn.sh"
 alias ls="exa --icons"
 alias lsa="exa --icons --all"
-alias ll="exa --icons --long --no-user --git"
-alias lla="exa --icons --long --no-user --git --all --git-ignore"
+alias ll="exa --icons --long --no-user --git --git-ignore"
+alias lla="exa --icons --long --no-user --git --all" 
 alias tree="exa --icons --long --no-user --git --all --git-ignore --tree"
 alias vim="nvim"
 alias upd="brew update && brew upgrade"
