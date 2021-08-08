@@ -109,7 +109,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # ALIASES
-alias zshrc"vim ~/.zshrc"
+alias zshrc"code ~/.zshrc"
 alias g="git"
 alias rr=". ranger"
 alias qq=". ranger"
