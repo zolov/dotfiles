@@ -127,6 +127,7 @@ alias python="python3"
 alias pip="pip3"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias typora="open -a typora"
+alias k8log="$HOME/bin/k8log.sh"
 complete -F __start_kubect
 
 # ------------------------------------
@@ -174,6 +175,15 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 allalias() { alias | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+
+function k9logs() {
+    GREP=(`k9s info | grep Logs`)
+    logPath=`echo ${GREP[2]} | sed -e $'s#\033\[[;0-9]*m##g' | tr -d '[:cntrl:]' | cat`
+
+    # cp $logPath ~/Downloads/k9s-log.log
+    cp $logPath .
+}
+
 
 # SPACESHIP CONFIGURATION
 # Colors
@@ -239,3 +249,5 @@ export SDKMAN_DIR="/Users/zolov/.sdkman"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e /Users/zolov/.iterm2_shell_integration.zsh && source /Users/zolov/.iterm2_shell_integration.zsh || true
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
