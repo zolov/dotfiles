@@ -114,20 +114,49 @@ alias g="git"
 alias rr=". ranger"
 alias qq=". ranger"
 alias clr="clear"
-alias vpn="bash /Users/zolov/Documents/vpn/vpn.sh"
 alias ls="exa --icons"
 alias lsa="exa --icons --all"
 alias ll="exa --icons --long --no-user --git --git-ignore"
 alias lla="exa --icons --long --no-user --git --all" 
 alias tree="exa --icons --long --no-user --git --all --git-ignore --tree"
 alias vim="nvim"
-alias upd="brew update && brew upgrade"
+alias upd="brew update && brew upgrade && brew cleanup" 
 alias k="kubectl"
 alias python="python3"
 alias pip="pip3"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias typora="open -a typora"
 alias k8log="$HOME/bin/k8log.sh"
+alias mv="mv -iv"
+alias cp="cp -riv"
+alias mkdir="mkdir -vp"
+
+function acp() {
+git add .
+git commit -m "$1"
+git push
+}
+
+extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)  tar xjf $1    ;;
+      *.tar.gz) tar xzf $1    ;;
+      *.bz2)    bunzip2 $1    ;;
+      *.rar)    rar x $1    ;;
+      *.gz)   gunzip $1   ;;
+      *.tar)    tar xf $1   ;;
+      *.tbz2)   tar xjf $1    ;;
+      *.tgz)    tar xzf $1    ;;
+      *.zip)    unzip $1    ;;
+      *.Z)    uncompress $1 ;;
+      *)      echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
 complete -F __start_kubect
 
 # ------------------------------------
@@ -184,6 +213,25 @@ function k9logs() {
     cp $logPath .
 }
 
+function myip()
+{
+    extIp=$(dig +short myip.opendns.com @resolver1.opendns.com)
+
+    printf "Wireless IP: "
+    MY_IP=$(/sbin/ifconfig wlp4s0 | awk '/inet/ { print $2 } ' |
+      sed -e s/addr://)
+    echo ${MY_IP:-"Not connected"}
+
+
+    printf "Wired IP: "
+    MY_IP=$(/sbin/ifconfig enp0s25 | awk '/inet/ { print $2 } ' |
+      sed -e s/addr://)
+    echo ${MY_IP:-"Not connected"}
+
+    echo ""
+    echo "WAN IP: $extIp"
+
+}
 
 # SPACESHIP CONFIGURATION
 # Colors
