@@ -73,13 +73,12 @@ zsh-autosuggestions
 zsh-syntax-highlighting
 fasd
 brew
-osx
+macos
 zsh-z
 common-aliases
 postgres
 spring
 vscode
-django
 )
 
 ZSH_DISABLE_COMPFIX="true"
@@ -233,6 +232,9 @@ function myip()
 
 }
 
+# zsh-autosuggestions CONFIGURATION
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=green,bold,underline"
+
 # SPACESHIP CONFIGURATION
 # Colors
 SPACESHIP_DIR_COLOR=blue
@@ -285,6 +287,19 @@ SPACESHIP_PROMPT_ORDER=(
   vi_mode       # Vi-mode indicator
   char          # Prompt character
 )
+
+# tat: tmux attach
+function tat {
+  name=$(basename `pwd` | sed -e 's/\.//g')
+
+  if tmux ls 2>&1 | grep "$name"; then
+    tmux attach -t "$name"
+  elif [ -f .envrc ]; then
+    direnv exec / tmux new-session -s "$name"
+  else
+    tmux new-session -s "$name"
+  fi
+}
 
 # Key bindings
 bindkey '^ ' autosuggest-accept

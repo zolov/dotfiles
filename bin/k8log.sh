@@ -32,5 +32,5 @@ echo Log file saved to ${BLUE}${FILE_PATH}${NC}
 echo
 
 echo ${LBLUE}Opening in VS code...
-code ~/Documents/LOGS/${ms_name}-${now}.log
+code $HOME/Documents/LOGS/${ms_name}-${now}.log
 
