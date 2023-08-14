@@ -7,7 +7,7 @@ set ideajoin
 set ideamarks
 set idearefactormode=keep
 set scrolloff=10
-set linenumber
+set number relativenumber
 set showmode
 set showcmd
 
@@ -109,9 +109,11 @@ let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
 
 let g:WhichKeyDesc_git = "<leader>v Git operations"
 let g:WhichKeyDesc_git_commit = "<leader>vc Open Commit dialog"
-let g:WhichKeyDesc_git_push = "<leader>vp Push commited"
+let g:WhichKeyDesc_git_push = "<leader>vk Push committed"
 let g:WhichKeyDesc_git_status = "<leader>vs Open Git status dialog"
 let g:WhichKeyDesc_git_branches = "<leader>vb Open Git branches list"
+let g:WhichKeyDesc_git_fetch = "<leader>vf Git Fetch"
+let g:WhichKeyDesc_git_pull = "<leader>vt Git Pull"
 
 let g:WhichKeyDesc_errors = "<leader>x Error navigation"
 let g:WhichKeyDesc_errors_next = "<leader>xn Go to next error in solution"
@@ -203,19 +205,25 @@ map <leader>rs <Action>(ChangeSignature)
 map <leader>rr <Action>(Refactorings.QuickListPopupAction)
 
 " Go to code
-nmap <leader>gd <Action>(GotoDeclaration)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gu <Action>(ShowUsages)
+nmap gd <Action>(GotoDeclaration)
+
 nmap <leader>gy <Action>(GotoTypeDeclaration)
 nmap <leader>gi <Action>(GotoImplementation)
 nmap <leader>gu <Action>(ShowUsages)
 nmap <leader>gt <Action>(GotoTest)
-nmap <leader>gb <Action>(Back)
-nmap <leader>gf <Action>(Forward)
+" nmap <leader>gb <Action>(Back)
+" nmap <leader>gf <Action>(Forward)
 
 " Git windows
 map <leader>vc <Action>(CheckinProject)
+map <leader>vf <Action>(Git.Fetch)
 map <leader>vs <Action>(ActivateVersionControlToolWindow)
 map <leader>vb <Action>(Git.Branches)
-map <leader>vp <Action>(Vcs.Push)
+map <leader>vk <Action>(Vcs.Push)
+map <leader>vt <Action>(Vcs.UpdateProject)
 
 " Errors
 map <leader>xn <Action>(GotoNextError)
