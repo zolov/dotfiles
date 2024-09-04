@@ -1,0 +1,473 @@
+" .ideavimrc - Igor Zolov
+
+"" Base Settings
+"" ========================================================
+set ideajoin
+set ideamarks
+set idearefactormode=keep
+set scrolloff=10
+set number relativenumber
+set showmode
+set showcmd
+set visualbell
+"set keep-english-in-normal-and-restore-in-insert
+
+set history=200
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set nohlsearch
+set idearefactormode=keep
+set ideastatusicon=gray
+
+" Use system clipboard
+set clipboard+=unnamed
+
+let mapleader = " "
+
+"" Plugin Settings
+"" ========================================================
+set NERDTree
+set highlightedyank
+set sneak
+set multiple-cursors
+set quickscope
+set nerdtree
+set argtextobj
+set textobj-entire
+set surround
+
+" Easymotion settings
+set notimeout
+set easymotion
+
+set exchange
+set textobj-entire
+set matchit
+
+" Which-key settings
+set which-key
+
+set foldmethod=syntax
+set nofoldenable
+set nocompatible
+syntax enable
+syntax on
+set wildmenu
+set laststatus=2
+set ruler
+set nowrap
+set expandtab
+
+let g:WhichKey_DefaultDelay = 600
+let g:WhichKey_FontSize = 19
+let g:WhichKey_ShowVimActions = "true"
+let g:WhichKey_CommandColor = "#a3be8c"
+let g:WhichKey_PrefixColor = "#81a1c1"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+
+"" Key mappings
+"" ========================================================
+
+" Toggle case and start typing. E.g. `<leader>iget`: `property` -> `getProperty`
+nmap <leader>i ~hi
+" Remove selection and toggle case. E.g. `v2l<leader>u`: `getProperty` -> `property`
+vmap <leader>u d~h
+
+" Search
+" map / <action>(Find)
+" map / <Plug>(easymotion-s)
+map s <Plug>(easymotion-s)
+
+" Separate line and reformat line
+map <S-s> <Action>(EditorSplitLine)<CR>
+
+" Fast esc
+inoremap jj <Esc>
+inoremap jk <Esc>
+
+imap <C-i> <Action>(ParameterInfo)
+
+" Comment line
+nmap gc <action>(CommentByLineComment)
+vmap gc <action>(CommentByLineComment)
+
+
+" Tab navigation
+nnoremap <C-n> :tabnext<CR>
+nnoremap <C-p> :tabprev<CR>
+
+" Pane navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+
+" Move line
+map <C-up> <Action>(MoveLineUp)
+map <C-down> <Action>(MoveLineDown)
+
+map <C-s-up> <Action>(MoveStatementUp)
+map <C-s-down> <Action>(MoveStatementDown)
+
+" Multiline cursor
+let g:WhichKeyDesc_multi_cursor_prefix = "m Multiline cursor"
+let g:WhichKeyDesc_multi_cursor_next = "mc Next occurrence"
+let g:WhichKeyDesc_multi_cursor_prev = "mp Previous occurrence"
+let g:WhichKeyDesc_multi_cursor_skip = "mx Skip next occurrence"
+let g:WhichKeyDesc_multi_cursor_all = "ma All occurrences"
+
+map mc <Plug>NextWholeOccurrence
+map ma <Plug>AllWholeOccurrences
+map mx <Plug>SkipOccurrence
+map mp <Plug>RemoveOccurrence
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Execute macro saved in 'q' register
+nnoremap qj @q
+
+" Completion
+imap <C-space> <action>(CodeCompletion)
+" Close tab
+let g:WhichKeyDesc_close_cont = "<leader>q Close tab"
+map <leader>x <action>(CloseContent)
+
+"" Leader commands
+"" ========================================================
+" Jump around with easymotion
+"let g:WhichKeyDesc_leader = "<leader><leader> Leader"
+"map <leader><leader> <Plug>(easymotion-s)
+
+" Fix actions
+let g:WhichKeyDesc_fix_action = "<leader>q Quick Fix"
+map <leader>q <action>(ShowIntentionActions)
+
+" Code Actions
+"" ========================================================
+let g:WhichKeyDesc_code_actions_complete_statement = "<leader>c Complete statement"
+map <leader>c :action EditorCompleteStatement<CR>
+imap <C-c> <action>(EditorCompleteStatement)
+
+let g:WhichKeyDesc_code_actions_show_hover = "<leader>k Show hover info"
+map <leader>k <action>(ShowHoverInfo)
+
+" Folding
+"" ========================================================
+let g:WhichKeyDesc_fold_prefix = "<leader>z Folding"
+let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
+let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
+let g:WhichKeyDesc_fold_region = "<leader>zf Fold region"
+let g:WhichKeyDesc_unfold_region = "<leader>zu Unfold region"
+
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
+map <leader>zf :action CollapseRegion<CR>
+map <leader>zu :action ExpandRegion<CR>
+
+" Window actions
+"" ========================================================
+let g:WhichKeyDesc_window = "<leader>w Window actions"
+let g:WhichKeyDesc_window_split_vertically = "<leader>wv Split vertically"
+let g:WhichKeyDesc_window_split_horizontally = "<leader>ws Split horizontally"
+let g:WhichKeyDesc_window_split_unsplit = "<leader>wu Unsplit"
+let g:WhichKeyDesc_window_split_move_editor = "<leader>wm Move editor to opposite tab group"
+let g:WhichKeyDesc_window_split_pin_tab = "<leader>wt Pin active tab"
+
+map <leader>wV <action>(SplitVertically)
+map <leader>wv <action>(MoveTabRight)
+map <leader>wS <action>(SplitHorizontally)
+map <leader>ws <action>(MoveTabDown)
+map <leader>wu <action>(Unsplit)
+map <leader>wm <action>(MoveEditorToOppositeTabGroup)
+map <leader>wt <action>(PinActiveTab)
+
+" Display options
+"" ========================================================
+let g:WhichKeyDesc_display = "<leader>u UI options"
+let g:WhichKeyDesc_zen_mode = "<leader>uz Toggle Zen mode"
+let g:WhichKeyDesc_df_mode = "<leader>ud Toggle Distraction-Free mode"
+let g:WhichKeyDesc_full_screen = "<leader>uf Toggle full screen"
+let g:WhichKeyDesc_scope = "<leader>us Scope action prefix"
+let g:WhichKeyDesc_scope_out = "<leader>uso Highlight outside"
+let g:WhichKeyDesc_scope_in = "<leader>usi Highlight inside"
+
+map <leader>ud <action>(ToggleDistractionFreeMode)
+map <leader>uz <action>(ToggleZenMode)
+map <leader>uf <action>(ToggleFullScreen)
+map <leader>uso <action>(Rainbow.ScopeOutsideHighlightingRestrainAction)
+map <leader>usi <action>(Rainbow.ScopeHighlightingAction)
+
+" Build tools
+"" ========================================================
+let g:WhichKeyDesc_build = "<leader>b Build tools"
+let g:WhichKeyDesc_build_run = "<leader>br Run"
+let g:WhichKeyDesc_build_debug = "<leader>bd Debug"
+let g:WhichKeyDesc_build_stop = "<leader>bs Stop"
+let g:WhichKeyDesc_build_more = "<leader>bt More Actions"
+let g:WhichKeyDesc_build_debug_break_point= "<leader>bl Toggle line breakpoint"
+
+map <leader>br <action>(Run)
+map <leader>bd <action>(Debug)
+map <leader>bs <action>(Stop)
+map <leader>bt <action>(MoreRunToolbarActions)
+map <leader>bl <action>(ToggleLineBreakpoint)
+
+" File navigation
+"" ========================================================
+let g:WhichKeyDesc_file_nav = "<leader>g File navigation"
+let g:WhichKeyDesc_file_nav_goto_file = "<leader>gf Go to file"
+let g:WhichKeyDesc_file_nav_goto_content = "<leader>gc Search for file content"
+let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>gr Show recent files"
+let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>gl Show recent locations"
+
+map <leader>gf <action>(GotoFile)
+map <leader>gr <action>(RecentFiles)
+map <leader>gc <action>(FindInPath)
+map <leader>gl <action>(RecentLocations)
+map <leader>gs <action>(NewScratchFile)
+
+" Refactoring
+"" ========================================================
+let g:WhichKeyDesc_refactoring_prefix = "<leader>r Refactoring actions"
+let g:WhichKeyDesc_refactoring_reformat_code = "<leader>rc Reformat code"
+let g:WhichKeyDesc_refactoring_optimize_imports = "<leader>ro Optimize imports"
+let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
+let g:WhichKeyDesc_refactoring_method = "<leader>rm Extract method"
+let g:WhichKeyDesc_refactoring_variable = "<leader>rv Introduce variable"
+let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
+let g:WhichKeyDesc_refactoring_prop = "<leader>rp Introduce property"
+let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
+let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
+let g:WhichKeyDesc_refactoring_generate = "<leader>rg Generate"
+let g:WhichKeyDesc_refactoring_surround = "<leader>rw Surround with"
+let g:WhichKeyDesc_refactoring_change_case = "<leader>ru Change case"
+
+map <leader>ro <action>(OptimizeImports)
+map <leader>rc <action>(ReformatCode)
+map <leader>rn <action>(RenameElement)
+map <leader>rm <action>(ExtractMethod)
+map <leader>rv <action>(IntroduceVariable)
+map <leader>rf <action>(IntroduceField)
+map <leader>rp <action>(refactoring.introduce.property)
+map <leader>rs <action>(ChangeSignature)
+map <leader>rr <action>(Refactorings.QuickListPopupAction)
+nmap <leader>rr <action>(Refactorings.QuickListPopupAction)
+xmap <leader>rr <action>(Refactorings.QuickListPopupAction)
+map <leader>rg <action>(Generate)
+map <leader>rw <action>(SurroundWith)
+map <leader>ru <action>(StringManipulation.ToSnakeCaseOrCamelCase)
+
+" Go to code
+"" ========================================================
+nmap gy <action>(GotoTypeDeclaration)
+nmap gi <action>(GotoImplementation)
+nmap gr <action>(ShowUsages)
+nmap gR <action>(FindUsages)
+nmap gd <action>(GotoDeclaration)
+nmap gs <action>(GotoSuperMethod)
+
+" Git windows
+"" ========================================================
+let g:WhichKeyDesc_git_prefix = "<leader>v Git Operations"
+let g:WhichKeyDesc_git_fetch = "<leader>vf Fetch"
+let g:WhichKeyDesc_git_status = "<leader>vs Open status dialog"
+let g:WhichKeyDesc_git_commit = "<leader>vc Open Commit dialog"
+let g:WhichKeyDesc_git_new_branch = "<leader>vn New Branch"
+let g:WhichKeyDesc_git_push = "<leader>vk Push committed"
+let g:WhichKeyDesc_git_pull = "<leader>vt Pull"
+let g:WhichKeyDesc_git_annotate = "<leader>va Annotate"
+let g:WhichKeyDesc_git_rollback = "<leader>vu Rollback changes in line"
+let g:WhichKeyDesc_git_branches = "<leader>vb Open branches list"
+
+map <leader>vc <action>(CheckinProject)
+map <leader>vf <action>(Git.Fetch)
+map <leader>vs <action>(ActivateVersionControlToolWindow)
+map <leader>vn <action>(GitNewBranchAction)
+map <leader>vk <action>(Vcs.Push)
+map <leader>vt <action>(Vcs.UpdateProject)
+map <leader>va <action>(Annotate)
+map <leader>vu <action>(Vcs.RollbackChangedLines)
+map <leader>vb <action>(Git.Branches)
+map <leader>ve <action>(EditSource)
+map <leader>vh <action>(Vcs.ShowTabbedFileHistory)
+
+" Errors
+"" ========================================================
+let g:WhichKeyDesc_diagnostics_next = "]d Go to next error"
+let g:WhichKeyDesc_diagnostics_prev = "[d Go to previous error"
+
+map ]d <action>(GotoNextError)
+map [d <action>(GotoPreviousError)
+
+" Tools
+"" ========================================================
+let g:WhichKeyDesc_tools_prefix = "<leader>t Tools navigation"
+let g:WhichKeyDesc_tools_term = "<leader>tt Open terminal window"
+let g:WhichKeyDesc_tools_debug = "<leader>td Open debug window"
+let g:WhichKeyDesc_tools_run = "<leader>tr Open run window"
+let g:WhichKeyDesc_tools_structure = "<leader>ts Open structure window"
+let g:WhichKeyDesc_tools_recent_proj = "<leader>tp Open recent projects"
+let g:WhichKeyDesc_tools_set_bookmarks = "<leader>tb Set mnemonic bookmark"
+let g:WhichKeyDesc_tools_set_bookmarks = "<leader>tm Open bookmark menu"
+
+map <leader>tt <action>(ActivateTerminalToolWindow)
+map <leader>tr <action>(ChooseRunConfiguration)
+map <leader>ts <action>(FileStructurePopup)
+map <leader>tn <action>(NewClass)
+map <leader>tb <action>(ToggleBookmarkWithMnemonic)
+map <leader>tm <action>(Bookmarks)
+
+map <leader>po <action>($LRU)
+map <leader>pp <action>(PreviousProjectWindow)
+map <leader>pn <action>(NextProjectWindow)
+
+" Harpoon Prime
+"" ========================================================
+" let g:WhichKeyDesc_harpoon_prefix = "<C-s>h Harpoon"
+
+"let g:WhichKeyDesc_harpoon_open_dialog = "<C-s> Open harpoon"
+"let g:WhichKeyDesc_harpoon_add_current_tab = "<C-a> Add current tab to harpoon"
+"let g:WhichKeyDesc_harpoon_open_1 = "<^-x> Open tab #1"
+"let g:WhichKeyDesc_harpoon_open_2 = "<^-c> Open tab #2"
+"let g:WhichKeyDesc_harpoon_open_3 = "<^-v> Open tab #3"
+"let g:WhichKeyDesc_harpoon_open_4 = "<^-b> Open tab #4"
+
+"let g:WhichKeyDesc_harpoon_set_1 = "<leader><^-x> Set tab #1"
+"let g:WhichKeyDesc_harpoon_set_2 = "<leader><^-c> Set tab #2"
+"let g:WhichKeyDesc_harpoon_set_3 = "<leader><^-v> Set tab #3"
+"let g:WhichKeyDesc_harpoon_set_4 = "<leader><^-b> Set tab #4"
+
+"nmap <leader><C-z> :action SetHarpoon0<cr>
+"nmap <leader><C-x> :action SetHarpoon2<cr>
+"nmap <leader><C-c> :action SetHarpoon3<cr>
+"nmap <leader><C-v> :action SetHarpoon4<cr>
+
+"nmap <C-z> :action GotoHarpoon1<cr>
+"nmap <C-x> :action GotoHarpoon2<cr>
+"nmap <C-c> :action GotoHarpoon3<cr>
+"nmap <C-v> :action GotoHarpoon4<cr>
+
+"nmap <C-s> :action ShowHarpoon<cr>
+"nmap <C-a> :action AddToHarpoon<cr>
+
+" Append the current file to the list
+map <C-a> :action TridentAppend<CR>
+
+" Open the quick menu
+map <C-s> :action TridentToggleQuickMenu<CR>
+
+" Hotkeys to open the first 4 items in the list
+nmap <C-z> :action TridentSelect1<CR>
+nmap <C-x> :action TridentSelect2<CR>
+nmap <C-c> :action TridentSelect3<CR>
+nmap <C-v> :action TridentSelect4<CR>
+
+" Toggle previous & next buffers stored within the list
+
+"map , :action TridentSelectPrev
+"map . :action TridentSelectNext
+
+nmap <leader>h <Action>(HighlightUsagesInFile)
+
+" Requires IdeaVim-QuickScope plugin (port of quick-scope)
+" Docs say to ensure that `set quickscope` is placed after `set sneak` (not sure why)
+" Replaces f/F and t/T to show highlights
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+nnoremap L $
+nnoremap H ^
+vnoremap L $
+vnoremap H ^
+
+nnoremap gp :NERDTree <CR>
+nmap <leader>n :NERDTree <CR>
+nmap <leader><tab> :NERDTree <CR>
+" selelect all text
+"nnoremap <C-A> gg<S-v>G
+
+nnoremap gh :action Back <CR>
+nnoremap gl :action Forward <CR>
+nnoremap gj :action MethodDown <CR>
+nnoremap gk :action MethodUp <CR>
+
+map <leader>o <action>(EditorStartNewLine)
+map <leader>e <action>(RecentLocations)
+
+map <leader>fg <action>(com.mituuz.fuzzier.FuzzierVCS)
+map <leader>ff <action>(com.mituuz.fuzzier.Fuzzier)
+map <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
+
+map <leader>ri <action>(InspectCode)
+
+imap <C-y> <action>(EditorChooseLookupItem)
+
+map й q
+map ц w
+map у e
+map к r
+map е t
+map н y
+map г u
+map ш i
+map щ o
+map з p
+map х [
+map ъ ]
+map ф a
+map ы s
+map в d
+map а f
+map п g
+map р h
+map о j
+map л k
+map д l
+map ж ;
+map э '
+map ё \
+map я z
+map ч x
+map с c
+map м v
+map и b
+map т n
+map ь m
+map б ,
+map ю .
+map Й Q
+map Ц W
+map У E
+map К R
+map Е T
+map Н Y
+map Г U
+map Ш I
+map Щ O
+map З P
+map Х {
+map Ъ }
+map Ф A
+map Ы S
+map В D
+map А F
+map П G
+map Р H
+map О J
+map Л K
+map Д L
+map Ж :
+map Э "
+map Я Z
+map Ч X
+map С C
+map М V
+map И B
+map Т N
+map Ь M
+map Б <
+map Ю >
+map Ё /|
