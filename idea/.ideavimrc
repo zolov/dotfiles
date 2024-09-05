@@ -22,7 +22,7 @@ set idearefactormode=keep
 set ideastatusicon=gray
 
 " Use system clipboard
-set clipboard+=unnamed
+set clipboard+=unnamed,unnamedplus
 
 let mapleader = " "
 
@@ -70,6 +70,25 @@ let g:WhichKey_SortOrder = "by_key_prefix_first"
 "" Key mappings
 "" ========================================================
 
+map <leader>ss <action>(GotoSymbol)
+map <leader>sf <action>(GotoFile)
+map <leader>sc <action>(GotoClass)
+map <leader>sa <action>(GotoAction)
+
+noremap ;c :edit ~/.ideavimrc<cr>
+
+" source config
+noremap ;r :source ~/.ideavimrc<cr>:nohlsearch<cr>
+
+" remove search highlights
+noremap <Esc> :nohlsearch<cr>
+"" Black hole register
+nnoremap \ "_
+
+" Paste hover without overwriting default register
+xnoremap p P
+map <leader>ll <action>(RecentLocations)
+
 " Toggle case and start typing. E.g. `<leader>iget`: `property` -> `getProperty`
 nmap <leader>i ~hi
 " Remove selection and toggle case. E.g. `v2l<leader>u`: `getProperty` -> `property`
@@ -92,7 +111,6 @@ imap <C-i> <Action>(ParameterInfo)
 " Comment line
 nmap gc <action>(CommentByLineComment)
 vmap gc <action>(CommentByLineComment)
-
 
 " Tab navigation
 nnoremap <C-n> :tabnext<CR>
@@ -269,6 +287,7 @@ nmap gr <action>(ShowUsages)
 nmap gR <action>(FindUsages)
 nmap gd <action>(GotoDeclaration)
 nmap gs <action>(GotoSuperMethod)
+nmap gt <action>(GotoTest)
 
 " Git windows
 "" ========================================================

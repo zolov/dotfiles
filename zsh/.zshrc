@@ -11,6 +11,7 @@ source_if_exists ~/.config/zsh/extensions/history.zsh
 source_if_exists ~/.config/zsh/extensions/git.zsh
 source_if_exists ~/.config/zsh/extensions/.secenv.zsh
 source_if_exists ~/.config/zsh/extensions/nvimswitcher.zsh
+source_if_exists ~/.config/zsh/extensions/docker-aliases.zsh
 
 autoload -Uz compinit && compinit
 
@@ -111,13 +112,15 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
-export EDITOR="nvim"
+export VISUAL=nvim
+export EDITOR=nvim
 
 # Key bindings
 bindkey '^ ' autosuggest-accept
 bindkey '^x' autosuggest-clear
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(fzf --zsh)"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 export PATH="/usr/local/sbin:$PATH"
