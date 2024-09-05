@@ -7,11 +7,11 @@ source_if_exists () {
 source_if_exists $HOME/.env.sh
 source_if_exists ~/.fzf.zsh
 source_if_exists ~/.config/zsh/extensions/aliases.zsh
-source_if_exists ~/.config/zsh/extensions/history.zsh
-source_if_exists ~/.config/zsh/extensions/git.zsh
+source_if_exists ~/.config/zsh/extensions/history.sh
+source_if_exists ~/.config/zsh/extensions/git.sh
 source_if_exists ~/.config/zsh/extensions/.secenv.zsh
 source_if_exists ~/.config/zsh/extensions/nvimswitcher.zsh
-source_if_exists ~/.config/zsh/extensions/docker-aliases.zsh
+source_if_exists ~/.config/zsh/extensions/docker-aliases.sh
 
 autoload -Uz compinit && compinit
 
