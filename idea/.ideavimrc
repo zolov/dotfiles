@@ -81,7 +81,7 @@ noremap ;c :edit ~/.ideavimrc<cr>
 noremap ;r :source ~/.ideavimrc<cr>:nohlsearch<cr>
 
 " remove search highlights
-noremap <Esc> :nohlsearch<cr>
+" noremap <Esc> :nohlsearch<cr>
 "" Black hole register
 nnoremap \ "_
 

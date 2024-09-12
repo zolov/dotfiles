@@ -141,3 +141,5 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+[[ -s "/Users/ivzolov/.gvm/scripts/gvm" ]] && source "/Users/ivzolov/.gvm/scripts/gvm"
