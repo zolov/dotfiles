@@ -15,6 +15,7 @@ alias clr="clear"
 alias cr="clear"
 alias nf="nvimGoToFiles"
 alias ngl="nvimGoToLine"
+alias cd="z"
 
 alias l="eza -l --icons --git -a"
 alias ls="eza --icons"

@@ -73,7 +73,5 @@ return {
       mode = "n",
       prefix = "<leader>",
     })
-
-    which_key.register(require('config.which-key.non_leader'))
   end
 }
