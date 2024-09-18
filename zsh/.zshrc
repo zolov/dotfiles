@@ -129,10 +129,6 @@ export PATH="/usr/local/sbin:$PATH"
 #[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
 source ~/.bash_profile
-export PATH="/opt/homebrew/opt/go@1.19/bin:$PATH"
-
-export GOPATH=$HOME
-export PATH=$PATH:$GOPATH/bin
 export GPG_TTY=$(tty)
 
 export FZF_DEFAULT_OPTS='--prompt="🔭 " --height 80% --layout=reverse --border'
@@ -143,3 +139,5 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 [[ -s "/Users/ivzolov/.gvm/scripts/gvm" ]] && source "/Users/ivzolov/.gvm/scripts/gvm"
+
+export PATH=$HOME/.go:$PATH

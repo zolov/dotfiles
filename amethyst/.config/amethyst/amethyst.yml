@@ -34,8 +34,8 @@ mod1:
 mod2:
   - option
   # - shift
-  - control
-  # - command
+  # - control
+  - command
 
 # Commands:
 # special key values
@@ -251,7 +251,10 @@ window-minimum-width: 0
 floating: [
   "com.apple.finder",
   "com.apple.systempreferences",
-  "com.spotify.client"
+  "com.spotify.client",
+  "com.cisco.anyconnect.gui",
+  "com.jetbrains.intellij",
+  "com.jetbrains.goland"
 ]
 
 # Boolean flag determining behavior of the floating list. true if the applications should be floating and all others tiled. false if the applications should be tiled and all others floating (default true).
