@@ -12,7 +12,6 @@ return {
   --   "BufNewFile path/to/my-vault/*.md",
   -- },
   dependencies = {
-    -- Required.
     "nvim-lua/plenary.nvim",
 
     -- see below for full list of optional dependencies 👇
@@ -24,5 +23,13 @@ return {
         path = "~/Documents/Zettelkasten",
       }
     },
+  },
+    -- ui = { enable = false },
+    -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
+    completion = {
+    -- Set to false to disable completion.
+    nvim_cmp = true,
+    -- Trigger completion at 2 chars.
+    min_chars = 2,
   },
 }
