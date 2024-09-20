@@ -8,11 +8,13 @@ alias s="source $HOME/.zshrc"
 alias o="open ."
 alias zshrc="nvim $HOME/.zshrc"
 alias tmuxrc="nvim $HOME/.tmux.conf"
-alias aliases="nvim ~/.config/extension/zsh/aliases.zsh"
+alias aliases="nvim $HOME/.config/zsh/extensions/aliases.zsh
+"
 alias g="git"
 alias qq="yazi"
 alias clr="clear"
 alias cr="clear"
+alias cd="z"
 alias nf="nvimGoToFiles"
 alias ngl="nvimGoToLine"
 
@@ -21,7 +23,7 @@ alias ls="eza --icons"
 alias lsa="eza --icons --all"
 alias ll="eza --icons --long --no-user --git --git-ignore"
 alias lla="eza --icons --long --no-user --git --all" 
-alias tree="eza --icons --long --no-user --git --all --git-ignore --tree"
+alias tree="eza --icons --long --no-user --git --all --git-ignore --tree --level=3"
 
 alias vim="nvim"
 
