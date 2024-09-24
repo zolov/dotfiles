@@ -7,13 +7,11 @@ config.font = wezterm.font_with_fallback({
     { family = "Hacker Nerd Font",          scale = 1.3 },
 })
 -- config.font_size = 17
-config.macos_window_background_blur = 30
-
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
 
 config.window_background_opacity = 0.7555555
-config.macos_window_background_blur = 20
+config.macos_window_background_blur = 30
 
 config.window_close_confirmation = "AlwaysPrompt"
 config.scrollback_lines = 3000

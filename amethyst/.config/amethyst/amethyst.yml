@@ -34,8 +34,8 @@ mod1:
 mod2:
   - option
   # - shift
-  # - control
-  - command
+  - control
+  # - command
 
 # Commands:
 # special key values
