@@ -251,12 +251,12 @@ map <leader>gs <action>(NewScratchFile)
 " Refactoring
 "" ========================================================
 let g:WhichKeyDesc_refactoring_prefix = "<leader>r Refactoring actions"
-let g:WhichKeyDesc_refactoring_reformat_code = "<leader>rc Reformat code"
+let g:WhichKeyDesc_refactoring_reformat_code = "<leader>rf Reformat code"
 let g:WhichKeyDesc_refactoring_optimize_imports = "<leader>ro Optimize imports"
 let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
 let g:WhichKeyDesc_refactoring_method = "<leader>rm Extract method"
 let g:WhichKeyDesc_refactoring_variable = "<leader>rv Introduce variable"
-let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
+let g:WhichKeyDesc_refactoring_field = "<leader>rc Introduce field"
 let g:WhichKeyDesc_refactoring_prop = "<leader>rp Introduce property"
 let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
 let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
@@ -265,11 +265,11 @@ let g:WhichKeyDesc_refactoring_surround = "<leader>rw Surround with"
 let g:WhichKeyDesc_refactoring_change_case = "<leader>ru Change case"
 
 map <leader>ro <action>(OptimizeImports)
-map <leader>rc <action>(ReformatCode)
+map <leader>rf <action>(ReformatCode)
 map <leader>rn <action>(RenameElement)
 map <leader>rm <action>(ExtractMethod)
 map <leader>rv <action>(IntroduceVariable)
-map <leader>rf <action>(IntroduceField)
+map <leader>rc <action>(IntroduceField)
 map <leader>rp <action>(refactoring.introduce.property)
 map <leader>rs <action>(ChangeSignature)
 map <leader>rr <action>(Refactorings.QuickListPopupAction)
