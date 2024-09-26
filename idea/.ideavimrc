@@ -76,9 +76,11 @@ map <leader>sc <action>(GotoClass)
 map <leader>sa <action>(GotoAction)
 
 noremap ;c :edit ~/.ideavimrc<cr>
+noremap ;h :set hlsearch<cr>
+noremap ;n :set nohlsearch<cr>
 
 " source config
-noremap ;r :source ~/.ideavimrc<cr>:nohlsearch<cr>
+noremap ;r :source ~/.ideavimrc<cr>
 
 " remove search highlights
 " noremap <Esc> :nohlsearch<cr>

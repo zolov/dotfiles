@@ -45,7 +45,7 @@ return {
 
       require('mason').setup({})
       require('mason-lspconfig').setup({
-        ensure_installed = { 'jdtls', "tsserver" },
+        ensure_installed = { 'jdtls', "ts_ls" },
         handlers = {
           lsp_zero.default_setup,
           jdtls = lsp_zero.noop, -- This means don't setup jdtls with default setup, because there is special config for it.
