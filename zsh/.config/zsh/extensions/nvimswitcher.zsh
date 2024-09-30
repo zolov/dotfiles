@@ -3,6 +3,7 @@ alias nvim-kick="NVIM_APPNAME=kickstart nvim"
 alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
 alias nvim-dusk="NVIM_APPNAME=DuskNvim nvim"
+alias nvim-java="NVIM_APPNAME=nvimjava nvim"
 
 function nvims() {
   items=(
@@ -11,7 +12,7 @@ function nvims() {
     "LazyVim" 
     "NvChad" 
     "DuskNvim"
-    #"AstroNvim"
+    "nvimjava"
   )
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
