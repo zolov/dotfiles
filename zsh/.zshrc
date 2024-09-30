@@ -135,6 +135,9 @@ export FZF_DEFAULT_OPTS='--prompt="🔭 " --height 80% --layout=reverse --border
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/" --glob "!node_modules/" --glob "!vendor/" --glob "!undo/" --glob "!plugged/"'
 
+export BAT_THEME="Catppuccin Mocha"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
