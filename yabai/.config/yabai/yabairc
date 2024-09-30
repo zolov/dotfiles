@@ -28,3 +28,5 @@ yabai -m rule --add="^Karabiner-Elements$" manage=off
 yabai -m rule --add="^Iterm2$" space=^2
 
 yabai -m config external_bar all:0:36
+
+borders active_color=0xff494d84 inactive_color=0xff414550 width=6.0 &

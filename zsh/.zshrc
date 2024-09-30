@@ -141,3 +141,5 @@ eval "$(zoxide init zsh)"
 [[ -s "/Users/ivzolov/.gvm/scripts/gvm" ]] && source "/Users/ivzolov/.gvm/scripts/gvm"
 
 export PATH=$HOME/.go:$PATH
+
+export PATH=$PATH:/Users/skaiur/.spicetify
