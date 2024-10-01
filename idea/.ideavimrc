@@ -318,11 +318,19 @@ map <leader>vh <action>(Vcs.ShowTabbedFileHistory)
 
 " Errors
 "" ========================================================
-let g:WhichKeyDesc_diagnostics_next = "]d Go to next error"
-let g:WhichKeyDesc_diagnostics_prev = "[d Go to previous error"
+let g:WhichKeyDesc_diagnostics_next = "[e Go to next error"
+let g:WhichKeyDesc_diagnostics_prev = "]e Go to previous error"
 
-map ]d <action>(GotoNextError)
-map [d <action>(GotoPreviousError)
+map [e <action>(GotoNextError)
+map ]e <action>(GotoPreviousError)
+
+" Method
+"" ========================================================
+let g:WhichKeyDesc_method_up = "[m Method Up"
+let g:WhichKeyDesc_method_down = "]m Method Down"
+
+map [m :<C-u>action MethodUp<CR>
+map ]m :<C-u>action MethodDown<CR>
 
 " Tools
 "" ========================================================
