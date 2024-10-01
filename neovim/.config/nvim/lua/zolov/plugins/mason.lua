@@ -34,7 +34,7 @@ function M.config()
 			"lua_ls",
 			"cssls",
 			"html",
-			"ts_ls",
+			-- "ts_ls",
 			"astro",
 			"pyright",
 			"bashls",
