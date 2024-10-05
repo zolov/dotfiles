@@ -1,2 +1,2 @@
 # dotfiles
-My config files
+My config files managed with GNU stow
