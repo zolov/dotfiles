@@ -291,9 +291,6 @@ return {
 				remap = false,
 			},
 			{ "<leader>y", ":%y+<cr>", desc = "Yank All Text", nowait = true, remap = false },
-
-			-- UI
-			{ "<leader>ut", ":TransparentToggle<CR>", desc = "Transparency toggle", nowait = true, remap = false },
 		})
 	end,
 }
