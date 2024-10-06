@@ -69,10 +69,10 @@ local keymaps = {
     ["<Leader>sn"] = "<cmd> noautocmd w <CR>",
     ["x"] = '"_x',
     -- Refactor
-    ["<Leader>ri"] = ":Refactor inline_var",
-    ["<Leader>rI"] = ":Refactor inline_func",
-    ["<Leader>rb"] = ":Refactor extract_block",
-    ["<Leader>rbf"] = ":Refactor extract_block_to_file",
+    -- ["<Leader>ri"] = ":Refactor inline_var",
+    -- ["<Leader>rI"] = ":Refactor inline_func",
+    -- ["<Leader>rb"] = ":Refactor extract_block",
+    -- ["<Leader>rbf"] = ":Refactor extract_block_to_file",
 	},
 	insert_mode = {
 		-- exit other mode
@@ -94,17 +94,17 @@ local keymaps = {
 		["<A-J>"] = ":m '>+1<CR>gv=gv",
 		["<A-K>"] = ":m '<-2<CR>gv=gv",
     -- Refactor
-    ["<Leader>re"] = ":Refactor extract ",
-    ["<Leader>rf"] = ":Refactor extract_to_file ",
-    ["<Leader>rv"] = ":Refactor extract_var",
+    -- ["<Leader>re"] = ":Refactor extract ",
+    -- ["<Leader>rf"] = ":Refactor extract_to_file ",
+    -- ["<Leader>rv"] = ":Refactor extract_var",
 	},
 	visual_block_mode = {
 		-- Better Paste 
 		["<leader>p"] = '"_dP',
     -- Refactor
-    ["<Leader>re"] = ":Refactor extract ",
-    ["<Leader>rf"] = ":Refactor extract_to_file ",
-    ["<Leader>rv"] = ":Refactor extract_var",
+    -- ["<Leader>re"] = ":Refactor extract ",
+    -- ["<Leader>rf"] = ":Refactor extract_to_file ",
+    -- ["<Leader>rv"] = ":Refactor extract_var",
 	},
 	command_mode = {
 		-- Word Search Increment and Decrement

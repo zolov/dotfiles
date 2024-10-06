@@ -69,8 +69,8 @@ require('go').setup({
 function M.config()
 	local wk = require("which-key")
 	wk.add({
-		{ "<S-BS>", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic" },
-		{ "<S-Space>", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic" },
+		{ "]d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic" },
+		{ "[d", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic" },
 		{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
 		{
 			"<leader>lf",
@@ -81,7 +81,7 @@ function M.config()
 		{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
 		{ "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
 		{ "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix" },
-		{ "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
+		{ "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
 	})
 
 	local lspconfig = require("lspconfig")
@@ -100,6 +100,7 @@ function M.config()
 		"eslint",
 		"rust_analyzer",
 		"jdtls",
+    "gopls",
 	}
 
 	local default_diagnostic_config = {

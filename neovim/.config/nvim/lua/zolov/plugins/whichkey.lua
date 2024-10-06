@@ -43,6 +43,16 @@ return {
 		})
 
 		which_key.add({
+			-- Refactor
+			{ "<leader>rf", ":Refactor extract_func<CR>", desc = "Extract function", mode = "x", silent = true, nowait = true, remap = false, },
+			{ "<leader>re", ":Refactor extract_block_to_file<CR>", desc = "Extract to file", mode = "x", silent = true, nowait = true, remap = false, },
+			{ "<leader>rv", ":Refactor extract_var<CR>", desc = "Extract variable", mode = "x", silent = true, nowait = true, remap = false, },
+			{ "<leader>ri", ":Refactor inline_var<CR>", desc = "inline var", mode = { "x", "n" }, silent = true, nowait = true, remap = false, },
+			{ "<leader>rI", ":Refactor inline_func<CR>", desc = "inline func", silent = true, nowait = true, remap = false, },
+			{ "<leader>rb", ":Refactor extract_block<CR>", desc = "Extract block", silent = true, nowait = true, remap = false, },
+			{ "<leader>rt", ":Refactor extract_block_to_file<CR>", desc = "Extract block to file", silent = true, nowait = true, remap = false, },
+      { "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", mode = {"n", "x"}, nowait = true, remap = false, },
+
 			-- Bookmarks
 			{ "<leader>b", group = "Bookmarks", nowait = true, remap = false },
 
@@ -77,7 +87,7 @@ return {
 			-- 	nowait = true,
 			-- 	remap = false,
 			-- },
-			{ "<leader>fb", ":Telescope buffers<cr>", desc = "Find Buffers", nowait = true, remap = false, },
+			{ "<leader>fb", ":Telescope buffers<cr>", desc = "Find Buffers", nowait = true, remap = false },
 
 			-- NvimTree
 			{ "<leader>e", ":NvimTreeToggle<CR>", desc = "Explorer", nowait = true, remap = false },
@@ -170,7 +180,7 @@ return {
 			{ "<leader>la", ":lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", nowait = true, remap = false },
 			{
 				"<leader>ld",
-				":Telescope lsp_workspace_diagnostics<cr>",
+				":Telescope diagnostics<cr>",
 				desc = "Workspace Diagnostics",
 				nowait = true,
 				remap = false,
@@ -181,10 +191,9 @@ return {
 			{ "[d", ":lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic", nowait = true, remap = false },
 			{ "<leader>lm", ":Mason<cr>", desc = "Mason Installer", nowait = true, remap = false },
 			{ "<leader>lq", ":Telescope quickfix<cr>", desc = "Quickfix List", nowait = true, remap = false },
-			{ "<leader>lr", ":lua vim.diagnostic.rename<cr>", desc = "Rename", nowait = true, remap = false },
 			{
 				"<leader>ls",
-				":Telescope lsp_document_symbols<cr>",
+				":Telescope lsp_dynamic_workspace_symbols<cr>",
 				desc = "Document Symbols",
 				nowait = true,
 				remap = false,

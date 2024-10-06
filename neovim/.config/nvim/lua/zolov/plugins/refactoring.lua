@@ -30,5 +30,6 @@ return {
 			print_var_statements = {},
 			show_success_message = false,
 		})
+		require("telescope").load_extension("refactoring")
 	end,
 }
