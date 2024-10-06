@@ -44,14 +44,73 @@ return {
 
 		which_key.add({
 			-- Refactor
-			{ "<leader>rf", ":Refactor extract_func<CR>", desc = "Extract function", mode = "x", silent = true, nowait = true, remap = false, },
-			{ "<leader>re", ":Refactor extract_block_to_file<CR>", desc = "Extract to file", mode = "x", silent = true, nowait = true, remap = false, },
-			{ "<leader>rv", ":Refactor extract_var<CR>", desc = "Extract variable", mode = "x", silent = true, nowait = true, remap = false, },
-			{ "<leader>ri", ":Refactor inline_var<CR>", desc = "inline var", mode = { "x", "n" }, silent = true, nowait = true, remap = false, },
-			{ "<leader>rI", ":Refactor inline_func<CR>", desc = "inline func", silent = true, nowait = true, remap = false, },
-			{ "<leader>rb", ":Refactor extract_block<CR>", desc = "Extract block", silent = true, nowait = true, remap = false, },
-			{ "<leader>rt", ":Refactor extract_block_to_file<CR>", desc = "Extract block to file", silent = true, nowait = true, remap = false, },
-      { "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", mode = {"n", "x"}, nowait = true, remap = false, },
+			{
+				"<leader>rf",
+				":Refactor extract_func<CR>",
+				desc = "Extract function",
+				mode = "x",
+				silent = true,
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>re",
+				":Refactor extract_block_to_file<CR>",
+				desc = "Extract to file",
+				mode = "x",
+				silent = true,
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>rv",
+				":Refactor extract_var<CR>",
+				desc = "Extract variable",
+				mode = "x",
+				silent = true,
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>ri",
+				":Refactor inline_var<CR>",
+				desc = "inline var",
+				mode = { "x", "n" },
+				silent = true,
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>rI",
+				":Refactor inline_func<CR>",
+				desc = "inline func",
+				silent = true,
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>rb",
+				":Refactor extract_block<CR>",
+				desc = "Extract block",
+				silent = true,
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>rt",
+				":Refactor extract_block_to_file<CR>",
+				desc = "Extract block to file",
+				silent = true,
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>rr",
+				":lua require('telescope').extensions.refactoring.refactors()<CR>",
+				mode = { "n", "x" },
+				nowait = true,
+				remap = false,
+			},
 
 			-- Bookmarks
 			{ "<leader>b", group = "Bookmarks", nowait = true, remap = false },
@@ -91,7 +150,13 @@ return {
 
 			-- NvimTree
 			{ "<leader>e", ":NvimTreeToggle<CR>", desc = "Explorer", nowait = true, remap = false },
-			{ "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "Telescope file browser", nowait = true, remap = false },
+			{
+				"<leader>fb",
+				":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+				desc = "Telescope file browser",
+				nowait = true,
+				remap = false,
+			},
 
 			-- FZF Find
 			{ "<leader>f", group = "Files", nowait = true, remap = false },
@@ -107,8 +172,16 @@ return {
 			{ "<leader>fr", ":Telescope oldfiles<cr>", desc = "Find recent files", nowait = true, remap = false },
 			{
 				"<leader>fs",
-				":Telescope dynamic_workspace_symbols<cr>",
+				":Telescope lsp_dynamic_workspace_symbols<cr>",
 				desc = "Find workspace symbols",
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>fS",
+				":Telescope spell_suggest<CR>",
+				desc = "Spelling suggestions",
+        silent = true,
 				nowait = true,
 				remap = false,
 			},
@@ -219,8 +292,8 @@ return {
 			},
 			{ "<leader>y", ":%y+<cr>", desc = "Yank All Text", nowait = true, remap = false },
 
-      -- UI
-      { "<leader>ut", ":TransparentToggle<CR>", desc = "Transparency toggle", nowait = true, remap = false}
+			-- UI
+			{ "<leader>ut", ":TransparentToggle<CR>", desc = "Transparency toggle", nowait = true, remap = false },
 		})
 	end,
 }

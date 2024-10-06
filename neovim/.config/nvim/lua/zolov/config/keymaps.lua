@@ -53,6 +53,9 @@ local keymaps = {
 		["<C-u>"] = "<C-u>zz",
 		["<C-d>"] = "<C-d>zz",
 
+    ["n"] = "nzzzv",
+    ["N"] = "Nzzzv",
+
 		-- Resize with arrows
 		["<C-Up>"] = ":resize +2<CR>",
 		["<C-Down>"] = ":resize -2<CR>",

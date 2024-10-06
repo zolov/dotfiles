@@ -1,3 +1,33 @@
+local function icons()
+		return  {
+			Text = "󰉿",
+			Method = "m",
+			Function = "󰊕",
+			Constructor = "",
+			Field = "",
+			Variable = "󰆧",
+			Class = "󰌗",
+			Interface = "",
+			Module = "",
+			Property = "",
+			Unit = "",
+			Value = "󰎠",
+			Enum = "",
+			Keyword = "󰌋",
+			Snippet = "",
+			Color = "󰏘",
+			File = "󰈙",
+			Reference = "",
+			Folder = "󰉋",
+			EnumMember = "",
+			Constant = "󰇽",
+			Struct = "",
+			Event = "",
+			Operator = "󰆕",
+			TypeParameter = "󰊄",
+		}
+end
+
 return {
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
@@ -22,23 +52,25 @@ return {
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
-		local lspkind = require("lspkind")
+		local kind_icons = icons()
 		require("luasnip.loaders.from_vscode").lazy_load()
+
 		luasnip.config.setup({})
 
 		cmp.setup({
 			formatting = {
-				fields = {
-					"abbr",
-					"kind",
-					"menu",
-				},
 				expandable_indicator = true,
-				format = lspkind.cmp_format({
-					mode = "symbol_text",
-					maxwidth = 70,
-					show_labelDetails = true,
-				}),
+				fields = { "kind", "abbr", "menu" },
+				format = function(entry, vim_item)
+					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+					vim_item.menu = ({
+						nvim_lsp = "[LSP]",
+						luasnip = "[Snippet]",
+						buffer = "[Buffer]",
+						path = "[Path]",
+					})[entry.source.name]
+					return vim_item
+				end,
 			},
 			window = {
 				completion = cmp.config.window.bordered({
