@@ -36,7 +36,7 @@ return {
           path_display = {
             "filename_first",
           },
-          previewer = false,
+          previewer = true,
           initial_mode = "insert",
           select_strategy = "reset",
           sorting_strategy = "ascending",
@@ -58,7 +58,7 @@ return {
         },
         pickers = {
           find_files = {
-            previewer = false,
+            previewer = true,
             layout_config = {
               height = 0.4,
               prompt_position = "top",
@@ -66,7 +66,7 @@ return {
             },
           },
           git_files = {
-            previewer = false,
+            previewer = true,
             -- path_display = formattedName,
             layout_config = {
               height = 0.4,
@@ -83,7 +83,7 @@ return {
                 ["<c-d>"] = actions.delete_buffer,
               },
             },
-            previewer = false,
+            previewer = true,
             initial_mode = "normal",
             -- theme = "dropdown",
             layout_config = {

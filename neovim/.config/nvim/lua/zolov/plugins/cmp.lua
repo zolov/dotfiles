@@ -72,9 +72,6 @@ return {
 					end
 				end, { "i", "s" }),
 			},
-			completion = {
-				completeopt = "menu,menuone",
-			},
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
