@@ -86,6 +86,5 @@ return {
 				{ name = "buffer", keyword_length = 3 },
 			},
 		})
-		-- require("lsp-zero").cmp_action()
 	end,
 }
