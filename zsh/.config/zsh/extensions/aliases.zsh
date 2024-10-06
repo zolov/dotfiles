@@ -26,6 +26,7 @@ alias ll="eza --icons --long --no-user --git --git-ignore"
 alias lla="eza --icons --long --no-user --git --all" 
 alias tree="eza --icons --long --no-user --git --all --git-ignore --tree --level=3"
 
+alias e="nvim"
 alias vim="nvim"
 
 alias upd="brew update && brew upgrade --greedy && brew cleanup && sdk update && sdk upgrade"

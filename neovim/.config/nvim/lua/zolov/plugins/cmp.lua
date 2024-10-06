@@ -22,26 +22,34 @@ return {
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
+		local lspkind = require("lspkind")
 		require("luasnip.loaders.from_vscode").lazy_load()
 		luasnip.config.setup({})
 
 		cmp.setup({
+			formatting = {
+				fields = {
+					"abbr",
+					"kind",
+					"menu",
+				},
+				expandable_indicator = true,
+				format = lspkind.cmp_format({
+					mode = "symbol_text",
+					maxwidth = 70,
+					show_labelDetails = true,
+				}),
+			},
 			window = {
-				completion = cmp.config.window.bordered(),
+				completion = cmp.config.window.bordered({
+					border = "rounded",
+					winhighlight = "Normal:Pmenu",
+				}),
 				documentation = cmp.config.window.bordered(),
-				-- completion = cmp.config.window.bordered({
-				-- 	scrollbar = false,
-				-- 	winhighlight = "",
-				-- }),
-				-- documentation = cmp.config.window.bordered({
-				-- 	border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-				-- 	scrollbar = false,
-				-- 	winhighlight = "",
-				-- }),
 			},
-			completion = {
-				completeopt = "menu,menuone,noinsert",
-			},
+			-- completion = {
+			-- 	completeopt = "menu,menuone,noinsert",
+			-- },
 			mapping = {
 				["<C-p>"] = cmp.mapping.select_prev_item(),
 				["<C-n>"] = cmp.mapping.select_next_item(),

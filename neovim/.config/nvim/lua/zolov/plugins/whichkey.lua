@@ -87,10 +87,11 @@ return {
 			-- 	nowait = true,
 			-- 	remap = false,
 			-- },
-			{ "<leader>fb", ":Telescope buffers<cr>", desc = "Find Buffers", nowait = true, remap = false },
+			{ "<leader>o", ":Telescope buffers<cr>", desc = "Find Buffers", nowait = true, remap = false },
 
 			-- NvimTree
 			{ "<leader>e", ":NvimTreeToggle<CR>", desc = "Explorer", nowait = true, remap = false },
+			{ "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "Telescope file browser", nowait = true, remap = false },
 
 			-- FZF Find
 			{ "<leader>f", group = "Files", nowait = true, remap = false },
@@ -217,6 +218,9 @@ return {
 				remap = false,
 			},
 			{ "<leader>y", ":%y+<cr>", desc = "Yank All Text", nowait = true, remap = false },
+
+      -- UI
+      { "<leader>ut", ":TransparentToggle<CR>", desc = "Transparency toggle", nowait = true, remap = false}
 		})
 	end,
 }
