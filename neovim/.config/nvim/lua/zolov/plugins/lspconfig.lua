@@ -57,15 +57,6 @@ function M.common_capabilities()
 	return capabilities
 end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require('go').setup({
-  -- other setups ....
-  lsp_cfg = {
-    capabilities = capabilities,
-    -- other setups
-  },
-})
-
 function M.config()
 	local wk = require("which-key")
 	wk.add({

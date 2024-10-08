@@ -99,7 +99,7 @@ vmap <leader>u d~h
 " Search
 " map / <action>(Find)
 " map / <Plug>(easymotion-s)
-map s <Plug>(easymotion-s)
+" map s <Plug>(easymotion-s)
 
 " Separate line and reformat line
 map <S-s> <Action>(EditorSplitLine)<CR>
@@ -117,6 +117,9 @@ vmap gc <action>(CommentByLineComment)
 " Tab navigation
 nnoremap <C-n> :tabnext<CR>
 nnoremap <C-p> :tabprev<CR>
+
+nnoremap <M-.> :tabnext<CR>
+nnoremap <M-,> :tabprev<CR>
 
 " Pane navigation
 nnoremap <C-h> <C-w>h
@@ -433,6 +436,7 @@ map <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
 map <leader>ri <action>(InspectCode)
 
 imap <C-y> <action>(EditorChooseLookupItem)
+map s <Action>(flash.search)
 
 map й q
 map ц w

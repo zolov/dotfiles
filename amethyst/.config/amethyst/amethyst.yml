@@ -5,7 +5,8 @@
 
 # layouts - Ordered list of layouts to use by layout key (default tall, wide, fullscreen, and column).
 layouts:
-  - tall
+  - bsp
+  - floating
   - fullscreen
   # - tall-right
   # - wide
@@ -16,12 +17,9 @@ layouts:
   # - 3column-right
   # - 4column-left
   # - 4column-right
-  - column
   # - row
-  - floating
   # - widescreen-tall
   # - widescreen-tall-right
-  - bsp
 
 # First mod (default option + shift).
 mod1:
@@ -255,7 +253,8 @@ floating: [
   "com.cisco.anyconnect.gui",
   "com.jetbrains.intellij",
   "com.jetbrains.goland",
-  "com.github.wez.wezterm"
+  "com.github.wez.wezterm",
+  "com.interversehq.qView",
 ]
 
 # Boolean flag determining behavior of the floating list. true if the applications should be floating and all others tiled. false if the applications should be tiled and all others floating (default true).

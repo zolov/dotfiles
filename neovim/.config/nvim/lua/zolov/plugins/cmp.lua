@@ -82,15 +82,12 @@ return {
         end,
       },
       window = {
-        completion = cmp.config.window.bordered {
-          border = 'rounded',
-          winhighlight = 'Normal:Pmenu',
-        },
+        completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
-      -- completion = {
-      -- 	completeopt = "menu,menuone,noinsert",
-      -- },
+      completion = {
+      	completeopt = "menu,menuone,noinsert",
+      },
       mapping = {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -135,6 +132,5 @@ return {
         { name = 'buffer', keyword_length = 3 },
       },
     }
-    luasnip.filetype_extend('java', 'go')
   end,
 }
