@@ -93,7 +93,7 @@ SPACESHIP_PROMPT_ORDER=(
   #elixir        # Elixir section
   #xcode         # Xcode section
   #swift         # Swift section
-  #golang        # Go section
+  golang        # Go section
   #php           # PHP section
   rust          # Rust section
   #haskell       # Haskell Stack section
@@ -142,7 +142,5 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 [[ -s "/Users/ivzolov/.gvm/scripts/gvm" ]] && source "/Users/ivzolov/.gvm/scripts/gvm"
-
-export PATH=$HOME/.go:$PATH
 
 export PATH=$PATH:/Users/skaiur/.spicetify
