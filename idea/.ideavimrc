@@ -96,11 +96,6 @@ nmap <leader>i ~hi
 " Remove selection and toggle case. E.g. `v2l<leader>u`: `getProperty` -> `property`
 vmap <leader>u d~h
 
-" Search
-" map / <action>(Find)
-" map / <Plug>(easymotion-s)
-" map s <Plug>(easymotion-s)
-
 " Separate line and reformat line
 map <S-s> <Action>(EditorSplitLine)<CR>
 
@@ -161,19 +156,24 @@ map <leader>x <action>(CloseContent)
 
 "" Leader commands
 "" ========================================================
-" Jump around with easymotion
-"let g:WhichKeyDesc_leader = "<leader><leader> Leader"
+" Jump around with easymotion/flash
+map s <Action>(flash.search)
 "map <leader><leader> <Plug>(easymotion-s)
+" map / <action>(Find)
+" map s <Plug>(easymotion-s)
 
 " Fix actions
 let g:WhichKeyDesc_fix_action = "<leader>q Quick Fix"
 map <leader>q <action>(ShowIntentionActions)
+imap <C-y> <action>(EditorChooseLookupItem)
+
 
 " Code Actions
 "" ========================================================
-let g:WhichKeyDesc_code_actions_complete_statement = "<leader>c Complete statement"
-map <leader>c :action EditorCompleteStatement<CR>
-imap <C-c> <action>(EditorCompleteStatement)
+let g:WhichKeyDesc_code_actions = "<leader>c Code Actions"
+let g:WhichKeyDesc_code_actions_complete_statement = "<leader>cc Complete statement"
+map <leader>cc :action EditorCompleteStatement<CR>
+map <leader>ci :action InspectCode<CR>
 
 let g:WhichKeyDesc_code_actions_show_hover = "<leader>k Show hover info"
 map <leader>k <action>(ShowHoverInfo)
@@ -426,17 +426,10 @@ nnoremap gl :action Forward <CR>
 nnoremap gj :action MethodDown <CR>
 nnoremap gk :action MethodUp <CR>
 
-map <leader>o <action>(EditorStartNewLine)
-map <leader>e <action>(RecentLocations)
-
+" Fuzzy Finder
 map <leader>fg <action>(com.mituuz.fuzzier.FuzzierVCS)
 map <leader>ff <action>(com.mituuz.fuzzier.Fuzzier)
 map <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
-
-map <leader>ri <action>(InspectCode)
-
-imap <C-y> <action>(EditorChooseLookupItem)
-map s <Action>(flash.search)
 
 map й q
 map ц w
