@@ -74,6 +74,7 @@ local keymaps = {
   insert_mode = {
     -- exit other mode
     ["jk"] = "<Esc>",
+    ["jj"] = "<Esc>",
   },
   terminal_mode = {},
   visual_mode = {
