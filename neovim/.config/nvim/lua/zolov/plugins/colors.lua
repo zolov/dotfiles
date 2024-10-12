@@ -27,9 +27,9 @@ return {
   config = function()
     vim.opt.termguicolors = true
 
-    local catppuccin = require "catppuccin"
+    local catppuccin = require("catppuccin")
 
-    catppuccin.setup {
+    catppuccin.setup({
       flavour = "mocha",
       term_colors = true,
       transparent_background = false,
@@ -66,19 +66,24 @@ return {
         treesitter = true,
         treesitter_context = true,
       },
-    }
+    })
 
     -- Toggle background transparency
     local toggle_transparency = function()
-      local cat = require "catppuccin"
+      local cat = require("catppuccin")
       cat.options.transparent_background = not cat.options.transparent_background
       cat.compile()
       vim.cmd.colorscheme(vim.g.colors_name)
-      vim.cmd [[colorscheme catppuccin]]
+      vim.cmd([[colorscheme catppuccin]])
     end
 
-    vim.keymap.set("n", "<leader>ut", toggle_transparency, { noremap = true, silent = true })
+    vim.keymap.set(
+      "n",
+      "<leader>ut",
+      toggle_transparency,
+      { desc = "Toggle transparency", noremap = true, silent = true }
+    )
 
-    vim.cmd.colorscheme "catppuccin"
+    vim.cmd.colorscheme("catppuccin")
   end,
 }
