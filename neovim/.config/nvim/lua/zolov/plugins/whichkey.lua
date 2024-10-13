@@ -243,7 +243,7 @@ return {
 				remap = false,
 			},
 			{ "<leader>l", group = "LSP", nowait = true, remap = false },
-			{ "<leader>lR", ":Telescope lsp_references<cr>", desc = "References", nowait = true, remap = false },
+			{ "<leader>lr", ":Telescope lsp_references<cr>", desc = "References", nowait = true, remap = false },
 			{
 				"<leader>lS",
 				":Telescope lsp_workspace_symbols<cr>",

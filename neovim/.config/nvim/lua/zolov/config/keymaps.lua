@@ -27,7 +27,7 @@ end
 
 local keymaps = {
   normal_mode = {
-    -- Line movement
+    -- Move accross line limits
     ["H"] = "^",
     ["L"] = "$",
     -- Better window navigation
@@ -89,8 +89,8 @@ local keymaps = {
     ["<"] = "<gv",
     [">"] = ">gv",
     -- Move text up and down
-    ["<A-J>"] = ":m '>+1<CR>gv=gv",
-    ["<A-K>"] = ":m '<-2<CR>gv=gv",
+    ["J"] = ":m '>+1<CR>gv=gv",
+    ["K"] = ":m '<-2<CR>gv=gv",
   },
   visual_block_mode = {
     -- Better Paste
