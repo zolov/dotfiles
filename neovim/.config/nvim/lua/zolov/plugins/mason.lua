@@ -57,6 +57,9 @@ function M.config()
 			"stylua",
 			"shellcheck",
 			"shfmt",
+      "gopls",
+      "goimports",
+      "gofumpt",
 		},
 
 		-- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39
