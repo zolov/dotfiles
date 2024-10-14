@@ -3,7 +3,6 @@ local M = {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     {
-      "pmizio/typescript-tools.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "folke/neodev.nvim",
       "b0o/schemastore.nvim",
@@ -124,17 +123,11 @@ function M.config()
   local lspconfig = require("lspconfig")
   local servers = {
     "lua_ls",
-    "cssls",
-    "html",
-    "ts_ls",
     "pyright",
     "bashls",
-    "lemminx",
     "jsonls",
     "yamlls",
     "marksman",
-    "tailwindcss",
-    "eslint",
     "rust_analyzer",
     "jdtls",
     "gopls",
@@ -181,10 +174,6 @@ function M.config()
 
     if server == "lua_ls" then
       require("neodev").setup({})
-    end
-
-    if server == "tsserver" then
-      require("typescript-tools").setup({})
     end
 
     if server ~= "jdtls" then

@@ -267,7 +267,7 @@ return {
 			{ "<leader>lq", ":Telescope quickfix<cr>", desc = "Quickfix List", nowait = true, remap = false },
 			{
 				"<leader>ls",
-				":Telescope lsp_dynamic_workspace_symbols<cr>",
+				":Telescope lsp_document_symbols<cr>",
 				desc = "Document Symbols",
 				nowait = true,
 				remap = false,
