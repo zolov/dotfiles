@@ -97,7 +97,7 @@ nmap <leader>i ~hi
 vmap <leader>u d~h
 
 " Separate line and reformat line
-map <S-s> <Action>(EditorSplitLine)<CR>
+map <M-s> <Action>(EditorSplitLine)<CR>
 
 " Fast esc
 inoremap jj <Esc>
@@ -123,8 +123,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 
 " Move line
-map <C-up> <Action>(MoveLineUp)
-map <C-down> <Action>(MoveLineDown)
+vmap <S-k> <Action>(MoveLineUp)
+vmap <S-j> <Action>(MoveLineDown)
 
 map <C-s-up> <Action>(MoveStatementUp)
 map <C-s-down> <Action>(MoveStatementDown)
@@ -144,6 +144,12 @@ map mp <Plug>RemoveOccurrence
 " Easy visual indentation
 vnoremap < <gv
 vnoremap > >gv
+
+nnoremap <C-u>  <C-u>zz
+nnoremap <C-d>  <C-d>zz
+
+nnoremap n nzzzv
+map N Nzzzv
 
 " Execute macro saved in 'q' register
 nnoremap qj @q
