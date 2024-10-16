@@ -1,4 +1,25 @@
 return {
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false, -- Recommended
+    -- ft = "markdown" -- If you decide to lazy-load anyway
+
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+  {
+    {
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      build = "cd app && yarn install",
+      init = function()
+        vim.g.mkdp_filetypes = { "markdown" }
+      end,
+      ft = { "markdown" },
+    },
+  },
   "epwalsh/obsidian.nvim",
   version = "*",
   ft = "markdown",
@@ -16,7 +37,7 @@ return {
   },
   opts = {
     ui = {
-      enable = false,
+      enable = true,
     },
     completion = {
       nvim_cmp = true,
@@ -36,27 +57,27 @@ return {
 
   mappings = {
     -- "Obsidian follow"
-    ["<leader>of"] = {
+    ["<leader>nf"] = {
       action = function()
         return require("obsidian").util.gf_passthrough()
       end,
       opts = { noremap = false, expr = true, buffer = true },
     },
     -- Toggle check-boxes "obsidian done"
-    ["<leader>od"] = {
+    ["<leader>nd"] = {
       action = function()
         return require("obsidian").util.toggle_checkbox()
       end,
       opts = { buffer = true },
     },
     -- Create a new newsletter issue
-    ["<leader>onn"] = {
+    ["<leader>nnn"] = {
       action = function()
         return require("obsidian").commands.new_note("Newsletter-Issue")
       end,
       opts = { buffer = true },
     },
-    ["<leader>ont"] = {
+    ["<leader>nnt"] = {
       action = function()
         return require("obsidian").util.insert_template("Newsletter-Issue")
       end,

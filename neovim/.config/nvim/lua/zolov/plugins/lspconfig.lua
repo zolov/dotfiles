@@ -10,58 +10,19 @@ local M = {
   },
 }
 
+-- stylua: ignore
 local function lsp_keymaps(bufnr)
   local keymap = vim.api.nvim_buf_set_keymap
-  keymap(
-    bufnr,
-    "n",
-    "gD",
-    "<cmd>lua vim.lsp.buf.declaration()<CR>",
-    { desc = "Goto Declaration", noremap = true, silent = true }
-  )
-  keymap(
-    bufnr,
-    "n",
-    "gd",
-    "<cmd>lua vim.lsp.buf.definition()<CR>",
-    { desc = "Goto Definition", noremap = true, silent = true }
-  )
+  keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
+  keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition", noremap = true, silent = true })
   keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", noremap = true, silent = true })
-  keymap(
-    bufnr,
-    "n",
-    "gI",
-    "<cmd>lua vim.lsp.buf.implementation()<CR>",
-    { desc = "Goto Implementation", noremap = true, silent = true }
-  )
-  keymap(
-    bufnr,
-    "n",
-    "gr",
-    "<cmd>lua vim.lsp.buf.references()<CR>",
-    { desc = "References", noremap = true, silent = true }
-  )
-  keymap(
-    bufnr,
-    "n",
-    "gl",
-    "<cmd>lua vim.diagnostic.open_float()<CR>",
-    { desc = "Open float", noremap = true, silent = true }
-  )
-  keymap(
-    bufnr,
-    "n",
-    "gy",
-    "<cmd>lua vim.lsp.buf.type_definition()<CR>",
-    { desc = "Goto T[y]pe Definition", noremap = true, silent = true }
-  )
-  keymap(
-    bufnr,
-    "n",
-    "gK",
-    "<cmd>lua vim.lsp.buf.signature_help()<CR>",
-    { desc = "Signature Help", noremap = true, silent = true }
-  )
+  -- keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "Goto Implementation", noremap = true, silent = true })
+  -- keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "References", noremap = true, silent = true })
+  keymap(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>",{ desc = "Goto Implementation", noremap = true, silent = true })
+  keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", { desc = "References", noremap = true, silent = true })
+  keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Open float", noremap = true, silent = true })
+  keymap(bufnr, "n", "gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "Goto T[y]pe Definition", noremap = true, silent = true })
+  keymap(bufnr, "n", "gK", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature Help", noremap = true, silent = true })
 end
 
 M.on_attach = function(client, bufnr)

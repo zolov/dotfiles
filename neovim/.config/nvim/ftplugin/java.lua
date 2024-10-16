@@ -4,14 +4,19 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 
 -- attach lsp keymaps for nvim-jdtls
-local opts = { noremap = true, silent = true }
+
 local keymap = vim.keymap.set
-keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-keymap("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+-- stylua: ignore
+keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
+keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition", noremap = true, silent = true })
+keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", noremap = true, silent = true })
+keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>",{ desc = "Goto Implementation", noremap = true, silent = true })
+keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", { desc = "References", noremap = true, silent = true })
+keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Open float", noremap = true, silent = true })
+keymap("n", "gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "Goto T[y]pe Definition", noremap = true, silent = true })
+keymap("n", "gK", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature Help", noremap = true, silent = true })
+-- keymap("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
+-- keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
 
 require("barbecue.ui").toggle(true)
 -- disable semantic token highlights as most colorschemes drown out anything useful
