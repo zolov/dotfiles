@@ -13,8 +13,10 @@ local M = {
 -- stylua: ignore
 local function lsp_keymaps(bufnr)
   local keymap = vim.api.nvim_buf_set_keymap
-  keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
-  keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition", noremap = true, silent = true })
+  -- keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
+  keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
+  -- keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition", noremap = true, silent = true })
+  keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", { desc = "Goto Definition", noremap = true, silent = true })
   keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", noremap = true, silent = true })
   -- keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "Goto Implementation", noremap = true, silent = true })
   -- keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "References", noremap = true, silent = true })
@@ -67,8 +69,8 @@ function M.config()
     { "[d", "<cmd>lua vim.diagnostic.goto_next()<CR>", desc = "Next Diagnostic" },
     { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
     { "<leader>lh", "<cmd>lua require('zolov.plugins.lspconfig').toggle_inlay_hints()<CR>", desc = "Hints" },
-    { "<leader>q", "<cmd>Trouble loclist toggle<cr>", desc = "Quickfix" },
-    { "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix" },
+    { "<leader>q", "<cmd>Trouble quickfix<cr>", desc = "Quickfix" },
+    { "<leader>lq", "<cmd>lua vim.diagnostic.setqflist()<cr>", desc = "Quickfix" },
     { "<leader>cr", "<cmd>lua vim.lsp.codelens.run()<CR>", desc = "CodeLens Action" },
     { "<leader>a", mode = { "n", "v" }, "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
     { "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", desc = "Format" },
@@ -112,8 +114,8 @@ function M.config()
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
   end
 
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = require("zolov.config.utils").border })
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = require("zolov.config.utils").border })
   require("lspconfig.ui.windows").default_options.border = "rounded"
 
   for _, server in pairs(servers) do
@@ -136,5 +138,6 @@ function M.config()
     end
   end
 end
+
 
 return M

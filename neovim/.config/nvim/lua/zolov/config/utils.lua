@@ -1,6 +1,8 @@
 ---@class zolov.util.lsp
 local M = {}
 
+M.border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' }
+
 M.telescope_git_or_file = function()
   local path = vim.fn.expand("%:p:h")
   local git_dir = vim.fn.finddir(".git", path .. ";")
