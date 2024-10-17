@@ -27,6 +27,7 @@ end
 
 local keymaps = {
   normal_mode = {
+    ["S"] = "a<CR><Esc>g;",
     -- Move accross line limits
     ["H"] = "^",
     ["L"] = "$",
