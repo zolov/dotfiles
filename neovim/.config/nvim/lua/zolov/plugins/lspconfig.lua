@@ -66,18 +66,12 @@ function M.config()
     { "]d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", desc = "Prev Diagnostic" },
     { "[d", "<cmd>lua vim.diagnostic.goto_next()<CR>", desc = "Next Diagnostic" },
     { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
-    {
-      "<leader>lf",
-      "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
-      desc = "Format",
-    },
-    { "<leader>lh", "<cmd>lua require('zolov.lspconfig').toggle_inlay_hints()<CR>", desc = "Hints" },
-    { "<leader>li", "<cmd>LspInfo<CR>", desc = "Info" },
-    { "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix" },
-
+    { "<leader>lh", "<cmd>lua require('zolov.plugins.lspconfig').toggle_inlay_hints()<CR>", desc = "Hints" },
+    { "<leader>q", "<cmd>Telescope loclist<cr>", desc = "Quickfix" },
+    -- { "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix" },
     { "<leader>cr", "<cmd>lua vim.lsp.codelens.run()<CR>", desc = "CodeLens Action" },
-    { "<leader>ca", mode = { "n", "v" }, "<cmd>vim.lsp.buf.code_action<CR>", desc = "Code Action" },
-
+    { "<leader>a", mode = {"n", "v"}, "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
+    { "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", desc = "Format" },
     { "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },
   })
 

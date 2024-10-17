@@ -45,9 +45,9 @@ local options = {
   backspace = "indent,eol,start",
 }
 
-local opt_local = {
-  conceallevel = 0,
-}
+-- local opt_local = {
+--   conceallevel = 0,
+-- }
 
 local global = {
   did_load_filetypes = false,
@@ -79,9 +79,9 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-for k, v in pairs(opt_local) do
-  vim.opt_local[k] = v
-end
+-- for k, v in pairs(opt_local) do
+--   vim.opt_local[k] = v
+-- end
 
 for k, v in pairs(global) do
   vim.g[k] = v

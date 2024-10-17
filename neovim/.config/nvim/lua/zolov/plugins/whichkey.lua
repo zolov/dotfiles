@@ -259,6 +259,7 @@ return {
 				nowait = true,
 				remap = false,
 			},
+      -- TODO Добавить comform и проверить форматирование в Java
 			{ "<leader>lf", ":lua require('conform').format()<cr>", desc = "Format", nowait = true, remap = false },
 			{ "<leader>li", ":LspInfo<cr>", desc = "Info", nowait = true, remap = false },
 			{ "d]", ":lua vim.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic", nowait = true, remap = false },
@@ -272,7 +273,7 @@ return {
 				nowait = true,
 				remap = false,
 			},
-			{ "<leader>q", ":qa!<cr>", desc = "Exit", nowait = true, remap = false },
+			-- { "<leader>xx", ":qa!<cr>", desc = "Exit", nowait = true, remap = false },
 			{ "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], desc = "Replace all in file" },
 			{ "<leader>t", group = "Terminal", nowait = true, remap = false },
 			{ "<leader>tf", ":ToggleTerm direction=float<cr>", desc = "Terminal Float", nowait = true, remap = false },

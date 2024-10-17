@@ -1,28 +1,7 @@
 return {
-  {
-    "OXY2DEV/markview.nvim",
-    lazy = false, -- Recommended
-    -- ft = "markdown" -- If you decide to lazy-load anyway
-
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
-  },
-  {
-    {
-      "iamcco/markdown-preview.nvim",
-      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-      build = "cd app && yarn install",
-      init = function()
-        vim.g.mkdp_filetypes = { "markdown" }
-      end,
-      ft = { "markdown" },
-    },
-  },
   "epwalsh/obsidian.nvim",
   version = "*",
-  ft = "markdown",
+  -- ft = "markdown",
   lazy = false,
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   -- event = {
@@ -37,16 +16,42 @@ return {
   },
   opts = {
     ui = {
-      enable = true,
+      enable = false,
     },
     completion = {
       nvim_cmp = true,
       min_chars = 2,
     },
+    -- stylua: ignore
+    mappings = {
+      -- "Obsidian follow"
+      ["gf"] = { action = function() return require("obsidian").util.gf_passthrough() end, opts = { desc = "", noremap = false, expr = true, buffer = true }, },
+      ["<leader>nf"] = { action = function() return require("obsidian").util.gf_passthrough() end, opts = { noremap = false, expr = true, buffer = true }, },
+      -- Toggle check-boxes "obsidian done"
+      ["<leader>nd"] = { action = function() return require("obsidian").util.toggle_checkbox() end, opts = { buffer = true }, },
+      -- Create a new newsletter issue
+      -- ["<leader>nn"] = { action = function() return require("obsidian").commands.new_note("Newsletter-Issue") end, opts = { buffer = true }, },
+      -- ["<leader>nt"] = { action = function() return require("obsidian").util.insert_template("Newsletter-Issue") end, opts = { buffer = true }, }, 
+    },
+    daily_notes = {
+      -- Optional, if you keep daily notes in a separate directory.
+      folder = "Notes/dailies",
+      -- Optional, if you want to change the date format for the ID of daily notes.
+      date_format = "%Y-%m-%d",
+      -- Optional, if you want to change the date format of the default alias of daily notes.
+      alias_format = "%B %-d, %Y",
+      -- Optional, default tags to add to each new daily note created.
+      default_tags = { "daily-notes" },
+      -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+      template = nil,
+    },
     workspaces = {
       {
         name = "Zettelkasten",
         path = "~/Dropbox/Zettelkasten",
+        overrides = {
+          notes_subdir = "notes",
+        },
       },
       {
         name = "old notes",
@@ -55,35 +60,6 @@ return {
     },
   },
 
-  mappings = {
-    -- "Obsidian follow"
-    ["<leader>nf"] = {
-      action = function()
-        return require("obsidian").util.gf_passthrough()
-      end,
-      opts = { noremap = false, expr = true, buffer = true },
-    },
-    -- Toggle check-boxes "obsidian done"
-    ["<leader>nd"] = {
-      action = function()
-        return require("obsidian").util.toggle_checkbox()
-      end,
-      opts = { buffer = true },
-    },
-    -- Create a new newsletter issue
-    ["<leader>nnn"] = {
-      action = function()
-        return require("obsidian").commands.new_note("Newsletter-Issue")
-      end,
-      opts = { buffer = true },
-    },
-    ["<leader>nnt"] = {
-      action = function()
-        return require("obsidian").util.insert_template("Newsletter-Issue")
-      end,
-      opts = { buffer = true },
-    },
-  },
   new_notes_location = "current_dir",
   wiki_link_func = function(opts)
     if opts.id == nil then

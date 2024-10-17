@@ -157,7 +157,7 @@ nnoremap qj @q
 " Completion
 imap <C-space> <action>(CodeCompletion)
 " Close tab
-let g:WhichKeyDesc_close_cont = "<leader>q Close tab"
+let g:WhichKeyDesc_close_cont = "<leader>x Close tab"
 map <leader>x <action>(CloseContent)
 
 "" Leader commands

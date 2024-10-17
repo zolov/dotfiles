@@ -41,13 +41,14 @@ return {
       color_overrides = {
         mocha = {
           -- base = '#171717', -- background
-          surface2 = "#9A9A9A", -- comments
-          text = "#F6F6F6",
+          -- surface2 = "#9A9A9A", -- comments
+          -- text = "#F6F6F6",
         },
       },
       highlight_overrides = {
         mocha = function(C)
           return {
+            LspInlayHint = { bg = C.none },
             NvimTreeNormal = { bg = C.none },
             CmpBorder = { fg = C.surface2 },
             Pmenu = { bg = C.none },
