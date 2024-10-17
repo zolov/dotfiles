@@ -42,7 +42,7 @@ local keymaps = {
     -- Move Next Window
     ["<Leader>w"] = "<C-w>w",
     -- Close Window
-    ["<Leader>x"] = ":bp|bd #<CR>",
+    -- ["<Leader>x"] = ":bp|bd #<CR>",
     -- Tabs
     ["<Leader>to"] = ":tabnew<CR>",
     ["<Leader>tx"] = ":tabclose<CR>",

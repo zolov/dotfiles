@@ -45,7 +45,7 @@ return {
 			dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
 			dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
 			dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-			dashboard.button("s", " " .. " Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+			dashboard.button("s", " " .. " Settings", ":e $MYVIMRC | :cd %:p:h <CR>"), -- | split . | wincmd k |
 			dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
 			dashboard.button("q", " " .. " Quit", ":qa<CR>"),
 			--     dashboard.button("S", " " .. "Restore Session", '<cmd>lua require("persistence").load()<cr>'),

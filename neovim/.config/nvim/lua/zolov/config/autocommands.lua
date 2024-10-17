@@ -222,3 +222,9 @@ autocmd("BufWritePre", {
     vim.lsp.buf.format({async = false})
   end
 })
+
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+  callback = function()
+    vim.cmd([[Trouble qflist open]])
+  end,
+})
