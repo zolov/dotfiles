@@ -17,7 +17,7 @@ return {
       auto_install = true,
       highlight = {
         enable = true,
-        disable = { "markdown" },
+        -- disable = { "markdown" },
         additional_vim_regex_highlighting = true,
       },
       indent = { enable = true },
