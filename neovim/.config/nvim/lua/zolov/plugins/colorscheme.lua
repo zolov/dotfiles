@@ -50,8 +50,6 @@ return {
           return {
             LspInlayHint = { bg = C.none },
             NvimTreeNormal = { bg = C.none },
-            CmpBorder = { fg = C.surface2 },
-            Pmenu = { bg = C.none },
             NormalFloat = { bg = C.none },
             TelescopeBorder = { link = "FloatBorder" },
           }
