@@ -1,10 +1,12 @@
 local fn = vim.fn
 
 local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup
+local augroup = function(name)
+  return vim.api.nvim_create_augroup("skaiivim_" .. name, { clear = true })
+end
 
 -- General Settings
-local general = augroup("General Settings", { clear = true })
+local general = augroup("general")
 
 -- Disable Bufferline And Lualine in Alpha
 autocmd("User", {
@@ -141,6 +143,17 @@ vim.api.nvim_create_autocmd("FileType", {
 --     nvim "$@"
 --   fi
 -- }
+
+-- Check if we need to reload the file when it changed
+vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+  group = augroup("checktime"),
+  callback = function()
+    if vim.o.buftype ~= "nofile" then
+      vim.cmd("checktime")
+    end
+  end,
+})
+
 -- this function will update session on pre-leave
 vim.api.nvim_create_autocmd("VimLeavePre", {
   pattern = "*",
@@ -159,6 +172,16 @@ vim.api.nvim_create_autocmd({ "User" }, {
     vim.cmd([[
       set laststatus=1 | autocmd BufUnload <buffer> set laststatus=3
     ]])
+  end,
+})
+
+-- Check if we need to reload the file when it changed
+vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+  group = augroup("checktime"),
+  callback = function()
+    if vim.o.buftype ~= "nofile" then
+      vim.cmd("checktime")
+    end
   end,
 })
 
@@ -182,12 +205,49 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "PlenaryTestPopup",
     "fugitive",
     "dap-repl",
+    "neotest-summary",
+    "neotest-output-panel",
+    "dbout",
+    "gitsigns-blame",
   },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", {
+      buffer = event.buf,
+      silent = true,
+      desc = "Quit buffer",
+    })
+  end,
+})
+
+-- wrap and check for spell in text filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("wrap_spell"),
+  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
   callback = function()
-    vim.cmd([[
-      nnoremap <silent> <buffer> q :close<CR> 
-      set nobuflisted 
-    ]])
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
+
+-- Fix conceallevel for json files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = augroup("json_conceal"),
+  pattern = { "json", "jsonc", "json5" },
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
+})
+
+-- Auto create dir when saving a file, in case some intermediate directory does not exist
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = augroup("auto_create_dir"),
+  callback = function(event)
+    if event.match:match("^%w%w+:[\\/][\\/]") then
+      return
+    end
+    local file = vim.uv.fs_realpath(event.match) or event.match
+    vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
 })
 
@@ -204,7 +264,7 @@ autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()
     local params = vim.lsp.util.make_range_params()
-    params.context = {only = {"source.organizeImports"}}
+    params.context = { only = { "source.organizeImports" } }
     -- buf_request_sync defaults to a 1000ms timeout. Depending on your
     -- machine and codebase, you may want longer. Add an additional
     -- argument after params if you find that you have to write the file
@@ -219,8 +279,8 @@ autocmd("BufWritePre", {
         end
       end
     end
-    vim.lsp.buf.format({async = false})
-  end
+    vim.lsp.buf.format({ async = false })
+  end,
 })
 
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
