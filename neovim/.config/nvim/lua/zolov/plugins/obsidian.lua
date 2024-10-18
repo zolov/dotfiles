@@ -16,7 +16,7 @@ return {
   },
   opts = {
     ui = {
-      enable = false,
+      enable = true,
     },
     completion = {
       nvim_cmp = true,

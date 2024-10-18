@@ -3,7 +3,7 @@ local options = {
   -- use xclip in X and wl-copy/wl-paste in wayland
   clipboard = "unnamedplus", -- allows neovim to access the system clipboard
   -- completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-  conceallevel = 0, -- so that `` is visible in markdown files
+  conceallevel = 1,
   fileencoding = "utf-8", -- the encoding written to a file
   ignorecase = true, -- ignore case in search patterns
   -- guicursor = "i-r:block-Cursor",
@@ -45,10 +45,6 @@ local options = {
   backspace = "indent,eol,start",
 }
 
--- local opt_local = {
---   conceallevel = 0,
--- }
-
 local global = {
   did_load_filetypes = false,
   mkdp_auto_close = 0, -- Don't Exit Preview When Switching Buffers
@@ -78,10 +74,6 @@ vim.g.indentline_char = "|"
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-
--- for k, v in pairs(opt_local) do
---   vim.opt_local[k] = v
--- end
 
 for k, v in pairs(global) do
   vim.g[k] = v
