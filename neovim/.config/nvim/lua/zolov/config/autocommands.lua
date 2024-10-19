@@ -24,6 +24,17 @@ autocmd("User", {
   end,
 })
 
+-- Toggle relative line numbers on focus change
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
+  group = augroup("init"),
+  pattern = "*",
+  callback = function()
+    if vim.o.nu and vim.fn.mode() ~= "i" then
+      vim.o.rnu = true
+    end
+  end
+})
+
 -- Go To The Last Cursor Postion
 autocmd("BufReadPost", {
   callback = function()
@@ -42,13 +53,13 @@ autocmd("TextYankPost", {
   group = general,
 })
 
--- Disable New Line Comment
-autocmd("BufEnter", {
-  callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
-  end,
-  group = general,
-})
+-- -- Disable New Line Comment
+-- autocmd("BufEnter", {
+--   callback = function()
+--     vim.opt.formatoptions:remove({ "c", "r", "o" })
+--   end,
+--   group = general,
+-- })
 
 autocmd("FileType", {
   pattern = { "py", "java", "cs" },

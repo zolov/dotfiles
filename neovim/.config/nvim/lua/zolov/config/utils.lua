@@ -1,7 +1,81 @@
----@class zolov.util.lsp
 local M = {}
 
-M.border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' }
+M.border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
+
+M.lsp_icons = {
+  Error = " ",
+  Warn = " ",
+  Hint = " ",
+  Info = " ",
+}
+
+M.cmp_icons = {
+  Array = " ",
+  Boolean = " ",
+  Class = " ",
+  Color = " ",
+  Constant = " ",
+  Constructor = " ",
+  Copilot = " ",
+  Enum = " ",
+  EnumMember = " ",
+  Event = " ",
+  Field = " ",
+  File = " ",
+  Folder = " ",
+  Function = " ",
+  Interface = " ",
+  Key = " ",
+  Keyword = " ",
+  Method = " ",
+  Module = " ",
+  Namespace = " ",
+  Null = " ",
+  Number = " ",
+  Object = " ",
+  Operator = " ",
+  Package = " ",
+  Property = " ",
+  Reference = " ",
+  Snippet = " ",
+  String = " ",
+  Struct = " ",
+  Text = " ",
+  TypeParameter = " ",
+  Unit = " ",
+  Value = " ",
+  Variable = " ",
+}
+
+M.old_cmp_icons = {
+  Text = "󰉿",
+  Method = "m",
+  Function = "󰊕",
+  Constructor = "",
+  Field = "",
+  Variable = "󰆧",
+  Class = "󰌗",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "󰎠",
+  Enum = "",
+  Keyword = "󰌋",
+  Snippet = "",
+  Color = "󰏘",
+  File = "󰈙",
+  Reference = "",
+  Folder = "󰉋",
+  EnumMember = "",
+  Constant = "󰇽",
+  Struct = "",
+  Event = "",
+  Operator = "󰆕",
+  TypeParameter = "󰊄",
+}
+
+M.spinners = { "", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥" }
 
 M.telescope_git_or_file = function()
   local path = vim.fn.expand("%:p:h")

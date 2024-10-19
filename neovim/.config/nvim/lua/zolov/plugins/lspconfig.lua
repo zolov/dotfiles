@@ -10,6 +10,11 @@ local M = {
   },
 }
 
+for name, icon in pairs(require("zolov.config.utils").lsp_icons) do
+  name = "DiagnosticSign" .. name
+  vim.fn.sign_define(name, { text = icon, texthl = name })
+end
+
 -- stylua: ignore
 local function lsp_keymaps(bufnr)
   local keymap = vim.api.nvim_buf_set_keymap
@@ -29,6 +34,8 @@ end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
+
+  -- require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
 
   if client.supports_method("textDocument/inlayHint") then
     vim.lsp.inlay_hint.enable(true)
@@ -114,8 +121,10 @@ function M.config()
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
   end
 
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = require("zolov.config.utils").border })
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = require("zolov.config.utils").border })
+  vim.lsp.handlers["textDocument/hover"] =
+    vim.lsp.with(vim.lsp.handlers.hover, { border = require("zolov.config.utils").border })
+  vim.lsp.handlers["textDocument/signatureHelp"] =
+    vim.lsp.with(vim.lsp.handlers.signature_help, { border = require("zolov.config.utils").border })
   require("lspconfig.ui.windows").default_options.border = "rounded"
 
   for _, server in pairs(servers) do
@@ -138,6 +147,5 @@ function M.config()
     end
   end
 end
-
 
 return M
