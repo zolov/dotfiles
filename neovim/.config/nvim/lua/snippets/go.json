@@ -1,0 +1,12 @@
+{
+  "fmt.Errorf": {
+    "prefix": "fe",
+    "body": "fmt.Errorf(\"${1:woops}: %w\", ${2:err})",
+    "description": "Snippet for fmt.Errorf"
+  },
+  "set data structure": {
+    "prefix": "set",
+    "body": "type Set[T comparable] map[T]struct{}\n\nfunc (s *Set[T]) Has(v T) bool {\n\t_, exists := (*s)[v]\n\treturn exists\n}\n\nfunc (s *Set[T]) Add(v T) {\n\tif !s.Has(v) {\n\t\t(*s)[v] = struct{}{}\n\t}\n}\n\nfunc (s *Set[T]) Del(v T) {\n\tif s.Has(v) {\n\t\tdelete(*s, v)\n\t}\n}\n\nvar ${1:mySet} = make(Set[${2:string}], ${3:0})",
+    "description": "Snippet for a generic Set data structure"
+  }
+}
