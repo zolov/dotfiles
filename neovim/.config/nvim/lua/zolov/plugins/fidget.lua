@@ -1,11 +1,10 @@
--- TODO сменить цвет хайлат групп для уведомлений lsp
 return {
   "j-hui/fidget.nvim",
   opts = {
     progress = {
       suppress_on_insert = false,
       display = {
-        render_limit = 16, -- How many LSP messages to show at once
+        render_limit = 10, -- How many LSP messages to show at once
         done_ttl = 3, -- How long a message should persist after completion
         done_icon = require("zolov.config.icons").ui.Circle, -- Icon shown when all LSP progress tasks are complete
         done_style = "Constant", -- Highlight group for completed LSP tasks
@@ -16,7 +15,8 @@ return {
     },
     notification = {
       window = {
-        winblend = 0, -- Background color opacity in the notification window
+        -- Background color opacity in the notification window. For catppuccin transparent_background mode, you need to disable the opacity.
+        winblend = 0,
       },
     },
     integration = {

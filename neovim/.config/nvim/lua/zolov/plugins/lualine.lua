@@ -24,7 +24,6 @@ return {
         },
         lualine_b = {
           "branch",
-          "diagnostics",
           {
             "diff",
             colored = true, -- Displays a colored diff status if set to true
@@ -41,7 +40,6 @@ return {
         },
         lualine_c = {
           {
-
             "filename",
             file_status = true, -- Displays file status (readonly status, modified status)
             newfile_status = false, -- Display new file status (new file means no write after created)
@@ -58,11 +56,8 @@ return {
             },
           },
         },
-        lualine_x = { "filetype" },
+        lualine_x = { "diagnostics", "filetype" },
         lualine_y = { "progress" },
-        -- lualine_z = {
-        -- 	{ "location", left_padding = 2 },
-        -- },
         lualine_z = {
           { "location", separator = { right = "", left = "" }, left_padding = 2 },
         },

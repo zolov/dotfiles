@@ -8,8 +8,7 @@ alias s="source $HOME/.zshrc"
 alias o="open ."
 alias zshrc="nvim $HOME/.zshrc"
 alias tmuxrc="nvim $HOME/.tmux.conf"
-alias aliases="nvim $HOME/.config/zsh/extensions/aliases.zsh
-"
+alias aliases="nvim $HOME/.config/zsh/extensions/aliases.zsh "
 alias g="git"
 alias qq="yazi"
 alias clr="clear"
@@ -49,7 +48,7 @@ alias mvnd="mvn -gs "$HOME/Dropbox/Projects/settings.xml" -T 2C"
 cx() {
     cd "$@" && l;
 }
-fcd() {
+f() {
     cd "$(find . -type d -not -path '*/.*' | fzf)" && l;
 }
 

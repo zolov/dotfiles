@@ -75,7 +75,8 @@ M.old_cmp_icons = {
   TypeParameter = "󰊄",
 }
 
-M.spinners = { "", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥" }
+M.spinners =
+  { "", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥", "󰪤", "󰪣", "󰪢", "󰪡", "󰪠","󰪟","󰪞", "" }
 
 M.telescope_git_or_file = function()
   local path = vim.fn.expand("%:p:h")

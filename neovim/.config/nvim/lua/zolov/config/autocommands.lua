@@ -53,13 +53,13 @@ autocmd("TextYankPost", {
   group = general,
 })
 
--- -- Disable New Line Comment
--- autocmd("BufEnter", {
---   callback = function()
---     vim.opt.formatoptions:remove({ "c", "r", "o" })
---   end,
---   group = general,
--- })
+-- Disable New Line Comment
+autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
+  end,
+  group = general,
+})
 
 autocmd("FileType", {
   pattern = { "py", "java", "cs" },

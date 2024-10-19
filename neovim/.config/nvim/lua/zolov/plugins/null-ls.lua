@@ -1,3 +1,4 @@
+-- TODO Сравнить с Comform
 local M = {
 	"nvimtools/none-ls.nvim",
 	dependencies = {
