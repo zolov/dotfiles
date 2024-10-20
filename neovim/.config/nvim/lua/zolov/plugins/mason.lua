@@ -4,7 +4,10 @@ local M = {
         {
             "williamboman/mason.nvim",
             opts = {
+                config = true,
+                build = ":MasonUpdate",
                 ui = {
+                    border = "rounded",
                     icons = {
                         package_installed = "✓",
                         package_pending = "➜",
@@ -24,11 +27,6 @@ local M = {
 }
 
 function M.config()
-    require("mason").setup({
-        ui = {
-            border = "rounded",
-        },
-    })
     require("mason-lspconfig").setup({
         ensure_installed = {
             "lua_ls",
@@ -39,6 +37,22 @@ function M.config()
             "marksman",
             "rust_analyzer",
             "jdtls",
+            "clangd",
+            "cmake",
+            "dockerls",
+            "gradle_ls",
+            "jsonls",
+            "kotlin_language_server",
+            "sqlls",
+
+            -- Formatters
+            "beautysh",
+            "black",
+            "clang_format",
+            "gofumpt",
+            "rustfmt",
+            "stylua",
+            "xmlformat",
         },
     })
     require("mason-nvim-dap").setup()

@@ -114,7 +114,7 @@ return {
             { "<leader>lS", ":Telescope lsp_workspace_symbols<cr>", desc = "Workspace Symbols", nowait = true, remap = false, },
             { "<leader>la", ":lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", nowait = true, remap = false },
             { "<leader>ld", ":Telescope diagnostics<cr>", desc = "Workspace Diagnostics", nowait = true, remap = false, },
-            { "<leader>lf", ":lua require('conffrm').format()<cr>", desc = "Format", nowait = true, remap = false },
+            { "<leader>lf", ":lua require('conform').format()<cr>", desc = "Format", nowait = true, remap = false },
             { "<leader>li", ":LspInfo<cr>", desc = "Info", nowait = true, remap = false },
             { "d]", ":lua vim.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic", nowait = true, remap = false },
             { "[d", ":lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic", nowait = true, remap = false },
