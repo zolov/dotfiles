@@ -126,3 +126,25 @@ function nvimGoToLine {
         nvim $(printf "+%s %s" $line $filename) +"normal zz";
     fi
 }
+
+function nv() {
+   if [[ -z "$@" ]]; then
+     CWD=${PWD:t}
+	 SESSION_PATH=$HOME/.local/share/nvim/sessions/${CWD}/
+     SESSION_FILE="Session.vim"
+     GIT_BRANCH=""
+     if [[ -d ".git" ]]; then
+         GIT_BRANCH=$(git branch --show-current)
+         GIT_BRANCH=${GIT_BRANCH//\//-} # replace '/' with '-' in branch name for dir purposes
+         mkdir -p ${SESSION_PATH} # make session path if not exists
+         SESSION_FILE="${SESSION_PATH}Session-${GIT_BRANCH}.vim"
+     fi
+     if [[ -f "$SESSION_FILE" ]]; then
+         nvim -S "$SESSION_FILE" -c "lua vim.g.savesession = true ; vim.g.sessionfile = \"${SESSION_FILE}\""
+     else
+         nvim -c "lua vim.g.savesession = true ; vim.g.sessionfile = \"${SESSION_FILE}\""
+     fi
+   else
+     nvim "$@"
+   fi
+}

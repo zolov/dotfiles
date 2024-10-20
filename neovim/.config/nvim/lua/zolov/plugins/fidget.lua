@@ -10,7 +10,7 @@ return {
         done_style = "Constant", -- Highlight group for completed LSP tasks
         progress_ttl = math.huge, -- How long a message should persist when in progress
         -- Icon shown when LSP progress tasks are in progress
-        progress_icon = { pattern = require("zolov.config.utils").spinners, period = 1 },
+        progress_icon = { pattern = require("zolov.config.utils").spinners, period = 2 },
       },
     },
     notification = {
