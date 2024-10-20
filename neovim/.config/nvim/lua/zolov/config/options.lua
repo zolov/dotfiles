@@ -1,4 +1,5 @@
 local options = {
+    foldmethod = "marker",
     backup = false, -- creates a backup file
     -- use xclip in X and wl-copy/wl-paste in wayland
     clipboard = "unnamedplus", -- allows neovim to access the system clipboard

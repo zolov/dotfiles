@@ -8,15 +8,15 @@ return {
                 latex = "rainbow-blocks",
             },
             highlight = {
-                "RainbowDelimiterRed",
-                "RainbowDelimiterOrange",
-                "RainbowDelimiterYellow",
                 "RainbowDelimiterBlue",
                 "RainbowDelimiterGreen",
-                -- "RainbowDelimiterViolet",
+                "RainbowDelimiterOrange",
                 "RainbowDelimiterCyan",
+                "RainbowDelimiterRed",
+                "RainbowDelimiterYellow",
+                "RainbowDelimiterViolet",
             },
-            blacklist = { "c", "cpp" },
+            -- blacklist = { "c", "cpp" },
         })
     end,
 }

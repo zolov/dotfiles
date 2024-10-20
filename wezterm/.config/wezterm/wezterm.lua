@@ -50,7 +50,7 @@ config.mouse_bindings = {
 config.keys = {
 	{
 		key = "f",
-		mods = "CTRL",
+		mods = "CTRL|OPT",
 		action = wezterm.action.ToggleFullScreen,
 	},
 	{
