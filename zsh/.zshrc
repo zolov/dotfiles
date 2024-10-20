@@ -28,6 +28,7 @@ precmd() {
 
 # PLUGINS
 plugins=(
+fzf-tab
 vi-mode
 sudo
 git
