@@ -44,22 +44,23 @@ return {
             local line, col = unpack(vim.api.nvim_win_get_cursor(0))
             return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
         end
-
+        vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
         local cmp = require("cmp")
         local luasnip = require("luasnip")
-        local lspkind = require("lspkind")
-        local kind_icons = require("zolov.config.utils").old_cmp_icons
+        local kind_icons = require("zolov.config.utils").cmp_icons
         local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
         luasnip.config.setup({})
 
+        local auto_select = true
         cmp.setup({
+            sorting = require("cmp.config.default")().sorting,
             window = {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered(),
             },
             completion = {
-                completeopt = "menuone,noinsert,noselect",
+                completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
             },
             snippet = {
                 expand = function(args)
@@ -67,6 +68,7 @@ return {
                 end,
             },
             sources = {
+                { name = "codeium" },
                 { name = "path" },
                 { name = "calc" },
                 { name = "luasnip" },
@@ -78,31 +80,31 @@ return {
             formatting = {
                 expandable_indicator = true,
                 fields = { "abbr", "kind", "menu" },
-                format = lspkind.cmp_format({
-                    mode = "symbol_text", -- show only symbol annotations
-                    maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-                    ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-                }),
+                format = function(entry, item)
+                    item.kind = string.format("%s %s", string.lower(item.kind), kind_icons[item.kind])
+                    item.menu = ({
+                        codeium = " | AI ",
+                        nvim_lsp = " | LSP",
+                        luasnip = " | SNP",
+                        buffer = " | BUF",
+                        path = " | PATH",
+                    })[entry.source.name]
+                    return item
+                end,
             },
-            -- formatting = {
-            --     expandable_indicator = true,
-            --     fields = { "abbr", "kind", "menu" },
-            --     format = function(entry, vim_item)
-            --         vim_item.kind = string.format("%s %s", string.lower(vim_item.kind), kind_icons[vim_item.kind])
-            --         vim_item.menu = ({
-            --             nvim_lsp = " | lsp",
-            --             luasnip = " | snp",
-            --             buffer = " | buf",
-            --             path = " | path",
-            --         })[entry.source.name]
-            --         return vim_item
-            --     end,
-            -- },
+            experimental = {
+                ghost_text = {
+                    hl_group = "CmpGhostText",
+                },
+            },
             mapping = cmp.mapping.preset.insert({
                 ["<C-b>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.abort(),
+                ["<C-y>"] = cmp.mapping.confirm({ select = true, behavior = "replace" }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                 ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
