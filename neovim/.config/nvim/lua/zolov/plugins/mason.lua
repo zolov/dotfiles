@@ -20,6 +20,8 @@ local M = {
                 },
             },
         },
+        "stevearc/conform.nvim",
+        "zapling/mason-conform.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         "nvim-lua/plenary.nvim",
         "jay-babu/mason-nvim-dap.nvim",
@@ -45,17 +47,23 @@ function M.config()
             "kotlin_language_server",
             "sqlls",
 
-            -- Formatters
-            "beautysh",
-            "black",
-            "clang_format",
-            "gofumpt",
-            "rustfmt",
-            "stylua",
-            "xmlformat",
         },
     })
     require("mason-nvim-dap").setup()
+    require("mason-conform").setup({
+        ensure_installed = {
+            -- Formatters
+            "beautysh",
+            "black",
+            "gofumpt",
+            "rustfmt",
+            "stylua",
+            "clang_format",
+            "gofumpt",
+            "rustfmt",
+            "xmlformat",
+		},
+    })
     require("mason-tool-installer").setup({
         ensure_installed = {
             "java-debug-adapter",
@@ -70,6 +78,7 @@ function M.config()
             "gomodifytags",
             "impl",
             "delve",
+
         },
 
         -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39

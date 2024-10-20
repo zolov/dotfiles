@@ -6,7 +6,7 @@ return {
         -- add any options here
     },
     dependencies = {
-        "MunifTanim/nui.nvim",
+        "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
     },
     config = function()
