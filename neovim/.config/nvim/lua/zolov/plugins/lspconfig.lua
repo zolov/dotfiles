@@ -6,6 +6,7 @@ local M = {
             "hrsh7th/cmp-nvim-lsp",
             "folke/neodev.nvim",
             "b0o/schemastore.nvim",
+            "https://gitlab.com/schrieveslaach/sonarlint.nvim",
         },
     },
 }
@@ -146,6 +147,22 @@ function M.config()
             lspconfig[server].setup(opts)
         end
     end
+
+    -- Make sure that you configure sonarlint.nvim after lspconfig.
+    require("sonarlint").setup({
+        server = {
+            cmd = {
+                "sonarlint-language-server",
+                "-stdio",
+                "-analyzers",
+                -- paths to the analyzers you need, using those for python and java in this example
+                vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
+            },
+        },
+        filetypes = {
+            "java",
+        },
+    })
 end
 
 return M

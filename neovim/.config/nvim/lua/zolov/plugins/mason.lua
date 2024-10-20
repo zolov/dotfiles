@@ -46,7 +46,6 @@ function M.config()
             "jsonls",
             "kotlin_language_server",
             "sqlls",
-
         },
     })
     require("mason-nvim-dap").setup()
@@ -62,10 +61,11 @@ function M.config()
             "gofumpt",
             "rustfmt",
             "xmlformat",
-		},
+        },
     })
     require("mason-tool-installer").setup({
         ensure_installed = {
+            "sonarlint-language-server",
             "java-debug-adapter",
             "java-test",
             "google-java-format",
@@ -78,7 +78,6 @@ function M.config()
             "gomodifytags",
             "impl",
             "delve",
-
         },
 
         -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39
