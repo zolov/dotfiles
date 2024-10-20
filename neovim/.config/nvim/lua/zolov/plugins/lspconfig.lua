@@ -22,7 +22,7 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
   -- keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition", noremap = true, silent = true })
   keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", { desc = "Goto Definition", noremap = true, silent = true })
-  keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", noremap = true, silent = true })
+  -- keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", noremap = true, silent = true })
   -- keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "Goto Implementation", noremap = true, silent = true })
   -- keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "References", noremap = true, silent = true })
   keymap(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>",{ desc = "Goto Implementation", noremap = true, silent = true })
@@ -81,7 +81,7 @@ function M.config()
         { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", desc = "CodeLens Action" },
         { "<leader>a", mode = { "n", "v" }, "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
         { "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", desc = "Format" },
-        { "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },
+        -- { "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },
     })
 
     local lspconfig = require("lspconfig")
