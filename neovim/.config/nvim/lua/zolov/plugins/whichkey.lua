@@ -62,6 +62,10 @@ return {
             { "<leader>ba", ":lua require('bookmarks').add_bookmarks(false)<CR>", silent = true, nowait = true, remap = false, },
             { "<leader>bd", ":lua require('bookmarks.list').delete_on_virt()<CR>", silent = true, nowait = true, remap = false, },
 
+			-- Projects
+            { "<leader>p", group = "Projects", nowait = true, remap = false },
+            { "<leader>po", ":Telescope projects<CR>", silent = true, nowait = true, remap = false },
+
             -- SEARCH
             { "<leader>S", group = "Search", nowait = true, remap = false },
             { "<leader>SC", ":Telescope commands<cr>", desc = "Commands", nowait = true, remap = false },

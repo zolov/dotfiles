@@ -1,5 +1,4 @@
--- TODO Настроить отображение whitespaces
--- TODO Добавить comform и проверить форматирование в Java
+-- TODO Настроить отображение linebreak 
 
 local highlight = {
     "RainbowRed",

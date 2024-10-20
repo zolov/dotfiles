@@ -1,66 +1,66 @@
 local M = {
-  "williamboman/mason-lspconfig.nvim",
-  dependencies = {
-    {
-      "williamboman/mason.nvim",
-      opts = {
-        ui = {
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-          },
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+        {
+            "williamboman/mason.nvim",
+            opts = {
+                ui = {
+                    icons = {
+                        package_installed = "✓",
+                        package_pending = "➜",
+                        package_uninstalled = "✗",
+                    },
+                },
+                registries = {
+                    "github:nvim-java/mason-registry",
+                    "github:mason-org/mason-registry",
+                },
+            },
         },
-        registries = {
-          "github:nvim-java/mason-registry",
-          "github:mason-org/mason-registry",
-        },
-      },
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        "nvim-lua/plenary.nvim",
+        "jay-babu/mason-nvim-dap.nvim",
     },
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    "nvim-lua/plenary.nvim",
-    "jay-babu/mason-nvim-dap.nvim",
-  },
 }
 
 function M.config()
-  require("mason").setup({
-    ui = {
-      border = "rounded",
-    },
-  })
-  require("mason-lspconfig").setup({
-    ensure_installed = {
-      "lua_ls",
-      "pyright",
-      "bashls",
-      "jsonls",
-      "yamlls",
-      "marksman",
-      "rust_analyzer",
-      "jdtls",
-    },
-  })
-  require("mason-nvim-dap").setup()
-  require("mason-tool-installer").setup({
-    ensure_installed = {
-      "java-debug-adapter",
-      "java-test",
-      "google-java-format",
-      "stylua",
-      "shellcheck",
-      "shfmt",
-      "gopls",
-      "goimports",
-      "gofumpt",
-      "gomodifytags",
-      "impl",
-      "delve",
-    },
+    require("mason").setup({
+        ui = {
+            border = "rounded",
+        },
+    })
+    require("mason-lspconfig").setup({
+        ensure_installed = {
+            "lua_ls",
+            "pyright",
+            "bashls",
+            "jsonls",
+            "yamlls",
+            "marksman",
+            "rust_analyzer",
+            "jdtls",
+        },
+    })
+    require("mason-nvim-dap").setup()
+    require("mason-tool-installer").setup({
+        ensure_installed = {
+            "java-debug-adapter",
+            "java-test",
+            "google-java-format",
+            "stylua",
+            "shellcheck",
+            "shfmt",
+            "gopls",
+            "goimports",
+            "gofumpt",
+            "gomodifytags",
+            "impl",
+            "delve",
+        },
 
-    -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39
-    vim.api.nvim_command("MasonToolsInstall"),
-  })
+        -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39
+        vim.api.nvim_command("MasonToolsInstall"),
+    })
 end
 
 return M

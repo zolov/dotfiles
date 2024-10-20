@@ -3,6 +3,6 @@ return {
     dependencies = {
         "brianrbrenner/springboot-nvim",
         "mfussenegger/nvim-dap",
-        ft = "java"
+        ft = "java",
     },
 }
