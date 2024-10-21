@@ -39,6 +39,7 @@ gitignore
 # docker-compose
 zsh-autosuggestions
 zsh-syntax-highlighting
+fast-syntax-highlighting
 fasd
 brew
 macos
