@@ -1,4 +1,5 @@
 local options = {
+    spelllang = "ru,en",
     foldmethod = "marker",
     backup = false, -- creates a backup file
     -- use xclip in X and wl-copy/wl-paste in wayland
