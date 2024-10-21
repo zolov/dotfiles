@@ -1,3 +1,3 @@
 lazy-lock.json
-./spell/*.*.add.spl
-./spell/*.*.add
+*.*.add.spl
+*.*.add
