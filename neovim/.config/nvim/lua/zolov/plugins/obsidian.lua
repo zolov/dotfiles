@@ -3,8 +3,8 @@ return {
     version = "*",
     -- ft = "markdown",
     lazy = false,
-    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
     -- event = {
+	-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
     --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
     --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
     --   -- refer to `:h file-pattern` for more examples
@@ -25,10 +25,10 @@ return {
     -- stylua: ignore
     mappings = {
       -- "Obsidian follow"
-      ["gf"] = { action = function() return require("obsidian").util.gf_passthrough() end, opts = { desc = "", noremap = false, expr = true, buffer = true }, },
       ["<leader>nf"] = { action = function() return require("obsidian").util.gf_passthrough() end, opts = { noremap = false, expr = true, buffer = true }, },
       -- Toggle check-boxes "obsidian done"
       ["<leader>nd"] = { action = function() return require("obsidian").util.toggle_checkbox() end, opts = { buffer = true }, },
+      ["<leader>nl"] = { action = function() return require("obsidian").util.toggle_checkbox() end, opts = { buffer = true }, },
       -- Create a new newsletter issue
       -- ["<leader>nn"] = { action = function() return require("obsidian").commands.new_note("Newsletter-Issue") end, opts = { buffer = true }, },
       -- ["<leader>nt"] = { action = function() return require("obsidian").util.insert_template("Newsletter-Issue") end, opts = { buffer = true }, }, 
