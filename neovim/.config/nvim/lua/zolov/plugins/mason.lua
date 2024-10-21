@@ -57,7 +57,6 @@ function M.config()
             "gofumpt",
             "rustfmt",
             "stylua",
-            "gofumpt",
             "rustfmt",
             "xmlformat",
         },
@@ -65,6 +64,7 @@ function M.config()
     require("mason-tool-installer").setup({
         ensure_installed = {
             "sonarlint-language-server",
+            "golangci-lint",
             "java-debug-adapter",
             "java-test",
             "google-java-format",

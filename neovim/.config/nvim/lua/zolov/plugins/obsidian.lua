@@ -23,16 +23,6 @@ return {
             min_chars = 2,
         },
     -- stylua: ignore
-    mappings = {
-      -- "Obsidian follow"
-      ["<leader>nf"] = { action = function() return require("obsidian").util.gf_passthrough() end, opts = { noremap = false, expr = true, buffer = true }, },
-      -- Toggle check-boxes "obsidian done"
-      ["<leader>nd"] = { action = function() return require("obsidian").util.toggle_checkbox() end, opts = { buffer = true }, },
-      ["<leader>nl"] = { action = function() return require("obsidian").util.toggle_checkbox() end, opts = { buffer = true }, },
-      -- Create a new newsletter issue
-      -- ["<leader>nn"] = { action = function() return require("obsidian").commands.new_note("Newsletter-Issue") end, opts = { buffer = true }, },
-      -- ["<leader>nt"] = { action = function() return require("obsidian").util.insert_template("Newsletter-Issue") end, opts = { buffer = true }, }, 
-    },
         daily_notes = {
             -- Optional, if you keep daily notes in a separate directory.
             folder = "Notes/dailies",
@@ -54,8 +44,18 @@ return {
                 },
             },
             {
-                name = "old notes",
+                name = "Work",
+                path = "~/Dropbox/work-vault/",
+                overrides = {
+                    notes_subdir = "notes",
+                },
+            },
+            {
+                name = "OLDNOTES",
                 path = "~/Dropbox/NOTES",
+                overrides = {
+                    notes_subdir = "notes",
+                },
             },
         },
     },

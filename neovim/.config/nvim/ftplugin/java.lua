@@ -1,4 +1,4 @@
-vim.opt.expandtab = false
+vim.opt.expandtab = true 
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -9,7 +9,7 @@ local keymap = vim.keymap.set
 -- stylua: ignore
 keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition", noremap = true, silent = true })
-keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", noremap = true, silent = true })
+keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover", noremap = true, silent = true })
 keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", { desc = "Goto Implementation", noremap = true, silent = true })
 keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", { desc = "References", noremap = true, silent = true })
 keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Open float", noremap = true, silent = true })

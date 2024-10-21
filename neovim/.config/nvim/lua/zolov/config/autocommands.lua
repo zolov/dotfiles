@@ -185,6 +185,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         "neotest-output-panel",
         "dbout",
         "gitsigns-blame",
+        "checkhealth"
     },
     callback = function(event)
         vim.bo[event.buf].buflisted = false
