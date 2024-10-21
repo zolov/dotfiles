@@ -57,7 +57,6 @@ function M.config()
             "gofumpt",
             "rustfmt",
             "stylua",
-            "clang_format",
             "gofumpt",
             "rustfmt",
             "xmlformat",
@@ -78,6 +77,7 @@ function M.config()
             "gomodifytags",
             "impl",
             "delve",
+            "clang-format",
         },
 
         -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39
