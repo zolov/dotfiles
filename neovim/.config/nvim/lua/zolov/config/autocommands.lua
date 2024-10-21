@@ -12,12 +12,12 @@ local general = augroup("general")
 autocmd("User", {
     pattern = "AlphaReady",
     callback = function()
-        vim.opt.cmdheight = 0
+        vim.opt.cmdheight = vim.opt.cmdheight:get()
         vim.opt.laststatus = 0
         autocmd("BufUnload", {
             pattern = "<buffer>",
             callback = function()
-                vim.opt.cmdheight = 1
+                vim.opt.cmdheight = vim.opt.cmdheight:get()
                 vim.opt.laststatus = 3
             end,
         })
@@ -185,7 +185,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         "neotest-output-panel",
         "dbout",
         "gitsigns-blame",
-        "checkhealth"
+        "checkhealth",
     },
     callback = function(event)
         vim.bo[event.buf].buflisted = false

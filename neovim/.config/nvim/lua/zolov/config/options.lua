@@ -51,6 +51,7 @@ local options = {
 }
 
 local global = {
+    cmdheight = 0,
     did_load_filetypes = false,
     mkdp_auto_close = 0, -- Don't Exit Preview When Switching Buffers
     highlighturl_enabled = true, -- highlight URLs by default
