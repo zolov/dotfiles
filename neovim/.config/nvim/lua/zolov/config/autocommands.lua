@@ -68,15 +68,6 @@ autocmd("BufEnter", {
     group = general,
 })
 
-autocmd("FileType", {
-    pattern = { "py", "java", "cs" },
-    callback = function()
-        vim.bo.shiftwidth = 4
-        vim.bo.tabstop = 4
-    end,
-    group = general,
-})
-
 -- Update file
 autocmd("FocusGained", {
     callback = function()
@@ -107,12 +98,12 @@ autocmd("ModeChanged", {
 
 -- Enable Wrap in these filetypes
 autocmd("FileType", {
-    pattern = { "gitcommit", "markdown", "text", "log" },
+    group = augroup("wrap_spell"),
+    pattern = { "gitcommit", "markdown", "text", "plaintex", "log" },
     callback = function()
         vim.opt_local.wrap = true
         vim.opt_local.spell = true
     end,
-    group = general,
 })
 
 -- Close NvimTree
@@ -170,16 +161,6 @@ vim.api.nvim_create_autocmd({ "User" }, {
     end,
 })
 
--- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-    group = augroup("checktime"),
-    callback = function()
-        if vim.o.buftype ~= "nofile" then
-            vim.cmd("checktime")
-        end
-    end,
-})
-
 vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = {
         "qf",
@@ -204,6 +185,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         "neotest-output-panel",
         "dbout",
         "gitsigns-blame",
+        "checkhealth"
     },
     callback = function(event)
         vim.bo[event.buf].buflisted = false
@@ -212,16 +194,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
             silent = true,
             desc = "Quit buffer",
         })
-    end,
-})
-
--- wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
-    group = augroup("wrap_spell"),
-    pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
-    callback = function()
-        vim.opt_local.wrap = true
-        vim.opt_local.spell = true
     end,
 })
 

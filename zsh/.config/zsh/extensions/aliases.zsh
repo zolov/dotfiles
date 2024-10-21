@@ -19,7 +19,7 @@ alias cd="z"
 
 alias ls="eza --tree --level 1 --icons --git"
 alias lsa="eza --tree --level 1 --icons --all --git"
-alias ll="eza --icons --long --no-user --git --git-ignore"
+alias ll="eza --icons --long --no-user --git"
 alias lla="eza --icons --long --no-user --git --all" 
 alias tree="eza --icons --long --no-user --git --all --git-ignore --tree --level=4"
 

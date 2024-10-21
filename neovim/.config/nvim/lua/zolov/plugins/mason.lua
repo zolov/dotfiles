@@ -57,8 +57,6 @@ function M.config()
             "gofumpt",
             "rustfmt",
             "stylua",
-            "clang_format",
-            "gofumpt",
             "rustfmt",
             "xmlformat",
         },
@@ -66,6 +64,7 @@ function M.config()
     require("mason-tool-installer").setup({
         ensure_installed = {
             "sonarlint-language-server",
+            "golangci-lint",
             "java-debug-adapter",
             "java-test",
             "google-java-format",
@@ -78,6 +77,7 @@ function M.config()
             "gomodifytags",
             "impl",
             "delve",
+            "clang-format",
         },
 
         -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39

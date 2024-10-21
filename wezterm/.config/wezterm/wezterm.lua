@@ -20,7 +20,7 @@ config.window_close_confirmation = "AlwaysPrompt"
 config.scrollback_lines = 3000
 
 config.default_prog = {
-	"/opt/homebrew/bin/tmux",
+	"/bin/zsh"
 }
 -- config.default_prog = {
 --     "/bin/zsh",

@@ -129,6 +129,17 @@ return {
             { "<leader>tv", ":ToggleTerm size=50 direction=vertical<cr>", desc = "Terminal Vertical", nowait = true, remap = false, },
 
             -- { "<leader>xx", ":qa!<cr>", desc = "Exit", nowait = true, remap = false },
+            -- Notes
+            {"<leader>n", group = "Notes", nowait = true, remap = false},
+            {"<leader>nt", ":Markview toggle<cr>", desc = "[T]oggle Markview Rendering", nowait = true, remap = false},
+            {"<leader>nn", ":ObsidianNew<cr>", desc = "Create [N]ew Note", nowait = true, remap = false},
+            {"<leader>nf", ":ObsidianFollowLink<cr>", desc = "Follow [L]ink", nowait = true, remap = false},
+            -- {"<leader>nl", ":ObsidianFollowLink<cr>", desc = "Follow [L]ink", nowait = true, remap = false},
+
+            {"<leader>np", group = "Notes preview", nowait = true, remap = false},
+            {"<leader>npp", ":MarkdownPreview<cr>", desc = "Open Markdown [P]review", nowait = true, remap = false},
+            {"<leader>nps", ":MarkdownPreviewStop<cr>", desc = "[S]top Markdown Preview", nowait = true, remap = false},
+            {"<leader>npt", ":MarkdownPreviewToggle<cr>", desc = "[T]oggle Markdown Preview", nowait = true, remap = false},
         })
     end,
 }
