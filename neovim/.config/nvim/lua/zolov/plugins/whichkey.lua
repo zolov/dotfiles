@@ -44,16 +44,26 @@ return {
 
         --stylua: ignore
         which_key.add({
+
+            -- Dashboard
+            { "<leader>;", ":Alpha<CR>", nowait = true, remap = false, },
+
+            -- Utils
+            { "<leader>u", group = "Utils", nowait = true, remap = false, },
+            { "<leader>uc", ":Telescope commands<CR>", desc = "[C]ommands", silent = true, nowait = true, remap = false, },
+            { "<leader>uh", ":Telescope highlights<cr>", desc = "[H]ighlights", silent = true, nowait = true, remap = false },
+            { "<leader>uH", ":Telescope help_tags<cr>", desc = "Find [H]elp Tags", silent = true, nowait = true, remap = false },
+            { "<leader>uk", ":Telescope keymaps<cr>", desc = "Find [K]eymaps", nowait = true, remap = false },
+            { "<leader>uq", ":qa!<cr>", desc = "Force [Q]uit", nowait = true, remap = false },
+
             -- Refactor
             { "<leader>rf", ":Refactor extract_func<CR>", desc = "Extract function", mode = "x", silent = true, nowait = true, remap = false, },
-            { "<leader>re", ":Refactor extract_block_to_file<CR>", desc = "Extract to file", mode = "x", silent = true, nowait = true, remap = false, },
             { "<leader>rv", ":Refactor extract_var<CR>", desc = "Extract variable", mode = "x", silent = true, nowait = true, remap = false, },
             { "<leader>ri", ":Refactor inline_var<CR>", desc = "inline var", mode = { "x", "n" }, silent = true, nowait = true, remap = false, },
             { "<leader>rI", ":Refactor inline_func<CR>", desc = "inline func", silent = true, nowait = true, remap = false, },
             { "<leader>rb", ":Refactor extract_block<CR>", desc = "Extract block", silent = true, nowait = true, remap = false, },
-            { "<leader>rt", ":Refactor extract_block_to_file<CR>", desc = "Extract block to file", silent = true, nowait = true, remap = false, },
-            { "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", mode = { "n", "x" }, nowait = true, remap = false, },
-            -- { "<leader>R", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], desc = "Replace all in file" },
+            { "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", desc = "Refactor", mode = { "n", "x" }, nowait = true, remap = false, },
+            { "<leader>rR", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], desc = "Replace all in file" },
 
             -- Bookmarks
             { "<leader>b", group = "Bookmarks", nowait = true, remap = false },
@@ -67,14 +77,7 @@ return {
             { "<leader>po", ":Telescope projects<CR>", silent = true, nowait = true, remap = false },
 
             -- SEARCH
-            { "<leader>S", group = "Search", nowait = true, remap = false },
-            { "<leader>SC", ":Telescope commands<cr>", desc = "Commands", nowait = true, remap = false },
-            { "<leader>SH", ":Telescope highlights<cr>", desc = "Highlights", nowait = true, remap = false },
-            { "<leader>Sb", ":Telescope git_branches<cr>", desc = "Checkout branch", nowait = true, remap = false },
-            { "<leader>Sc", ":Telescope colorschemes<cr>", desc = "Colorscheme", nowait = true, remap = false },
-            { "<leader>Sh", ":Telescope help_tags<cr>", desc = "Find Help", nowait = true, remap = false },
-            { "<leader>Sk", ":Telescope keymaps<cr>", desc = "Keymaps", nowait = true, remap = false },
-            { "<leader>o", ":Telescope buffers<cr>", desc = "Find Buffers", nowait = true, remap = false },
+            { "<leader>o", ":Telescope buffers<cr>", desc = "Open Buffer list", nowait = true, remap = false },
 
             -- NvimTree
             { "<leader>e", ":NvimTreeToggle<CR>", desc = "Explorer", nowait = true, remap = false },
@@ -128,13 +131,11 @@ return {
             { "<leader>tt", ":ToggleTerm size=10 direction=horizontal<cr>", desc = "Terminal Horizontal", nowait = true, remap = false, },
             { "<leader>tv", ":ToggleTerm size=50 direction=vertical<cr>", desc = "Terminal Vertical", nowait = true, remap = false, },
 
-            -- { "<leader>xx", ":qa!<cr>", desc = "Exit", nowait = true, remap = false },
             -- Notes
             {"<leader>n", group = "Notes", nowait = true, remap = false},
             {"<leader>nt", ":Markview toggle<cr>", desc = "[T]oggle Markview Rendering", nowait = true, remap = false},
             {"<leader>nn", ":ObsidianNew<cr>", desc = "Create [N]ew Note", nowait = true, remap = false},
             {"<leader>nf", ":ObsidianFollowLink<cr>", desc = "Follow [L]ink", nowait = true, remap = false},
-            -- {"<leader>nl", ":ObsidianFollowLink<cr>", desc = "Follow [L]ink", nowait = true, remap = false},
 
             {"<leader>np", group = "Notes preview", nowait = true, remap = false},
             {"<leader>npp", ":MarkdownPreview<cr>", desc = "Open Markdown [P]review", nowait = true, remap = false},

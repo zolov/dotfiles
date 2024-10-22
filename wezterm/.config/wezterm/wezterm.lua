@@ -13,8 +13,8 @@ config.font = wezterm.font_with_fallback({
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
 
-config.window_background_opacity = 0.93
-config.macos_window_background_blur = 35
+config.window_background_opacity = 0.90
+config.macos_window_background_blur = 49
 
 config.window_close_confirmation = "AlwaysPrompt"
 config.scrollback_lines = 3000
@@ -35,7 +35,7 @@ config.default_prog = {
 
 config.cursor_blink_ease_out = "Constant"
 config.cursor_blink_ease_in = "Constant"
-config.cursor_blink_rate = 400
+config.cursor_blink_rate = 0
 
 config.enable_tab_bar = false
 config.mouse_bindings = {
