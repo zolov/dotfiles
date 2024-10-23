@@ -5,10 +5,10 @@
 
 # layouts - Ordered list of layouts to use by layout key (default tall, wide, fullscreen, and column).
 layouts:
-  - bsp
+  - tall-right
   - floating
   - fullscreen
-  # - tall-right
+  - bsp
   # - wide
   # - two-pane
   # - middle-wide
@@ -71,12 +71,12 @@ expand-main:
 # Increase the number of windows in the main pane. Note that not all layouts respond to this command.
 increase-main:
   mod: mod1
-  key: ','
+  key: ","
 
 # Decrease the number of windows in the main pane. Note that not all layouts respond to this command.
 decrease-main:
   mod: mod1
-  key: '.'
+  key: "."
 
 # General purpose command for custom layouts. Functionality is layout-dependent.
 # command1:
@@ -224,10 +224,10 @@ relaunch-amethyst:
 disable-padding-on-builtin-display: false
 
 # Boolean flag for whether or not to add margins between windows (default false).
-window-margins: true 
+window-margins: true
 
 # Boolean flag for whether or not to set window margins if there is only one window on the screen, assuming window margins are enabled (default false).
-smart-window-margins: false 
+smart-window-margins: false
 
 # # Add 10px margin between windows
 # window-margins: true
@@ -246,16 +246,17 @@ window-minimum-height: 0
 window-minimum-width: 0
 
 # List of bundle identifiers for applications to either be automatically floating or automatically tiled based on floating-is-blacklist (default []).
-floating: [
-  "com.apple.finder",
-  "com.apple.systempreferences",
-  "com.spotify.client",
-  "com.cisco.anyconnect.gui",
-  "com.jetbrains.intellij",
-  "com.jetbrains.goland",
-  "com.github.wez.wezterm",
-  "com.interversehq.qView",
-]
+floating:
+  [
+    "com.apple.finder",
+    "com.apple.systempreferences",
+    "com.spotify.client",
+    "com.cisco.anyconnect.gui",
+    "com.jetbrains.intellij",
+    "com.jetbrains.goland",
+    "com.github.wez.wezterm",
+    "com.interversehq.qView",
+  ]
 
 # Boolean flag determining behavior of the floating list. true if the applications should be floating and all others tiled. false if the applications should be tiled and all others floating (default true).
 floating-is-blacklist: true
@@ -270,13 +271,13 @@ hide-menu-bar-icon: false
 float-small-windows: true
 
 # true if the mouse should move position to the center of a window when it becomes focused (default false). Note that this is largely incompatible with focus-follows-mouse.
-mouse-follows-focus: true 
+mouse-follows-focus: true
 
 # true if the windows underneath the mouse should become focused as the mouse moves (default false). Note that this is largely incompatible with mouse-follows-focus
 focus-follows-mouse: false
 
 # true if dragging and dropping windows on to each other should swap their positions (default false).
-mouse-swaps-windows: true 
+mouse-swaps-windows: true
 
 # true if changing the frame of a window with the mouse should update the layout to accommodate the change (default false). Note that not all layouts will be able to respond to the change.
 mouse-resizes-windows: true
@@ -285,7 +286,7 @@ mouse-resizes-windows: true
 enables-layout-hud: true
 
 # true to display the name of the layout when moving to a new space (default true).
-enables-layout-hud-on-space-change: 
+enables-layout-hud-on-space-change:
 
 # true to get updates to beta versions of the software (default false).
 use-canary-build: false
