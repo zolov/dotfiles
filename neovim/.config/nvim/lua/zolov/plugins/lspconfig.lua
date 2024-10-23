@@ -137,9 +137,7 @@ function M.config()
 
     if server == "jdtls" then
       require("java").setup({})
-      require("lspconfig").jdtls.setup({
-        -- Your custom nvim-java configuration goes here
-      })
+      require("lspconfig").jdtls.setup(opts)
     end
 
     if server ~= "jdtls" then

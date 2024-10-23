@@ -3,7 +3,6 @@ return {
   opts = {}, -- for default options, refer to the configuration section for custom setup.
   config = function()
     require("trouble").setup({
-      auto_preview = true,
       focus = true,
     })
 

@@ -1,48 +1,48 @@
 return {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    config = function()
-        local status_ok, which_key = pcall(require, "which-key")
-        if not status_ok then
-            return
-        end
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  config = function()
+    local status_ok, which_key = pcall(require, "which-key")
+    if not status_ok then
+      return
+    end
 
-        which_key.setup({
-            plugins = {
-                marks = true, -- shows a list of your marks on ' and `
-                registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-                spelling = {
-                    enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-                    suggestions = 20, -- how many suggestions should be shown in the list?
-                },
-                presets = {
-                    operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-                    motions = true, -- adds help for motions
-                    text_objects = true, -- help for text objects triggered after entering an operator					windows = true, -- default bindings on <c-w>
-                    nav = true, -- misc bindings to work with windows
-                    z = true, -- bindings for folds, spelling and others prefixed with z
-                    g = false, -- bindings for prefixed with g
-                },
-            },
-            icons = {
-                breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-                separator = "➜", -- symbol used between a key and it's label
-                group = "+", -- symbol prepended to a group
-            },
-            keys = {
-                scroll_down = "<c-d>", -- binding to scroll down inside the popup
-                scroll_up = "<c-u>", -- binding to scroll up inside the popup
-            },
-            layout = {
-                height = { min = 4, max = 25 }, -- min and max height of the columns
-                width = { min = 20, max = 50 }, -- min and max width of the columns
-                spacing = 3, -- spacing between columns
-                align = "left", -- align columns left, center or right
-            },
-            show_help = false, -- show help message on the command line when the popup is visible
-        })
+    which_key.setup({
+      plugins = {
+        marks = true, -- shows a list of your marks on ' and `
+        registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+        spelling = {
+          enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+          suggestions = 20, -- how many suggestions should be shown in the list?
+        },
+        presets = {
+          operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+          motions = true, -- adds help for motions
+          text_objects = true, -- help for text objects triggered after entering an operator					windows = true, -- default bindings on <c-w>
+          nav = true, -- misc bindings to work with windows
+          z = true, -- bindings for folds, spelling and others prefixed with z
+          g = false, -- bindings for prefixed with g
+        },
+      },
+      icons = {
+        breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+        separator = "➜", -- symbol used between a key and it's label
+        group = "+", -- symbol prepended to a group
+      },
+      keys = {
+        scroll_down = "<c-d>", -- binding to scroll down inside the popup
+        scroll_up = "<c-u>", -- binding to scroll up inside the popup
+      },
+      layout = {
+        height = { min = 4, max = 25 }, -- min and max height of the columns
+        width = { min = 20, max = 50 }, -- min and max width of the columns
+        spacing = 3, -- spacing between columns
+        align = "left", -- align columns left, center or right
+      },
+      show_help = false, -- show help message on the command line when the popup is visible
+    })
 
-        local springboot = require("springboot-nvim")
+    local springboot = require("springboot-nvim")
         --stylua: ignore
         which_key.add({
 
@@ -152,7 +152,7 @@ return {
             { "<leader>la", ":lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", nowait = true, remap = false },
             { "<leader>lf", ":lua require('conform').format()<cr>", desc = "Format", nowait = true, remap = false },
             { "<leader>lq", ":Telescope quickfix<cr>", desc = "Quickfix List", nowait = true, remap = false },
-            { "<leader>ls", ":Telescope lsp_document_symbols<cr>", desc = "Document Symbols", nowait = true, remap = false, },
+            { "<leader>ls", ":Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Dynamic Workspace Symbols", nowait = true, remap = false, },
             -- vim.keymap.set({ "n", "v" }, "<Leader>ca", "<cmd>Lspsaga code_action<cr>", { desc = "Code action" })
             -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "Hover" })
             -- vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
@@ -210,5 +210,6 @@ return {
             { "<leader>jge", springboot.generate_enum, desc = "Generate Enum", nowait = true, remap = false },
             { "<leader>jgr", springboot.generate_record, desc = "Generate Record", nowait = true, remap = false },
         })
-    end,
+  end,
 }
+
