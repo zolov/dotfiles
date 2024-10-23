@@ -19,24 +19,24 @@ end
 -- stylua: ignore
 local function lsp_keymaps(bufnr)
   local keymap = vim.api.nvim_buf_set_keymap
-  -- keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
-  keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
-  -- keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition", noremap = true, silent = true })
-  keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", { desc = "Goto Definition", noremap = true, silent = true })
-  -- keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", noremap = true, silent = true })
-  -- keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "Goto Implementation", noremap = true, silent = true })
-  -- keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "References", noremap = true, silent = true })
-  keymap(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>",{ desc = "Goto Implementation", noremap = true, silent = true })
-  keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", { desc = "References", noremap = true, silent = true })
-  keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Open float", noremap = true, silent = true })
-  keymap(bufnr, "n", "gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "Goto T[y]pe Definition", noremap = true, silent = true })
-  keymap(bufnr, "n", "gK", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature Help", noremap = true, silent = true })
+  keymap(bufnr, "n", "gD", ":Telescope lsp_type_definitions<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
+  keymap(bufnr, "n", "gd", ":Lspsaga goto_definition<CR>", { desc = "Goto Definition", noremap = true, silent = true })
+  keymap(bufnr, "n", "gi", ":Telescope lsp_implementations<CR>",{ desc = "Goto Implementation", noremap = true, silent = true })
+  keymap(bufnr, "n", "gr", ":Telescope lsp_references<CR>", { desc = "References", noremap = true, silent = true })
+  keymap(bufnr, "n", "gl", ":lua vim.diagnostic.open_float()<CR>", { desc = "Open float", noremap = true, silent = true })
+  keymap(bufnr, "n", "gy", ":lua vim.lsp.buf.type_definition()<CR>", { desc = "Goto T[y]pe Definition", noremap = true, silent = true })
+  keymap(bufnr, "n", "gk", ":lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature Help", noremap = true, silent = true })
+    -- keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
+    -- keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition", noremap = true, silent = true })
+    -- keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", noremap = true, silent = true })
+    -- keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "Goto Implementation", noremap = true, silent = true })
+    -- keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "References", noremap = true, silent = true })
 end
 
 M.on_attach = function(client, bufnr)
     lsp_keymaps(bufnr)
 
-    require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+    -- require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
 
     if client.supports_method("textDocument/inlayHint") then
         vim.lsp.inlay_hint.enable(true)
@@ -102,7 +102,7 @@ function M.config()
         signs = {
             active = true,
         },
-        virtual_text = false,
+        virtual_text = true,
         update_in_insert = false,
         underline = true,
         severity_sort = true,

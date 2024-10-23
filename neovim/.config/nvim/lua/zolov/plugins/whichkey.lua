@@ -45,13 +45,13 @@ return {
         --stylua: ignore
         which_key.add({
             -- Refactor
-            { "<leader>rf", ":Refactor extract_func<CR>", desc = "Extract function", mode = "x", silent = true, nowait = true, remap = false, },
-            { "<leader>re", ":Refactor extract_block_to_file<CR>", desc = "Extract to file", mode = "x", silent = true, nowait = true, remap = false, },
-            { "<leader>rv", ":Refactor extract_var<CR>", desc = "Extract variable", mode = "x", silent = true, nowait = true, remap = false, },
-            { "<leader>ri", ":Refactor inline_var<CR>", desc = "inline var", mode = { "x", "n" }, silent = true, nowait = true, remap = false, },
-            { "<leader>rI", ":Refactor inline_func<CR>", desc = "inline func", silent = true, nowait = true, remap = false, },
-            { "<leader>rb", ":Refactor extract_block<CR>", desc = "Extract block", silent = true, nowait = true, remap = false, },
-            { "<leader>rt", ":Refactor extract_block_to_file<CR>", desc = "Extract block to file", silent = true, nowait = true, remap = false, },
+            -- { "<leader>rf", ":Refactor extract_func<CR>", desc = "Extract function", mode = "x", silent = true, nowait = true, remap = false, },
+            -- { "<leader>re", ":Refactor extract_block_to_file<CR>", desc = "Extract to file", mode = "x", silent = true, nowait = true, remap = false, },
+            -- { "<leader>rv", ":Refactor extract_var<CR>", desc = "Extract variable", mode = "x", silent = true, nowait = true, remap = false, },
+            -- { "<leader>ri", ":Refactor inline_var<CR>", desc = "inline var", mode = { "x", "n" }, silent = true, nowait = true, remap = false, },
+            -- { "<leader>rI", ":Refactor inline_func<CR>", desc = "inline func", silent = true, nowait = true, remap = false, },
+            -- { "<leader>rb", ":Refactor extract_block<CR>", desc = "Extract block", silent = true, nowait = true, remap = false, },
+            -- { "<leader>rt", ":Refactor extract_block_to_file<CR>", desc = "Extract block to file", silent = true, nowait = true, remap = false, },
             { "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", mode = { "n", "x" }, nowait = true, remap = false, },
             -- { "<leader>R", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], desc = "Replace all in file" },
 
@@ -109,6 +109,15 @@ return {
             { "<leader>gu", ":lua require 'gitsigns'.undo_stage_hunk()<cr>", desc = "Undo Stage Hunk", nowait = true, remap = false, },
 
             -- LSP
+            { "d]", ":Trouble diagnostics prev<CR>", desc = "Prev Diagnostic", nowait = true, remap = false },
+            { "[d", ":Trouble diagnostics next<CR>", desc = "Next Diagnostic", nowait = true, remap = false },
+            { "gd", ":Telescope lsp_definitions<CR>", desc = "Goto Definition", nowait = true, remap = false },
+            { "gD", ":Telescope lsp_type_definitions<CR>", desc = "Goto Type Definition", nowait = true, remap = false },
+            { "gr", ":Telescope lsp_references<CR>", desc = "Goto References", nowait = true, remap = false },
+            { "gi", ":Telescope lsp_implementations<CR>", desc = "Goto Implementation", nowait = true, remap = false },
+            { "gk", ":Lspsaga hover_doc<CR>", desc = "Hover", nowait = true, remap = false },
+            { "K", ":lua vim.lsp.buf.signature_help()<CR>", desc = "Hover", nowait = true, remap = false },
+
             { "<leader>l", group = "LSP", nowait = true, remap = false },
             { "<leader>lr", ":Telescope lsp_references<cr>", desc = "References", nowait = true, remap = false },
             { "<leader>lS", ":Telescope lsp_workspace_symbols<cr>", desc = "Workspace Symbols", nowait = true, remap = false, },
@@ -116,8 +125,6 @@ return {
             { "<leader>ld", ":Telescope diagnostics<cr>", desc = "Workspace Diagnostics", nowait = true, remap = false, },
             { "<leader>lf", ":lua require('conform').format()<cr>", desc = "Format", nowait = true, remap = false },
             { "<leader>li", ":LspInfo<cr>", desc = "Info", nowait = true, remap = false },
-            { "d]", ":lua vim.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic", nowait = true, remap = false },
-            { "[d", ":lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic", nowait = true, remap = false },
             { "<leader>lm", ":Mason<cr>", desc = "Mason Installer", nowait = true, remap = false },
             { "<leader>lq", ":Telescope quickfix<cr>", desc = "Quickfix List", nowait = true, remap = false },
             { "<leader>ls", ":Telescope lsp_document_symbols<cr>", desc = "Document Symbols", nowait = true, remap = false, },
