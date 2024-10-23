@@ -42,14 +42,16 @@ return {
             require("zolov.config.utils").on_attach(function(client, _)
                 if not client.server_capabilities.semanticTokensProvider then
                     local semantic = client.config.capabilities.textDocument.semanticTokens
-                    client.server_capabilities.semanticTokensProvider = {
-                        full = true,
-                        legend = {
-                            tokenTypes = semantic.tokenTypes,
-                            tokenModifiers = semantic.tokenModifiers,
-                        },
-                        range = true,
-                    }
+                    if semantic ~= nil then
+                        client.server_capabilities.semanticTokensProvider = {
+                            full = true,
+                            legend = {
+                                tokenTypes = semantic.tokenTypes,
+                                tokenModifiers = semantic.tokenModifiers,
+                            },
+                            range = true,
+                        }
+                    end
                 end
             end, "gopls")
             -- end workaround

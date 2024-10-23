@@ -5,7 +5,5 @@ return {
         "mfussenegger/nvim-jdtls",
     },
     config = function()
-        local springboot_nvim = require("springboot-nvim")
-        springboot_nvim.setup()
     end,
 }

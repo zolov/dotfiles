@@ -122,14 +122,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end,
 })
 
--- JDTLS
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "*.java" },
-    callback = function()
-        require("zolov.config.jdtls").setup_config()
-    end,
-})
-
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
     group = augroup("checktime"),

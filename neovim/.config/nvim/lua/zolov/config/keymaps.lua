@@ -27,32 +27,25 @@ end
 
 local keymaps = {
     normal_mode = {
+
+        -- Split line 
         ["S"] = "a<CR><Esc>g;",
+
         -- Move accross line limits
         ["H"] = "^",
         ["L"] = "$",
-        -- Better window navigation
-        ["<Leader>wv"] = "<C-w>v",
-        ["<Leader>ws"] = "<C-w>s",
-        ["<Leader>wb"] = "<C-w>=",
-        -- ["<Leader>wx"] = ":close<CR>",
-        ["<Leader>wx"] = ":bd<CR>",
-        ["<Leader>wm"] = ":MaximizerToggle<CR>",
+
+        -- Move accross window
         ["<C-j>"] = "<C-w>j",
         ["<C-k>"] = "<C-w>k",
         ["<C-h>"] = "<C-w>h",
         ["<C-l>"] = "<C-w>l",
-        -- Move Next Window
-        -- ["<Leader>w"] = "<C-w>w",
-        -- Tabs
-        ["<Leader>to"] = ":tabnew<CR>",
-        ["<Leader>tx"] = ":tabclose<CR>",
-        ["<Leader>tn"] = ":tabn<CR>",
-        ["<Leader>tp"] = ":tabp<CR>",
+
         -- Center screen on up and down half page
         ["<C-u>"] = "<C-u>zz",
         ["<C-d>"] = "<C-d>zz",
 
+        -- Center screen on search
         ["n"] = "nzzzv",
         ["N"] = "Nzzzv",
 
@@ -61,15 +54,18 @@ local keymaps = {
         ["<C-Down>"] = ":resize -2<CR>",
         ["<C-Left>"] = ":vertical resize +2<CR>",
         ["<C-Right>"] = ":vertical resize -2<CR>",
+
         -- Navigate buffers
         ["<M-.>"] = ":bnext<CR>",
         ["<M-,>"] = ":bprevious<CR>",
+
         -- Indent lines
         ["<"] = "<<",
         [">"] = ">>",
+
+        -- Misc
         ["<C-q>"] = "<cmd> q <CR>",
         ["<C-s>"] = "<cmd> w <CR>",
-        ["<Leader>sn"] = "<cmd> noautocmd w <CR>",
         ["x"] = '"_x',
     },
     insert_mode = {
@@ -99,8 +95,8 @@ local keymaps = {
     },
     command_mode = {
         -- Word Search Increment and Decrement
-        ["ab>"] = forward_search,
-        ["<S-Tab>"] = backward_search,
+        -- ["ab>"] = forward_search,
+        -- ["<S-Tab>"] = backward_search,
     },
 }
 
@@ -131,5 +127,5 @@ end
 -- vim.api.nvim_set_keymap("i", "<CR>", "v:lua._G.cr_action()", { noremap = true, expr = true })
 
 -- tabs complete
--- vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { noremap = true, expr = true })
--- vim.api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "\<c-P>" : "\<S-Tab>"]], { noremap = true, expr = true })
+vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { noremap = true, expr = true })
+vim.api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "\<c-P>" : "\<S-Tab>"]], { noremap = true, expr = true })
