@@ -81,7 +81,7 @@ return {
                 expandable_indicator = true,
                 fields = { "abbr", "kind", "menu" },
                 format = function(entry, item)
-                    item.kind = string.format("%s %s", string.lower(item.kind), kind_icons[item.kind])
+                    item.kind = string.format("%s %s", item.kind, kind_icons[item.kind])
                     item.menu = ({
                         codeium = " | AI ",
                         nvim_lsp = " | LSP",
