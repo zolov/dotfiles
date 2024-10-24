@@ -97,7 +97,7 @@ nmap <leader>i ~hi
 vmap <leader>u d~h
 
 " Separate line and reformat line
-map <M-s> <Action>(EditorSplitLine)<CR>
+map <S-s> <Action>(EditorSplitLine)<CR>
 
 " Fast esc
 inoremap jj <Esc>
