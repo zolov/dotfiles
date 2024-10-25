@@ -16,6 +16,7 @@ $golang\
 $nodejs\
 $php\
 $java\
+$lua\
 $kotlin\
 $haskell\
 $python\
@@ -25,7 +26,8 @@ $character
 """
 
 right_format = """
-[ ](black)\
+[](black)\
+$duration\
 $battery\
 [](fg:black bg:surface0)\
 $time\
@@ -33,7 +35,7 @@ $time\
 """
 
 follow_symlinks = true
-add_newline = true
+add_newline = false
 palette = 'catppuccin_mocha'
 
 [palettes.catppuccin_mocha]
@@ -72,7 +74,6 @@ format = '[[  $time ](fg:mantle bg:surface0)]($style)'
 
 [battery]
 disabled = false
-
 format = "[[$symbol$percentage ](fg:base bg:black)]($style)"
 full_symbol = '󰁹 '
 charging_symbol = '󰂄 '
@@ -83,6 +84,12 @@ empty_symbol = '󰂎 '
 [[battery.display]]
 style = "bg:black fg:teal"
 threshold = 100 
+
+[cmd_duration]
+disabled = false
+min_time = 500
+style = "bg:surface0 fg:text"
+format = 'took [$duration]($style) ' 
 
 [os]
 disabled = false
@@ -167,6 +174,11 @@ format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [java]
 symbol = " "
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
+
+[lua]
+symbol = ""
 style = "bg:surface0"
 format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
