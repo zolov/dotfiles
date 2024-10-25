@@ -26,8 +26,8 @@ $character
 """
 
 right_format = """
+$cmd_duration\
 [](black)\
-$duration\
 $battery\
 [](fg:black bg:surface0)\
 $time\
@@ -35,7 +35,7 @@ $time\
 """
 
 follow_symlinks = true
-add_newline = false
+add_newline = true
 palette = 'catppuccin_mocha'
 
 [palettes.catppuccin_mocha]
@@ -87,9 +87,9 @@ threshold = 100
 
 [cmd_duration]
 disabled = false
-min_time = 500
-style = "bg:surface0 fg:text"
-format = 'took [$duration]($style) ' 
+min_time = 1000
+style = "black"
+format = '[$duration]($style) ' 
 
 [os]
 disabled = false
