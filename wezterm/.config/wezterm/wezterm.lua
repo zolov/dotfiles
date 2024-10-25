@@ -20,7 +20,7 @@ config.window_close_confirmation = "AlwaysPrompt"
 config.scrollback_lines = 3000
 
 config.default_prog = {
-	"/bin/zsh"
+	"/bin/zsh",
 }
 -- config.default_prog = {
 --     "/bin/zsh",
@@ -28,7 +28,7 @@ config.default_prog = {
 -- 		"-c",
 -- 		[[
 -- 	   if command -v tmux >/dev/null 2>&1; then
--- 	     tmux attach || where new;
+-- 	     tmux attach || tmux new;
 -- 	   fi
 -- 	   ]],
 -- }
@@ -57,6 +57,11 @@ config.keys = {
 		key = "'",
 		mods = "CTRL",
 		action = wezterm.action.ClearScrollback("ScrollbackAndViewport"),
+	},
+	{
+		key = "p",
+		mods = "CTRL|OPT",
+		action = wezterm.action.ActivateCommandPalette,
 	},
 }
 
