@@ -141,29 +141,29 @@ format = '[[($all_status$ahead_behind )](fg:crust bg:green)]($style)'
 [nodejs]
 disabled = true
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [c]
 symbol = " "
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [rust]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [golang]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [php]
 disabled = true
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [java]
 symbol = " "
@@ -172,26 +172,26 @@ format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [kotlin]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [haskell]
 disabled = true
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [python]
 disabled = true
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [docker_context]
 disabled = true 
 symbol = ""
 style = "bg:mantle"
-format = '[[ $symbol( $context) ](fg:base bg:teal)]($style)'
+format = '[[ $symbol( $context) ](fg:crust bg:teal)]($style)'
 
 [line_break]
 disabled = false
