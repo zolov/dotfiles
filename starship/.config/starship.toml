@@ -9,7 +9,7 @@ $directory\
 [](fg:peach bg:green)\
 $git_branch\
 $git_status\
-[](fg:green bg:blue)\
+[](fg:green bg:surface0)\
 $c\
 $rust\
 $golang\
@@ -19,34 +19,22 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[ ](fg:blue)\
+[ ](fg:surface0)\
 $line_break\
 $character
 """
 
 right_format = """
-[ ](surface0)\
-$time\
-[](fg:surface0 bg:black)\
+[ ](black)\
 $battery\
-[](black)\
+[](fg:black bg:surface0)\
+$time\
+[](surface0)\
 """
 
 follow_symlinks = true
 add_newline = true
 palette = 'catppuccin_mocha'
-
-[palettes.gruvbox_dark]
-color_fg0 = '#fbf1c7'
-color_bg1 = '#3c3836'
-color_bg3 = '#665c54'
-color_blue = '#458588'
-color_aqua = '#689d6a'
-color_green = '#98971a'
-color_orange = '#d65d0e'
-color_purple = '#b16286'
-color_red = '#cc241d'
-color_yellow = '#d79921'
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -76,10 +64,16 @@ base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
 
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:surface0"
+format = '[[  $time ](fg:mantle bg:surface0)]($style)'
+
 [battery]
 disabled = false
 
-format = "[[ $symbol$percentage](fg:base bg:black)]($style)"
+format = "[[$symbol$percentage ](fg:base bg:black)]($style)"
 full_symbol = '󰁹 '
 charging_symbol = '󰂄 '
 discharging_symbol = '󰂃 '
@@ -99,7 +93,8 @@ Ubuntu = "󰕈"
 SUSE = ""
 Raspbian = "󰐿"
 Mint = "󰣭"
-Macos = " "
+# Macos = " "
+Macos = " "
 Manjaro = ""
 Linux = "󰌽"
 Gentoo = "󰣨"
@@ -137,11 +132,11 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "bg:teal"
-format = '[[ $symbol $branch ](fg:base bg:green)]($style)'
+format = '[[ $symbol $branch ](fg:crust bg:green)]($style)'
 
 [git_status]
 style = "bg:teal"
-format = '[[($all_status$ahead_behind )](fg:base bg:green)]($style)'
+format = '[[($all_status$ahead_behind )](fg:crust bg:green)]($style)'
 
 [nodejs]
 disabled = true
@@ -172,8 +167,8 @@ format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
 
 [java]
 symbol = " "
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [kotlin]
 symbol = ""
@@ -197,12 +192,6 @@ disabled = true
 symbol = ""
 style = "bg:mantle"
 format = '[[ $symbol( $context) ](fg:base bg:teal)]($style)'
-
-[time]
-disabled = false
-time_format = "%R"
-style = "bg:surface0"
-format = '[[ $time ](fg:mantle bg:surface0)]($style)'
 
 [line_break]
 disabled = false
