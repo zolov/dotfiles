@@ -1,4 +1,4 @@
--- TODO Настроить отображение linebreak
+-- HACK Настроить отображение linebreak
 
 local highlight = {
     "RainbowDelimiterBlue",

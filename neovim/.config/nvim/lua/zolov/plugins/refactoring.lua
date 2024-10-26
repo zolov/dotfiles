@@ -4,6 +4,7 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
     },
+    lazy = true,
     config = function()
         require("refactoring").setup({
             rompt_func_return_type = {

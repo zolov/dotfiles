@@ -30,7 +30,7 @@ precmd() {
 plugins=(
 fzf-tab
 vi-mode
-sudo
+# sudo
 git
 git-flow
 gitignore

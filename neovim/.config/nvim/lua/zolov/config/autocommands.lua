@@ -12,12 +12,12 @@ local general = augroup("general")
 autocmd("User", {
     pattern = "AlphaReady",
     callback = function()
-        vim.opt.cmdheight = 0
+        vim.opt.cmdheight = vim.opt.cmdheight:get()
         vim.opt.laststatus = 0
         autocmd("BufUnload", {
             pattern = "<buffer>",
             callback = function()
-                vim.opt.cmdheight = 1
+                vim.opt.cmdheight = vim.opt.cmdheight:get()
                 vim.opt.laststatus = 3
             end,
         })
@@ -152,14 +152,14 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
     end,
 })
 
-vim.api.nvim_create_autocmd({ "User" }, {
-    pattern = { "AlphaReady" },
-    callback = function()
-        vim.cmd([[
-      set laststatus=1 | autocmd BufUnload <buffer> set laststatus=3
-    ]])
-    end,
-})
+-- vim.api.nvim_create_autocmd({ "User" }, {
+--     pattern = { "AlphaReady" },
+--     callback = function()
+--         vim.cmd([[
+--       set laststatus=1 | autocmd BufUnload <buffer> set laststatus=1
+--     ]])
+--     end,
+-- })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = {
@@ -185,7 +185,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         "neotest-output-panel",
         "dbout",
         "gitsigns-blame",
-        "checkhealth"
+        "checkhealth",
     },
     callback = function(event)
         vim.bo[event.buf].buflisted = false

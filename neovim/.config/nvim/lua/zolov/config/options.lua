@@ -31,6 +31,7 @@ local options = {
 
     showtabline = 0,
     cursorline = true, -- highlight the current line
+    cmdheight = 0,
     laststatus = 3, -- global status line
     number = true, -- set numbered lines
     relativenumber = true, -- set relative numbered lines

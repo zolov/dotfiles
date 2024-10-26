@@ -36,7 +36,6 @@ alias k8log="$HOME/bin/k8log.sh"
 alias mv="mv -iv"
 alias cp="cp -riv"
 alias mkdir="mkdir -vp"
-alias cat="bat -p"
 alias bathelp="bat --plain --language=help"
 alias lg="lazygit"
 alias ld="lazydocker"
@@ -85,11 +84,11 @@ note() {
 }
 
 function copy {
-  bat -p $1 | pbcopy
+  cat $1 | pbcopy
 }
 
 function displayFZFFiles {
-    echo $(fzf --preview 'bat --paging=never --theme=base16 --color=always --style=header,grid --line-range :400 {}')
+    echo $(fzf --preview 'bat --paging=never --color=always --style=header,grid --line-range :400 {}')
 }
 
 function nvimGoToFiles {
