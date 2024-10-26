@@ -82,8 +82,20 @@ unknown_symbol = '󰁽 '
 empty_symbol = '󰂎 '
 
 [[battery.display]]
-style = "bg:black fg:teal"
+style = "black"
+threshold = 20 
+discharging_symbol = '󰂎 '
+
+[[battery.display]]
+style = "black"
+threshold = 60 
+discharging_symbol = '󰁽 '
+
+[[battery.display]]
+style = "black"
 threshold = 100 
+discharging_symbol = '󰁹 '
+
 
 [cmd_duration]
 disabled = false
