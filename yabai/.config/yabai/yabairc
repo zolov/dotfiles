@@ -4,10 +4,10 @@ yabai -m config layout bsp
 yabai -m config window_placement second_child
 
 # Padding 
-yabai -m config top_padding 20 
-yabai -m config bottom_padding 20 
-yabai -m config left_padding 20
-yabai -m config right_padding 20 
+yabai -m config top_padding 15 
+yabai -m config bottom_padding 15
+yabai -m config left_padding 15
+yabai -m config right_padding 15
 yabai -m config window_gap 15
 
 # Mouse
@@ -25,8 +25,8 @@ yabai -m mouse_drop_action swap
 yabai -m rule --add="^com.apple.systemprefences$" manage=off
 yabai -m rule --add="^Calculator$" manage=off
 yabai -m rule --add="^Karabiner-Elements$" manage=off
-yabai -m rule --add="^Iterm2$" space=^2
+yabai -m rule --add="^WezTerm$" space=^1
 
-yabai -m config external_bar all:0:36
+yabai -m config external_bar all:0:0
 
 borders active_color=0xff494d84 inactive_color=0xff414550 width=12.0 &

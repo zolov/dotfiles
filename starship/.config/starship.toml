@@ -147,6 +147,7 @@ truncation_symbol = "…/"
 "Pictures" = " "
 "Projects" = "󰲋 "
 "Dev" = "󰲋 "
+"dotfiles" = " "
 
 [git_branch]
 symbol = ""
