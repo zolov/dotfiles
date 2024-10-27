@@ -119,7 +119,8 @@ export EDITOR=nvim
 
 # Key bindings
 bindkey '^ ' autosuggest-accept
-bindkey '^x' autosuggest-clear
+bindkey '^y' autosuggest-accept
+bindkey '^e' autosuggest-clear
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
