@@ -27,6 +27,6 @@ yabai -m rule --add="^Calculator$" manage=off
 yabai -m rule --add="^Karabiner-Elements$" manage=off
 yabai -m rule --add="^WezTerm$" space=^1
 
-yabai -m config external_bar all:0:0
+yabai -m config external_bar all:35:0
 
 borders active_color=0xff494d84 inactive_color=0xff414550 width=12.0 &
