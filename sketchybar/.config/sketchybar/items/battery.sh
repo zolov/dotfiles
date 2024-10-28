@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-COLOR="$SKY"
+COLOR="$TEAL"
 LABEL_COLOR="$WHITE"
 BORDER="$COMMENT"
 
