@@ -28,7 +28,7 @@ sketchybar --add item spacer.2 left \
 
 sketchybar --add bracket spaces '/space.*/' \
 	--set spaces background.border_width="$BORDER_WIDTH" \
-	background.border_color="$RED" \
+	background.border_color="$COMMENT" \
 	background.corner_radius="$CORNER_RADIUS" \
 	background.color="$BAR_COLOR" \
 	background.height=26 \
@@ -41,4 +41,4 @@ sketchybar --add item separator left \
 	background.padding_right=15 \
 	label.drawing=off \
 	associated_display=active \
-	icon.color="$YELLOW"
+	icon.color="$COMMENT"

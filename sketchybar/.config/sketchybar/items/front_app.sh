@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 COLOR="$WHITE"
+BORDER="$COMMENT"
 
 sketchybar \
 	--add item front_app left \
@@ -10,7 +11,7 @@ sketchybar \
 	background.padding_left=0 \
 	background.padding_right=10 \
 	background.border_width="$BORDER_WIDTH" \
-	background.border_color="$COLOR" \
+	background.border_color="$BORDER" \
 	background.corner_radius="$CORNER_RADIUS" \
 	background.color="$BAR_COLOR" \
 	label.color="$COLOR" \

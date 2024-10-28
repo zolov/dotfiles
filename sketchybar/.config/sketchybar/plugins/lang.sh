@@ -8,14 +8,14 @@ INPUT_SOURCE=$(get_input_lang)
 
 case $INPUT_SOURCE in
   ABC)
-    INPUT_SOURCE="en"
+    INPUT_SOURCE="EN‣"
     ;;
   RussianWin)
-    INPUT_SOURCE="ru"
+    INPUT_SOURCE="RU‣"
     ;;
   *)
     INPUT_SOURCE="unknown"
     ;;
 esac
 
-echo "$INPUT_SOURCE"
+sketchybar --set "$NAME" icon="" label="$INPUT_SOURCE"
