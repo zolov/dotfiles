@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 COLOR="$GREEN"
+BORDER="$COMMENT"
 
 sketchybar \
 	--add item sound right \
@@ -13,7 +14,7 @@ sketchybar \
 	background.corner_radius="$CORNER_RADIUS" \
 	background.padding_right=5 \
 	background.border_width="$BORDER_WIDTH" \
-	background.border_color="$COLOR" \
+	background.border_color="$BORDER" \
 	background.color="$BAR_COLOR" \
 	background.drawing=on \
 	script="$PLUGIN_DIR/sound.sh" \

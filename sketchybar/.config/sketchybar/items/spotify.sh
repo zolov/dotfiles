@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 COLOR="$GREEN"
+BORDER="$COMMENT"
 
 sketchybar --add item spotify q \
 	--set spotify \
@@ -12,7 +13,7 @@ sketchybar --add item spotify q \
 	background.height=26 \
 	background.corner_radius="$CORNER_RADIUS" \
 	background.border_width="$BORDER_WIDTH" \
-	background.border_color="$COLOR" \
+	background.border_color="$BORDER" \
 	background.padding_right=-5 \
 	background.drawing=on \
 	label.padding_right=10 \
