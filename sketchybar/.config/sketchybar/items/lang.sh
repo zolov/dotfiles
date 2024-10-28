@@ -1,5 +1,6 @@
 
-COLOR="$WHITE"
+COLOR="$LAVENDER"
+LABEL_COLOR="$WHITE"
 BORDER="$COMMENT"
 
 sketchybar --add item lang right \
@@ -7,7 +8,7 @@ sketchybar --add item lang right \
 	update_freq=3 \
 	icon.color="$COLOR" \
 	icon.padding_left=10 \
-	label.color="$COLOR" \
+	label.color="$LABEL_COLOR" \
 	label.padding_right=10 \
 	background.height=26 \
 	background.corner_radius="$CORNER_RADIUS" \
