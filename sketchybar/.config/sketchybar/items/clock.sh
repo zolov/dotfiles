@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-COLOR="$MAGENTA"
+COLOR="$MAUVE"
+LABEL_COLOR="$WHITE"
 BORDER="$COMMENT"
 
 sketchybar --add item clock right \
@@ -8,7 +9,7 @@ sketchybar --add item clock right \
 	icon.padding_left=10 \
 	icon.color="$COLOR" \
 	icon="" \
-	label.color="$COLOR" \
+	label.color="$LABEL_COLOR" \
 	label.padding_right=5 \
 	label.width=78 \
 	align=center \

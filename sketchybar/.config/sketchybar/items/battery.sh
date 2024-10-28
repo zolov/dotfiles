@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-COLOR="$CYAN"
+COLOR="$SKY"
+LABEL_COLOR="$WHITE"
 BORDER="$COMMENT"
 
 sketchybar --add item battery right \
@@ -9,7 +10,7 @@ sketchybar --add item battery right \
 	icon.color="$COLOR" \
 	icon.padding_left=10 \
 	label.padding_right=10 \
-	label.color="$COLOR" \
+	label.color="$LABEL_COLOR" \
 	background.height=26 \
 	background.corner_radius="$CORNER_RADIUS" \
 	background.padding_right=5 \

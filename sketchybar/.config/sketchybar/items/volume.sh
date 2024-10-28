@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 COLOR="$GREEN"
+LABEL_COLOR="$WHITE"
 BORDER="$COMMENT"
 
 sketchybar \
@@ -8,7 +9,7 @@ sketchybar \
 	--set sound \
 	icon.color="$COLOR" \
 	icon.padding_left=10 \
-	label.color="$COLOR" \
+	label.color="$LABEL_COLOR" \
 	label.padding_right=10 \
 	background.height=26 \
 	background.corner_radius="$CORNER_RADIUS" \
