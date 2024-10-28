@@ -3,9 +3,9 @@
 source "$HOME/.config/sketchybar/variables.sh" # Loads all defined colors
 
 # General bar and defaults
-
+# color="$BAR_COLOR" \
 sketchybar --bar height=30 \
-	color="$BAR_COLOR" \
+	color="$TRANSPARENT" \
 	shadow="$SHADOW" \
 	position=top \
 	sticky=on \
@@ -47,6 +47,7 @@ source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/cpu.sh"
+source "$ITEM_DIR/wifi.sh"
 
 #################### Finalizing Setup ####################
 
