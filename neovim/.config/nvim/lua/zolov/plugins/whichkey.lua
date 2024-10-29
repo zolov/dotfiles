@@ -41,30 +41,57 @@ return {
             },
             show_help = false, -- show help message on the command line when the popup is visible
         })
-
+        local springboot = require("springboot-nvim")
         --stylua: ignore
         which_key.add({
+
+            -- Dashboard
+            { "<leader>;", ":Alpha<CR>", nowait = true, remap = false, },
+
+            -- Windows
+            { "<leader>w", group = "Windows", nowait = true, remap = false, },
+            { "<leader>wv", ":vsplit<CR>", desc = "Vsplit", nowait = true, remap = false, },
+            { "<leader>ws", ":split<CR>", desc = "Split", nowait = true, remap = false, },
+            { "<leader>wm", ":MaximizerToggle<CR>", desc = "Maximize", nowait = true, remap = false, },
+            { "<leader>wx", ":bd<CR>", desc = "Close", nowait = true, remap = false, },
+            { "<leader>wb", "<C-w>=", desc = "Balance", nowait = true, remap = false, },
+
+            -- Tabs
+            { "<leader>t", group = "Tabs", nowait = true, remap = false, },
+            { "<leader>to", ":tabnew<CR>", desc = "New tab", nowait = true, remap = false, },
+            { "<leader>tx", ":tabclose<CR>", desc = "Close tab", nowait = true, remap = false, },
+            { "<leader>tn", ":tabn<CR>", desc = "Next tab", nowait = true, remap = false, },
+            { "<leader>tp", ":tabp<CR>", desc = "Previous tab", nowait = true, remap = false, },
+
+            -- Utils
+            { "<leader>u", group = "Utils", nowait = true, remap = false, },
+            { "<leader>uc", ":Telescope commands<CR>", desc = "[C]ommands", silent = true, nowait = true, remap = false, },
+            { "<leader>us", ":Telescope spell_suggest<CR>", desc = "[S]pelling Suggestions", silent = true, nowait = true, remap = false, },
+            { "<leader>uH", ":Telescope highlights<cr>", desc = "[H]ighlights", silent = true, nowait = true, remap = false },
+            { "<leader>uh", ":Telescope help_tags<cr>", desc = "Find [H]elp Tags", silent = true, nowait = true, remap = false },
+            { "<leader>?", ":Telescope keymaps<cr>", desc = "Find [K]eymaps", nowait = true, remap = false },
+            { "<leader>uq", ":qa!<cr>", desc = "Force [Q]uit", nowait = true, remap = false },
+
             -- Refactor
-            -- { "<leader>rf", ":Refactor extract_func<CR>", desc = "Extract function", mode = "x", silent = true, nowait = true, remap = false, },
-            -- { "<leader>re", ":Refactor extract_block_to_file<CR>", desc = "Extract to file", mode = "x", silent = true, nowait = true, remap = false, },
-            -- { "<leader>rv", ":Refactor extract_var<CR>", desc = "Extract variable", mode = "x", silent = true, nowait = true, remap = false, },
-            -- { "<leader>ri", ":Refactor inline_var<CR>", desc = "inline var", mode = { "x", "n" }, silent = true, nowait = true, remap = false, },
-            -- { "<leader>rI", ":Refactor inline_func<CR>", desc = "inline func", silent = true, nowait = true, remap = false, },
-            -- { "<leader>rb", ":Refactor extract_block<CR>", desc = "Extract block", silent = true, nowait = true, remap = false, },
-            -- { "<leader>rt", ":Refactor extract_block_to_file<CR>", desc = "Extract block to file", silent = true, nowait = true, remap = false, },
             { "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", mode = { "n", "x" }, nowait = true, remap = false, },
-            -- { "<leader>R", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], desc = "Replace all in file" },
+            { "<leader>rn", ":Lspsaga rename<CR>", desc = "[R]ename", silent = true, nowait = true, remap = false, },
 
             -- Bookmarks
             { "<leader>b", group = "Bookmarks", nowait = true, remap = false },
-
-            { "<leader>bp", ":Telescope bookmarks<CR>", silent = true, nowait = true, remap = false },
-            { "<leader>ba", ":lua require('bookmarks').add_bookmarks(false)<CR>", silent = true, nowait = true, remap = false, },
-            { "<leader>bd", ":lua require('bookmarks.list').delete_on_virt()<CR>", silent = true, nowait = true, remap = false, },
+            { "<leader>bp", ":Telescope bookmarks<CR>", desc = "Bookmarks list", silent = true, nowait = true, remap = false },
+            { "<leader>ba", ":lua require('bookmarks').add_bookmarks(false)<CR>", desc = "Add bookmark", silent = true, nowait = true, remap = false, },
+            { "<leader>bd", ":lua require('bookmarks.list').delete_on_virt()<CR>", desc = "Delete bookmark", silent = true, nowait = true, remap = false, },
 
 			-- Projects
-            { "<leader>p", group = "Projects", nowait = true, remap = false },
+            { "<leader>p", group = "Projects and Sessions", nowait = true, remap = false },
             { "<leader>po", ":Telescope projects<CR>", silent = true, nowait = true, remap = false },
+            { "<leader>ps", ":SessionSave<CR>", desc = "Save session", nowait = true, remap = false, },
+            { "<leader>pl", ":SessionLoad<CR>", desc = "Load session", nowait = true, remap = false, },
+            { "<leader>pd", ":SessionDelete<CR>", desc = "Delete session", nowait = true, remap = false, },
+            { "<leader>pp", ":Telescope persisted<CR>", desc = "Select session", nowait = true, remap = false, },
+
+            -- Buffers
+            { "<leader>o", ":Telescope buffers<cr>", desc = "Find Buffers", nowait = true, remap = false },
 
             -- SEARCH
             { "<leader>S", group = "Search", nowait = true, remap = false },
@@ -74,22 +101,20 @@ return {
             { "<leader>Sc", ":Telescope colorschemes<cr>", desc = "Colorscheme", nowait = true, remap = false },
             { "<leader>Sh", ":Telescope help_tags<cr>", desc = "Find Help", nowait = true, remap = false },
             { "<leader>Sk", ":Telescope keymaps<cr>", desc = "Keymaps", nowait = true, remap = false },
-            { "<leader>o", ":Telescope buffers<cr>", desc = "Find Buffers", nowait = true, remap = false },
+            { "<leader>SR", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], desc = "Replace all in file" },
 
             -- NvimTree
-            { "<leader>e", ":NvimTreeToggle<CR>", desc = "Explorer", nowait = true, remap = false },
+            { "<leader>e", ":NvimTreeToggle<CR>", desc = "[E]xplorer", nowait = true, remap = false },
+            { "<leader>E", ":cd", desc = "Change Working Directory", silent = false, nowait = true, remap = false },
 
             -- FZF Find
-            { "<leader>f", group = "Files", nowait = true, remap = false },
-            -- { "<leader>ff", ":lua require('fzf-lua').files()<cr>", desc = "Find files", nowait = true, remap = false },
+            { "<leader>f", group = "Find *", nowait = true, remap = false },
             { "<leader>ff", ":lua require('zolov.config.utils').telescope_git_or_file()<cr>", desc = "Find files", nowait = true, remap = false, },
             { "<leader>fg", ":Telescope live_grep<CR>", desc = "Find Text", nowait = true, remap = false },
             { "<leader>fr", ":Telescope oldfiles<cr>", desc = "Find recent files", nowait = true, remap = false },
-            { "<leader>fs", ":Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Find workspace symbols", nowait = true, remap = false, },
-            { "<leader>fS", ":Telescope spell_suggest<CR>", desc = "Spelling suggestions", silent = true, nowait = true, remap = false, },
-            { "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "Telescope file browser", nowait = true, remap = false, },
-			{ "<leader>ft", ":Telescope current_buffer_fuzzy_find<CR>", desc="Telescope find string in current buffer", nowait = true, remap = false, },
-
+            { "<leader>fs", ":Telescope lsp_document_symbols<cr>", desc = "Find workspace symbols", nowait = true, remap = false, },
+            { "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "File [B]rowser", nowait = true, remap = false, },
+			{ "<leader>/", ":Telescope current_buffer_fuzzy_find<CR>", desc="Search current buffer", nowait = true, remap = false, },
             { "<leader><leader>", ":Telescope smart_open<cr>", desc = "Smart open", nowait = true, remap = false },
 
             -- Git
