@@ -76,5 +76,5 @@ shift + cmd - w : yabai -m window --resize top:0:20
 shift + cmd - d : yabai -m window --resize right:-20:0
 
 # restart yabai and skhd
-ctrl + alt - r : yabai --restart-service && skhd --restart-service
+ctrl + alt - r : yabai --restart-service && skhd --restart-service && brew services restart borders
 
