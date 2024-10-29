@@ -1,22 +1,24 @@
 #!/usr/bin/env bash
 
 COLOR="$SAPPHIRE"
-LABEL_COLOR="$WHITE"
 BORDER="$COMMENT"
+LABEL_COLOR="$WHITE"
+
+wifi=(
+	update_freq=10 
+	icon.color="$COLOR" 
+	icon.padding_left=10 
+	label.padding_right=10 
+	label.color="$LABEL_COLOR"
+	background.drawing=on 
+	background.height=26 
+	background.padding_right=5 
+	background.color="$BAR_COLOR"
+	background.border_color="$BORDER"
+	background.border_width="$BORDER_WIDTH"
+	background.corner_radius="$CORNER_RADIUS"
+	script="$PLUGIN_DIR/wifi.sh"
+)
 
 sketchybar --add item wifi right \
-	--set wifi \
-	update_freq=10 \
-	icon.color="$COLOR" \
-	icon.padding_left=10 \
-	label.color="$LABEL_COLOR" \
-	label.padding_right=10 \
-	background.height=26 \
-	background.corner_radius="$CORNER_RADIUS" \
-	background.padding_right=5 \
-	background.border_width="$BORDER_WIDTH" \
-	background.border_color="$BORDER" \
-	background.color="$BAR_COLOR" \
-	background.drawing=on \
-	script="$PLUGIN_DIR/wifi.sh"
-
+		--set wifi "${wifi[@]}"  \

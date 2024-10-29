@@ -1,44 +1,58 @@
 #!/usr/bin/env bash
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+spacer1=(
+	width=10
+	icon.drawing=off 
+	label.drawing=off 
+	background.drawing=off 
+)
 
 sketchybar --add item spacer.1 left \
-	--set spacer.1 background.drawing=off \
-	label.drawing=off \
-	icon.drawing=off \
-	width=10
+	--set spacer.1 "${spacer1[@]}"  \
 
 for i in {0..9}; do
 	sid=$((i + 1))
-	sketchybar --add space space.$sid left \
+	sketchybar --add space space.$sid left     \
 		--set space.$sid associated_space=$sid \
-		label.drawing=off \
-		icon.padding_left=10 \
-		icon.padding_right=10 \
-		background.padding_left=-5 \
-		background.padding_right=-5 \
+		label.drawing=off                      \
+		icon.padding_left=10                   \
+		icon.padding_right=10                  \
+		background.padding_left=-5             \
+		background.padding_right=-5            \
 		script="$PLUGIN_DIR/space.sh"
 done
 
-sketchybar --add item spacer.2 left \
-	--set spacer.2 background.drawing=off \
-	label.drawing=off \
-	icon.drawing=off \
+spacer2=(
 	width=5
+	icon.drawing=off
+	label.drawing=off
+	background.drawing=off
+)
+
+sketchybar --add item spacer.2 left \
+	--set spacer.2 "${spacer2[@]}"  \
+
+spaces=(
+	background.height=26 
+	background.drawing=on
+	background.color="$BAR_COLOR" 
+	background.border_color="$COMMENT" 
+	background.border_width="$BORDER_WIDTH" 
+	background.corner_radius="$CORNER_RADIUS" 
+)
 
 sketchybar --add bracket spaces '/space.*/' \
-	--set spaces background.border_width="$BORDER_WIDTH" \
-	background.border_color="$COMMENT" \
-	background.corner_radius="$CORNER_RADIUS" \
-	background.color="$BAR_COLOR" \
-	background.height=26 \
-	background.drawing=on
+	--set spaces "${spaces[@]}"             \
 
-sketchybar --add item separator left \
-	--set separator icon= \
-	icon.font="$FONT:Regular:16.0" \
-	background.padding_left=26 \
-	background.padding_right=15 \
-	label.drawing=off \
-	associated_display=active \
+separator=(
+    icon=
 	icon.color="$COMMENT"
+	icon.font="$FONT:Regular:16.0" 
+	label.drawing=off 
+	background.padding_left=26 
+	background.padding_right=15 
+	associated_display=active 
+)
+
+sketchybar --add item separator left            \
+	--set separator separator "${separator[@]}" \

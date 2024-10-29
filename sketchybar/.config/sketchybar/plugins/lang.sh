@@ -18,4 +18,6 @@ case $INPUT_SOURCE in
     ;;
 esac
 
-sketchybar --set "$NAME" icon="" label="$INPUT_SOURCE"
+sketchybar --set "$NAME"         \
+            icon=""             \
+            label="$INPUT_SOURCE"

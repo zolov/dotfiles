@@ -8,12 +8,12 @@ SPACE_CLICK_SCRIPT="yabai -m space --focus $SID 2>/dev/null"
 
 if [ "$SELECTED" = "true" ]; then
 	sketchybar --animate tanh 5 --set "$NAME" \
-		icon.color="$WHITE" \
-		icon="${SPACE_ICONS[$SID - 1]}" \
+		icon.color="$WHITE"                   \
+		icon="${SPACE_ICONS[$SID - 1]}"       \
 		click_script="$SPACE_CLICK_SCRIPT"
 else
 	sketchybar --animate tanh 5 --set "$NAME" \
-		icon.color="$COMMENT" \
-		icon="${SPACE_ICONS[$SID - 1]}" \
+		icon.color="$COMMENT"                 \
+		icon="${SPACE_ICONS[$SID - 1]}"       \
 		click_script="$SPACE_CLICK_SCRIPT"
 fi

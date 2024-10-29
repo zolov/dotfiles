@@ -15,6 +15,6 @@ else
 	esac
 fi
 
-sketchybar -m \
-	--set "$NAME" icon=$ICON \
+sketchybar -m                      \
+	--set "$NAME" icon=$ICON       \
 	--set "$NAME" label="$VOLUME%"
