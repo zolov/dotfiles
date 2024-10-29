@@ -90,6 +90,8 @@ return {
             { "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "Telescope file browser", nowait = true, remap = false, },
 			{ "<leader>ft", ":Telescope current_buffer_fuzzy_find<CR>", desc="Telescope find string in current buffer", nowait = true, remap = false, },
 
+            { "<leader><leader>", ":Telescope smart_open<cr>", desc = "Smart open", nowait = true, remap = false },
+
             -- Git
             { "<leader>g", group = "Git", nowait = true, remap = false },
             { "<leader>gR", ":lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset Buffer", nowait = true, remap = false, },
