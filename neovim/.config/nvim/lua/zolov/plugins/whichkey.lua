@@ -41,7 +41,7 @@ return {
             },
             show_help = false, -- show help message on the command line when the popup is visible
         })
-        local springboot = require("springboot-nvim")
+
         --stylua: ignore
         which_key.add({
 
