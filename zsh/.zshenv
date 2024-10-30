@@ -1,3 +1,6 @@
+
+export TODO="$HOME/Dropbox/Zettelkasten/Notes/TODO.md"
+
 if [[ $(uname) == "Darwin" ]]; then
     . "$HOME/.cargo/env"
     export PATH="$PATH:/Library/Developer/CommandLineTools/usr/bin/sourcekit-lsp"

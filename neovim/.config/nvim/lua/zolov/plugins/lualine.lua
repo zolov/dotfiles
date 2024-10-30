@@ -59,7 +59,7 @@ return {
                 lualine_x = { "diagnostics", "filetype" },
                 lualine_y = { "progress" },
                 lualine_z = {
-                    { "location", separator = { right = "", left = "" }, left_padding = 2 },
+                    { "location", separator = { left = "", right = "" }, left_padding = 2 },
                 },
             },
             extensions = { "nvim-tree", "fzf" },
