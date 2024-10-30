@@ -9,6 +9,7 @@ alias o="open ."
 alias zshrc="nvim $HOME/.zshrc"
 alias tmuxrc="nvim $HOME/.tmux.conf"
 alias aliases="nvim $HOME/.config/zsh/extensions/aliases.zsh "
+alias oo="cd ~/Dropbox/Vaults/ && nf"
 
 alias g="git"
 alias qq="yazi"
@@ -42,11 +43,11 @@ alias ld="lazydocker"
 alias yabaiupd="brew services stop yabai && brew upgrade yabai && brew services start yabai"
 alias mvnd="mvn -gs "$HOME/Dropbox/Projects/settings.xml" -T 2C"
 
-cx() {
-    cd "$@" && l;
+function cx() {
+    cd "$@" && ls;
 }
-f() {
-    cd "$(find . -type d -not -path '*/.*' | fzf)" && l;
+function f() {
+    cd "$(find . -type d -not -path '*/.*' | fzf)";
 }
 
 # ------------------------------------
@@ -77,7 +78,7 @@ function take {
     cd $1
 }
 
-note() {
+function note() {
     echo "date: $(date)" >> $HOME/drafts.md
     echo "- [ ] $@" >> $HOME/drafts.md
     echo "" >> $HOME/drafts.md
@@ -122,28 +123,6 @@ function nvimGoToLine {
         line=$(echo $selection | awk -F ':' '{print $2}')
         nvim $(printf "+%s %s" $line $filename) +"normal zz";
     fi
-}
-
-function nv() {
-   if [[ -z "$@" ]]; then
-     CWD=${PWD:t}
-	 SESSION_PATH=$HOME/.local/share/nvim/sessions/${CWD}/
-     SESSION_FILE="Session.vim"
-     GIT_BRANCH=""
-     if [[ -d ".git" ]]; then
-         GIT_BRANCH=$(git branch --show-current)
-         GIT_BRANCH=${GIT_BRANCH//\//-} # replace '/' with '-' in branch name for dir purposes
-         mkdir -p ${SESSION_PATH} # make session path if not exists
-         SESSION_FILE="${SESSION_PATH}Session-${GIT_BRANCH}.vim"
-     fi
-     if [[ -f "$SESSION_FILE" ]]; then
-         nvim -S "$SESSION_FILE" -c "lua vim.g.savesession = true ; vim.g.sessionfile = \"${SESSION_FILE}\""
-     else
-         nvim -c "lua vim.g.savesession = true ; vim.g.sessionfile = \"${SESSION_FILE}\""
-     fi
-   else
-     nvim "$@"
-   fi
 }
 
 function focusRight() {

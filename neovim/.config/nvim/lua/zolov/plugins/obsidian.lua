@@ -38,21 +38,21 @@ return {
         workspaces = {
             {
                 name = "Zettelkasten",
-                path = "~/Dropbox/Zettelkasten",
+                path = "~/Dropbox/Vaults/Zettelkasten",
                 overrides = {
                     notes_subdir = "notes",
                 },
             },
             {
                 name = "Work",
-                path = "~/Dropbox/work-vault/",
+                path = "~/Dropbox/Vaults/work-vault/",
                 overrides = {
                     notes_subdir = "notes",
                 },
             },
             {
                 name = "OLDNOTES",
-                path = "~/Dropbox/NOTES",
+                path = "~/Dropbox/Vaults/NOTES",
                 overrides = {
                     notes_subdir = "notes",
                 },

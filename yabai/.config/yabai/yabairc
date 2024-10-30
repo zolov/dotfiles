@@ -1,5 +1,5 @@
 # bsp, stack, float
-yabai -m config layout bsp
+yabai -m config layout bsp 
 
 yabai -m config window_placement second_child
 
@@ -22,18 +22,18 @@ yabai -m config mouse_action2 resize
 yabai -m mouse_drop_action swap
 
 # Enable
-# yabai -m rule --add app!="^(Safari|Finder|Notes)$" manage=off 
+yabai -m rule --add app!="^(Safari|Finder|Notes|Citrix|Cisco)$" manage=off 
 
 # Disable
-yabai -m rule --add="^qView" manage=off
-yabai -m rule --add="^intellij" manage=off
-yabai -m rule --add="^goland" manage=off
-yabai -m rule --add="^com.spotify.client" manage=off
-yabai -m rule --add="^com.apple.finder" manage=off
-yabai -m rule --add="^com.cisco.anyconnect.gui" manage=off
-yabai -m rule --add="^com.apple.systemprefences" manage=off
-yabai -m rule --add="^Calculator" manage=off
-yabai -m rule --add="^Karabiner-Elements" manage=off
-yabai -m rule --add="^WezTerm$" space=^1
+# yabai -m rule --add="^qView" manage=off
+# yabai -m rule --add="^intellij" manage=off
+# yabai -m rule --add="^goland" manage=off
+# yabai -m rule --add="^com.spotify.client" manage=off
+# yabai -m rule --add="^com.apple.finder" manage=off
+# yabai -m rule --add="^com.cisco.anyconnect.gui" manage=off
+# yabai -m rule --add="^com.apple.systemprefences" manage=off
+# yabai -m rule --add="^Calculator" manage=off
+# yabai -m rule --add="^Karabiner-Elements" manage=off
+# yabai -m rule --add="^WezTerm$" space=^1
 
-yabai -m config external_bar all:25:0
+yabai -m config external_bar all:30:0
