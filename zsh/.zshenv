@@ -1,5 +1,5 @@
 
-export TODO="$HOME/Dropbox/Zettelkasten/Notes/TODO.md"
+export TODO="$HOME/Dropbox/Vaults/Zettelkasten/Notes/TODO.md"
 
 if [[ $(uname) == "Darwin" ]]; then
     . "$HOME/.cargo/env"
@@ -12,9 +12,12 @@ else
     export PATH="$PATH:$HOME/.local/bin"
 fi
 
-export GOPATH="$(brew --prefix golang)"
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+export GOPATH=$(asdf where golang)/packages
+export GOROOT=$(asdf where golang)/go
+# export GOPATH="$(brew --prefix golang)"
+# export GOROOT="$(brew --prefix golang)/libexec"
+export PATH=$PATH:$(go env GOPATH)/bin
 
 export HOMEBREW_AUTO_UPDATE_SECS=604800
+
+

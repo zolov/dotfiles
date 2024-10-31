@@ -8,10 +8,10 @@ INPUT_SOURCE=$(get_input_lang)
 
 case $INPUT_SOURCE in
   ABC)
-    INPUT_SOURCE="EN‣"
+    INPUT_SOURCE="En‣"
     ;;
   RussianWin)
-    INPUT_SOURCE="RU‣"
+    INPUT_SOURCE="Ru‣"
     ;;
   *)
     INPUT_SOURCE="unknown"
