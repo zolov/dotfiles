@@ -10,7 +10,7 @@ spotify=(
 	icon.color="$COLOR" 
 	icon.padding_left=10 
     label.color="$WHITE"
-	label.max_chars=23 
+	label.max_chars=25 
 	label.padding_right=10 
 	associated_display=active 
 	background.drawing=on 
@@ -23,6 +23,6 @@ spotify=(
 	script="$PLUGIN_DIR/spotify.sh" 
 )
 
-sketchybar --add item spotify q      \
+sketchybar --add item spotify left   \
 	--set spotify "${spotify[@]}"    \
 	--subscribe spotify media_change
