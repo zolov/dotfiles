@@ -6,13 +6,6 @@ export PATH="$PATH:/Users/ivzolov/Library/Application Support/JetBrains/Toolbox/
 
 export GPG_TTY=$(tty)
 
-# FZF configurations
-export FZF_DEFAULT_OPTS='--prompt="🔭 " --height 50% --layout=reverse --border'
-export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="rg --hidden --sort-files --files --null 2> /dev/null | xargs -0 dirname | uniq"
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/" --glob "!node_modules/" --glob "!vendor/" --glob "!undo/" --glob "!plugged/"'
-
 # bg+:#313244,bg:#1e1e2e,
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,spinner:#99e5a2,hl:#f38ba8 \
@@ -25,6 +18,12 @@ export FZF_DEFAULT_OPTS=" \
 --prompt=' '
 --height=95%
 "
+# FZF configurations
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="rg --hidden --sort-files --files --null 2> /dev/null | xargs -0 dirname | uniq"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/" --glob "!node_modules/" --glob "!vendor/" --glob "!undo/" --glob "!plugged/"'
+
 export EZA_COLORS="$(vivid generate catppuccin-mocha)"
 
 export BAT_THEME="Catppuccin Mocha"
