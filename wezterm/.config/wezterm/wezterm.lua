@@ -63,6 +63,11 @@ config.keys = {
 		mods = "CTRL|OPT",
 		action = wezterm.action.ActivateCommandPalette,
 	},
+    { -- open t - tmux smart session manager instead of <leader>(ctrl+a)+t
+        key = 'j',
+        mods = 'CMD',
+        action = wezterm.action.SendString '\x01\x74'
+    },
 }
 
 local function get_appearance()
