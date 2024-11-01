@@ -148,8 +148,9 @@ truncation_symbol = "…/"
 "Projects" = "󰲋 "
 "Dev" = "󰲋 "
 "dotfiles" = " "
-"Dropbox/Vaults" = "󰠮 "
-"Dropbox" = " "
+"~/Dropbox/Vaults" = "󰠮 "
+"~/Dropbox" = " "
+"~" = " " 
 
 [git_branch]
 symbol = ""
