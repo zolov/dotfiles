@@ -7,6 +7,7 @@
 alias s="source $HOME/.zshrc"
 alias o="open ."
 alias zshrc="nvim $HOME/.zshrc"
+alias envs="nvim $HOME/.zshenv"
 alias tmuxrc="nvim $HOME/.tmux.conf"
 alias aliases="nvim $HOME/.config/zsh/extensions/aliases.zsh "
 alias oo="cd ~/Dropbox/Vaults/ && nf"
