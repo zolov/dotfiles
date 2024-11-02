@@ -141,12 +141,12 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Projects" = "󰲋 "
-"Dev" = "󰲋 "
+"~/Documents" = "󰈙 "
+"~/Downloads" = " "
+"~/Music" = "󰝚 "
+"~/Pictures" = " "
+"~/Projects" = "󰲋 "
+"~/Dev" = "󰲋 "
 "dotfiles" = " "
 "~/Dropbox/Vaults" = "󰠮 "
 "~/Dropbox" = " "
