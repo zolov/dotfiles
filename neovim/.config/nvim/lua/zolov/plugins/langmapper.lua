@@ -54,7 +54,7 @@ end
 
 local function langmapper_automapping_on_start()
     vim.api.nvim_create_autocmd("User", {
-        pattern = "LazyVimStarted",
+        pattern = "VimEnter",
         callback = function()
             require("langmapper").automapping()
         end,
@@ -72,7 +72,7 @@ return {
 
             layouts = {
                 ru = {
-                    id = "com.apple.keylayout.Russian",
+                    id = "com.apple.keylayout.RussianWin",
                     layout = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯБЮЖЭХЪËфисвуапршолдьтщзйкыегмцчнябюжэхъё",
                 },
             },
@@ -81,6 +81,8 @@ return {
         config = function(_, opts)
             local lm = require("langmapper")
 
+            langmapper_automapping_on_start()
+            langmap_set()
             lm.setup(opts)
             lm.hack_get_keymap()
         end,

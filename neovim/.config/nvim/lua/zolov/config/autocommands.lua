@@ -24,7 +24,7 @@ autocmd("User", {
     end,
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter", "DiagnosticChanged" }, {
+autocmd({ "BufEnter", "DiagnosticChanged" }, {
     group = augroup("diagnostics"),
     callback = function()
         vim.diagnostic.setloclist({ open = false })
@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "DiagnosticChanged" }, {
 })
 
 -- Toggle relative line numbers on focus change
-vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
+autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
     group = augroup("init"),
     pattern = "*",
     callback = function()
@@ -107,7 +107,7 @@ autocmd("FileType", {
 })
 
 -- Close NvimTree
-vim.api.nvim_create_autocmd("BufEnter", {
+autocmd("BufEnter", {
     group = vim.api.nvim_create_augroup("NvimTreeClose", { clear = true }),
     pattern = "NvimTree_*",
     callback = function()
@@ -123,7 +123,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 -- JDTLS
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
+    group = general,
     pattern = { "*.java" },
     callback = function()
         require("zolov.config.jdtls").setup_config()
@@ -131,7 +132,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
     group = augroup("checktime"),
     callback = function()
         if vim.o.buftype ~= "nofile" then
@@ -141,7 +142,8 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 })
 
 -- this function will update session on pre-leave
-vim.api.nvim_create_autocmd("VimLeavePre", {
+autocmd("VimLeavePre", {
+    group = general,
     pattern = "*",
     callback = function()
         if vim.g.savesession then
@@ -161,7 +163,8 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 --     end,
 -- })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
+autocmd({ "FileType" }, {
+    group = general,
     pattern = {
         "qf",
         "help",
@@ -198,7 +201,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- Fix conceallevel for json files
-vim.api.nvim_create_autocmd({ "FileType" }, {
+autocmd({ "FileType" }, {
     group = augroup("json_conceal"),
     pattern = { "json", "jsonc", "json5" },
     callback = function()
@@ -207,7 +210,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+autocmd({ "BufWritePre" }, {
     group = augroup("auto_create_dir"),
     callback = function(event)
         if event.match:match("^%w%w+:[\\/][\\/]") then
@@ -228,6 +231,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 -- })
 
 autocmd("BufWritePre", {
+    group = general,
     pattern = "*.go",
     callback = function()
         local params = vim.lsp.util.make_range_params()
@@ -250,7 +254,8 @@ autocmd("BufWritePre", {
     end,
 })
 
-vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+autocmd("QuickFixCmdPost", {
+    group = general,
     callback = function()
         vim.cmd([[Trouble qflist open]])
     end,

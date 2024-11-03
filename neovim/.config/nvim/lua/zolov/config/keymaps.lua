@@ -82,7 +82,7 @@ local keymaps = {
     visual_mode = {
         -- Line movement
         ["H"] = "^",
-        ["L"] = "$",
+        ["L"] = "$h",
         -- Better Paste
         ["p"] = '"_dP',
         -- exit other modes

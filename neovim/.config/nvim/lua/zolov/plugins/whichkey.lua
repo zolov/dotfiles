@@ -72,9 +72,10 @@ return {
             { "<leader>?", ":Telescope keymaps<cr>", desc = "Find [K]eymaps", nowait = true, remap = false },
             { "<leader>uq", ":qa!<cr>", desc = "Force [Q]uit", nowait = true, remap = false },
 
-            -- Refactor
-            { "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", mode = { "n", "x" }, nowait = true, remap = false, },
-            { "<leader>rn", ":Lspsaga rename<CR>", desc = "[R]ename", silent = true, nowait = true, remap = false, },
+            -- Refactorings
+            {"<leader>r", group = "Refactor",nowait = true, remap = false, },
+            { "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", desc = "[R]efactorings",mode = { "n", "x" }, nowait = true, remap = false, },
+            { "<leader>rn", ":Lspsaga rename<CR>", desc = "Re[N]ame", silent = true, nowait = true, remap = false, },
 
             -- Bookmarks
             { "<leader>b", group = "Bookmarks", nowait = true, remap = false },
@@ -150,7 +151,7 @@ return {
             { "<leader>lS", ":Telescope lsp_workspace_symbols<cr>", desc = "Workspace Symbols", nowait = true, remap = false, },
             { "<leader>la", ":lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", nowait = true, remap = false },
             { "<leader>ld", ":Telescope diagnostics<cr>", desc = "Workspace Diagnostics", nowait = true, remap = false, },
-            { "<leader>lf", ":lua require('conform').format()<cr>", desc = "Format", nowait = true, remap = false },
+            { "<leader>lf", "<cmd>lua require('conform').format()<cr>", desc = "Format", nowait = true, remap = false },
             { "<leader>li", ":LspInfo<cr>", desc = "Info", nowait = true, remap = false },
             { "<leader>lm", ":Mason<cr>", desc = "Mason Installer", nowait = true, remap = false },
             { "<leader>lq", ":Telescope quickfix<cr>", desc = "Quickfix List", nowait = true, remap = false },

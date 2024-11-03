@@ -5,7 +5,7 @@ local options = {
     -- use xclip in X and wl-copy/wl-paste in wayland
     clipboard = "unnamedplus", -- allows neovim to access the system clipboard
     -- completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-    conceallevel = 1,
+    conceallevel = 0,
     fileencoding = "utf-8", -- the encoding written to a file
     ignorecase = true, -- ignore case in search patterns
     -- guicursor = "i-r:block-Cursor",

@@ -78,6 +78,7 @@ function M.config()
             "impl",
             "delve",
             "clang-format",
+            "ltex-ls"
         },
 
         -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39
