@@ -69,11 +69,12 @@ local keymaps = {
         [">"] = ">>",
         ["<C-q>"] = "<cmd> q <CR>",
         ["<C-s>"] = "<cmd> w <CR>",
-        ["<Leader>sn"] = "<cmd> noautocmd w <CR>",
+        -- ["<Leader>sn"] = "<cmd> noautocmd w <CR>",
         ["x"] = '"_x',
     },
     insert_mode = {
         -- exit other mode
+        ["<C-s>"] = "<Esc> <cmd> w <CR>",
         ["jk"] = "<Esc>",
         ["jj"] = "<Esc>",
     },
