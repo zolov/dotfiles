@@ -43,11 +43,9 @@ else
     export PATH="$PATH:$HOME/.local/bin"
 fi
 
-export GOPATH=$(asdf where golang)/packages
-export GOROOT=$(asdf where golang)/go
-# export GOPATH="$(brew --prefix golang)"
-# export GOROOT="$(brew --prefix golang)/libexec"
-export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH="$(asdf where golang)/packages"
+export GOROOT="$(asdf where golang)/go"
+export PATH="$PATH:$GOROOT/bin"
 
 export HOMEBREW_AUTO_UPDATE_SECS=604800
 
