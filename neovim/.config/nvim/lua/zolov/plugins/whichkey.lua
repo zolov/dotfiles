@@ -71,6 +71,7 @@ return {
             { "<leader>uh", ":Telescope help_tags<cr>", desc = "Find [H]elp Tags", silent = true, nowait = true, remap = false },
             { "<leader>?", ":Telescope keymaps<cr>", desc = "Find [K]eymaps", nowait = true, remap = false },
             { "<leader>uq", ":qa!<cr>", desc = "Force [Q]uit", nowait = true, remap = false },
+            { "<leader>ux", ":!chmod +x %<CR>", desc = "Make file e[X]ecutable", silent = true },
 
             -- Refactorings
             {"<leader>r", group = "Refactor",nowait = true, remap = false, },
