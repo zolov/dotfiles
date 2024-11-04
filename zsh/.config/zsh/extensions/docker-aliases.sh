@@ -37,12 +37,3 @@
  allalias() { alias | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
 # Bash into running container
  dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
-
-function k9logs() {
-    GREP=(`k9s info | grep Logs`)
-    logPath=`echo ${GREP[2]} | sed -e $'s#\033\[[;0-9]*m##g' | tr -d '[:cntrl:]' | cat`
-
-    # cp $logPath ~/Downloads/k9s-log.log
-    cp $logPath .
- }
-
