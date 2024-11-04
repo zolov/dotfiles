@@ -25,24 +25,25 @@ precmd() {
 
 # PLUGINS
 plugins=(
-fzf-tab
-vi-mode
-# sudo
-git
-git-flow
-gitignore
-# kubectl
-# docker
-# docker-compose
-zsh-autosuggestions
-zsh-syntax-highlighting
-fast-syntax-highlighting
-fasd
-brew
-macos
-common-aliases
-vscode
-fzf
+	asdf
+	fzf-tab
+	vi-mode
+	# sudo
+	git
+	git-flow
+	gitignore
+	# kubectl
+	# docker
+	# docker-compose
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+	fast-syntax-highlighting
+	fasd
+	brew
+	macos
+	common-aliases
+	vscode
+	fzf
 )
 
 bindkey -M viins 'jj' vi-cmd-mode
