@@ -27,7 +27,8 @@ precmd() {
 plugins=(
 	asdf
 	fzf-tab
-	vi-mode
+	zsh-vi-mode
+	# vi-mode
 	# sudo
 	git
 	git-flow
