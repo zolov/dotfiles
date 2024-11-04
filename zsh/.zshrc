@@ -17,25 +17,17 @@ autoload -Uz compinit && compinit
 
 export ZSH="$HOME/.oh-my-zsh"
 
-# ZSH_THEME="spaceship"
-
 precmd() {
     source ~/.config/zsh/extensions/aliases.zsh
 }
 
-# PLUGINS
 plugins=(
 	asdf
 	fzf-tab
 	zsh-vi-mode
-	# vi-mode
-	# sudo
 	git
 	git-flow
 	gitignore
-	# kubectl
-	# docker
-	# docker-compose
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	fast-syntax-highlighting
