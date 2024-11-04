@@ -44,14 +44,15 @@ return {
         dashboard.section.header.val = vim.split(logo, "\n")
         -- Set menu
         dashboard.section.buttons.val = {
-            dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-            dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-            dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-            dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-            dashboard.button("s", " " .. " Restore last session", ":SessionLoadLast<CR>"),
-            dashboard.button("c", " " .. " Configuration", ":e $MYVIMRC | :cd %:p:h <CR>"), -- | split . | wincmd k |            dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
+            dashboard.button("nn", " " .. " New note", ":ObsidianNew<CR>"),
+            dashboard.button("nf", " " .. " Notes", ":ObsidianSearch<CR>"), -- :ene <BAR> startinsert <CR>
+            dashboard.button("ff", " " .. " Find file", ":Telescope find_files <CR>"),
+            dashboard.button("fr", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+            dashboard.button("fg", " " .. " Find text", ":Telescope live_grep <CR>"),
+            dashboard.button("pr", " " .. " Restore session", ":SessionLoadLast<CR>"),
+            dashboard.button("c", " " .. " Configuration", ":e $MYVIMRC | :cd %:p:h <CR> | :NvimTreeToggle<CR>"), -- | split . | wincmd k |            
+            dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
             dashboard.button("q", " " .. " Quit", ":qa<CR>"),
-            --     dashboard.button("S", " " .. "Restore Session", '<cmd>lua require("persistence").load()<cr>'),
         }
 
         dashboard.section.header.opts.hl = "AlphaHeader"
@@ -76,7 +77,7 @@ return {
             callback = function()
                 local stats = require("lazy").stats()
                 local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-                dashboard.section.footer.val = "⚡Loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+                dashboard.section.footer.val = "󰅒 Loaded " .. stats.count .. " plugins in " .. ms .. "ms"
                 pcall(vim.cmd.AlphaRedraw)
             end,
         })

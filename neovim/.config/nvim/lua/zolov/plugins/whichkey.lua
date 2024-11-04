@@ -83,13 +83,14 @@ return {
             { "<leader>ba", ":lua require('bookmarks').add_bookmarks(false)<CR>", desc = "Add bookmark", silent = true, nowait = true, remap = false, },
             { "<leader>bd", ":lua require('bookmarks.list').delete_on_virt()<CR>", desc = "Delete bookmark", silent = true, nowait = true, remap = false, },
 
-			-- Projects
+			-- Projects and Sessions
             { "<leader>p", group = "Projects and Sessions", nowait = true, remap = false },
             { "<leader>po", ":Telescope projects<CR>", silent = true, nowait = true, remap = false },
-            { "<leader>ps", ":SessionSave<CR>", desc = "Save session", nowait = true, remap = false, },
-            { "<leader>pl", ":SessionLoad<CR>", desc = "Load session", nowait = true, remap = false, },
-            { "<leader>pd", ":SessionDelete<CR>", desc = "Delete session", nowait = true, remap = false, },
-            { "<leader>pp", ":Telescope persisted<CR>", desc = "Select session", nowait = true, remap = false, },
+            { "<leader>ps", ":SessionSave<CR>", desc = "[S]ave session", nowait = true, remap = false, },
+            { "<leader>pl", ":SessionLoad<CR>", desc = "[L]oad session", nowait = true, remap = false, },
+            { "<leader>pl", ":SessionLoadLast<CR>", desc = "[R]estore last session", nowait = true, remap = false, },
+            { "<leader>pd", ":SessionDelete<CR>", desc = "[D]elete session", nowait = true, remap = false, },
+            { "<leader>pp", ":Telescope persisted<CR>", desc = "Select [P]ersisted session", nowait = true, remap = false, },
 
             -- Buffers
             { "<leader>o", ":Telescope buffers<cr>", desc = "Find Buffers", nowait = true, remap = false },
@@ -168,8 +169,8 @@ return {
             {"<leader>n", group = "Notes", nowait = true, remap = false},
             {"<leader>nt", ":Markview toggle<cr>", desc = "[T]oggle Markview Rendering", nowait = true, remap = false},
             {"<leader>nn", ":ObsidianNew<cr>", desc = "Create [N]ew Note", nowait = true, remap = false},
-            {"<leader>nf", ":ObsidianFollowLink<cr>", desc = "Follow [L]ink", nowait = true, remap = false},
-            -- {"<leader>nl", ":ObsidianFollowLink<cr>", desc = "Follow [L]ink", nowait = true, remap = false},
+            {"<leader>nf", ":ObsidianSearch<cr>", desc = "Search [F]or Note", nowait = true, remap = false},
+            {"<leader>nl", ":ObsidianFollowLink<cr>", desc = "Follow [L]ink", nowait = true, remap = false},
 
             {"<leader>np", group = "Notes preview", nowait = true, remap = false},
             {"<leader>npp", ":MarkdownPreview<cr>", desc = "Open Markdown [P]review", nowait = true, remap = false},
