@@ -71,6 +71,10 @@ local keymaps = {
         ["<C-s>"] = "<cmd> w <CR>",
         -- ["<Leader>sn"] = "<cmd> noautocmd w <CR>",
         ["x"] = '"_x',
+
+        -- todo comments
+        ["]t"] = ":lua require('todo-comments').jump_next()<CR>",
+        ["[t"] = ":lua require('todo-comments').jump_prev()<CR>",
     },
     insert_mode = {
         -- exit other mode
