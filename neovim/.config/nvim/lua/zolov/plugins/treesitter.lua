@@ -41,6 +41,17 @@ return {
                 },
             },
             textobjects = {
+                swap = {
+                    enable = true,
+                    swap_next = {
+                        ["<leader>rspn"] = "@parameter.inner",
+                        ["<leader>rsfn"] = "@function.outer",
+                    },
+                    swap_previous = {
+                        ["<leader>rspp"] = "@parameter.inner",
+                        ["<leader>rsfp"] = "@function.outer",
+                    },
+                },
                 select = {
                     enable = true,
                     lookahead = true,
@@ -58,7 +69,6 @@ return {
 
                         ["ac"] = { "@class.outer", desc = "Select outer part of a class" },
                         ["ic"] = { "@class.inner", desc = "Select inner part of a class" },
-
 
                         ["ai"] = { "@conditional.outer", desc = "Select outer part of a conditional" },
                         ["ii"] = { "@conditional.inner", desc = "Select inner part of a conditional" },
