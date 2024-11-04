@@ -77,12 +77,6 @@ return {
             { "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", desc = "[R]efactorings",mode = { "n", "x" }, nowait = true, remap = false },
             { "<leader>rn", ":Lspsaga rename<CR>", desc = "Re[N]ame", silent = true, nowait = true, remap = false },
 
-            -- Bookmarks
-            { "<leader>b", group = "Bookmarks", nowait = true, remap = false },
-            { "<leader>bp", ":Telescope bookmarks<CR>", desc = "Bookmarks list", silent = true, nowait = true, remap = false },
-            { "<leader>ba", ":lua require('bookmarks').add_bookmarks(false)<CR>", desc = "Add bookmark", silent = true, nowait = true, remap = false },
-            { "<leader>bd", ":lua require('bookmarks.list').delete_on_virt()<CR>", desc = "Delete bookmark", silent = true, nowait = true, remap = false },
-
 			-- Projects and Sessions
             { "<leader>p", group = "Projects and Sessions", nowait = true, remap = false },
             { "<leader>po", ":Telescope projects<CR>", silent = true, nowait = true, remap = false },
