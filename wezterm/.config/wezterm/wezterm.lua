@@ -11,7 +11,7 @@ config.font = wezterm.font_with_fallback({
 })
 
 config.hide_tab_bar_if_only_one_tab = true
-config.window_decorations = "RESIZE"
+config.window_decorations = "RESIZE|MACOS_FORCE_ENABLE_SHADOW"
 
 config.window_background_opacity = 0.80
 config.macos_window_background_blur = 35
