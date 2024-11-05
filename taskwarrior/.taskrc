@@ -1,5 +1,5 @@
 # [Created by task 3.1.0 11/4/2024 21:58:46]
-data.location=/Users/skaiur/.task
+data.location=$HOME/Dropbox/task
 news.version=3.1.0
 
 # To use the default location of the XDG directories,
@@ -25,3 +25,7 @@ news.version=3.1.0
 #include no-color.theme
 include ~/.task/themes/catppuccin.theme
 
+context.home.read=+config +research +study
+context.home.write=+config +research +study
+context.work.read=+develop +arch +docs +meet
+context.work.write=+develop +arch +docs +meet
