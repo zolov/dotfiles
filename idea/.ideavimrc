@@ -330,8 +330,8 @@ map <leader>vh <action>(Vcs.ShowTabbedFileHistory)
 let g:WhichKeyDesc_diagnostics_next = "[e Go to next error"
 let g:WhichKeyDesc_diagnostics_prev = "]e Go to previous error"
 
-map [e <action>(GotoNextError)
-map ]e <action>(GotoPreviousError)
+map [d <action>(GotoNextError)
+map ]d <action>(GotoPreviousError)
 
 " Method
 "" ========================================================
@@ -362,6 +362,9 @@ map <leader>tm <action>(Bookmarks)
 map <leader>po <action>($LRU)
 map <leader>pp <action>(PreviousProjectWindow)
 map <leader>pn <action>(NextProjectWindow)
+
+" Lsp
+map <leader>lh <action>(ToggleInlayHintsGloballyAction)
 
 " Harpoon Prime
 "" ========================================================

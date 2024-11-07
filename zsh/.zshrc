@@ -25,6 +25,7 @@ plugins=(
 	asdf
 	fzf-tab
 	zsh-vi-mode
+	thefuck
 	git
 	git-flow
 	gitignore
@@ -39,9 +40,6 @@ plugins=(
 	fzf
 )
 
-bindkey -M viins 'jj' vi-cmd-mode
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
-
 ZSH_DISABLE_COMPFIX="true"
 
 source $ZSH/oh-my-zsh.sh
@@ -50,9 +48,12 @@ source $ZSH/oh-my-zsh.sh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=green,bold,underline"
 
 # Key bindings
-bindkey '^ ' autosuggest-accept
-bindkey '^y' autosuggest-accept
-bindkey '^e' autosuggest-clear
+function zvm_after_init() {
+  zvm_bindkey viins '^@' autosuggest-accept
+  zvm_bindkey viins '^y' autosuggest-accept
+  zvm_bindkey viins '^e' autosuggest-clear
+  zvm_bindkey viins 'jj' vi-cmd-mode
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
