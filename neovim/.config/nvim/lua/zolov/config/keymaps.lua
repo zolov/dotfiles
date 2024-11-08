@@ -31,24 +31,13 @@ local keymaps = {
         -- Move accross line limits
         ["H"] = "^",
         ["L"] = "$",
+
         -- Better window navigation
-        ["<Leader>wv"] = "<C-w>v",
-        ["<Leader>ws"] = "<C-w>s",
-        ["<Leader>wb"] = "<C-w>=",
-        -- ["<Leader>wx"] = ":close<CR>",
-        ["<Leader>wx"] = ":bd<CR>",
-        ["<Leader>wm"] = ":MaximizerToggle<CR>",
         ["<C-j>"] = "<C-w>j",
         ["<C-k>"] = "<C-w>k",
         ["<C-h>"] = "<C-w>h",
         ["<C-l>"] = "<C-w>l",
-        -- Move Next Window
-        -- ["<Leader>w"] = "<C-w>w",
-        -- Tabs
-        ["<Leader>to"] = ":tabnew<CR>",
-        ["<Leader>tx"] = ":tabclose<CR>",
-        ["<Leader>tn"] = ":tabn<CR>",
-        ["<Leader>tp"] = ":tabp<CR>",
+
         -- Center screen on up and down half page
         ["<C-u>"] = "<C-u>zz",
         ["<C-d>"] = "<C-d>zz",
@@ -64,6 +53,9 @@ local keymaps = {
         -- Navigate buffers
         ["<M-.>"] = ":bnext<CR>",
         ["<M-,>"] = ":bprevious<CR>",
+        ["<M-n>"] = ":bnext<CR>",
+        ["<M-p>"] = ":bprevious<CR>",
+
         -- Indent lines
         ["<"] = "<<",
         [">"] = ">>",

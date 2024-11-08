@@ -8,6 +8,15 @@ end
 -- General Settings
 local general = augroup("general")
 
+-- Inlay Hint in normal mode
+autocmd({ "LspAttach", "InsertEnter", "InsertLeave" }, {
+    callback = function(args)
+        local enabled = args.event ~= "InsertEnter"
+        vim.lsp.inlay_hint.enable(enabled, { bufnr = args.buf })
+        require("symbol-usage").toggle()
+    end,
+})
+
 -- Disable Bufferline And Lualine in Alpha
 autocmd("User", {
     pattern = "AlphaReady",

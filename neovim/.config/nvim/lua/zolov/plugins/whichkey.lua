@@ -53,7 +53,7 @@ return {
             { "<leader>wv", ":vsplit<CR>", desc = "Vsplit", nowait = true, remap = false },
             { "<leader>ws", ":split<CR>", desc = "Split", nowait = true, remap = false },
             { "<leader>wm", ":MaximizerToggle<CR>", desc = "Maximize", nowait = true, remap = false },
-            { "<leader>wx", ":bd<CR>", desc = "Close", nowait = true, remap = false },
+            { "<leader>wx", ":close<CR>", desc = "Close", nowait = true, remap = false },
             { "<leader>wb", "<C-w>=", desc = "Balance", nowait = true, remap = false },
 
             -- Tabs
@@ -174,6 +174,11 @@ return {
             -- Todo comments
             { "[t", ":lua require('todo-comments').jump_next()<CR>", desc = "Goto next todo comment", nowait = true, remap = false },
             { "]t", ":lua require('todo-comments').jump_prev()<CR>", desc = "Goto prev todo comment", nowait = true, remap = false },
+
+            -- Increment/decrement numbers
+            { "<leader>+", "<C-a>", desc = "Increment number", silent = true, remap = false },
+            { "<leader>-", "<C-x>", desc = "Decrement number", silent = true, remap = false },
+
         })
     end,
 }
