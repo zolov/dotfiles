@@ -1,18 +1,49 @@
 return {
     "ray-x/go.nvim",
+    dependencies = {
+        "ray-x/guihua.lua",
+        "neovim/nvim-lspconfig",
+        "nvim-treesitter/nvim-treesitter",
+    },
     ft = { "go", "gomod", "gosum", "gotmpl", "gohtmltmpl", "gotexttmpl" },
     opts = {
         lsp_cfg = {
             settings = {
                 gopls = {
+                    gofumpt = true,
+                    codelenses = {
+                        gc_details = false,
+                        regenerate_cgo = true,
+                        generate = true,
+                        run_govulncheck = true,
+                        test = true,
+                        tidy = true,
+                        upgrade_dependency = true,
+                        vendor = true,
+                    },
                     hints = {
                         assignVariableTypes = true,
                         compositeLiteralFields = true,
                         constantValues = true,
                         functionTypeParameters = true,
+                        compositeLiteralTypes = true,
+                        parameterNames = true,
+                        rangeVariableTypes = true,
+                    },
+                    analyses = {
+                        fieldalignment = true,
+                        nilness = true,
+                        unusedparams = true,
+                        unusedwrite = true,
+                        useany = true,
                     },
                     diagnosticsDelay = "1s",
                     diagnosticsTrigger = "Edit",
+                    usePlaceholders = true,
+                    completeUnimported = true,
+                    staticcheck = true,
+                    directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+                    semanticTokens = true,
                 },
             },
         },
