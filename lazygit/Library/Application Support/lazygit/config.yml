@@ -1,11 +1,25 @@
+notARepository: skip 
 git:
+  disableForcePushing: false
   paging:
     colorArg: always
     pager: delta --dark --paging=never
 
-# fall back theme in case terminal app not configured
 gui:
+  nerdFontsVersion: "2"
   showFileTree: true
+  spinner:
+    frames:
+      - "⠋"
+      - "⠙"
+      - "⠹"
+      - "⠸"
+      - "⠼"
+      - "⠴"
+      - "⠦"
+      - "⠧"
+      - "⠇"
+      - "⠏"
   theme:
     activeBorderColor:
     - '#fab387'
@@ -26,3 +40,7 @@ gui:
       - '#cdd6f4'
     searchingActiveBorderColor:
       - '#f9e2af'
+  authorColors:
+    'zolov': '#89b4fa'
+    'Igor Zolov': '#89dceb'
+    '*': '#b4befe'
