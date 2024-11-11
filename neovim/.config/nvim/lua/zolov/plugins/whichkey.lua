@@ -171,6 +171,9 @@ return {
             { "<leader>nps", ":MarkdownPreviewStop<cr>", desc = "[S]top Markdown Preview", nowait = true, remap = false },
             { "<leader>npt", ":MarkdownPreviewToggle<cr>", desc = "[T]oggle Markdown Preview", nowait = true, remap = false },
 
+            { "<leader>ncc", ":CodeCreate<cr>", desc = "[C]reate code block", nowait = true, remap = false },
+            { "<leader>nce", ":CodeEdit<cr>", desc = "[E]dit code block", nowait = true, remap = false },
+
             -- Todo comments
             { "[t", ":lua require('todo-comments').jump_next()<CR>", desc = "Goto next todo comment", nowait = true, remap = false },
             { "]t", ":lua require('todo-comments').jump_prev()<CR>", desc = "Goto prev todo comment", nowait = true, remap = false },
