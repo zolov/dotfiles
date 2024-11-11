@@ -47,6 +47,9 @@ source $ZSH/oh-my-zsh.sh
 # zsh-autosuggestions CONFIGURATION
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=green,bold,underline"
 
+# FZF-TAB CONFIGURATION
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+
 # Key bindings
 function zvm_after_init() {
   zvm_bindkey viins '^@' autosuggest-accept
