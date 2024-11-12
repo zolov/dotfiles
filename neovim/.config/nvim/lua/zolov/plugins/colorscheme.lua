@@ -48,6 +48,7 @@ return {
             cat.compile()
             vim.cmd.colorscheme(vim.g.colors_name)
             vim.cmd([[colorscheme catppuccin]])
+            vim.notify("transparency: " .. (cat.options.transparent_background and "ON" or "OFF"))
         end
 
 		-- stylua: ignore
