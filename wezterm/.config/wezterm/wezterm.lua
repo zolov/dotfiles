@@ -4,7 +4,6 @@ local config = wezterm.config_builder()
 config.enable_kitty_graphics = true
 config.animation_fps = 75
 
--- config.font_size = 17
 config.font = wezterm.font_with_fallback({
 	{ family = "JetBrainsMonoNL Nerd Font", scale = 1.3 },
 	{ family = "Hacker Nerd Font", scale = 1.3 },
@@ -13,8 +12,11 @@ config.font = wezterm.font_with_fallback({
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE|MACOS_FORCE_ENABLE_SHADOW"
 
-config.window_background_opacity = 0.80
-config.macos_window_background_blur = 35
+local default_opacity = 0.80
+local default_blur = 35
+
+config.window_background_opacity = default_opacity
+config.macos_window_background_blur = default_blur
 
 config.window_close_confirmation = "AlwaysPrompt"
 config.scrollback_lines = 3000
@@ -22,16 +24,6 @@ config.scrollback_lines = 3000
 config.default_prog = {
 	"/bin/zsh",
 }
--- config.default_prog = {
---     "/bin/zsh",
--- 		"--login",
--- 		"-c",
--- 		[[
--- 	   if command -v tmux >/dev/null 2>&1; then
--- 	     tmux attach || tmux new;
--- 	   fi
--- 	   ]],
--- }
 
 config.cursor_blink_ease_out = "Constant"
 config.cursor_blink_ease_in = "Constant"
@@ -46,6 +38,19 @@ config.mouse_bindings = {
 		action = wezterm.action.OpenLinkAtMouseCursor,
 	},
 }
+
+wezterm.on("toggle-opacity", function(window, _)
+	local overrides = window:get_config_overrides() or {}
+local opacity = overrides.window_background_opacity
+	if opacity < 1.0 then
+		overrides.window_background_opacity = 1.0
+		overrides.macos_window_background_blur = 0
+	else
+        overrides.window_background_opacity = default_opacity
+        overrides.macos_window_background_blur = default_blur
+	end
+	window:set_config_overrides(overrides)
+end)
 
 config.keys = {
 	{
@@ -63,11 +68,16 @@ config.keys = {
 		mods = "CTRL|OPT",
 		action = wezterm.action.ActivateCommandPalette,
 	},
-    { -- open t - tmux smart session manager instead of <leader>(ctrl+a)+t
-        key = 'j',
-        mods = 'CMD',
-        action = wezterm.action.SendString '\x01\x74'
-    },
+	{ -- open t - tmux smart session manager instead of <leader>(ctrl+a)+t
+		key = "j",
+		mods = "CMD",
+		action = wezterm.action.SendString("\x01\x74"),
+	},
+	{
+		key = "b",
+		mods = "CTRL|OPT",
+		action = wezterm.action.EmitEvent("toggle-opacity"),
+	},
 }
 
 local function get_appearance()

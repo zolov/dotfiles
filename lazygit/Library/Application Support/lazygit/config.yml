@@ -6,7 +6,7 @@ git:
     pager: delta --dark --paging=never
 
 gui:
-  nerdFontsVersion: "2"
+  nerdFontsVersion: "3"
   showFileTree: true
   spinner:
     frames:
