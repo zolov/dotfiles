@@ -8,6 +8,51 @@ end
 -- General Settings
 local general = augroup("general")
 
+autocmd('BufHidden', {
+  desc = 'Delete [No Name] buffers',
+  callback = function(data)
+    if data.file == '' and vim.bo[data.buf].buftype == '' and not vim.bo[data.buf].modified then
+      vim.schedule(function()
+        pcall(vim.api.nvim_buf_delete, data.buf, {})
+      end)
+    end
+  end,
+})
+
+autocmd("BufWritePre", {
+    callback = function()
+        vim.cmd([[
+         keeppatterns %s/\s\+$//e
+      ]])
+    end,
+    group = vim.api.nvim_create_augroup("TrimWhitespace", { clear = true }),
+})
+
+local hiGroup = vim.api.nvim_create_augroup("highlight_group", { clear = false })
+autocmd("InsertEnter", {
+    pattern = "*",
+    group = hiGroup,
+    command = "setlocal nohlsearch",
+})
+autocmd("InsertLeave", {
+    pattern = "*",
+    group = hiGroup,
+    command = "setlocal hlsearch",
+})
+
+autocmd({ "InsertEnter" }, {
+    callback = function()
+        vim.opt.relativenumber = false
+        vim.opt.cursorline = false
+    end,
+})
+autocmd({ "InsertLeave" }, {
+    callback = function()
+        vim.opt.relativenumber = true
+        vim.opt.cursorline = true
+    end,
+})
+
 -- Inlay Hint in normal mode
 autocmd({ "LspAttach", "InsertEnter", "InsertLeave" }, {
     callback = function(args)
