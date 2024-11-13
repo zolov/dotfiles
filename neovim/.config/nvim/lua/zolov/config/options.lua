@@ -50,6 +50,7 @@ local options = {
     -- shellxquote = "",
     background = "dark",
     backspace = "indent,eol,start",
+    langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz",
 }
 
 local global = {

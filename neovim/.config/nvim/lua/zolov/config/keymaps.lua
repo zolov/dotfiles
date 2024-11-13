@@ -125,6 +125,9 @@ for i, k in pairs(keymaps.command_mode) do
     vim.keymap.set(modes.command_mode, i, k, command_opts)
 end
 
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", {expr = true,})
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", {expr = true,})
+
 -- vim.api.nvim_set_keymap("i", "<CR>", "v:lua._G.cr_action()", { noremap = true, expr = true })
 
 -- tabs complete
