@@ -1,4 +1,4 @@
-vim.opt.expandtab = true 
+vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -146,13 +146,13 @@ local cmd = {
 local settings = {
     java = {
         -- Enable code formatting
-        -- format = {
-        --   enabled = true,
-        --   -- source = "absolute/path/to/formatter.xml"
-        --   settings = {
-        --     url = "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
-        --   },
-        -- },
+        format = {
+          enabled = true,
+          -- source = "absolute/path/to/formatter.xml"
+          settings = {
+            url = "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+          },
+        },
         -- Enable downloading archives from eclipse automatically
         eclipse = {
             downloadSource = true,

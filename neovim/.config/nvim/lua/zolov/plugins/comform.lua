@@ -7,7 +7,7 @@ return {
             rust = { "rustfmt" },
             c = { "clang_format" },
             cpp = { "clang_format" },
-            java = { "clang_format" },
+            java = {},
             lua = { "stylua" },
             go = { "gofumpt" },
             html = { "prettierd" },

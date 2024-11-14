@@ -109,7 +109,7 @@ return {
             { "<leader>ff", ":lua require('zolov.config.utils').telescope_git_or_file()<cr>", desc = "Find files", nowait = true, remap = false },
             { "<leader>fg", ":Telescope live_grep<CR>", desc = "Find Text", nowait = true, remap = false },
             { "<leader>fr", ":Telescope oldfiles<cr>", desc = "Find recent files", nowait = true, remap = false },
-            { "<leader>fs", ":Telescope lsp_document_symbols<cr>", desc = "Find workspace symbols", nowait = true, remap = false },
+            { "<leader>fs", ":Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Find workspace symbols", nowait = true, remap = false },
             { "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "File [B]rowser", nowait = true, remap = false },
 			{ "<leader>/", ":Telescope current_buffer_fuzzy_find<CR>", desc="Search current buffer", nowait = true, remap = false },
             { "<leader><leader>", ":Telescope smart_open<cr>", desc = "Smart open", nowait = true, remap = false },
@@ -144,7 +144,6 @@ return {
 
             { "<leader>l", group = "LSP", nowait = true, remap = false },
             { "<leader>lr", ":Telescope lsp_references<cr>", desc = "References", nowait = true, remap = false },
-            { "<leader>lS", ":Telescope lsp_workspace_symbols<cr>", desc = "Workspace Symbols", nowait = true, remap = false, },
             { "<leader>la", ":lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", nowait = true, remap = false },
             { "<leader>ld", ":Telescope diagnostics<cr>", desc = "Workspace Diagnostics", nowait = true, remap = false },
             { "<leader>lf", "<cmd>lua require('conform').format()<cr>", desc = "Format", nowait = true, remap = false },
@@ -152,6 +151,7 @@ return {
             { "<leader>lm", ":Mason<cr>", desc = "Mason Installer", nowait = true, remap = false },
             { "<leader>lq", ":Telescope quickfix<cr>", desc = "Quickfix List", nowait = true, remap = false },
             { "<leader>ls", ":Telescope lsp_document_symbols<cr>", desc = "Document Symbols", nowait = true, remap = false },
+            { "<leader>lS", ":Telescope lsp_workspace_symbols<cr>", desc = "Workspace Symbols", nowait = true, remap = false, },
 
             -- Terminal
             { "<leader>t", group = "Terminal", nowait = true, remap = false },

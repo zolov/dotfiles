@@ -58,7 +58,6 @@ autocmd({ "LspAttach", "InsertEnter", "InsertLeave" }, {
     callback = function(args)
         local enabled = args.event ~= "InsertEnter"
         vim.lsp.inlay_hint.enable(enabled, { bufnr = args.buf })
-        require("symbol-usage").toggle()
     end,
 })
 
