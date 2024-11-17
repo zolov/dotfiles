@@ -59,8 +59,8 @@ local keymaps = {
         -- Indent lines
         ["<"] = "<<",
         [">"] = ">>",
-        [";q"] = "<cmd> q <CR>",
-        [";s"] = "<cmd> w <CR>",
+        [",q"] = "<cmd> q <CR>",
+        [",s"] = "<cmd> w <CR>",
         -- ["<Leader>sn"] = "<cmd> noautocmd w <CR>",
         ["x"] = '"_x',
 
@@ -70,7 +70,6 @@ local keymaps = {
     },
     insert_mode = {
         -- exit other mode
-        [";s"] = "<Esc> <cmd> w <CR>",
         ["jk"] = "<Esc>",
         ["jj"] = "<Esc>",
     },
