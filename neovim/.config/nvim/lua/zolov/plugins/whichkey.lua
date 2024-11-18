@@ -83,7 +83,7 @@ return {
             { "<leader>po", ":Telescope projects<CR>", silent = true, nowait = true, remap = false },
             { "<leader>ps", ":SessionSave<CR>", desc = "[S]ave session", nowait = true, remap = false },
             { "<leader>pl", ":SessionLoad<CR>", desc = "[L]oad session", nowait = true, remap = false },
-            { "<leader>pl", ":SessionLoadLast<CR>", desc = "[R]estore last session", nowait = true, remap = false },
+            { "<leader>pr", ":SessionLoadLast<CR>", desc = "[R]estore last session", nowait = true, remap = false },
             { "<leader>pd", ":SessionDelete<CR>", desc = "[D]elete session", nowait = true, remap = false },
             { "<leader>pp", ":Telescope persisted<CR>", desc = "Select [P]ersisted session", nowait = true, remap = false },
 

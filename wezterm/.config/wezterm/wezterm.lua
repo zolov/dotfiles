@@ -2,7 +2,8 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 config.enable_kitty_graphics = true
-config.animation_fps = 75
+config.animation_fps = 120
+config.max_fps= 240
 
 config.font = wezterm.font_with_fallback({
 	{ family = "JetBrainsMonoNL Nerd Font", scale = 1.3 },
@@ -12,8 +13,10 @@ config.font = wezterm.font_with_fallback({
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE|MACOS_FORCE_ENABLE_SHADOW"
 
-local default_opacity = 0.80
-local default_blur = 35
+local opaque_bg = 0.80
+local blured_bg = 35
+local default_opacity = 1.0
+local default_blur = 0
 
 config.window_background_opacity = default_opacity
 config.macos_window_background_blur = default_blur
@@ -42,12 +45,12 @@ config.mouse_bindings = {
 wezterm.on("toggle-opacity", function(window, _)
 	local overrides = window:get_config_overrides() or {}
 local opacity = overrides.window_background_opacity
-	if opacity < 1.0 then
-		overrides.window_background_opacity = 1.0
-		overrides.macos_window_background_blur = 0
+	if opacity < default_opacity then
+		overrides.window_background_opacity = default_opacity
+		overrides.macos_window_background_blur = default_blur
 	else
-        overrides.window_background_opacity = default_opacity
-        overrides.macos_window_background_blur = default_blur
+        overrides.window_background_opacity = opaque_bg
+        overrides.macos_window_background_blur = blured_bg
 	end
 	window:set_config_overrides(overrides)
 end)
