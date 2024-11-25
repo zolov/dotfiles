@@ -13,6 +13,7 @@ alias aliases="nvim $HOME/.config/zsh/extensions/aliases.zsh "
 alias oo="cd ~/Dropbox/Vaults/ && nf"
 
 alias g="git"
+alias glog="pretty_git_log"
 alias qq="yazi"
 alias cr="clear"
 alias nf="nvimGoToFiles"
@@ -23,7 +24,7 @@ alias tw="taskwarrior-tui"
 alias ls="eza --tree --level 1 --icons --git"
 alias lsa="eza --tree --level 1 --icons --all --git"
 alias ll="eza --icons --long --no-user --git"
-alias lla="eza --icons --long --no-user --git --all" 
+alias lla="eza --icons --long --no-user --git --all"
 alias tree="eza --icons --long --no-user --git --all --git-ignore --tree --level=4"
 
 alias e="nvim"
@@ -52,7 +53,7 @@ function f() {
 }
 
 # ------------------------------------
-#            My IP function 
+#            My IP function
 # ------------------------------------
 function myip()
 {
@@ -119,7 +120,7 @@ function nvimGoToLine {
     selection=$(displayRgPipedFzf)
     if [ -z "$selection" ]; then
       return;
-    else 
+    else
         filename=$(echo $selection | awk -F ':' '{print $1}')
         line=$(echo $selection | awk -F ':' '{print $2}')
         nvim $(printf "+%s %s" $line $filename) +"normal zz";

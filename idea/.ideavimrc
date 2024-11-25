@@ -75,12 +75,13 @@ map <leader>sf <action>(GotoFile)
 map <leader>sc <action>(GotoClass)
 map <leader>sa <action>(GotoAction)
 
-noremap ;c :edit ~/.ideavimrc<cr>
-noremap ;h :set hlsearch<cr>
-noremap ;n :set nohlsearch<cr>
+noremap ,c :edit ~/.ideavimrc<cr>
+noremap ,h :set hlsearch<cr>
+noremap ,n :set nohlsearch<cr>
+map ,s <action>(SaveAll)
 
 " source config
-noremap ;r :source ~/.ideavimrc<cr>
+noremap ,r :source ~/.ideavimrc<cr>
 
 " remove search highlights
 " noremap <Esc> :nohlsearch<cr>
@@ -439,6 +440,8 @@ nnoremap gk :action MethodUp <CR>
 map <leader>fg <action>(com.mituuz.fuzzier.FuzzierVCS)
 map <leader>ff <action>(com.mituuz.fuzzier.Fuzzier)
 map <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
+
+map <leader><leader> <action>(SearchEverywhere)
 
 map й q
 map ц w
