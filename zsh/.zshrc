@@ -44,9 +44,6 @@ ZSH_DISABLE_COMPFIX="true"
 
 source $ZSH/oh-my-zsh.sh
 
-# zsh-autosuggestions CONFIGURATION
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=green,bold,underline"
-
 # FZF-TAB CONFIGURATION
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
