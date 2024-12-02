@@ -12,6 +12,7 @@ source_if_exists ~/.config/zsh/extensions/git.sh
 source_if_exists ~/.config/zsh/extensions/.secenv.zsh
 source_if_exists ~/.config/zsh/extensions/nvimswitcher.zsh
 source_if_exists ~/.config/zsh/extensions/docker-aliases.sh
+source_if_exists ~/.config/zsh/extensions/sdkman.sh
 
 autoload -Uz compinit && compinit
 
