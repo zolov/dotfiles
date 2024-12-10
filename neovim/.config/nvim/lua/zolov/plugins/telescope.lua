@@ -88,7 +88,7 @@ return {
                                 ["<c-d>"] = actions.delete_buffer,
                             },
                         },
-                        previewer = true,
+                        previewer = false,
                         initial_mode = "normal",
                         -- theme = "dropdown",
                         layout_config = {
@@ -99,6 +99,7 @@ return {
                         },
                     },
                     current_buffer_fuzzy_find = {
+                        theme = "ivy",
                         previewer = true,
                         layout_config = {
                             prompt_position = "top",
@@ -114,6 +115,7 @@ return {
                         previewer = true,
                     },
                     lsp_references = {
+                        theme = "ivy",
                         show_line = false,
                         previewer = true,
                     },
