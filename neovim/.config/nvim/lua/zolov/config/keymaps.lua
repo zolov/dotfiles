@@ -59,8 +59,10 @@ local keymaps = {
         -- Indent lines
         ["<"] = "<<",
         [">"] = ">>",
-        [",q"] = "<cmd> q <CR>",
+        [",q"] = "<cmd> qa <CR>",
         [",s"] = "<cmd> w <CR>",
+        [",Q"] = "<cmd> qa! <CR>",
+        [",S"] = "<cmd> wa <CR>",
         -- ["<Leader>sn"] = "<cmd> noautocmd w <CR>",
         ["x"] = '"_x',
 
