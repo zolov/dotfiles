@@ -11,6 +11,7 @@ alias envs="nvim $HOME/.zshenv"
 alias tmuxrc="nvim $HOME/.tmux.conf"
 alias aliases="nvim $HOME/.config/zsh/extensions/aliases.zsh "
 alias oo="cd ~/Dropbox/Vaults/ && nf"
+alias worknote="vim ~/Dropbox/Vaults/work-vault/notes/GeneralNotes.md"
 
 alias g="git"
 alias glog="pretty_git_log"
