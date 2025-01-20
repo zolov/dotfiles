@@ -226,8 +226,12 @@ local settings = {
             runtimes = {
                 -- will most likely have a different path on other systems
                 {
-                    name = "JavaSE-17",
+                    name = "Oracle-jdk17",
                     path = "~/.sdkman/candidates/java/17.0.12-oracle",
+                },
+                {
+                    name = "Zulu-jdk17",
+                    path = "~/.sdkman/candidates/java/17.0.13-zulu",
                 },
             },
             updateBuildConfiguration = "interactive",
