@@ -127,11 +127,3 @@ function nvimGoToLine {
         nvim $(printf "+%s %s" $line $filename) +"normal zz";
     fi
 }
-
-function focusRight() {
-	/usr/bin/osascript -e "tell application \"System Events\" to key code $((keyCode=$(/opt/homebrew/bin/yabai -m query --spaces --space | /opt/homebrew/bin/jq '.index') + 18, keyCode < 18 ? 18 : (keyCode > 25 ? 25 : keyCode))) using control down"
-}
-
-function focusLeft() {
-	/usr/bin/osascript -e "tell application \"System Events\" to key code $((keyCode=$(/opt/homebrew/bin/yabai -m query --spaces --space | /opt/homebrew/bin/jq '.index') + 16, keyCode < 18 ? 18 : (keyCode > 25 ? 25 : keyCode))) using control down"
-}

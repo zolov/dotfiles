@@ -63,6 +63,7 @@ local keymaps = {
         [",s"] = "<cmd> w <CR>",
         [",Q"] = "<cmd> qa! <CR>",
         [",S"] = "<cmd> wa <CR>",
+        [",x"] = "<cmd> bd <CR>",
         -- ["<Leader>sn"] = "<cmd> noautocmd w <CR>",
         ["x"] = '"_x',
 
