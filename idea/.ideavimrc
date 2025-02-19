@@ -37,6 +37,7 @@ set nerdtree
 set argtextobj
 set textobj-entire
 set surround
+set mini-ai
 
 " Easymotion settings
 set notimeout
@@ -79,6 +80,7 @@ noremap ,c :edit ~/.ideavimrc<cr>
 noremap ,h :set hlsearch<cr>
 noremap ,n :set nohlsearch<cr>
 map ,s <action>(SaveAll)
+map ,x <action>(CloseContent)
 
 " source config
 noremap ,r :source ~/.ideavimrc<cr>
@@ -157,9 +159,6 @@ nnoremap qj @q
 
 " Completion
 imap <C-space> <action>(CodeCompletion)
-" Close tab
-let g:WhichKeyDesc_close_cont = "<leader>x Close tab"
-map <leader>x <action>(CloseContent)
 
 "" Leader commands
 "" ========================================================
@@ -426,7 +425,7 @@ vnoremap L $
 vnoremap H ^
 
 nnoremap gp :NERDTree <CR>
-nmap <leader>n :NERDTree <CR>
+nmap <leader>e :NERDTree <CR>
 nmap <leader><tab> :NERDTree <CR>
 " selelect all text
 "nnoremap <C-A> gg<S-v>G
