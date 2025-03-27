@@ -1,4 +1,4 @@
-alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+alias lazyvim="NVIM_APPNAME=LazyVim nvim"
 alias nvim-kick="NVIM_APPNAME=kickstart nvim"
 alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
@@ -7,10 +7,10 @@ alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
 
 function nvims() {
   items=(
-    "default" 
-    "kickstart" 
-    "LazyVim" 
-    "NvChad" 
+    "default"
+    "kickstart"
+    "LazyVim"
+    "NvChad"
     # "DuskNvim"
     # "nvimjava"
   )

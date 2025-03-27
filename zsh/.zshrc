@@ -43,6 +43,8 @@ plugins=(
 
 ZSH_DISABLE_COMPFIX="true"
 
+export EZA_COLORS="$(vivid generate catppuccin-mocha)"
+
 source $ZSH/oh-my-zsh.sh
 
 # FZF-TAB CONFIGURATION
