@@ -1,7 +1,7 @@
 return {
     "olimorris/persisted.nvim",
     lazy = false,
-    config = {
+    opts = {
         autostart = true, -- Automatically start the plugin on load?
 
         -- Function to determine if a session should be saved

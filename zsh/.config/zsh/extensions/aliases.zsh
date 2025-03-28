@@ -28,6 +28,8 @@ alias ll="eza --icons --long --no-user --git"
 alias lla="eza --icons --long --no-user --git --all"
 alias tree="eza --icons --long --no-user --git --all --git-ignore --tree --level=4"
 
+alias hl="rg --passthru"
+
 alias e="nvim"
 alias vim="nvim"
 

@@ -105,13 +105,14 @@ autocmd("BufReadPost", {
     group = general,
 })
 
--- Highlight when yanking
-autocmd("TextYankPost", {
-    callback = function()
-        require("vim.highlight").on_yank({ higroup = "Visual", timeout = 200 })
-    end,
-    group = general,
-})
+-- -- Highlight when yanking
+-- autocmd("TextYankPost", {
+--     callback = function()
+--         require("vim.highlight").on_yank({ higroup = "Visual", timeout = 200 })
+--     end,
+--     group = general,
+-- })
+
 
 -- Disable New Line Comment
 autocmd("BufEnter", {
