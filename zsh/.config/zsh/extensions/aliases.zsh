@@ -48,6 +48,10 @@ alias ld="lazydocker"
 alias yabaiupd="brew services stop yabai && brew upgrade yabai && brew services start yabai"
 alias mvnd="mvn -gs "$HOME/Dropbox/Projects/settings.xml" -T 2C"
 
+#Git Aliases
+alias gpull="git pull --no-edit"
+alias gpush="git push"
+
 function cx() {
     cd "$@" && ls;
 }
