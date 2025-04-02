@@ -47,6 +47,10 @@ alias lg="lazygit"
 alias ld="lazydocker"
 alias yabaiupd="brew services stop yabai && brew upgrade yabai && brew services start yabai"
 alias mvnd="mvn -gs "$HOME/Dropbox/Projects/settings.xml" -T 2C"
+alias weather="curl http://wttr.in/Moscow"
+alias wm="curl -s 'wttr.in/?format=3'"
+alias moon='curl wttr.in/moon'
+alias freeram='sudo purge'
 
 #Git Aliases
 alias gpull="git pull --no-edit"

@@ -24,21 +24,26 @@ precmd() {
 
 plugins=(
 	asdf
+	fzf
 	fzf-tab
 	zsh-vi-mode
 	thefuck
 	git
 	git-flow
 	gitignore
+	colored-man-pages
+	zsh-completions
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	fast-syntax-highlighting
 	fasd
 	brew
 	macos
+	tumult
 	common-aliases
 	vscode
-	fzf
+	magic-enter
+	copypath
 )
 
 ZSH_DISABLE_COMPFIX="true"
