@@ -71,6 +71,7 @@ let g:WhichKey_SortOrder = "by_key_prefix_first"
 "" Key mappings
 "" ========================================================
 
+nmap <leader><space> <Action>(GotoFile)
 map <leader>ss <action>(GotoSymbol)
 map <leader>sf <action>(GotoFile)
 map <leader>sc <action>(GotoClass)
@@ -439,8 +440,6 @@ nnoremap gk :action MethodUp <CR>
 map <leader>fg <action>(com.mituuz.fuzzier.FuzzierVCS)
 map <leader>ff <action>(com.mituuz.fuzzier.Fuzzier)
 map <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
-
-map <leader><leader> <action>(SearchEverywhere)
 
 map й q
 map ц w
