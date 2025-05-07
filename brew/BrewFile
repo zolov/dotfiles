@@ -1,0 +1,228 @@
+tap "cormacrelf/tap"
+tap "felixkratz/formulae"
+tap "int128/kubelogin"
+tap "joshmedeski/sesh"
+tap "koekeishiya/formulae"
+tap "teamookla/speedtest"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# C library of Git core methods that is re-entrant and linkable
+brew "libgit2"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Yet another cross-platform graphical process/system monitor
+brew "bottom"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# Console Matrix
+brew "cmatrix"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima", restart_service: :changed
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Top-like interface for container metrics
+brew "ctop"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Modern, maintained replacement for ls
+brew "eza"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Open source programming language to build simple/reliable/efficient software
+brew "go@1.21"
+# Open-source build automation tool based on the Groovy and Kotlin DSL
+brew "gradle"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# Like cURL, but for gRPC
+brew "grpcurl"
+# Post-modern modal text editor
+brew "helix"
+# Improved top (interactive process viewer)
+brew "htop"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Kubernetes CLI To Manage Your Clusters In Style!
+brew "k9s"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# TUI tool for monitoring and exploration of Kubernetes resources
+brew "kubetui"
+# Lazier way to manage everything docker
+brew "lazydocker"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Powerful, lightweight programming language
+brew "lua"
+# Package manager for the Lua programming language
+brew "luarocks"
+# Java-based project management
+brew "maven"
+# Scalable distributed version control system
+brew "mercurial"
+# Fast, highly customisable system info script
+brew "neofetch"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Platform built on V8 to build network applications
+brew "node"
+# Create, run, and share large language models (LLMs)
+brew "ollama"
+# Development kit for the Java programming language
+brew "openjdk@17"
+# Generic machine emulator and virtualizer
+brew "qemu"
+# File browser
+brew "ranger"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# Terminal user interface for taskwarrior
+brew "taskwarrior-tui"
+# User interface to the TELNET protocol
+brew "telnet"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Terminal multiplexer
+brew "tmux"
+# Manage complex tmux sessions easily
+brew "tmuxinator"
+# Generator for LS_COLORS with support for multiple color themes
+brew "vivid"
+# Internet file retriever
+brew "wget"
+# JavaScript package manager
+brew "yarn"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# Watcher for macOS 10.14+ light/dark mode changes
+brew "cormacrelf/tap/dark-notify"
+# Custom macOS statusbar with shell plugin, interaction and graph support
+brew "felixkratz/formulae/sketchybar"
+# A kubectl plugin for Kubernetes OpenID Connect authentication
+brew "int128/kubelogin/kubelogin"
+# Smart terminal session manager
+brew "joshmedeski/sesh/sesh"
+# Simple hotkey-daemon for macOS.
+brew "koekeishiya/formulae/skhd"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "koekeishiya/formulae/yabai"
+# Ookla Speedtest
+brew "teamookla/speedtest/speedtest"
+# Automatic tiling window manager similar to xmonad
+cask "amethyst"
+# Chromium based browser
+cask "arc"
+# Display management tool
+cask "betterdisplay"
+# All-in-one toolbox for developers
+cask "devutils"
+# Client for the Dropbox cloud storage service
+cask "dropbox"
+# Web browser
+cask "firefox"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Cross-platform Git credential storage for multiple hosting providers
+cask "git-credential-manager"
+# Utility to hide menu bar items
+cask "hiddenbar"
+# Open-source keystroke visualiser
+cask "keycastr"
+# Customise mouse behavior
+cask "linearmouse"
+# Clipboard manager
+cask "maccy"
+# Modern GUI for Redis
+cask "medis"
+# Tool to control external monitor brightness & volume
+cask "monitorcontrol"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Open source build of Lens Kubernetes IDE
+cask "openlens"
+# Note taking app
+cask "outline"
+# Colour picker for colours onscreen
+cask "pika"
+# Image viewer
+cask "qview"
+# Control your tools with a few keystrokes
+cask "raycast"
+# Utilise mouse side navigation buttons
+cask "sensiblesidebuttons"
+# Tool that provides consistent, highly configurable symbols for apps
+cask "sf-symbols"
+# Keyboard configurator
+cask "via"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
+# Active space menu bar icon
+cask "whichspace"
+# Multiplayer code editor
+cask "zed"
+# Gecko based web browser
+cask "zen-browser"
+vscode "arcticicestudio.nord-visual-studio-code"
+vscode "asvetliakov.vscode-neovim"
+vscode "catppuccin.catppuccin-vsc"
+vscode "catppuccin.catppuccin-vsc-icons"
+vscode "catppuccin.catppuccin-vsc-pack"
+vscode "ciarant.vscode-structurizr"
+vscode "dmytro-pustovit.json-logs"
+vscode "docker.docker"
+vscode "enkia.tokyo-night"
+vscode "golang.go"
+vscode "log-formatter.log-formatter"
+vscode "mcaragheorghe.vim-enhanced"
+vscode "mechatroner.rainbow-csv"
+vscode "mohsen1.prettify-json"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.makefile-tools"
+vscode "redhat.java"
+vscode "shd101wyy.markdown-preview-enhanced"
+vscode "systemticks.c4-dsl-extension"
+vscode "visualstudioexptteam.intellicode-api-usage-examples"
+vscode "visualstudioexptteam.vscodeintellicode"
+vscode "vscjava.vscode-gradle"
+vscode "vscjava.vscode-java-debug"
+vscode "vscjava.vscode-java-dependency"
+vscode "vscjava.vscode-java-pack"
+vscode "vscjava.vscode-java-test"
+vscode "vscjava.vscode-maven"
+vscode "vscodevim.vim"
