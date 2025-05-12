@@ -36,6 +36,34 @@ BRANCH_CONTENTS="%(contents:subject)"
 
 BRANCH_FORMAT="}$BRANCH_PREFIX}$BRANCH_REF}$BRANCH_HASH}$BRANCH_DATE}$BRANCH_AUTHOR}$BRANCH_CONTENTS"
 
+check_git_statuses() {
+    UNCHANGED="[=]"
+    CHANGED="[+]"
+    DIR="􀈖"
+    BRANCH="􀅂"
+
+    find . -type d -name ".git" | while read gitdir; do
+        repo_dir="$(dirname "$gitdir")"
+		echo ""
+        echo "${DIR}  ${repo_dir}"
+        cd "$repo_dir" || continue
+
+        git_status=$(git status --porcelain)
+        branch=$(git rev-parse --abbrev-ref HEAD)
+
+        if [[ -z "$git_status" ]]; then
+            echo "${UNCHANGED} No changes"
+            echo "${BRANCH}  ${branch}"
+        else
+            echo "${CHANGED} Changes:"
+            echo "${git_status}"
+            echo "${BRANCH}  ${branch}"
+        fi
+
+        cd - > /dev/null || exit
+    done
+}
+
 show_git_head() {
     pretty_git_log -1
     git show -p --pretty="tformat:"
