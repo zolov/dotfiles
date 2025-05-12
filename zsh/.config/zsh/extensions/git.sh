@@ -52,12 +52,12 @@ check_git_statuses() {
         branch=$(git rev-parse --abbrev-ref HEAD)
 
         if [[ -z "$git_status" ]]; then
-            echo "${UNCHANGED} No changes"
             echo "${BRANCH}  ${branch}"
+            echo "${UNCHANGED} No changes"
         else
+            echo "${BRANCH}  ${branch}"
             echo "${CHANGED} Changes:"
             echo "${git_status}"
-            echo "${BRANCH}  ${branch}"
         fi
 
         cd - > /dev/null || exit
