@@ -42,16 +42,29 @@ check_git_statuses() {
     DIR="􀈖"
     BRANCH="􀅂"
 
+    update=0
+
+    while getopts "u" opt; do
+        case $opt in
+            u) update=1 ;;
+			*) update=0 ;;
+        esac
+    done
+
     find . -type d -name ".git" | while read gitdir; do
         repo_dir="$(dirname "$gitdir")"
-		echo ""
+        echo ""
         echo "${DIR}  ${repo_dir}"
         cd "$repo_dir" || continue
+
+        if [ "$update" -eq 1 ]; then
+            git fetch --all --quiet > /dev/null 2>&1
+        fi
 
         git_status=$(git status --porcelain)
         branch=$(git rev-parse --abbrev-ref HEAD)
 
-        if [[ -z "$git_status" ]]; then
+        if [ -z "$git_status" ]; then
             echo "${BRANCH}  ${branch}"
             echo "${UNCHANGED} No changes"
         else
