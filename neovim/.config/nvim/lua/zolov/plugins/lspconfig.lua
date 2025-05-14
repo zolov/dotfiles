@@ -94,7 +94,6 @@ function M.config()
         "yamlls",
         "marksman",
         "rust_analyzer",
-        "jdtls",
         "gopls",
     }
 
@@ -142,27 +141,7 @@ function M.config()
         if server == "lua_ls" then
             require("neodev").setup({})
         end
-
-        if server ~= "jdtls" then
-            lspconfig[server].setup(opts)
-        end
     end
-
-    -- Make sure that you configure sonarlint.nvim after lspconfig.
-    require("sonarlint").setup({
-        server = {
-            cmd = {
-                "sonarlint-language-server",
-                "-stdio",
-                "-analyzers",
-                -- paths to the analyzers you need, using those for python and java in this example
-                vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
-            },
-        },
-        filetypes = {
-            "java",
-        },
-    })
 end
 
 return M

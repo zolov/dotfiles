@@ -15,7 +15,6 @@ local M = {
                     },
                 },
                 registries = {
-                    "github:nvim-java/mason-registry",
                     "github:mason-org/mason-registry",
                 },
             },
@@ -38,7 +37,6 @@ function M.config()
             "yamlls",
             "marksman",
             "rust_analyzer",
-            "jdtls",
             "clangd",
             "cmake",
             "dockerls",
@@ -63,11 +61,7 @@ function M.config()
     })
     require("mason-tool-installer").setup({
         ensure_installed = {
-            "sonarlint-language-server",
             "golangci-lint",
-            "java-debug-adapter",
-            "java-test",
-            "google-java-format",
             "stylua",
             "shellcheck",
             "shfmt",
