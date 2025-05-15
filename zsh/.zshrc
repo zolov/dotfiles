@@ -44,6 +44,8 @@ plugins=(
 	vscode
 	magic-enter
 	copypath
+	kubectl
+	kubectl-autocomplete
 )
 
 ZSH_DISABLE_COMPFIX="true"
