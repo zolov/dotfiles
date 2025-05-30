@@ -22,6 +22,7 @@ $haskell\
 $python\
 [ ](fg:surface0)\
 $line_break\
+$kubernetes
 $character
 """
 
@@ -83,17 +84,17 @@ empty_symbol = '󰂎 '
 
 [[battery.display]]
 style = "black"
-threshold = 20 
+threshold = 20
 discharging_symbol = '󰂎 '
 
 [[battery.display]]
 style = "black"
-threshold = 60 
+threshold = 60
 discharging_symbol = '󰁽 '
 
 [[battery.display]]
 style = "black"
-threshold = 100 
+threshold = 100
 discharging_symbol = '󰁹 '
 
 
@@ -101,7 +102,7 @@ discharging_symbol = '󰁹 '
 disabled = false
 min_time = 1000
 style = "black"
-format = '[$duration]($style) ' 
+format = '[$duration]($style) '
 
 [os]
 disabled = false
@@ -129,7 +130,7 @@ Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
 [username]
-show_always = false 
+show_always = false
 style_user = "bg:surface0 fg:text"
 style_root = "bg:surface0 fg:text"
 format = '[ $user ]($style)'
@@ -150,7 +151,7 @@ truncation_symbol = "…/"
 "dotfiles" = " "
 "~/Dropbox/Vaults" = "󰠮 "
 "~/Dropbox" = " "
-"~" = " " 
+"~" = " "
 
 [git_branch]
 symbol = ""
@@ -216,7 +217,7 @@ style = "bg:surface0"
 format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [docker_context]
-disabled = true 
+disabled = true
 symbol = ""
 style = "bg:mantle"
 format = '[[ $symbol( $context) ](fg:crust bg:teal)]($style)'
@@ -233,3 +234,13 @@ vimcmd_symbol = '[❮](bold fg:blue)'
 vimcmd_replace_one_symbol = '[❮](bold fg:purple)'
 vimcmd_replace_symbol = '[❮](bold fg:purple)'
 vimcmd_visual_symbol = '[❮](bold fg:peach)'
+
+[kubernetes]
+disabled = false
+symbol = '⎈'
+format = '[$symbol](bold fg:blue) [$context( \($namespace\))](fg:bright-black)($style)'
+
+[[kubernetes.contexts]]
+context_pattern = "^production$"
+context_alias = "production"
+style = "green"
