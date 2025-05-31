@@ -55,6 +55,8 @@ alias freeram='sudo purge'
 alias gpull="git pull --no-edit"
 alias gpush="git push"
 
+alias kubectl="kubecolor"
+
 function cx() {
     cd "$@" && ls;
 }

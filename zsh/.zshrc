@@ -18,6 +18,9 @@ autoload -Uz compinit && compinit
 
 export ZSH="$HOME/.oh-my-zsh"
 
+source <(kubectl completion zsh)
+compdef kubecolor=kubectl
+
 precmd() {
     source ~/.config/zsh/extensions/aliases.zsh
 }
@@ -25,7 +28,6 @@ precmd() {
 plugins=(
 	asdf
 	fzf
-	fzf-tab
 	zsh-vi-mode
 	thefuck
 	git
