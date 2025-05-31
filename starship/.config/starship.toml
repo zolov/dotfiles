@@ -22,13 +22,14 @@ $haskell\
 $python\
 [ ](fg:surface0)\
 $line_break\
-$kubernetes
-$character
+$character\
 """
 
 right_format = """
 $cmd_duration\
-[](black)\
+[](crust)\
+$kubernetes\
+[](bg:crust fg:black)\
 $battery\
 [](fg:black bg:surface0)\
 $time\
@@ -71,7 +72,7 @@ crust = "#11111b"
 disabled = false
 time_format = "%R"
 style = "bg:surface0"
-format = '[[  $time ](fg:mantle bg:surface0)]($style)'
+format = '[[  $time ](fg:crust bg:surface0)]($style)'
 
 [battery]
 disabled = false
@@ -237,10 +238,10 @@ vimcmd_visual_symbol = '[❮](bold fg:peach)'
 
 [kubernetes]
 disabled = false
-symbol = '⎈'
-format = '[$symbol](bold fg:blue) [$context( \($namespace\))](fg:bright-black)($style)'
+symbol = '⎈ '
+format = '[$symbol](bg:crust fg:bright-black)[$context( \($namespace\)) ](bg:crust fg:bright-black)($style)'
 
 [[kubernetes.contexts]]
 context_pattern = "^production$"
 context_alias = "production"
-style = "green"
+style = "bg:crust fg:crust"

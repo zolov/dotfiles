@@ -24,9 +24,9 @@ alias tw="taskwarrior-tui"
 
 alias ls="eza --tree --level 1 --icons --git"
 alias lsa="eza --tree --level 1 --icons --all --git"
-alias ll="eza --icons --long --no-user --git"
-alias lla="eza --icons --long --no-user --git --all"
-alias tree="eza --icons --long --no-user --git --all --git-ignore --tree --level=4"
+alias ll="eza --icons --long --git"
+alias lla="eza --icons --long --git --all"
+alias tree="eza --icons --long --git --all --git-ignore --tree --level=4"
 
 alias hl="rg --passthru"
 
@@ -46,7 +46,6 @@ alias bathelp="bat --plain --language=help"
 alias lg="lazygit"
 alias ld="lazydocker"
 alias yabaiupd="brew services stop yabai && brew upgrade yabai && brew services start yabai"
-alias mvnd="mvn -gs "$HOME/Dropbox/Projects/settings.xml" -T 2C"
 alias weather="curl http://wttr.in/Moscow"
 alias wm="curl -s 'wttr.in/?format=3'"
 alias moon='curl wttr.in/moon'
