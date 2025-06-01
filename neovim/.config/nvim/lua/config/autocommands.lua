@@ -181,7 +181,7 @@ autocmd("FileType", {
     group = general,
     pattern = { "*.java" },
     callback = function()
-        require("zolov.config.jdtls").setup_config()
+        require("config.jdtls").setup_config()
     end,
 })
 

@@ -106,7 +106,7 @@ return {
 
             -- FZF Find
             { "<leader>f", group = "Find *", nowait = true, remap = false },
-            { "<leader>ff", ":lua require('zolov.config.utils').telescope_git_or_file()<cr>", desc = "Find files", nowait = true, remap = false },
+            { "<leader>ff", ":lua require('config.utils').telescope_git_or_file()<cr>", desc = "Find files", nowait = true, remap = false },
             { "<leader>fg", ":Telescope live_grep<CR>", desc = "Find Text", nowait = true, remap = false },
             { "<leader>fr", ":Telescope oldfiles<cr>", desc = "Find recent files", nowait = true, remap = false },
             { "<leader>fs", ":Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Find workspace symbols", nowait = true, remap = false },

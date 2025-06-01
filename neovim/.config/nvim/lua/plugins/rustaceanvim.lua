@@ -8,7 +8,7 @@ return {
                     ui_select_fallback = true,
                 },
                 float_win_config = {
-                    border = require("zolov.config.utils").border,
+                    border = require("config.utils").border,
                 },
             },
             server = {

@@ -11,7 +11,7 @@ local M = {
     },
 }
 
-for name, icon in pairs(require("zolov.config.utils").lsp_icons) do
+for name, icon in pairs(require("config.utils").lsp_icons) do
     name = "DiagnosticSign" .. name
     vim.fn.sign_define(name, { text = icon, texthl = name })
 end
@@ -76,7 +76,7 @@ function M.config()
         { "]d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", desc = "Prev Diagnostic" },
         { "[d", "<cmd>lua vim.diagnostic.goto_next()<CR>", desc = "Next Diagnostic" },
         { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
-        { "<leader>lh", "<cmd>lua require('zolov.plugins.lspconfig').toggle_inlay_hints()<CR>", desc = "Hints" },
+        { "<leader>lh", "<cmd>lua require('plugins.lspconfig').toggle_inlay_hints()<CR>", desc = "Hints" },
         { "<leader>q", "<cmd>Trouble quickfix<cr>", desc = "Quickfix" },
         { "<leader>lq", "<cmd>lua vim.diagnostic.setqflist()<cr>", desc = "Quickfix" },
         { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", desc = "CodeLens Action" },
@@ -122,9 +122,9 @@ function M.config()
     end
 
     vim.lsp.handlers["textDocument/hover"] =
-        vim.lsp.with(vim.lsp.handlers.hover, { border = require("zolov.config.utils").border })
+        vim.lsp.with(vim.lsp.handlers.hover, { border = require("config.utils").border })
     vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = require("zolov.config.utils").border })
+        vim.lsp.with(vim.lsp.handlers.signature_help, { border = require("config.utils").border })
     require("lspconfig.ui.windows").default_options.border = "rounded"
 
     for _, server in pairs(servers) do
@@ -133,7 +133,7 @@ function M.config()
             capabilities = M.common_capabilities(),
         }
 
-        local require_ok, settings = pcall(require, "zolov.lspsettings." .. server)
+        local require_ok, settings = pcall(require, "lspsettings." .. server)
         if require_ok then
             opts = vim.tbl_deep_extend("force", settings, opts)
         end

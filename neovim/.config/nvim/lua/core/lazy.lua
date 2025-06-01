@@ -16,7 +16,7 @@ vim.g.mapleader = " "
 local lazy = require("lazy")
 lazy.setup({
     spec = {
-        import = "zolov.plugins",
+        import = "plugins",
     },
     defaults = {
         lazy = false,

@@ -1,6 +1,7 @@
-_G.Utils = require("zolov.config.utils")
+_G.Utils = require("config.utils")
 
-require("zolov.config.autocommands")
-require("zolov.config.options")
-require("zolov.config.lazy")
-require("zolov.config.keymaps")
+require("core.lazy")
+require("core.lsp")
+require("config.options")
+require("config.keymaps")
+require("config.autocommands")

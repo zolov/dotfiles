@@ -10,7 +10,7 @@ return {
     config = function()
         vim.opt.laststatus = 3
         local lualine = require("lualine")
-        local icons = require("zolov.config.icons")
+        local icons = require("config.icons")
         lualine.setup({
             options = {
                 component_separators = "",

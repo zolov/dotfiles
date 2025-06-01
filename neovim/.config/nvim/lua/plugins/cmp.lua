@@ -49,7 +49,7 @@ return {
         vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
         local cmp = require("cmp")
         local luasnip = require("luasnip")
-        local kind_icons = require("zolov.config.utils").cmp_icons
+        local kind_icons = require("config.utils").cmp_icons
         local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
         luasnip.config.setup({})

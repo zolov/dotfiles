@@ -3,7 +3,7 @@ return {
     config = function()
         require("lspsaga").setup({
             ui = {
-                code_action = require("zolov.config.icons").diagnostics.BoldHint,
+                code_action = require("config.icons").diagnostics.BoldHint,
             },
             lightbulb = {
                 enable = true,
