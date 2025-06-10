@@ -290,6 +290,7 @@ xmap <leader>rr <action>(Refactorings.QuickListPopupAction)
 map <leader>rg <action>(Generate)
 map <leader>rw <action>(SurroundWith)
 map <leader>ru <action>(StringManipulation.ToSnakeCaseOrCamelCase)
+map <leader>rt <action>(osmedile.intellij.stringmanip.PopupChoiceAction)
 
 " Go to code
 "" ========================================================
@@ -440,6 +441,7 @@ nnoremap gk :action MethodUp <CR>
 map <leader>fg <action>(com.mituuz.fuzzier.FuzzierVCS)
 map <leader>ff <action>(com.mituuz.fuzzier.Fuzzier)
 map <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
+
 
 map й q
 map ц w
