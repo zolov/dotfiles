@@ -83,4 +83,4 @@ export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
-export PATH="/$HOME/.rd/bin:$PATH"
+export PATH="$HOME/.rd/bin:$PATH"
