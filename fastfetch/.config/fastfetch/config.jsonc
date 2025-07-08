@@ -37,7 +37,12 @@
         },
         {
             "type": "memory",
-            "key": "└ └󰍛 Memory",
+            "key": "│ ├󰍛 Memory",
+            "keyColor": "green"
+        },
+        {
+            "type": "display",
+            "key": "└ └󰍹 Display",
             "keyColor": "green"
         },
         {
@@ -71,12 +76,12 @@
             "key": "│ ├ Shell",
             "keyColor": "yellow"
         },
-        {
-            "type": "command",
-            "key": "│ ├ OS Age",
-            "keyColor": "yellow",
-            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
-        },
+        // {
+        //     "type": "command",
+        //     "key": "│ ├ OS Age",
+        //     "keyColor": "yellow",
+        //     "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+        // },
         {
             "type": "uptime",
             "key": "└ └ Uptime",
