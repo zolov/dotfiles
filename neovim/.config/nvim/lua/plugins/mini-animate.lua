@@ -6,10 +6,10 @@ return {
         local animate = require("mini.animate")
         animate.setup({
             resize = {
-                timing = animate.gen_timing.linear({ duration = 30, unit = "total" }),
+                timing = animate.gen_timing.linear({ duration = 8, unit = "total" }),
             },
             scroll = {
-                timing = animate.gen_timing.linear({ duration = 50, unit = "total" }),
+                timing = animate.gen_timing.linear({ duration = 8, unit = "total" }),
             },
         })
     end,
