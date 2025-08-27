@@ -30,10 +30,11 @@ alias tree="eza --icons --long --git --all --git-ignore --tree --level=4"
 
 alias hl="rg --passthru"
 
+alias lv="lazyvim"
 alias e="nvim"
 alias vim="nvim"
 
-alias upd="brew update && brew upgrade --greedy && brew cleanup && sdk update && sdk upgrade"
+alias upd="brew update && brew upgrade --greedy && brew cleanup && sdk update && sdk upgrade && omz update"
 alias k="kubectl"
 alias python="python3"
 alias pip="pip3"

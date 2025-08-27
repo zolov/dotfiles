@@ -11,6 +11,7 @@ return {
 
         configs.setup({
             ensure_installed = {
+                "html",
                 "lua",
                 "java",
                 "bash",

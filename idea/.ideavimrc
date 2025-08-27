@@ -61,6 +61,10 @@ set ruler
 set nowrap
 set expandtab
 
+"" Handlers
+"" ========================================================
+"" sethandler <C-V>  x:vim
+
 let g:WhichKey_DefaultDelay = 600
 let g:WhichKey_FontSize = 19
 let g:WhichKey_ShowVimActions = "true"
@@ -165,7 +169,6 @@ imap <C-space> <action>(CodeCompletion)
 "" ========================================================
 " Jump around with easymotion/flash
 map s <Action>(flash.search)
-"map <leader><leader> <Plug>(easymotion-s)
 " map / <action>(Find)
 " map s <Plug>(easymotion-s)
 
