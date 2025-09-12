@@ -22,7 +22,7 @@ set idearefactormode=keep
 set ideastatusicon=gray
 
 " Use system clipboard
-set clipboard+=unnamed,unnamedplus
+set clipboard+=unnamed,unnamedplus,ideaput
 
 let mapleader = " "
 
@@ -35,9 +35,14 @@ set multiple-cursors
 set quickscope
 set nerdtree
 set argtextobj
+let g:argtextobj_pairs="(:),{:},<:>"
 set textobj-entire
 set surround
 set mini-ai
+set functiontextobj
+set peekaboo
+set matchit
+set commentary
 
 " Easymotion settings
 set notimeout
@@ -63,7 +68,8 @@ set expandtab
 
 "" Handlers
 "" ========================================================
-"" sethandler <C-V>  x:vim
+sethandler <C-V> x:vim
+sethandler <C-V> a:vim
 
 let g:WhichKey_DefaultDelay = 600
 let g:WhichKey_FontSize = 19
@@ -74,8 +80,8 @@ let g:WhichKey_SortOrder = "by_key_prefix_first"
 
 "" Key mappings
 "" ========================================================
-
-nmap <leader><space> <Action>(GotoFile)
+map <C-c> <Esc>
+nmap <leader>f <Action>(GotoFile)
 map <leader>ss <action>(GotoSymbol)
 map <leader>sf <action>(GotoFile)
 map <leader>sc <action>(GotoClass)
@@ -114,15 +120,12 @@ inoremap jk <Esc>
 imap <C-i> <Action>(ParameterInfo)
 
 " Comment line
-nmap gc <action>(CommentByLineComment)
-vmap gc <action>(CommentByLineComment)
+"nmap gc <action>(CommentByLineComment)
+"vmap gc <action>(CommentByLineComment)
 
 " Tab navigation
-nnoremap <C-n> :tabnext<CR>
-nnoremap <C-p> :tabprev<CR>
-
-nnoremap <M-.> :tabnext<CR>
-nnoremap <M-,> :tabprev<CR>
+nmap <M-.> :tabnext<CR>
+nmap <M-,> :tabprev<CR>
 
 " Pane navigation
 nnoremap <C-h> <C-w>h
@@ -137,17 +140,12 @@ vmap <S-j> <Action>(MoveLineDown)
 map <C-s-up> <Action>(MoveStatementUp)
 map <C-s-down> <Action>(MoveStatementDown)
 
-" Multiline cursor
-let g:WhichKeyDesc_multi_cursor_prefix = "m Multiline cursor"
-let g:WhichKeyDesc_multi_cursor_next = "mc Next occurrence"
-let g:WhichKeyDesc_multi_cursor_prev = "mp Previous occurrence"
-let g:WhichKeyDesc_multi_cursor_skip = "mx Skip next occurrence"
-let g:WhichKeyDesc_multi_cursor_all = "ma All occurrences"
-
-map mc <Plug>NextWholeOccurrence
-map ma <Plug>AllWholeOccurrences
-map mx <Plug>SkipOccurrence
-map mp <Plug>RemoveOccurrence
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
 
 " Easy visual indentation
 vnoremap < <gv
@@ -175,6 +173,7 @@ map s <Action>(flash.search)
 " Fix actions
 let g:WhichKeyDesc_fix_action = "<leader>q Quick Fix"
 map <leader>q <action>(ShowIntentionActions)
+map <leader>cq <action>(ShowIntentionActions)
 imap <C-y> <action>(EditorChooseLookupItem)
 
 
@@ -280,7 +279,7 @@ let g:WhichKeyDesc_refactoring_surround = "<leader>rw Surround with"
 let g:WhichKeyDesc_refactoring_change_case = "<leader>ru Change case"
 
 map <leader>ro <action>(OptimizeImports)
-map <leader>rf <action>(ReformatCode)
+map <leader>rf <Action>(ReformatCode)<Action>(OptimizeImports)
 map <leader>rn <action>(RenameElement)
 map <leader>rm <action>(ExtractMethod)
 map <leader>rv <action>(IntroduceVariable)
@@ -432,7 +431,8 @@ vnoremap H ^
 nnoremap gp :NERDTree <CR>
 nmap <leader>e :NERDTree <CR>
 nmap <leader><tab> :NERDTree <CR>
-" selelect all text
+nmap <leader>n <action>(OpenNetrw)
+" select all text
 "nnoremap <C-A> gg<S-v>G
 
 nnoremap gh :action Back <CR>
@@ -441,9 +441,9 @@ nnoremap gj :action MethodDown <CR>
 nnoremap gk :action MethodUp <CR>
 
 " Fuzzy Finder
-map <leader>fg <action>(com.mituuz.fuzzier.FuzzierVCS)
-map <leader>ff <action>(com.mituuz.fuzzier.Fuzzier)
-map <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
+"map <leader>fg <action>(com.mituuz.fuzzier.FuzzierVCS)
+"map <leader>ff <action>(com.mituuz.fuzzier.Fuzzier)
+"map <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
 
 
 map й q
