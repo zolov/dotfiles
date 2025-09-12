@@ -2,6 +2,7 @@
 
 "" Base Settings
 "" ========================================================
+set keep-english-in-normal-and-restore-in-insert
 set ideajoin
 set ideamarks
 set idearefactormode=keep
@@ -10,7 +11,6 @@ set number relativenumber
 set showmode
 set showcmd
 set visualbell
-"set keep-english-in-normal-and-restore-in-insert
 
 set history=200
 set ignorecase
@@ -18,8 +18,8 @@ set smartcase
 set incsearch
 set hlsearch
 set nohlsearch
-set idearefactormode=keep
 set ideastatusicon=gray
+nnoremap <silent> <leader><space> :nohlsearch<CR>
 
 " Use system clipboard
 set clipboard+=unnamed,unnamedplus,ideaput
@@ -33,6 +33,8 @@ set highlightedyank
 set sneak
 set multiple-cursors
 set quickscope
+" Replaces f/F and t/T to show highlights
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 set nerdtree
 set argtextobj
 let g:argtextobj_pairs="(:),{:},<:>"
@@ -43,14 +45,14 @@ set functiontextobj
 set peekaboo
 set matchit
 set commentary
+set exchange
 
 " Easymotion settings
-set notimeout
+" set notimeout
+set timeout
+set timeoutlen=600
 set easymotion
 
-set exchange
-set textobj-entire
-set matchit
 
 " Which-key settings
 set which-key
@@ -66,10 +68,11 @@ set ruler
 set nowrap
 set expandtab
 
-"" Handlers
-"" ========================================================
-sethandler <C-V> x:vim
-sethandler <C-V> a:vim
+" Включаем блочный режим по Ctrl+V
+nnoremap <silent> <C-V> <C-Q>
+xnoremap <silent> <C-V> <C-Q>
+nnoremap <silent> <C-Q> <C-V>
+xnoremap <silent> <C-Q> <C-V>
 
 let g:WhichKey_DefaultDelay = 600
 let g:WhichKey_FontSize = 19
@@ -80,18 +83,18 @@ let g:WhichKey_SortOrder = "by_key_prefix_first"
 
 "" Key mappings
 "" ========================================================
-map <C-c> <Esc>
-nmap <leader>f <Action>(GotoFile)
-map <leader>ss <action>(GotoSymbol)
-map <leader>sf <action>(GotoFile)
-map <leader>sc <action>(GotoClass)
-map <leader>sa <action>(GotoAction)
+inoremap <silent> <C-c> <Esc>
+nnoremap <leader>f :action GotoFile<CR>
+nnoremap <silent> <leader>ss :action GotoSymbol<CR>
+nnoremap <silent> <leader>sf :action GotoFile<CR>
+nnoremap <silent> <leader>sc :action GotoClass<CR>
+nnoremap <silent> <leader>sa :action GotoAction<CR>
 
-noremap ,c :edit ~/.ideavimrc<cr>
-noremap ,h :set hlsearch<cr>
+nnoremap ,c :edit ~/.ideavimrc<cr>
+nnoremap ,h :set hlsearch<cr>
 noremap ,n :set nohlsearch<cr>
-map ,s <action>(SaveAll)
-map ,x <action>(CloseContent)
+nnoremap <silent> ,s :action SaveAll<CR>
+nnoremap <silent> ,x :action CloseContent<CR>
 
 " source config
 noremap ,r :source ~/.ideavimrc<cr>
@@ -103,7 +106,7 @@ nnoremap \ "_
 
 " Paste hover without overwriting default register
 xnoremap p P
-map <leader>ll <action>(RecentLocations)
+nnoremap <silent> <leader>ll :action RecentLocations<CR>
 
 " Toggle case and start typing. E.g. `<leader>iget`: `property` -> `getProperty`
 nmap <leader>i ~hi
@@ -111,17 +114,17 @@ nmap <leader>i ~hi
 vmap <leader>u d~h
 
 " Separate line and reformat line
-map <S-s> <Action>(EditorSplitLine)<CR>
+nnoremap <silent> <S-s> :action EditorSplitLine<CR>
 
 " Fast esc
 inoremap jj <Esc>
 inoremap jk <Esc>
 
-imap <C-i> <Action>(ParameterInfo)
+imap <C-i> :action ParameterInfo<CR>
 
 " Comment line
-"nmap gc <action>(CommentByLineComment)
-"vmap gc <action>(CommentByLineComment)
+"nmap gc :action CommentByLineComment<CR>
+"vmap gc :action CommentByLineComment<CR>
 
 " Tab navigation
 nmap <M-.> :tabnext<CR>
@@ -134,11 +137,11 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 
 " Move line
-vmap <S-k> <Action>(MoveLineUp)
-vmap <S-j> <Action>(MoveLineDown)
+nnoremap <S-k> :action MoveLineUp<CR>
+nnoremap <S-j> :action MoveLineDown<CR>
 
-map <C-s-up> <Action>(MoveStatementUp)
-map <C-s-down> <Action>(MoveStatementDown)
+nnoremap <silent> <C-s-up> :action MoveStatementUp<CR>
+nnoremap <silent> <C-s-down> :action MoveStatementDown<CR>
 
 nmap <C-n> <Plug>NextWholeOccurrence
 xmap <C-n> <Plug>NextWholeOccurrence
@@ -155,37 +158,37 @@ nnoremap <C-u>  <C-u>zz
 nnoremap <C-d>  <C-d>zz
 
 nnoremap n nzzzv
-map N Nzzzv
+nnoremap <silent> N Nzzzv
 
 " Execute macro saved in 'q' register
 nnoremap qj @q
 
 " Completion
-imap <C-space> <action>(CodeCompletion)
+inoremap <C-space> :action CodeCompletion<CR>
 
 "" Leader commands
 "" ========================================================
 " Jump around with easymotion/flash
-map s <Action>(flash.search)
-" map / <action>(Find)
-" map s <Plug>(easymotion-s)
+nnoremap <silent> s :action flash.search<CR>
+" nnoremap <silent> / :action Find<CR>
+" nnoremap <silent> s <Plug>(easymotion-s<CR>
 
 " Fix actions
 let g:WhichKeyDesc_fix_action = "<leader>q Quick Fix"
-map <leader>q <action>(ShowIntentionActions)
-map <leader>cq <action>(ShowIntentionActions)
-imap <C-y> <action>(EditorChooseLookupItem)
+nnoremap <silent> <leader>q :action ShowIntentionActions<CR>
+nnoremap <silent> <leader>cq :action ShowIntentionActions<CR>
+inoremap <C-y> :action EditorChooseLookupItem<CR>
 
 
 " Code Actions
 "" ========================================================
 let g:WhichKeyDesc_code_actions = "<leader>c Code Actions"
 let g:WhichKeyDesc_code_actions_complete_statement = "<leader>cc Complete statement"
-map <leader>cc :action EditorCompleteStatement<CR>
-map <leader>ci :action InspectCode<CR>
+nnoremap <silent> <leader>cc :action EditorCompleteStatement<CR>
+nnoremap <silent> <leader>ci :action InspectCode<CR>
 
 let g:WhichKeyDesc_code_actions_show_hover = "<leader>k Show hover info"
-map <leader>k <action>(ShowHoverInfo)
+nnoremap <silent> <leader>k :action ShowHoverInfo<CR>
 
 " Folding
 "" ========================================================
@@ -195,10 +198,10 @@ let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
 let g:WhichKeyDesc_fold_region = "<leader>zf Fold region"
 let g:WhichKeyDesc_unfold_region = "<leader>zu Unfold region"
 
-map <leader>zc :action CollapseAllRegions<CR>
-map <leader>zo :action ExpandAllRegions<CR>
-map <leader>zf :action CollapseRegion<CR>
-map <leader>zu :action ExpandRegion<CR>
+nnoremap <silent> <leader>zc :action CollapseAllRegions<CR>
+nnoremap <silent> <leader>zo :action ExpandAllRegions<CR>
+nnoremap <silent> <leader>zf :action CollapseRegion<CR>
+nnoremap <silent> <leader>zu :action ExpandRegion<CR>
 
 " Window actions
 "" ========================================================
@@ -209,13 +212,14 @@ let g:WhichKeyDesc_window_split_unsplit = "<leader>wu Unsplit"
 let g:WhichKeyDesc_window_split_move_editor = "<leader>wm Move editor to opposite tab group"
 let g:WhichKeyDesc_window_split_pin_tab = "<leader>wt Pin active tab"
 
-map <leader>wV <action>(SplitVertically)
-map <leader>wv <action>(MoveTabRight)
-map <leader>wS <action>(SplitHorizontally)
-map <leader>ws <action>(MoveTabDown)
-map <leader>wu <action>(Unsplit)
-map <leader>wm <action>(MoveEditorToOppositeTabGroup)
-map <leader>wt <action>(PinActiveTab)
+nnoremap <silent> <leader>wv :action SplitVertically<CR>
+nnoremap <silent> <leader>ws :action SplitHorizontally<CR>
+nnoremap <silent> <leader>wu :action Unsplit<CR>
+nnoremap <silent> <leader>wm :action MoveEditorToOppositeTabGroup<CR>
+
+nnoremap <leader>wu :action Unsplit<CR>
+nnoremap <leader>wm :action MoveEditorToOppositeTabGroup
+nnoremap <leader>wt :action PinActiveTab
 
 " Display options
 "" ========================================================
@@ -227,11 +231,11 @@ let g:WhichKeyDesc_scope = "<leader>us Scope action prefix"
 let g:WhichKeyDesc_scope_out = "<leader>uso Highlight outside"
 let g:WhichKeyDesc_scope_in = "<leader>usi Highlight inside"
 
-map <leader>ud <action>(ToggleDistractionFreeMode)
-map <leader>uz <action>(ToggleZenMode)
-map <leader>uf <action>(ToggleFullScreen)
-map <leader>uso <action>(Rainbow.ScopeOutsideHighlightingRestrainAction)
-map <leader>usi <action>(Rainbow.ScopeHighlightingAction)
+nnoremap <silent> <leader>ud :action ToggleDistractionFreeMode<CR>
+nnoremap <silent> <leader>uz :action ToggleZenMode<CR>
+nnoremap <silent> <leader>uf :action ToggleFullScreen<CR>
+nnoremap <silent> <leader>uso :action Rainbow.ScopeOutsideHighlightingRestrainAction<CR>
+nnoremap <silent> <leader>usi :action Rainbow.ScopeHighlightingAction<CR>
 
 " Build tools
 "" ========================================================
@@ -242,11 +246,11 @@ let g:WhichKeyDesc_build_stop = "<leader>bs Stop"
 let g:WhichKeyDesc_build_more = "<leader>bt More Actions"
 let g:WhichKeyDesc_build_debug_break_point= "<leader>bl Toggle line breakpoint"
 
-map <leader>br <action>(Run)
-map <leader>bd <action>(Debug)
-map <leader>bs <action>(Stop)
-map <leader>bt <action>(MoreRunToolbarActions)
-map <leader>bl <action>(ToggleLineBreakpoint)
+nnoremap <silent> <leader>br :action Run<CR>
+nnoremap <silent> <leader>bd :action Debug<CR>
+nnoremap <silent> <leader>bs :action Stop<CR>
+nnoremap <silent> <leader>bt :action MoreRunToolbarActions<CR>
+nnoremap <silent> <leader>bl :action ToggleLineBreakpoint<CR>
 
 " File navigation
 "" ========================================================
@@ -256,11 +260,11 @@ let g:WhichKeyDesc_file_nav_goto_content = "<leader>gc Search for file content"
 let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>gr Show recent files"
 let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>gl Show recent locations"
 
-map <leader>gf <action>(GotoFile)
-map <leader>gr <action>(RecentFiles)
-map <leader>gc <action>(FindInPath)
-map <leader>gl <action>(RecentLocations)
-map <leader>gs <action>(NewScratchFile)
+nnoremap <silent> <leader>gf :action GotoFile<CR>
+nnoremap <silent> <leader>gr :action RecentFiles<CR>
+nnoremap <silent> <leader>gc :action FindInPath<CR>
+nnoremap <silent> <leader>gl :action RecentLocations<CR>
+nnoremap <silent> <leader>gs :action NewScratchFile<CR>
 
 " Refactoring
 "" ========================================================
@@ -278,31 +282,31 @@ let g:WhichKeyDesc_refactoring_generate = "<leader>rg Generate"
 let g:WhichKeyDesc_refactoring_surround = "<leader>rw Surround with"
 let g:WhichKeyDesc_refactoring_change_case = "<leader>ru Change case"
 
-map <leader>ro <action>(OptimizeImports)
-map <leader>rf <Action>(ReformatCode)<Action>(OptimizeImports)
-map <leader>rn <action>(RenameElement)
-map <leader>rm <action>(ExtractMethod)
-map <leader>rv <action>(IntroduceVariable)
-map <leader>rc <action>(IntroduceField)
-map <leader>rp <action>(refactoring.introduce.property)
-map <leader>rs <action>(ChangeSignature)
-map <leader>rr <action>(Refactorings.QuickListPopupAction)
-nmap <leader>rr <action>(Refactorings.QuickListPopupAction)
-xmap <leader>rr <action>(Refactorings.QuickListPopupAction)
-map <leader>rg <action>(Generate)
-map <leader>rw <action>(SurroundWith)
-map <leader>ru <action>(StringManipulation.ToSnakeCaseOrCamelCase)
-map <leader>rt <action>(osmedile.intellij.stringmanip.PopupChoiceAction)
+nnoremap <silent> <leader>ro :action OptimizeImports<CR>
+nnoremap <silent> <leader>rf :action ReformatCode<CR>:action OptimizeImports<CR>
+nnoremap <silent> <leader>rn :action RenameElement<CR>
+nnoremap <silent> <leader>rm :action ExtractMethod<CR>
+nnoremap <silent> <leader>rv :action IntroduceVariable<CR>
+nnoremap <silent> <leader>rc :action IntroduceField<CR>
+nnoremap <silent> <leader>rp :action refactoring.introduce.property<CR>
+nnoremap <silent> <leader>rs :action ChangeSignature<CR>
+nnoremap <silent> <leader>rr :action Refactorings.QuickListPopupAction<CR>
+vnoremap <silent> <leader>rr :action Refactorings.QuickListPopupAction<CR>
+xnoremap <silent> <leader>rr :action Refactorings.QuickListPopupAction<CR>
+nnoremap <silent> <leader>rg :action Generate<CR>
+nnoremap <silent> <leader>rw :action SurroundWith<CR>
+nnoremap <silent> <leader>ru :action StringManipulation.ToSnakeCaseOrCamelCase<CR>
+nnoremap <silent> <leader>rt :action osmedile.intellij.stringmanip.PopupChoiceAction<CR>
 
 " Go to code
 "" ========================================================
-nmap gy <action>(GotoTypeDeclaration)
-nmap gi <action>(GotoImplementation)
-nmap gr <action>(ShowUsages)
-nmap gR <action>(FindUsages)
-nmap gd <action>(GotoDeclaration)
-nmap gs <action>(GotoSuperMethod)
-nmap gt <action>(GotoTest)
+nnoremap <silent> gy :action GotoTypeDeclaration<CR>
+nnoremap <silent> gi :action GotoImplementation<CR>
+nnoremap <silent> gr :action ShowUsages<CR>
+nnoremap <silent> gR :action FindUsages<CR>
+nnoremap <silent> gd :action GotoDeclaration<CR>
+nnoremap <silent> gs :action GotoSuperMethod<CR>
+nnoremap <silent> gt :action GotoTest<CR>
 
 " Git windows
 "" ========================================================
@@ -317,33 +321,35 @@ let g:WhichKeyDesc_git_annotate = "<leader>va Annotate"
 let g:WhichKeyDesc_git_rollback = "<leader>vu Rollback changes in line"
 let g:WhichKeyDesc_git_branches = "<leader>vb Open branches list"
 
-map <leader>vc <action>(CheckinProject)
-map <leader>vf <action>(Git.Fetch)
-map <leader>vs <action>(ActivateVersionControlToolWindow)
-map <leader>vn <action>(GitNewBranchAction)
-map <leader>vk <action>(Vcs.Push)
-map <leader>vt <action>(Vcs.UpdateProject)
-map <leader>va <action>(Annotate)
-map <leader>vu <action>(Vcs.RollbackChangedLines)
-map <leader>vb <action>(Git.Branches)
-map <leader>ve <action>(EditSource)
-map <leader>vh <action>(Vcs.ShowTabbedFileHistory)
+nnoremap <silent> <leader>vc :action CheckinProject<CR>
+nnoremap <silent> <leader>vf :action Git.Fetch<CR>
+nnoremap <silent> <leader>vs :action ActivateVersionControlToolWindow<CR>
+nnoremap <silent> <leader>vn :action GitNewBranchAction<CR>
+nnoremap <silent> <leader>vk :action Vcs.Push<CR>
+nnoremap <silent> <leader>vt :action Vcs.UpdateProject<CR>
+nnoremap <silent> <leader>va :action Annotate<CR>
+nnoremap <silent> <leader>vu :action Vcs.RollbackChangedLines<CR>
+nnoremap <silent> <leader>vb :action Git.Branches<CR>
+nnoremap <silent> <leader>ve :action EditSource<CR>
+nnoremap <silent> <leader>vh :action Vcs.ShowTabbedFileHistory<CR>
 
 " Errors
 "" ========================================================
 let g:WhichKeyDesc_diagnostics_next = "[e Go to next error"
 let g:WhichKeyDesc_diagnostics_prev = "]e Go to previous error"
 
-map [d <action>(GotoNextError)
-map ]d <action>(GotoPreviousError)
+nnoremap <silent> [e :action GotoPreviousError<CR>
+nnoremap <silent> ]e :action GotoNextError<CR>
+nnoremap <silent> [m :action MethodUp<CR>
+nnoremap <silent> ]m :action MethodDown<CR>
 
 " Method
 "" ========================================================
 let g:WhichKeyDesc_method_up = "[m Method Up"
 let g:WhichKeyDesc_method_down = "]m Method Down"
 
-map [m :<C-u>action MethodUp<CR>
-map ]m :<C-u>action MethodDown<CR>
+nnoremap <silent> [m :<C-u>action MethodUp<CR>
+nnoremap <silent> ]m :<C-u>action MethodDown<CR>
 
 " Tools
 "" ========================================================
@@ -354,161 +360,95 @@ let g:WhichKeyDesc_tools_run = "<leader>tr Open run window"
 let g:WhichKeyDesc_tools_structure = "<leader>ts Open structure window"
 let g:WhichKeyDesc_tools_recent_proj = "<leader>tp Open recent projects"
 let g:WhichKeyDesc_tools_set_bookmarks = "<leader>tb Set mnemonic bookmark"
-let g:WhichKeyDesc_tools_set_bookmarks = "<leader>tm Open bookmark menu"
+let g:WhichKeuDesc_tools_open_bookmark_menu = "<leader>tm Open bookmark menu"
 
-map <leader>tt <action>(ActivateTerminalToolWindow)
-map <leader>tr <action>(ChooseRunConfiguration)
-map <leader>ts <action>(FileStructurePopup)
-map <leader>tn <action>(NewClass)
-map <leader>tb <action>(ToggleBookmarkWithMnemonic)
-map <leader>tm <action>(Bookmarks)
+nnoremap <silent> <leader>tt :action ActivateTerminalToolWindow<CR>
+nnoremap <silent> <leader>tr :action ChooseRunConfiguration<CR>
+nnoremap <silent> <leader>ts :action FileStructurePopup<CR>
+nnoremap <silent> <leader>tn :action NewClass<CR>
+nnoremap <silent> <leader>tb :action ToggleBookmarkWithMnemonic<CR>
+nnoremap <silent> <leader>tm :action Bookmarks<CR>
 
-map <leader>po <action>($LRU)
-map <leader>pp <action>(PreviousProjectWindow)
-map <leader>pn <action>(NextProjectWindow)
+nnoremap <silent> <leader>po :action $LRU<CR>
+nnoremap <silent> <leader>pp :action PreviousProjectWindow<CR>
+nnoremap <silent> <leader>pn :action NextProjectWindow<CR>
 
 " Lsp
-map <leader>lh <action>(ToggleInlayHintsGloballyAction)
+nnoremap <silent> <leader>lh :action ToggleInlayHintsGloballyAction<CR>
 
-" Harpoon Prime
-"" ========================================================
-" let g:WhichKeyDesc_harpoon_prefix = "<C-s>h Harpoon"
-
-"let g:WhichKeyDesc_harpoon_open_dialog = "<C-s> Open harpoon"
-"let g:WhichKeyDesc_harpoon_add_current_tab = "<C-a> Add current tab to harpoon"
-"let g:WhichKeyDesc_harpoon_open_1 = "<^-x> Open tab #1"
-"let g:WhichKeyDesc_harpoon_open_2 = "<^-c> Open tab #2"
-"let g:WhichKeyDesc_harpoon_open_3 = "<^-v> Open tab #3"
-"let g:WhichKeyDesc_harpoon_open_4 = "<^-b> Open tab #4"
-
-"let g:WhichKeyDesc_harpoon_set_1 = "<leader><^-x> Set tab #1"
-"let g:WhichKeyDesc_harpoon_set_2 = "<leader><^-c> Set tab #2"
-"let g:WhichKeyDesc_harpoon_set_3 = "<leader><^-v> Set tab #3"
-"let g:WhichKeyDesc_harpoon_set_4 = "<leader><^-b> Set tab #4"
-
-"nmap <leader><C-z> :action SetHarpoon0<cr>
-"nmap <leader><C-x> :action SetHarpoon2<cr>
-"nmap <leader><C-c> :action SetHarpoon3<cr>
-"nmap <leader><C-v> :action SetHarpoon4<cr>
-
-"nmap <C-z> :action GotoHarpoon1<cr>
-"nmap <C-x> :action GotoHarpoon2<cr>
-"nmap <C-c> :action GotoHarpoon3<cr>
-"nmap <C-v> :action GotoHarpoon4<cr>
-
-"nmap <C-s> :action ShowHarpoon<cr>
-"nmap <C-a> :action AddToHarpoon<cr>
-
-" Append the current file to the list
-map <C-a> :action TridentAppend<CR>
-
-" Open the quick menu
-map <C-s> :action TridentToggleQuickMenu<CR>
-
-" Hotkeys to open the first 4 items in the list
-nmap <C-z> :action TridentSelect1<CR>
-nmap <C-x> :action TridentSelect2<CR>
-nmap <C-c> :action TridentSelect3<CR>
-nmap <C-v> :action TridentSelect4<CR>
-
-" Toggle previous & next buffers stored within the list
-
-"map , :action TridentSelectPrev
-"map . :action TridentSelectNext
-
-nmap <leader>h <Action>(HighlightUsagesInFile)
-
-" Requires IdeaVim-QuickScope plugin (port of quick-scope)
-" Docs say to ensure that `set quickscope` is placed after `set sneak` (not sure why)
-" Replaces f/F and t/T to show highlights
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+nmap <leader>h :action HighlightUsagesInFile<CR>
 
 nnoremap L $
 nnoremap H ^
 vnoremap L $
 vnoremap H ^
 
-nnoremap gp :NERDTree <CR>
-nmap <leader>e :NERDTree <CR>
-nmap <leader><tab> :NERDTree <CR>
-nmap <leader>n <action>(OpenNetrw)
-" select all text
-"nnoremap <C-A> gg<S-v>G
+nnoremap <silent> <leader>e :action ActivateProjectToolWindow<CR>
+nnoremap <silent> <leader>n :action OpenNetrw<CR>
 
-nnoremap gh :action Back <CR>
-nnoremap gl :action Forward <CR>
-nnoremap gj :action MethodDown <CR>
-nnoremap gk :action MethodUp <CR>
-
-" Fuzzy Finder
-"map <leader>fg <action>(com.mituuz.fuzzier.FuzzierVCS)
-"map <leader>ff <action>(com.mituuz.fuzzier.Fuzzier)
-"map <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
-
-
-map й q
-map ц w
-map у e
-map к r
-map е t
-map н y
-map г u
-map ш i
-map щ o
-map з p
-map х [
-map ъ ]
-map ф a
-map ы s
-map в d
-map а f
-map п g
-map р h
-map о j
-map л k
-map д l
-map ж ;
-map э '
-map ё \
-map я z
-map ч x
-map с c
-map м v
-map и b
-map т n
-map ь m
-map б ,
-map ю .
-map Й Q
-map Ц W
-map У E
-map К R
-map Е T
-map Н Y
-map Г U
-map Ш I
-map Щ O
-map З P
-map Х {
-map Ъ }
-map Ф A
-map Ы S
-map В D
-map А F
-map П G
-map Р H
-map О J
-map Л K
-map Д L
-map Ж :
-map Э "
-map Я Z
-map Ч X
-map С C
-map М V
-map И B
-map Т N
-map Ь M
-map Б <
-map Ю >
-map Ё /|
+" map й q
+" map ц w
+" map у e
+" map к r
+" map е t
+" map н y
+" map г u
+" map ш i
+" map щ o
+" map з p
+" map х [
+" map ъ ]
+" map ф a
+" map ы s
+" map в d
+" map а f
+" map п g
+" map р h
+" map о j
+" map л k
+" map д l
+" map ж ;
+" map э '
+" map ё \
+" map я z
+" map ч x
+" map с c
+" map м v
+" map и b
+" map т n
+" map ь m
+" map б ,
+" map ю .
+" map Й Q
+" map Ц W
+" map У E
+" map К R
+" map Е T
+" map Н Y
+" map Г U
+" map Ш I
+" map Щ O
+" map З P
+" map Х {
+" map Ъ }
+" map Ф A
+" map Ы S
+" map В D
+" map А F
+" map П G
+" map Р H
+" map О J
+" map Л K
+" map Д L
+" map Ж :
+" map Э "
+" map Я Z
+" map Ч X
+" map С C
+" map М V
+" map И B
+" map Т N
+" map Ь M
+" map Б <
+" map Ю >
+" map Ё /|
