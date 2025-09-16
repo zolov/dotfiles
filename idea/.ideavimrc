@@ -137,8 +137,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 
 " Move line
-nnoremap <S-k> :action MoveLineUp<CR>
-nnoremap <S-j> :action MoveLineDown<CR>
+vnoremap <S-k> :action MoveLineUp<CR>
+vnoremap <S-j> :action MoveLineDown<CR>
 
 nnoremap <silent> <C-s-up> :action MoveStatementUp<CR>
 nnoremap <silent> <C-s-down> :action MoveStatementDown<CR>
