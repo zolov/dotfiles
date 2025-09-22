@@ -282,21 +282,19 @@ let g:WhichKeyDesc_refactoring_generate = "<leader>rg Generate"
 let g:WhichKeyDesc_refactoring_surround = "<leader>rw Surround with"
 let g:WhichKeyDesc_refactoring_change_case = "<leader>ru Change case"
 
-nnoremap <silent> <leader>ro :action OptimizeImports<CR>
-nnoremap <silent> <leader>rf :action ReformatCode<CR>:action OptimizeImports<CR>
-nnoremap <silent> <leader>rn :action RenameElement<CR>
-nnoremap <silent> <leader>rm :action ExtractMethod<CR>
-nnoremap <silent> <leader>rv :action IntroduceVariable<CR>
-nnoremap <silent> <leader>rc :action IntroduceField<CR>
-nnoremap <silent> <leader>rp :action refactoring.introduce.property<CR>
-nnoremap <silent> <leader>rs :action ChangeSignature<CR>
-nnoremap <silent> <leader>rr :action Refactorings.QuickListPopupAction<CR>
-vnoremap <silent> <leader>rr :action Refactorings.QuickListPopupAction<CR>
-xnoremap <silent> <leader>rr :action Refactorings.QuickListPopupAction<CR>
-nnoremap <silent> <leader>rg :action Generate<CR>
-nnoremap <silent> <leader>rw :action SurroundWith<CR>
-nnoremap <silent> <leader>ru :action StringManipulation.ToSnakeCaseOrCamelCase<CR>
-nnoremap <silent> <leader>rt :action osmedile.intellij.stringmanip.PopupChoiceAction<CR>
+map <silent> <leader>ro :action OptimizeImports<CR>
+map <silent> <leader>rf :action ReformatCode<CR>:action OptimizeImports<CR>
+map <silent> <leader>rn :action RenameElement<CR>
+map <silent> <leader>rm :action ExtractMethod<CR>
+map <silent> <leader>rv :action IntroduceVariable<CR>
+map <silent> <leader>rc :action IntroduceField<CR>
+map <silent> <leader>rp :action refactoring.introduce.property<CR>
+map <silent> <leader>rs :action ChangeSignature<CR>
+map <silent> <leader>rr :action Refactorings.QuickListPopupAction<CR>
+map <silent> <leader>rg :action Generate<CR>
+map <silent> <leader>rw :action SurroundWith<CR>
+map <silent> <leader>ru :action StringManipulation.ToSnakeCaseOrCamelCase<CR>
+map <silent> <leader>rt :action osmedile.intellij.stringmanip.PopupChoiceAction<CR>
 
 " Go to code
 "" ========================================================
@@ -375,6 +373,7 @@ nnoremap <silent> <leader>pn :action NextProjectWindow<CR>
 
 " Lsp
 nnoremap <silent> <leader>lh :action ToggleInlayHintsGloballyAction<CR>
+map <silent> <leader>ls :action com.haulmont.ampsbb.show.bean.navigation.pop.up<CR>
 
 nmap <leader>h :action HighlightUsagesInFile<CR>
 
