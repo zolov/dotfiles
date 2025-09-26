@@ -101,7 +101,6 @@ return {
             { "<leader>SR", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], desc = "Replace all in file" },
 
             -- NvimTree
-            { "<leader>e", ":NvimTreeToggle<CR>", desc = "[E]xplorer", nowait = true, remap = false },
             { "<leader>E", ":cd", desc = "Change Working Directory", silent = false, nowait = true, remap = false },
 
             -- FZF Find

@@ -50,7 +50,7 @@ set exchange
 " Easymotion settings
 " set notimeout
 set timeout
-set timeoutlen=600
+set timeoutlen=1600
 set easymotion
 
 
@@ -231,11 +231,11 @@ let g:WhichKeyDesc_scope = "<leader>us Scope action prefix"
 let g:WhichKeyDesc_scope_out = "<leader>uso Highlight outside"
 let g:WhichKeyDesc_scope_in = "<leader>usi Highlight inside"
 
-nnoremap <silent> <leader>ud :action ToggleDistractionFreeMode<CR>
-nnoremap <silent> <leader>uz :action ToggleZenMode<CR>
-nnoremap <silent> <leader>uf :action ToggleFullScreen<CR>
-nnoremap <silent> <leader>uso :action Rainbow.ScopeOutsideHighlightingRestrainAction<CR>
-nnoremap <silent> <leader>usi :action Rainbow.ScopeHighlightingAction<CR>
+map <silent> <leader>ud :action ToggleDistractionFreeMode<CR>
+map <silent> <leader>uz :action ToggleZenMode<CR>
+map <silent> <leader>uf :action ToggleFullScreen<CR>
+map <silent> <leader>uso :action Rainbow.ScopeOutsideHighlightingRestrainAction<CR>
+map <silent> <leader>usi :action Rainbow.ScopeHighlightingAction<CR>
 
 " Build tools
 "" ========================================================
@@ -246,11 +246,11 @@ let g:WhichKeyDesc_build_stop = "<leader>bs Stop"
 let g:WhichKeyDesc_build_more = "<leader>bt More Actions"
 let g:WhichKeyDesc_build_debug_break_point= "<leader>bl Toggle line breakpoint"
 
-nnoremap <silent> <leader>br :action Run<CR>
-nnoremap <silent> <leader>bd :action Debug<CR>
-nnoremap <silent> <leader>bs :action Stop<CR>
-nnoremap <silent> <leader>bt :action MoreRunToolbarActions<CR>
-nnoremap <silent> <leader>bl :action ToggleLineBreakpoint<CR>
+map <silent> <leader>br :action Run<CR>
+map <silent> <leader>bd :action Debug<CR>
+map <silent> <leader>bs :action Stop<CR>
+map <silent> <leader>bt :action MoreRunToolbarActions<CR>
+map <silent> <leader>bl :action ToggleLineBreakpoint<CR>
 
 " File navigation
 "" ========================================================
@@ -260,11 +260,11 @@ let g:WhichKeyDesc_file_nav_goto_content = "<leader>gc Search for file content"
 let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>gr Show recent files"
 let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>gl Show recent locations"
 
-nnoremap <silent> <leader>gf :action GotoFile<CR>
-nnoremap <silent> <leader>gr :action RecentFiles<CR>
-nnoremap <silent> <leader>gc :action FindInPath<CR>
-nnoremap <silent> <leader>gl :action RecentLocations<CR>
-nnoremap <silent> <leader>gs :action NewScratchFile<CR>
+map <silent> <leader>gf :action GotoFile<CR>
+map <silent> <leader>gr :action RecentFiles<CR>
+map <silent> <leader>gc :action FindInPath<CR>
+map <silent> <leader>gl :action RecentLocations<CR>
+map <silent> <leader>gs :action NewScratchFile<CR>
 
 " Refactoring
 "" ========================================================
@@ -298,13 +298,13 @@ map <silent> <leader>rt :action osmedile.intellij.stringmanip.PopupChoiceAction<
 
 " Go to code
 "" ========================================================
-nnoremap <silent> gy :action GotoTypeDeclaration<CR>
-nnoremap <silent> gi :action GotoImplementation<CR>
-nnoremap <silent> gr :action ShowUsages<CR>
-nnoremap <silent> gR :action FindUsages<CR>
-nnoremap <silent> gd :action GotoDeclaration<CR>
-nnoremap <silent> gs :action GotoSuperMethod<CR>
-nnoremap <silent> gt :action GotoTest<CR>
+map <silent> gy :action GotoTypeDeclaration<CR>
+map <silent> gi :action GotoImplementation<CR>
+map <silent> gr :action ShowUsages<CR>
+map <silent> gR :action FindUsages<CR>
+map <silent> gd :action GotoDeclaration<CR>
+map <silent> gs :action GotoSuperMethod<CR>
+map <silent> gt :action GotoTest<CR>
 
 " Git windows
 "" ========================================================
@@ -338,8 +338,6 @@ let g:WhichKeyDesc_diagnostics_prev = "]e Go to previous error"
 
 nnoremap <silent> [e :action GotoPreviousError<CR>
 nnoremap <silent> ]e :action GotoNextError<CR>
-nnoremap <silent> [m :action MethodUp<CR>
-nnoremap <silent> ]m :action MethodDown<CR>
 
 " Method
 "" ========================================================
@@ -362,18 +360,25 @@ let g:WhichKeuDesc_tools_open_bookmark_menu = "<leader>tm Open bookmark menu"
 
 nnoremap <silent> <leader>tt :action ActivateTerminalToolWindow<CR>
 nnoremap <silent> <leader>tr :action ChooseRunConfiguration<CR>
-nnoremap <silent> <leader>ts :action FileStructurePopup<CR>
-nnoremap <silent> <leader>tn :action NewClass<CR>
 nnoremap <silent> <leader>tb :action ToggleBookmarkWithMnemonic<CR>
 nnoremap <silent> <leader>tm :action Bookmarks<CR>
+
+
+" Projects
+"" ========================================================
+let g:WhichKeyDesc_projects_prefix = "<leader>p Projects"
 
 nnoremap <silent> <leader>po :action $LRU<CR>
 nnoremap <silent> <leader>pp :action PreviousProjectWindow<CR>
 nnoremap <silent> <leader>pn :action NextProjectWindow<CR>
 
-" Lsp
-nnoremap <silent> <leader>lh :action ToggleInlayHintsGloballyAction<CR>
-map <silent> <leader>ls :action com.haulmont.ampsbb.show.bean.navigation.pop.up<CR>
+" LSP
+"" ========================================================
+let g:WhichKeyDesc_lsp_tools_prefix = "<leader>l LSP Tools"
+map <silent> <leader>ls :action FileStructurePopup<CR>
+map <silent> <leader>ln :action NewClass<CR>
+map <silent> <leader>lh :action ToggleInlayHintsGloballyAction<CR>
+map <silent> <leader>lf :action com.haulmont.ampsbb.show.bean.navigation.pop.up<CR>
 
 nmap <leader>h :action HighlightUsagesInFile<CR>
 
