@@ -2,6 +2,7 @@
 
 quit-after-last-window-closed = true
 shell-integration-features = cursor,no-sudo,no-title
+shell-integration = zsh
 clipboard-read = allow
 clipboard-write = allow
 copy-on-select = clipboard
@@ -10,7 +11,7 @@ window-subtitle = working-directory
 window-save-state = always
 window-new-tab-position = end
 window-theme = system
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 bold-is-bright = true
 background = #1e1e2e
 foreground = #cdd6f4
