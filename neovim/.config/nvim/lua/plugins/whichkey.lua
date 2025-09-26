@@ -152,12 +152,6 @@ return {
             { "<leader>ls", ":Telescope lsp_document_symbols<cr>", desc = "Document Symbols", nowait = true, remap = false },
             { "<leader>lS", ":Telescope lsp_workspace_symbols<cr>", desc = "Workspace Symbols", nowait = true, remap = false, },
 
-            -- Terminal
-            { "<leader>t", group = "Terminal", nowait = true, remap = false },
-            { "<leader>tf", ":ToggleTerm direction=float<cr>", desc = "Terminal Float", nowait = true, remap = false },
-            { "<leader>tt", ":ToggleTerm size=10 direction=horizontal<cr>", desc = "Terminal Horizontal", nowait = true, remap = false },
-            { "<leader>tv", ":ToggleTerm size=50 direction=vertical<cr>", desc = "Terminal Vertical", nowait = true, remap = false },
-
             -- Notes
             { "<leader>n", group = "Notes", nowait = true, remap = false },
             { "<leader>nt", ":Markview toggle<cr>", desc = "[T]oggle Markview Rendering", nowait = true, remap = false },
