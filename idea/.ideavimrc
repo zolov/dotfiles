@@ -198,6 +198,8 @@ let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
 let g:WhichKeyDesc_fold_region = "<leader>zf Fold region"
 let g:WhichKeyDesc_unfold_region = "<leader>zu Unfold region"
 
+map <silent> zf :action CollapseRegion<CR>
+
 nnoremap <silent> <leader>zc :action CollapseAllRegions<CR>
 nnoremap <silent> <leader>zo :action ExpandAllRegions<CR>
 nnoremap <silent> <leader>zf :action CollapseRegion<CR>
