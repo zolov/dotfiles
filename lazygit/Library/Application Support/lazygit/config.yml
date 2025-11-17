@@ -1,10 +1,9 @@
-notARepository: skip 
+notARepository: skip
 git:
   disableForcePushing: false
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
-
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
 gui:
   nerdFontsVersion: "3"
   showFileTree: true
@@ -22,8 +21,8 @@ gui:
       - "⠏"
   theme:
     activeBorderColor:
-    - '#fab387'
-    - bold
+      - '#fab387'
+      - bold
     inactiveBorderColor:
       - '#a6adc8'
     optionsTextColor:
