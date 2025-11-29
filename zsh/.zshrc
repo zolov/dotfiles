@@ -87,5 +87,10 @@ export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
+export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.rd/bin:$PATH"
 export PATH="/usr/local/texlive/2025basic/bin/universal-darwin:$PATH"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/skaiur/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
