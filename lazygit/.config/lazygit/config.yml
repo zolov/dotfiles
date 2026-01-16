@@ -1,0 +1,45 @@
+notARepository: skip
+git:
+  disableForcePushing: false
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
+gui:
+  nerdFontsVersion: "3"
+  showFileTree: true
+  spinner:
+    frames:
+      - "⠋"
+      - "⠙"
+      - "⠹"
+      - "⠸"
+      - "⠼"
+      - "⠴"
+      - "⠦"
+      - "⠧"
+      - "⠇"
+      - "⠏"
+  theme:
+    activeBorderColor:
+      - '#fab387'
+      - bold
+    inactiveBorderColor:
+      - '#a6adc8'
+    optionsTextColor:
+      - '#89b4fa'
+    selectedLineBgColor:
+      - '#313244'
+    cherryPickedCommitBgColor:
+      - '#45475a'
+    cherryPickedCommitFgColor:
+      - '#fab387'
+    unstagedChangesColor:
+      - '#f38ba8'
+    defaultFgColor:
+      - '#cdd6f4'
+    searchingActiveBorderColor:
+      - '#f9e2af'
+  authorColors:
+    'zolov': '#89b4fa'
+    'Igor Zolov': '#89dceb'
+    '*': '#b4befe'
