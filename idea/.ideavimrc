@@ -373,6 +373,7 @@ let g:WhichKeyDesc_projects_prefix = "<leader>p Projects"
 nnoremap <silent> <leader>po :action $LRU<CR>
 nnoremap <silent> <leader>pp :action PreviousProjectWindow<CR>
 nnoremap <silent> <leader>pn :action NextProjectWindow<CR>
+nnoremap <silent> <leader>px :action CloseProject<CR>
 
 " LSP
 "" ========================================================
