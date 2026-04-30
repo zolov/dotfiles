@@ -52,6 +52,7 @@ plugins=(
 	copypath
 	kubectl
 	kubectl-autocomplete
+	opentofu
 )
 
 ZSH_DISABLE_COMPFIX="true"
@@ -94,3 +95,6 @@ export PATH="/usr/local/texlive/2025basic/bin/universal-darwin:$PATH"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/skaiur/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/tofu tofu
