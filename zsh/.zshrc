@@ -32,6 +32,7 @@ precmd() {
 plugins=(
 	asdf
 	fzf
+	fzf-zsh-plugin
 	zsh-vi-mode
 	thefuck
 	git
@@ -74,6 +75,7 @@ function zvm_after_init() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
+source <(fzf --zsh)
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
@@ -91,6 +93,10 @@ export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.rd/bin:$PATH"
 export PATH="/usr/local/texlive/2025basic/bin/universal-darwin:$PATH"
+
+export GOPATH="$(asdf where golang)/packages"
+export GOROOT="$(asdf where golang)/go"
+export PATH="$PATH:$GOROOT/bin"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/skaiur/.rd/bin:$PATH"
