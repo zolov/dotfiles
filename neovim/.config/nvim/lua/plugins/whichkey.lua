@@ -77,6 +77,7 @@ return {
             {"<leader>r", group = "Refactor",nowait = true, remap = false, },
             { "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", desc = "[R]efactorings",mode = { "n", "x" }, nowait = true, remap = false },
             { "<leader>rn", ":Lspsaga rename<CR>", desc = "Re[N]ame", silent = true, nowait = true, remap = false },
+            { "<leader>rv", ":lua require('refactoring').refactor('Extract Variable')", duesc = "Extract [V]ariable", silent = true, nowait = true, remap = false },
 
 			-- Projects and Sessions
             { "<leader>p", group = "Projects and Sessions", nowait = true, remap = false },
@@ -158,6 +159,7 @@ return {
             { "<leader>nn", ":ObsidianNew<cr>", desc = "Create [N]ew Note", nowait = true, remap = false },
             { "<leader>nf", ":ObsidianSearch<cr>", desc = "Search [F]or Note", nowait = true, remap = false },
             { "<leader>nl", ":ObsidianFollowLink<cr>", desc = "Follow [L]ink", nowait = true, remap = false },
+            { "<leader>nw", ":ObsidianWorkspace<cr>", desc = "Notes [W]orkspace", nowait = true, remap = false },
 
             { "<leader>np", group = "Notes preview", nowait = true, remap = false },
             { "<leader>npp", ":MarkdownPreview<cr>", desc = "Open Markdown [P]review", nowait = true, remap = false },

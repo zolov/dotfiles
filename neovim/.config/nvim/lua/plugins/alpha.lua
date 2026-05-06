@@ -46,11 +46,12 @@ return {
         dashboard.section.buttons.val = {
             dashboard.button("nn", " " .. " New note", ":ObsidianNew<CR>"),
             dashboard.button("nf", " " .. " Notes", ":ObsidianSearch<CR>"), -- :ene <BAR> startinsert <CR>
+            dashboard.button("nw", "􀣍 " .. " Workspace", ":ObsidianWorkspace<CR>"),
             dashboard.button("ff", " " .. " Find file", ":Telescope find_files <CR>"),
             dashboard.button("fr", " " .. " Recent files", ":Telescope oldfiles <CR>"),
             dashboard.button("fg", " " .. " Find text", ":Telescope live_grep <CR>"),
             dashboard.button("pr", " " .. " Restore session", ":SessionLoadLast<CR>"),
-            dashboard.button("c", " " .. " Configuration", ":e $MYVIMRC | :cd %:p:h <CR> | :NvimTreeToggle<CR>"), -- | split . | wincmd k |            
+            dashboard.button("c", " " .. " Configuration", ":e $MYVIMRC | :cd %:p:h <CR> | :NvimTreeToggle<CR>"), -- | split . | wincmd k |
             dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
             dashboard.button("q", " " .. " Quit", ":qa<CR>"),
         }

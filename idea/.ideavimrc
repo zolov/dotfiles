@@ -39,6 +39,7 @@ set nerdtree
 set argtextobj
 let g:argtextobj_pairs="(:),{:},<:>"
 set textobj-entire
+set anyobject
 set surround
 set mini-ai
 set functiontextobj
