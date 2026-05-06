@@ -95,6 +95,8 @@ function M.config()
         "marksman",
         "rust_analyzer",
         "gopls",
+        "terraformls",
+        "tofu-ls"
     }
 
     local default_diagnostic_config = {

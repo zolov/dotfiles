@@ -41,7 +41,8 @@ plugins=(
 	zsh-completions
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	fast-syntax-highlighting
+	# fast-syntax-highlighting
+	fzf-zsh-plugin
 	fasd
 	brew
 	macos
