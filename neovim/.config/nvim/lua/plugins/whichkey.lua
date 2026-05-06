@@ -77,7 +77,7 @@ return {
             {"<leader>r", group = "Refactor",nowait = true, remap = false, },
             { "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", desc = "[R]efactorings",mode = { "n", "x" }, nowait = true, remap = false },
             { "<leader>rn", ":Lspsaga rename<CR>", desc = "Re[N]ame", silent = true, nowait = true, remap = false },
-            { "<leader>rv", ":lua require('refactoring').refactor('Extract Variable')", duesc = "Extract [V]ariable", silent = true, nowait = true, remap = false },
+            { "<leader>rv", ":lua require('refactoring').refactor('Extract Variable')", desc = "Extract [V]ariable", silent = true, nowait = true, remap = false },
 
 			-- Projects and Sessions
             { "<leader>p", group = "Projects and Sessions", nowait = true, remap = false },
