@@ -364,8 +364,12 @@ let g:WhichKeuDesc_tools_open_bookmark_menu = "<leader>tm Open bookmark menu"
 nnoremap <silent> <leader>tt :action ActivateTerminalToolWindow<CR>
 nnoremap <silent> <leader>tr :action ChooseRunConfiguration<CR>
 nnoremap <silent> <leader>bm :action ToggleBookmarkWithMnemonic<CR>
-nnoremap <silent> <leader>bb :action ToggleBookmark<CR>
+nnoremap <silent> <leader>bt :action ToggleBookmark<CR>
 nnoremap <silent> <leader>bl :action Bookmarks<CR>
+nnoremap <silent> <leader>bb :action ShowBookmarks<CR>
+nnoremap <silent> <leader>bn :action GotoNextBookmark<CR>
+nnoremap <silent> <leader>bp :action GotoPrevBookmark<CR>
+
 
 
 " Projects
