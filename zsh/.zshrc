@@ -9,7 +9,7 @@ source_if_exists ~/.fzf.zsh
 source_if_exists ~/.config/zsh/extensions/aliases.zsh
 source_if_exists ~/.config/zsh/extensions/history.sh
 source_if_exists ~/.config/zsh/extensions/git.sh
-source_if_exists ~/.config/zsh/extensions/.secenv.zsh
+source_if_exists ~/.secenv
 source_if_exists ~/.config/zsh/extensions/nvimswitcher.zsh
 source_if_exists ~/.config/zsh/extensions/docker-aliases.sh
 source_if_exists ~/.config/zsh/extensions/sdkman.sh
@@ -39,11 +39,6 @@ plugins=(
 	git-flow
 	gitignore
 	colored-man-pages
-	zsh-completions
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-	# fast-syntax-highlighting
-	fzf-zsh-plugin
 	fasd
 	brew
 	macos
@@ -55,13 +50,16 @@ plugins=(
 	kubectl
 	kubectl-autocomplete
 	opentofu
+	zsh-autosuggestions
+	zsh-syntax-highlighting
 )
 
 ZSH_DISABLE_COMPFIX="true"
 
 export EZA_COLORS="$(vivid generate catppuccin-mocha)"
-
-source $ZSH/oh-my-zsh.sh
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+autoload -U compinit && compinit
+source "$ZSH/oh-my-zsh.sh"
 
 # FZF-TAB CONFIGURATION
 zstyle ':fzf-tab:*' use-fzf-default-opts yes

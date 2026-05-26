@@ -58,6 +58,9 @@ alias gpush="git push"
 
 alias kubectl="kubecolor"
 
+# SSH
+alias sshconf="vim $HOME/.ssh/config"
+
 function cx() {
     cd "$@" && ls;
 }
