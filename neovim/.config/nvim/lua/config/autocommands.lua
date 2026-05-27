@@ -8,19 +8,23 @@ end
 -- General Settings
 local general = augroup("general")
 
-autocmd('BufHidden', {
-  desc = 'Delete [No Name] buffers',
-  callback = function(data)
-    if data.file == '' and vim.bo[data.buf].buftype == '' and not vim.bo[data.buf].modified then
-      vim.schedule(function()
-        pcall(vim.api.nvim_buf_delete, data.buf, {})
-      end)
-    end
-  end,
+autocmd("BufHidden", {
+    desc = "Delete [No Name] buffers",
+    callback = function(data)
+        if data.file == "" and vim.bo[data.buf].buftype == "" and not vim.bo[data.buf].modified then
+            vim.schedule(function()
+                pcall(vim.api.nvim_buf_delete, data.buf, {})
+            end)
+        end
+    end,
 })
 
 autocmd("BufWritePre", {
-    callback = function()
+    callback = function(event)
+        if not vim.bo[event.buf].modifiable or vim.bo[event.buf].buftype ~= "" then
+            return
+        end
+
         vim.cmd([[
          keeppatterns %s/\s\+$//e
       ]])
@@ -113,7 +117,6 @@ autocmd("BufReadPost", {
 --     group = general,
 -- })
 
-
 -- Disable New Line Comment
 autocmd("BufEnter", {
     callback = function()
@@ -157,31 +160,6 @@ autocmd("FileType", {
     callback = function()
         vim.opt_local.wrap = true
         vim.opt_local.spell = true
-    end,
-})
-
--- Close NvimTree
-autocmd("BufEnter", {
-    group = vim.api.nvim_create_augroup("NvimTreeClose", { clear = true }),
-    pattern = "NvimTree_*",
-    callback = function()
-        local layout = vim.api.nvim_call_function("winlayout", {})
-        if
-            layout[1] == "leaf"
-            and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree"
-            and layout[3] == nil
-        then
-            vim.cmd("confirm quit")
-        end
-    end,
-})
-
--- JDTLS
-autocmd("FileType", {
-    group = general,
-    pattern = { "*.java" },
-    callback = function()
-        require("config.jdtls").setup_config()
     end,
 })
 

@@ -42,7 +42,6 @@ function M.config()
             "cmake",
             "dockerls",
             "gradle_ls",
-            "jsonls",
             "kotlin_language_server",
             "sqlls",
         },
@@ -56,7 +55,6 @@ function M.config()
             "gofumpt",
             "rustfmt",
             "stylua",
-            "rustfmt",
             "xmlformat",
         },
     })
@@ -73,11 +71,9 @@ function M.config()
             "impl",
             "delve",
             "clang-format",
-            "ltex-ls"
+            "ltex-ls",
         },
-
-        -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39
-        vim.api.nvim_command("MasonToolsInstall"),
+        run_on_start = true,
     })
 end
 

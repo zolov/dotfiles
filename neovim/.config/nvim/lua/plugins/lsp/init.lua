@@ -9,21 +9,19 @@ local M = {
     },
 }
 
--- stylua: ignore
 local function lsp_keymaps(bufnr)
-  local keymap = vim.api.nvim_buf_set_keymap
-  keymap(bufnr, "n", "gD", ":Telescope lsp_type_definitions<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
-  keymap(bufnr, "n", "gd", ":Lspsaga goto_definition<CR>", { desc = "Goto Definition", noremap = true, silent = true })
-  keymap(bufnr, "n", "gi", ":Telescope lsp_implementations<CR>",{ desc = "Goto Implementation", noremap = true, silent = true })
-  keymap(bufnr, "n", "gr", ":Telescope lsp_references<CR>", { desc = "References", noremap = true, silent = true })
-  keymap(bufnr, "n", "gl", ":lua vim.diagnostic.open_float()<CR>", { desc = "Open float", noremap = true, silent = true })
-  keymap(bufnr, "n", "gy", ":lua vim.lsp.buf.type_definition()<CR>", { desc = "Goto T[y]pe Definition", noremap = true, silent = true })
-  keymap(bufnr, "n", "gk", ":lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature Help", noremap = true, silent = true })
-    -- keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Goto Declaration", noremap = true, silent = true })
-    -- keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition", noremap = true, silent = true })
-    -- keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", noremap = true, silent = true })
-    -- keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "Goto Implementation", noremap = true, silent = true })
-    -- keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "References", noremap = true, silent = true })
+    local opts = { buffer = bufnr, silent = true }
+    local function map(lhs, rhs, desc)
+        vim.keymap.set("n", lhs, rhs, vim.tbl_extend("force", opts, { desc = desc }))
+    end
+
+    map("gD", "<cmd>Telescope lsp_type_definitions<CR>", "Goto Declaration")
+    map("gd", "<cmd>Lspsaga goto_definition<CR>", "Goto Definition")
+    map("gi", "<cmd>Telescope lsp_implementations<CR>", "Goto Implementation")
+    map("gr", "<cmd>Telescope lsp_references<CR>", "References")
+    map("gl", vim.diagnostic.open_float, "Open float")
+    map("gy", vim.lsp.buf.type_definition, "Goto T[y]pe Definition")
+    map("gk", vim.lsp.buf.signature_help, "Signature Help")
 end
 
 M.on_attach = function(client, bufnr)
@@ -66,10 +64,22 @@ end
 function M.config()
     local wk = require("which-key")
     wk.add({
-        { "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, desc = "Next Diagnostic" },
-        { "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, desc = "Prev Diagnostic" },
+        {
+            "]d",
+            function()
+                vim.diagnostic.jump({ count = 1, float = true })
+            end,
+            desc = "Next Diagnostic",
+        },
+        {
+            "[d",
+            function()
+                vim.diagnostic.jump({ count = -1, float = true })
+            end,
+            desc = "Prev Diagnostic",
+        },
         { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
-        { "<leader>lh", "<cmd>lua require('plugins.lspconfig').toggle_inlay_hints()<CR>", desc = "Hints" },
+        { "<leader>lh", "<cmd>lua require('plugins.lsp').toggle_inlay_hints()<CR>", desc = "Hints" },
         { "<leader>q", "<cmd>Trouble quickfix<cr>", desc = "Quickfix" },
         { "<leader>lq", "<cmd>lua vim.diagnostic.setqflist()<cr>", desc = "Quickfix" },
         { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", desc = "CodeLens Action" },
@@ -136,7 +146,7 @@ function M.config()
             capabilities = M.common_capabilities(),
         }
 
-        local require_ok, settings = pcall(require, "lspsettings." .. server)
+        local require_ok, settings = pcall(require, "plugins.lsp.servers." .. server)
         if require_ok then
             opts = vim.tbl_deep_extend("force", settings, opts)
         end

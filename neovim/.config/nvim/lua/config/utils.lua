@@ -45,7 +45,7 @@ M.cmp_icons = {
     Unit = " ",
     Value = " ",
     Variable = " ",
-	Codeium = "",
+    Codeium = "",
 }
 
 M.old_cmp_icons = {
@@ -74,7 +74,7 @@ M.old_cmp_icons = {
     Event = "",
     Operator = "󰆕",
     TypeParameter = "󰊄",
-	Codeium = "",
+    Codeium = "",
 }
 
 M.spinners = {

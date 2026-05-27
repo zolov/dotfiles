@@ -7,6 +7,6 @@ return {
         "MunifTanjim/nui.nvim",
     },
     opts = {
-        lang = "java"
+        lang = "java",
     },
 }
