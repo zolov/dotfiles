@@ -2,19 +2,12 @@ local M = {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        {
-            "hrsh7th/cmp-nvim-lsp",
-            "folke/neodev.nvim",
-            "b0o/schemastore.nvim",
-            "https://gitlab.com/schrieveslaach/sonarlint.nvim",
-        },
+        "hrsh7th/cmp-nvim-lsp",
+        "folke/neodev.nvim",
+        "b0o/schemastore.nvim",
+        "https://gitlab.com/schrieveslaach/sonarlint.nvim",
     },
 }
-
-for name, icon in pairs(require("config.utils").lsp_icons) do
-    name = "DiagnosticSign" .. name
-    vim.fn.sign_define(name, { text = icon, texthl = name })
-end
 
 -- stylua: ignore
 local function lsp_keymaps(bufnr)
@@ -38,13 +31,13 @@ M.on_attach = function(client, bufnr)
 
     -- require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
 
-    if client.supports_method("textDocument/inlayHint") then
-        vim.lsp.inlay_hint.enable(true)
+    if client:supports_method("textDocument/inlayHint", bufnr) then
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
 end
 
 M.toggle_inlay_hints = function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
 end
 
 function M.common_capabilities()
@@ -73,8 +66,8 @@ end
 function M.config()
     local wk = require("which-key")
     wk.add({
-        { "]d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", desc = "Prev Diagnostic" },
-        { "[d", "<cmd>lua vim.diagnostic.goto_next()<CR>", desc = "Next Diagnostic" },
+        { "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, desc = "Next Diagnostic" },
+        { "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, desc = "Prev Diagnostic" },
         { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
         { "<leader>lh", "<cmd>lua require('plugins.lspconfig').toggle_inlay_hints()<CR>", desc = "Hints" },
         { "<leader>q", "<cmd>Trouble quickfix<cr>", desc = "Quickfix" },
@@ -85,7 +78,6 @@ function M.config()
         { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },
     })
 
-    local lspconfig = require("lspconfig")
     local servers = {
         "lua_ls",
         "pyright",
@@ -96,12 +88,17 @@ function M.config()
         "rust_analyzer",
         "gopls",
         "terraformls",
-        "tofu-ls"
+        "tofu_ls",
     }
 
     local default_diagnostic_config = {
         signs = {
-            active = true,
+            text = {
+                [vim.diagnostic.severity.ERROR] = require("config.utils").lsp_icons.Error,
+                [vim.diagnostic.severity.WARN] = require("config.utils").lsp_icons.Warn,
+                [vim.diagnostic.severity.INFO] = require("config.utils").lsp_icons.Info,
+                [vim.diagnostic.severity.HINT] = require("config.utils").lsp_icons.Hint,
+            },
         },
         virtual_text = true,
         update_in_insert = false,
@@ -119,14 +116,18 @@ function M.config()
 
     vim.diagnostic.config(default_diagnostic_config)
 
-    for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
-        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
+    local border = require("config.utils").border
+    vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+        return vim.lsp.handlers.hover(err, result, ctx, vim.tbl_deep_extend("force", config or {}, { border = border }))
     end
-
-    vim.lsp.handlers["textDocument/hover"] =
-        vim.lsp.with(vim.lsp.handlers.hover, { border = require("config.utils").border })
-    vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = require("config.utils").border })
+    vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, config)
+        return vim.lsp.handlers.signature_help(
+            err,
+            result,
+            ctx,
+            vim.tbl_deep_extend("force", config or {}, { border = border })
+        )
+    end
     require("lspconfig.ui.windows").default_options.border = "rounded"
 
     for _, server in pairs(servers) do
@@ -143,7 +144,11 @@ function M.config()
         if server == "lua_ls" then
             require("neodev").setup({})
         end
+
+        vim.lsp.config(server, opts)
     end
+
+    vim.lsp.enable(servers)
 end
 
 return M
