@@ -195,6 +195,13 @@ autocmd("VimLeavePre", {
 --     end,
 -- })
 
+
+autocmd("FileType", {
+  callback = function(args)
+    pcall(vim.treesitter.start, args.buf)
+  end,
+})
+
 autocmd({ "FileType" }, {
     group = general,
     pattern = {
