@@ -47,8 +47,14 @@ source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/cpu.sh"
+source "$ITEM_DIR/vpn.sh"
 
 #################### Finalizing Setup ####################
+
+sketchybar --set vpn click_script="open x-apple.systempreferences:com.apple.NetworkExtensionSettingsUI.NESettingsUIExtension"
+sketchybar --set calendar click_script="open /System/Applications/Calendar.app"
+sketchybar --set cpu click_script="open /System/Applications/Utilities/Activity\ Monitor.app"
+sketchybar --set sound click_script="open /System/Library/PreferencePanes/Sound.prefPane"
 
 sketchybar --hotload true
 

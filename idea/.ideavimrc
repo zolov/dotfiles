@@ -118,7 +118,6 @@ vmap <leader>u d~h
 nnoremap <silent> <S-s> :action EditorSplitLine<CR>
 
 " Fast esc
-inoremap jj <Esc>
 inoremap jk <Esc>
 
 imap <C-i> :action ParameterInfo<CR>
