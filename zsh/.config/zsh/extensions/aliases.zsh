@@ -19,7 +19,6 @@ alias qq="yazi"
 alias cr="clear"
 alias nf="nvimGoToFiles"
 alias ngl="nvimGoToLine"
-alias cd="z"
 alias tw="taskwarrior-tui"
 
 alias ls="eza --tree --level 1 --icons --git"
