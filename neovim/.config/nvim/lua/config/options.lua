@@ -1,5 +1,3 @@
-require('vim._core.ui2').enable({})
-
 local options = {
     spelllang = "ru,en",
     foldmethod = "marker",
