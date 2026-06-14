@@ -56,6 +56,7 @@ function M.config()
             "rustfmt",
             "stylua",
             "xmlformat",
+            "yamlfmt"
         },
     })
     require("mason-tool-installer").setup({

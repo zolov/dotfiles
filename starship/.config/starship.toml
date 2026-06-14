@@ -28,7 +28,7 @@ $character\
 right_format = """
 $cmd_duration\
 [](crust)\
-$kubernetes\
+$docker_context
 [](bg:crust fg:black)\
 $battery\
 [](fg:black bg:surface0)\
@@ -218,10 +218,9 @@ style = "bg:surface0"
 format = '[[ $symbol( $version) ](fg:crust bg:surface0)]($style)'
 
 [docker_context]
-disabled = true
+disabled = false
 symbol = ""
-style = "bg:mantle"
-format = '[[ $symbol( $context) ](fg:crust bg:teal)]($style)'
+format = '[$symbol](bg:crust fg:bright-black)[ $context ](bg:crust fg:bright-black)($style)'
 
 [line_break]
 disabled = false

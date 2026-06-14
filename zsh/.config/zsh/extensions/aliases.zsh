@@ -20,6 +20,7 @@ alias cr="clear"
 alias nf="nvimGoToFiles"
 alias ngl="nvimGoToLine"
 alias tw="taskwarrior-tui"
+alias fabric='fabric-ai'
 
 alias ls="eza --tree --level 1 --icons --git"
 alias lsa="eza --tree --level 1 --icons --all --git"

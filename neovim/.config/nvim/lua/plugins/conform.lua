@@ -17,7 +17,7 @@ return {
             xml = { "xmlformat" },
             json = { "prettierd" },
             python = { "black" },
-            yaml = { "prettierd" },
+            yaml = { "yamlfmt" },
         },
     },
 }

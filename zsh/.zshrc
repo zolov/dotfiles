@@ -90,16 +90,12 @@ export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export PATH="$HOME/.rd/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="/usr/local/texlive/2025basic/bin/universal-darwin:$PATH"
 
 export GOPATH="$(asdf where golang)/packages"
 export GOROOT="$(asdf where golang)/go"
 export PATH="$PATH:$GOROOT/bin"
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/skaiur/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/tofu tofu
