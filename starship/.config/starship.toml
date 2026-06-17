@@ -75,7 +75,7 @@ style = "bg:surface0"
 format = '[[  $time ](fg:crust bg:surface0)]($style)'
 
 [battery]
-disabled = false
+disabled = true
 format = "[[$symbol$percentage ](fg:base bg:black)]($style)"
 full_symbol = '󰁹 '
 charging_symbol = '󰂄 '
