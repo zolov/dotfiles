@@ -95,7 +95,6 @@ function M.config()
         "jsonls",
         "yamlls",
         "marksman",
-        "rust_analyzer",
         "gopls",
         "terraformls",
         "tofu_ls",

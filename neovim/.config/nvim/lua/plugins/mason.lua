@@ -37,7 +37,6 @@ function M.config()
             "jsonls",
             "yamlls",
             "marksman",
-            "rust_analyzer",
             "clangd",
             "cmake",
             "dockerls",
