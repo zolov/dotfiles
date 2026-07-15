@@ -69,6 +69,7 @@ return {
                 end,
             },
             sources = {
+                { name = "lazydev", group_index = 0 },
                 { name = "codeium", priority = 0 },
                 { name = "nvim_lsp", priority = 1 },
                 { name = "buffer", priority = 2 },
@@ -84,6 +85,7 @@ return {
                 format = function(entry, item)
                     item.kind = string.format("%s %s", item.kind, kind_icons[item.kind])
                     item.menu = ({
+                        lazydev = " | LUA",
                         codeium = " | AI ",
                         nvim_lsp = " | LSP",
                         luasnip = " | SNP",

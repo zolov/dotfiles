@@ -26,7 +26,7 @@ local options = {
     writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
     expandtab = false, -- convert tabs to spaces
     shiftwidth = 4, -- the number of spaces inserted for each indentation
-    tabstop = 4, -- insert 2 spaces for a tab
+    tabstop = 4, -- number of spaces a tab displays as
     softtabstop = 4,
 
     showtabline = 0,
@@ -57,7 +57,6 @@ local global = {
     mkdp_auto_close = 0, -- Don't Exit Preview When Switching Buffers
     highlighturl_enabled = true, -- highlight URLs by default
     -- disable netrw at the very start of your init.lua (strongly advised)
-    loaded = true,
     loaded_netrwPlugin = true,
     zipPlugin = true, -- disable zip
     load_black = true, -- disable black
@@ -86,11 +85,16 @@ for k, v in pairs(global) do
     vim.g[k] = v
 end
 
--- refresh buffers when files change on disk
-vim.cmd([[
-  set autoread
-  au CursorHold * checktime
-]])
+-- Refresh buffers when files change on disk.
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+    group = vim.api.nvim_create_augroup("skaiivim_checktime_on_idle", { clear = true }),
+    callback = function()
+        if vim.o.buftype ~= "nofile" then
+            vim.cmd("checktime")
+        end
+    end,
+})
 
 if vim.fn.exists("g:neovide") == 1 then
     vim.opt.guifont = "JetBrainsMono Nerd Font:h16"
@@ -118,26 +122,22 @@ if vim.fn.exists("g:neovide") == 1 then
     vim.g.neovide_cursor_vfx_particle_curl = 1.0
     vim.g.neovide_cursor_unfocused_outline_width = 0.125
 
-    local function toggleTransparency()
+    local function toggle_transparency()
         if vim.g.neovide_transparency == 1.0 then
-            vim.cmd("let g:neovide_transparency=0.7")
+            vim.g.neovide_transparency = 0.7
             vim.g.neovide_window_blurred = true
         else
-            vim.cmd("let g:neovide_transparency=1.0")
+            vim.g.neovide_transparency = 1.0
             vim.g.neovide_window_blurred = false
         end
     end
 
-    local function toggleFullscreen()
-        if vim.g.neovide_fullscreen == false then
-            vim.cmd("let g:neovide_fullscreen=v:true")
-        else
-            vim.cmd("let g:neovide_fullscreen=v:false")
-        end
+    local function toggle_fullscreen()
+        vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
     end
 
-    vim.keymap.set("n", "<F11>", toggleFullscreen, { silent = true })
-    vim.keymap.set("n", "<F10>", toggleTransparency, { silent = true })
+    vim.keymap.set("n", "<F11>", toggle_fullscreen, { silent = true, desc = "Toggle Neovide fullscreen" })
+    vim.keymap.set("n", "<F10>", toggle_transparency, { silent = true, desc = "Toggle Neovide transparency" })
 end
 
 vim.diagnostic.config({

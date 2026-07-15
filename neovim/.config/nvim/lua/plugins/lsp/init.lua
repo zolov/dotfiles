@@ -3,9 +3,17 @@ local M = {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
-        "folke/neodev.nvim",
         "b0o/schemastore.nvim",
         "https://gitlab.com/schrieveslaach/sonarlint.nvim",
+        {
+            "folke/lazydev.nvim",
+            ft = "lua",
+            opts = {
+                library = {
+                    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                },
+            },
+        },
     },
 }
 
@@ -39,11 +47,6 @@ M.toggle_inlay_hints = function()
 end
 
 function M.common_capabilities()
-    local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-    if status_ok then
-        return cmp_nvim_lsp.default_capabilities()
-    end
-
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -57,6 +60,11 @@ function M.common_capabilities()
         dynamicRegistration = false,
         lineFoldingOnly = true,
     }
+
+    local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+    if status_ok then
+        return cmp_nvim_lsp.default_capabilities(capabilities)
+    end
 
     return capabilities
 end
@@ -148,10 +156,6 @@ function M.config()
         local require_ok, settings = pcall(require, "plugins.lsp.servers." .. server)
         if require_ok then
             opts = vim.tbl_deep_extend("force", settings, opts)
-        end
-
-        if server == "lua_ls" then
-            require("neodev").setup({})
         end
 
         vim.lsp.config(server, opts)
