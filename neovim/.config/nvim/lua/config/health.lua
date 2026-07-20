@@ -44,6 +44,7 @@ function M.report()
         string.format("stylua: %s", executable_status("stylua")),
         string.format("lazy.nvim: %s", plugin_status("lazy.nvim")),
         string.format("nvim-lspconfig: %s", plugin_status("nvim-lspconfig")),
+        string.format("blink.cmp: %s", plugin_status("blink.cmp")),
         string.format("lazydev.nvim: %s", plugin_status("lazydev.nvim")),
     }
 

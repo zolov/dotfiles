@@ -1,9 +1,9 @@
 # Neovim Config
 
 Personal Neovim configuration built around `lazy.nvim`, native LSP configuration,
-Treesitter, Telescope/FZF, DAP, formatting/linting, Git integrations, and focused
-language support for Lua, Go, Rust, Python, YAML/JSON, Terraform/OpenTofu, and
-Markdown.
+`blink.cmp`, Treesitter, Telescope/FZF, DAP, formatting/linting, Git integrations,
+and focused language support for Lua, Go, Rust, Python, YAML/JSON,
+Terraform/OpenTofu, and Markdown.
 
 ## Requirements
 

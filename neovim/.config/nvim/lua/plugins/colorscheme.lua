@@ -1,7 +1,8 @@
 return {
     "catppuccin/nvim",
     name = "catppuccin",
-    tag = "v1.7.0",
+    -- tag = "v1.7.0",
+    tag = "v2.0.0",
     enabled = true,
     priority = 1000,
     config = function()
@@ -31,7 +32,8 @@ return {
             },
             integrations = {
                 barbar = true,
-                cmp = true,
+                -- cmp = true,
+                blink_cmp = true,
                 gitsigns = true,
                 native_lsp = { enabled = true },
                 nvimtree = true,
