@@ -324,7 +324,7 @@ let g:WhichKeyDesc_git_branches = "<leader>vb Open branches list"
 nnoremap <silent> <leader>vc :action CheckinProject<CR>
 nnoremap <silent> <leader>vf :action Git.Fetch<CR>
 nnoremap <silent> <leader>vs :action ActivateVersionControlToolWindow<CR>
-nnoremap <silent> <leader>vn :action GitNewBranchAction<CR>
+nnoremap <silent> <leader>vn :action Git.CreateNewBranch<CR>
 nnoremap <silent> <leader>vk :action Vcs.Push<CR>
 nnoremap <silent> <leader>vt :action Vcs.UpdateProject<CR>
 nnoremap <silent> <leader>va :action Annotate<CR>
@@ -340,6 +340,7 @@ let g:WhichKeyDesc_diagnostics_prev = "]e Go to previous error"
 
 nnoremap <silent> [e :action GotoPreviousError<CR>
 nnoremap <silent> ]e :action GotoNextError<CR>
+map gh <Action>(ShowHoverInfo)
 
 " Method
 "" ========================================================
