@@ -50,13 +50,14 @@ set exchange
 
 " Easymotion settings
 " set notimeout
-set timeout
-set timeoutlen=1600
+" set timeout
 set easymotion
 
 
 " Which-key settings
 set which-key
+set notimeout
+set timeoutlen=5000
 
 set foldmethod=syntax
 set nofoldenable
@@ -85,11 +86,20 @@ let g:WhichKey_SortOrder = "by_key_prefix_first"
 "" Key mappings
 "" ========================================================
 inoremap <silent> <C-c> <Esc>
-nnoremap <leader>f :action GotoFile<CR>
+let g:WhichKeyDesc_clear_search = "<leader><space> Clear search highlights"
+let g:WhichKeyDesc_search_prefix = "<leader>s Search"
+let g:WhichKeyDesc_search_symbol = "<leader>ss Go to symbol"
+let g:WhichKeyDesc_search_file = "<leader>sf Go to file"
+let g:WhichKeyDesc_search_class = "<leader>sc Go to class"
+let g:WhichKeyDesc_search_action = "<leader>sa Go to action"
 nnoremap <silent> <leader>ss :action GotoSymbol<CR>
 nnoremap <silent> <leader>sf :action GotoFile<CR>
 nnoremap <silent> <leader>sc :action GotoClass<CR>
 nnoremap <silent> <leader>sa :action GotoAction<CR>
+
+let g:WhichKeyDesc_file_tools_prefix = "<leader>f File tools"
+let g:WhichKeyDesc_file_structure_tool_window = "<leader>fs Open structure tool window"
+nnoremap <silent> <leader>fs :action ActivateStructureToolWindow<CR>
 
 nnoremap ,c :edit ~/.ideavimrc<cr>
 nnoremap ,h :set hlsearch<cr>
@@ -107,11 +117,14 @@ nnoremap \ "_
 
 " Paste hover without overwriting default register
 xnoremap p P
+let g:WhichKeyDesc_recent_locations_alt = "<leader>ll Recent locations"
 nnoremap <silent> <leader>ll :action RecentLocations<CR>
 
 " Toggle case and start typing. E.g. `<leader>iget`: `property` -> `getProperty`
+let g:WhichKeyDesc_toggle_case_insert = "<leader>i Toggle case and insert"
 nmap <leader>i ~hi
 " Remove selection and toggle case. E.g. `v2l<leader>u`: `getProperty` -> `property`
+let g:WhichKeyDesc_toggle_case_visual = "<leader>u Toggle case"
 vmap <leader>u d~h
 
 " Separate line and reformat line
@@ -176,7 +189,6 @@ nnoremap <silent> s :action flash.search<CR>
 " Fix actions
 let g:WhichKeyDesc_fix_action = "<leader>q Quick Fix"
 nnoremap <silent> <leader>q :action ShowIntentionActions<CR>
-nnoremap <silent> <leader>cq :action ShowIntentionActions<CR>
 inoremap <C-y> :action EditorChooseLookupItem<CR>
 
 
@@ -184,8 +196,11 @@ inoremap <C-y> :action EditorChooseLookupItem<CR>
 "" ========================================================
 let g:WhichKeyDesc_code_actions = "<leader>c Code Actions"
 let g:WhichKeyDesc_code_actions_complete_statement = "<leader>cc Complete statement"
+let g:WhichKeyDesc_code_actions_inspect_code = "<leader>ci Inspect code"
+let g:WhichKeyDesc_code_actions_quick_fix = "<leader>cq Quick Fix"
 nnoremap <silent> <leader>cc :action EditorCompleteStatement<CR>
 nnoremap <silent> <leader>ci :action InspectCode<CR>
+nnoremap <silent> <leader>cq :action ShowIntentionActions<CR>
 
 let g:WhichKeyDesc_code_actions_show_hover = "<leader>k Show hover info"
 nnoremap <silent> <leader>k :action ShowHoverInfo<CR>
@@ -226,15 +241,10 @@ let g:WhichKeyDesc_display = "<leader>u UI options"
 let g:WhichKeyDesc_zen_mode = "<leader>uz Toggle Zen mode"
 let g:WhichKeyDesc_df_mode = "<leader>ud Toggle Distraction-Free mode"
 let g:WhichKeyDesc_full_screen = "<leader>uf Toggle full screen"
-let g:WhichKeyDesc_scope = "<leader>us Scope action prefix"
-let g:WhichKeyDesc_scope_out = "<leader>uso Highlight outside"
-let g:WhichKeyDesc_scope_in = "<leader>usi Highlight inside"
 
 map <silent> <leader>ud :action ToggleDistractionFreeMode<CR>
 map <silent> <leader>uz :action ToggleZenMode<CR>
 map <silent> <leader>uf :action ToggleFullScreen<CR>
-map <silent> <leader>uso :action Rainbow.ScopeOutsideHighlightingRestrainAction<CR>
-map <silent> <leader>usi :action Rainbow.ScopeHighlightingAction<CR>
 
 " Build tools
 "" ========================================================
@@ -256,10 +266,8 @@ map <silent> <leader>bt :action ChooseRunConfiguration<CR>
 "" ========================================================
 let g:WhichKeyDesc_build_windows_prefix = "<leader>bw Build tool windows"
 let g:WhichKeyDesc_tools_debug = "<leader>bwd Open debug window"
-let g:WhichKeyDesc_tools_structure = "<leader>bws Open structure window"
 
 nnoremap <silent> <leader>bwd :action ActivateDebugToolWindow<CR>
-nnoremap <silent> <leader>bws :action ActivateStructureToolWindow<CR>
 
 
 " Tests
@@ -282,6 +290,7 @@ let g:WhichKeyDesc_file_nav_goto_file = "<leader>gf Go to file"
 let g:WhichKeyDesc_file_nav_goto_content = "<leader>gc Search for file content"
 let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>gr Show recent files"
 let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>gl Show recent locations"
+let g:WhichKeyDesc_file_nav_new_scratch = "<leader>gs New scratch file"
 let g:WhichKeyDesc_file_nav_find_in_path = "<leader>/ Find in path"
 let g:WhichKeyDesc_file_nav_find_word = "<leader>* Find word at caret"
 let g:WhichKeyDesc_file_nav_recent_locations = "<leader>j Recent locations"
@@ -318,6 +327,7 @@ let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
 let g:WhichKeyDesc_refactoring_generate = "<leader>rg Generate"
 let g:WhichKeyDesc_refactoring_surround = "<leader>rw Surround with"
 let g:WhichKeyDesc_refactoring_change_case = "<leader>ru Change case"
+let g:WhichKeyDesc_refactoring_string_manipulation = "<leader>rt String manipulation"
 
 map <silent> <leader>ro :action OptimizeImports<CR>
 map <silent> <leader>rf :action ReformatCode<CR>:action OptimizeImports<CR>
@@ -357,6 +367,8 @@ let g:WhichKeyDesc_git_rollback = "<leader>vu Rollback changes in line"
 let g:WhichKeyDesc_git_branches = "<leader>vb Open branches list"
 let g:WhichKeyDesc_git_diff_current = "<leader>vd Show diff"
 let g:WhichKeyDesc_git_history = "<leader>vh Show file history"
+let g:WhichKeyDesc_git_edit_source = "<leader>ve Edit source"
+let g:WhichKeyDesc_git_rollback_alt = "<leader>vr Rollback changes in line"
 let g:WhichKeyDesc_git_prev_change = "[c Previous change"
 let g:WhichKeyDesc_git_next_change = "]c Next change"
 
@@ -423,6 +435,10 @@ nnoremap <silent> <leader>mp :action GotoPrevBookmark<CR>
 " Projects
 "" ========================================================
 let g:WhichKeyDesc_projects_prefix = "<leader>p Projects"
+let g:WhichKeyDesc_projects_open_recent = "<leader>po Open recent project"
+let g:WhichKeyDesc_projects_previous = "<leader>pp Previous project window"
+let g:WhichKeyDesc_projects_next = "<leader>pn Next project window"
+let g:WhichKeyDesc_projects_close = "<leader>px Close project"
 
 nnoremap <silent> <leader>po :action $LRU<CR>
 nnoremap <silent> <leader>pp :action PreviousProjectWindow<CR>
@@ -432,11 +448,16 @@ nnoremap <silent> <leader>px :action CloseProject<CR>
 " LSP
 "" ========================================================
 let g:WhichKeyDesc_lsp_tools_prefix = "<leader>l LSP Tools"
+let g:WhichKeyDesc_lsp_file_structure = "<leader>ls File structure"
+let g:WhichKeyDesc_lsp_new_class = "<leader>ln New class"
+let g:WhichKeyDesc_lsp_toggle_inlay_hints = "<leader>lh Toggle inlay hints"
+let g:WhichKeyDesc_lsp_find_bean = "<leader>lf Find bean"
 map <silent> <leader>ls :action FileStructurePopup<CR>
 map <silent> <leader>ln :action NewClass<CR>
 map <silent> <leader>lh :action ToggleInlayHintsGloballyAction<CR>
 map <silent> <leader>lf :action com.haulmont.ampsbb.show.bean.navigation.pop.up<CR>
 
+let g:WhichKeyDesc_highlight_usages = "<leader>h Highlight usages in file"
 nmap <leader>h :action HighlightUsagesInFile<CR>
 
 nnoremap L $
@@ -444,6 +465,8 @@ nnoremap H ^
 vnoremap L $
 vnoremap H ^
 
+let g:WhichKeyDesc_project_tool_window = "<leader>e Open project tool window"
+let g:WhichKeyDesc_netrw = "<leader>n Open netrw"
 nnoremap <silent> <leader>e :action ActivateProjectToolWindow<CR>
 nnoremap <silent> <leader>n :action OpenNetrw<CR>
 
