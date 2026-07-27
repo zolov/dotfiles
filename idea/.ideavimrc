@@ -50,13 +50,14 @@ set exchange
 
 " Easymotion settings
 " set notimeout
-set timeout
-set timeoutlen=1600
+" set timeout
 set easymotion
 
 
 " Which-key settings
 set which-key
+set notimeout
+set timeoutlen=5000
 
 set foldmethod=syntax
 set nofoldenable
@@ -85,11 +86,20 @@ let g:WhichKey_SortOrder = "by_key_prefix_first"
 "" Key mappings
 "" ========================================================
 inoremap <silent> <C-c> <Esc>
-nnoremap <leader>f :action GotoFile<CR>
+let g:WhichKeyDesc_clear_search = "<leader><space> Clear search highlights"
+let g:WhichKeyDesc_search_prefix = "<leader>s Search"
+let g:WhichKeyDesc_search_symbol = "<leader>ss Go to symbol"
+let g:WhichKeyDesc_search_file = "<leader>sf Go to file"
+let g:WhichKeyDesc_search_class = "<leader>sc Go to class"
+let g:WhichKeyDesc_search_action = "<leader>sa Go to action"
 nnoremap <silent> <leader>ss :action GotoSymbol<CR>
 nnoremap <silent> <leader>sf :action GotoFile<CR>
 nnoremap <silent> <leader>sc :action GotoClass<CR>
 nnoremap <silent> <leader>sa :action GotoAction<CR>
+
+let g:WhichKeyDesc_file_tools_prefix = "<leader>f File tools"
+let g:WhichKeyDesc_file_structure_tool_window = "<leader>fs Open structure tool window"
+nnoremap <silent> <leader>fs :action ActivateStructureToolWindow<CR>
 
 nnoremap ,c :edit ~/.ideavimrc<cr>
 nnoremap ,h :set hlsearch<cr>
@@ -107,11 +117,14 @@ nnoremap \ "_
 
 " Paste hover without overwriting default register
 xnoremap p P
+let g:WhichKeyDesc_recent_locations_alt = "<leader>ll Recent locations"
 nnoremap <silent> <leader>ll :action RecentLocations<CR>
 
 " Toggle case and start typing. E.g. `<leader>iget`: `property` -> `getProperty`
+let g:WhichKeyDesc_toggle_case_insert = "<leader>i Toggle case and insert"
 nmap <leader>i ~hi
 " Remove selection and toggle case. E.g. `v2l<leader>u`: `getProperty` -> `property`
+let g:WhichKeyDesc_toggle_case_visual = "<leader>u Toggle case"
 vmap <leader>u d~h
 
 " Separate line and reformat line
@@ -176,7 +189,6 @@ nnoremap <silent> s :action flash.search<CR>
 " Fix actions
 let g:WhichKeyDesc_fix_action = "<leader>q Quick Fix"
 nnoremap <silent> <leader>q :action ShowIntentionActions<CR>
-nnoremap <silent> <leader>cq :action ShowIntentionActions<CR>
 inoremap <C-y> :action EditorChooseLookupItem<CR>
 
 
@@ -184,8 +196,11 @@ inoremap <C-y> :action EditorChooseLookupItem<CR>
 "" ========================================================
 let g:WhichKeyDesc_code_actions = "<leader>c Code Actions"
 let g:WhichKeyDesc_code_actions_complete_statement = "<leader>cc Complete statement"
+let g:WhichKeyDesc_code_actions_inspect_code = "<leader>ci Inspect code"
+let g:WhichKeyDesc_code_actions_quick_fix = "<leader>cq Quick Fix"
 nnoremap <silent> <leader>cc :action EditorCompleteStatement<CR>
 nnoremap <silent> <leader>ci :action InspectCode<CR>
+nnoremap <silent> <leader>cq :action ShowIntentionActions<CR>
 
 let g:WhichKeyDesc_code_actions_show_hover = "<leader>k Show hover info"
 nnoremap <silent> <leader>k :action ShowHoverInfo<CR>
@@ -218,10 +233,7 @@ nnoremap <silent> <leader>wv :action SplitVertically<CR>
 nnoremap <silent> <leader>ws :action SplitHorizontally<CR>
 nnoremap <silent> <leader>wu :action Unsplit<CR>
 nnoremap <silent> <leader>wm :action MoveEditorToOppositeTabGroup<CR>
-
-nnoremap <leader>wu :action Unsplit<CR>
-nnoremap <leader>wm :action MoveEditorToOppositeTabGroup
-nnoremap <leader>wt :action PinActiveTab
+nnoremap <silent> <leader>wt :action PinActiveTab<CR>
 
 " Display options
 "" ========================================================
@@ -229,48 +241,62 @@ let g:WhichKeyDesc_display = "<leader>u UI options"
 let g:WhichKeyDesc_zen_mode = "<leader>uz Toggle Zen mode"
 let g:WhichKeyDesc_df_mode = "<leader>ud Toggle Distraction-Free mode"
 let g:WhichKeyDesc_full_screen = "<leader>uf Toggle full screen"
-let g:WhichKeyDesc_scope = "<leader>us Scope action prefix"
-let g:WhichKeyDesc_scope_out = "<leader>uso Highlight outside"
-let g:WhichKeyDesc_scope_in = "<leader>usi Highlight inside"
 
 map <silent> <leader>ud :action ToggleDistractionFreeMode<CR>
 map <silent> <leader>uz :action ToggleZenMode<CR>
 map <silent> <leader>uf :action ToggleFullScreen<CR>
-map <silent> <leader>uso :action Rainbow.ScopeOutsideHighlightingRestrainAction<CR>
-map <silent> <leader>usi :action Rainbow.ScopeHighlightingAction<CR>
 
 " Build tools
 "" ========================================================
 let g:WhichKeyDesc_build = "<leader>b Build tools"
 let g:WhichKeyDesc_build_run = "<leader>br Run"
 let g:WhichKeyDesc_build_debug = "<leader>bd Debug"
-let g:WhichKeyDesc_build_stop = "<leader>bs Stop"
-let g:WhichKeyDesc_build_more = "<leader>bt More Actions"
+let g:WhichKeyDesc_build_more = "<leader>bs More Actions"
+let g:WhichKeyDesc_build_choose_run_configuration = "<leader>bt Choose run configuration"
 let g:WhichKeyDesc_build_debug_break_point= "<leader>bl Toggle line breakpoint"
 
 map <silent> <leader>br :action Run<CR>
 map <silent> <leader>bd :action Debug<CR>
-map <silent> <leader>bs :action Stop<CR>
-map <silent> <leader>bt :action MoreRunToolbarActions<CR>
+map <silent> <leader>bs :action MoreRunToolbarActions<CR>
 map <silent> <leader>bl :action ToggleLineBreakpoint<CR>
+map <silent> <leader>bt :action ChooseRunConfiguration<CR>
+
+
+" Tools
+"" ========================================================
+let g:WhichKeyDesc_build_windows_prefix = "<leader>bw Build tool windows"
+let g:WhichKeyDesc_tools_debug = "<leader>bwd Open debug window"
+
+nnoremap <silent> <leader>bwd :action ActivateDebugToolWindow<CR>
+
+
+" Tests
+"" ========================================================
+let g:WhichKeyDesc_test_prefix = "<leader>t Test"
+let g:WhichKeyDesc_test_run_class = "<leader>tt Run current test/class"
+let g:WhichKeyDesc_test_run_context = "<leader>tn Run context"
+let g:WhichKeyDesc_test_debug_class = "<leader>td Debug current test/class"
+let g:WhichKeyDesc_test_rerun = "<leader>tr Rerun"
+
+nnoremap <silent> <leader>tt :action RunClass<CR>
+nnoremap <silent> <leader>tn :action RunContextGroup<CR>
+nnoremap <silent> <leader>td :action DebugClass<CR>
+nnoremap <silent> <leader>tr :action Rerun<CR>
 
 " File navigation
 "" ========================================================
-let g:WhichKeyDesc_file_nav = "<leader>g File navigation"
-let g:WhichKeyDesc_file_nav_goto_file = "<leader>gf Go to file"
-let g:WhichKeyDesc_file_nav_goto_content = "<leader>gc Search for file content"
-let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>gr Show recent files"
-let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>gl Show recent locations"
+let g:WhichKeyDesc_file_nav_find_in_path = "<leader>/ Find in path"
+let g:WhichKeyDesc_file_nav_find_word = "<leader>* Find word at caret"
+let g:WhichKeyDesc_file_nav_recent_files = "<leader><Tab> Recent files"
 
-map <silent> <leader>gf :action GotoFile<CR>
-map <silent> <leader>gr :action RecentFiles<CR>
-map <silent> <leader>gc :action FindInPath<CR>
-map <silent> <leader>gl :action RecentLocations<CR>
-map <silent> <leader>gs :action NewScratchFile<CR>
+nnoremap <silent> <leader>/ :action FindInPath<CR>
+nnoremap <silent> <leader>* :action FindWordAtCaret<CR>
+nnoremap <silent> <leader><Tab> :action RecentFiles<CR>
 
 " Refactoring
 "" ========================================================
 let g:WhichKeyDesc_refactoring_prefix = "<leader>r Refactoring actions"
+let g:WhichKeyDesc_refactoring_prefix = "<leader>rr Refactorings list "
 let g:WhichKeyDesc_refactoring_reformat_code = "<leader>rf Reformat code"
 let g:WhichKeyDesc_refactoring_optimize_imports = "<leader>ro Optimize imports"
 let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
@@ -283,7 +309,9 @@ let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
 let g:WhichKeyDesc_refactoring_generate = "<leader>rg Generate"
 let g:WhichKeyDesc_refactoring_surround = "<leader>rw Surround with"
 let g:WhichKeyDesc_refactoring_change_case = "<leader>ru Change case"
+let g:WhichKeyDesc_refactoring_string_manipulation = "<leader>rt String manipulation"
 
+map <silent> <leader>rr :action Refactorings.QuickListPopupAction<CR>
 map <silent> <leader>ro :action OptimizeImports<CR>
 map <silent> <leader>rf :action ReformatCode<CR>:action OptimizeImports<CR>
 map <silent> <leader>rn :action RenameElement<CR>
@@ -310,36 +338,54 @@ map <silent> gt :action GotoTest<CR>
 
 " Git windows
 "" ========================================================
-let g:WhichKeyDesc_git_prefix = "<leader>v Git Operations"
-let g:WhichKeyDesc_git_fetch = "<leader>vf Fetch"
-let g:WhichKeyDesc_git_status = "<leader>vs Open status dialog"
-let g:WhichKeyDesc_git_commit = "<leader>vc Open Commit dialog"
-let g:WhichKeyDesc_git_new_branch = "<leader>vn New Branch"
-let g:WhichKeyDesc_git_push = "<leader>vk Push committed"
-let g:WhichKeyDesc_git_pull = "<leader>vt Pull"
-let g:WhichKeyDesc_git_annotate = "<leader>va Annotate"
-let g:WhichKeyDesc_git_rollback = "<leader>vu Rollback changes in line"
-let g:WhichKeyDesc_git_branches = "<leader>vb Open branches list"
+let g:WhichKeyDesc_git_prefix = "<leader>g Git Operations"
+let g:WhichKeyDesc_git_lazygit = "<leader>gg Lazygit"
+let g:WhichKeyDesc_git_fetch = "<leader>gf Fetch"
+let g:WhichKeyDesc_git_status = "<leader>gs Open status dialog"
+let g:WhichKeyDesc_git_commit = "<leader>gc Open Commit dialog"
+let g:WhichKeyDesc_git_new_branch = "<leader>gn New Branch"
+let g:WhichKeyDesc_git_push = "<leader>gP Push committed"
+let g:WhichKeyDesc_git_pull = "<leader>gp Pull"
+let g:WhichKeyDesc_git_annotate = "<leader>ga Annotate"
+let g:WhichKeyDesc_git_rollback = "<leader>gu Rollback changes in line"
+let g:WhichKeyDesc_git_branches = "<leader>gb Open branches list"
+let g:WhichKeyDesc_git_diff_current = "<leader>gd Show diff"
+let g:WhichKeyDesc_git_history = "<leader>gh Show file history"
+let g:WhichKeyDesc_git_edit_source = "<leader>ge Edit source"
+let g:WhichKeyDesc_git_rollback_alt = "<leader>gr Rollback changes in line"
+let g:WhichKeyDesc_git_prev_change = "[c Previous change"
+let g:WhichKeyDesc_git_next_change = "]c Next change"
 
-nnoremap <silent> <leader>vc :action CheckinProject<CR>
-nnoremap <silent> <leader>vf :action Git.Fetch<CR>
-nnoremap <silent> <leader>vs :action ActivateVersionControlToolWindow<CR>
-nnoremap <silent> <leader>vn :action Git.CreateNewBranch<CR>
-nnoremap <silent> <leader>vk :action Vcs.Push<CR>
-nnoremap <silent> <leader>vt :action Vcs.UpdateProject<CR>
-nnoremap <silent> <leader>va :action Annotate<CR>
-nnoremap <silent> <leader>vu :action Vcs.RollbackChangedLines<CR>
-nnoremap <silent> <leader>vb :action Git.Branches<CR>
-nnoremap <silent> <leader>ve :action EditSource<CR>
-nnoremap <silent> <leader>vh :action Vcs.ShowTabbedFileHistory<CR>
+map <silent> <leader>gg :action Lazygit.Toggle<CR>
+nnoremap <silent> <leader>gc :action CheckinProject<CR>
+nnoremap <silent> <leader>gf :action Git.Fetch<CR>
+nnoremap <silent> <leader>gs :action ActivateVersionControlToolWindow<CR>
+nnoremap <silent> <leader>gn :action Git.CreateNewBranch<CR>
+nnoremap <silent> <leader>gP :action Vcs.Push<CR>
+nnoremap <silent> <leader>gp :action Vcs.UpdateProject<CR>
+nnoremap <silent> <leader>ga :action Annotate<CR>
+nnoremap <silent> <leader>gu :action Vcs.RollbackChangedLines<CR>
+nnoremap <silent> <leader>gb :action Git.Branches<CR>
+nnoremap <silent> <leader>ge :action EditSource<CR>
+nnoremap <silent> <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <silent> <leader>gd :action Compare.SameVersion<CR>
+nnoremap <silent> <leader>gr :action Vcs.RollbackChangedLines<CR>
+nnoremap <silent> [c :action VcsShowPrevChangeMarker<CR>
+nnoremap <silent> ]c :action VcsShowNextChangeMarker<CR>
 
 " Errors
 "" ========================================================
 let g:WhichKeyDesc_diagnostics_next = "[e Go to next error"
 let g:WhichKeyDesc_diagnostics_prev = "]e Go to previous error"
+let g:WhichKeyDesc_diagnostics_next_alt = "]d Go to next error"
+let g:WhichKeyDesc_diagnostics_prev_alt = "[d Go to previous error"
+let g:WhichKeyDesc_diagnostics_description = "<leader>ld Show error description"
 
 nnoremap <silent> [e :action GotoPreviousError<CR>
 nnoremap <silent> ]e :action GotoNextError<CR>
+nnoremap <silent> [d :action GotoPreviousError<CR>
+nnoremap <silent> ]d :action GotoNextError<CR>
+nnoremap <silent> <leader>ld :action ShowErrorDescription<CR>
 map gh <Action>(ShowHoverInfo)
 
 " Method
@@ -349,32 +395,35 @@ let g:WhichKeyDesc_method_down = "]m Method Down"
 
 nnoremap <silent> [m :<C-u>action MethodUp<CR>
 nnoremap <silent> ]m :<C-u>action MethodDown<CR>
-
-" Tools
+" Terminal
 "" ========================================================
-let g:WhichKeyDesc_tools_prefix = "<leader>t Tools navigation"
-let g:WhichKeyDesc_tools_term = "<leader>tt Open terminal window"
-let g:WhichKeyDesc_tools_debug = "<leader>td Open debug window"
-let g:WhichKeyDesc_tools_run = "<leader>tr Open run window"
-let g:WhichKeyDesc_tools_structure = "<leader>ts Open structure window"
-let g:WhichKeyDesc_tools_set_bookmarks_wit_mne = "<leader>tb Set mnemonic bookmark"
-let g:WhichKeyDesc_tools_set_bookmarks = "<leader>bb Set mnemonic bookmark"
-let g:WhichKeuDesc_tools_open_bookmark_menu = "<leader>tm Open bookmark menu"
+let g:WhichKeyDesc_tools_term = "<leader>x Open terminal window"
+nnoremap <silent> <leader>x :action ActivateTerminalToolWindow<CR>
 
-nnoremap <silent> <leader>tt :action ActivateTerminalToolWindow<CR>
-nnoremap <silent> <leader>tr :action ChooseRunConfiguration<CR>
-nnoremap <silent> <leader>bm :action ToggleBookmarkWithMnemonic<CR>
-nnoremap <silent> <leader>bt :action ToggleBookmark<CR>
-nnoremap <silent> <leader>bl :action Bookmarks<CR>
-nnoremap <silent> <leader>bb :action ShowBookmarks<CR>
-nnoremap <silent> <leader>bn :action GotoNextBookmark<CR>
-nnoremap <silent> <leader>bp :action GotoPrevBookmark<CR>
+" Bookmarks
+"" ========================================================
+let g:WhichKeyDesc_bookmark_prefix = "<leader>m Bookmarks"
+let g:WhichKeyDesc_bookmark_toggle_mnemonic = "<leader>mm Toggle mnemonic bookmark"
+let g:WhichKeyDesc_bookmark_toggle = "<leader>mt Toggle bookmark"
+let g:WhichKeyDesc_bookmark_list = "<leader>ml Bookmarks"
+let g:WhichKeyDesc_bookmark_popup = "<leader>ms Show bookmarks"
+let g:WhichKeyDesc_bookmark_next = "<leader>mn Next bookmark"
+let g:WhichKeyDesc_bookmark_prev = "<leader>mp Previous bookmark"
 
-
+nnoremap <silent> <leader>mm :action ToggleBookmarkWithMnemonic<CR>
+nnoremap <silent> <leader>mt :action ToggleBookmark<CR>
+nnoremap <silent> <leader>ml :action Bookmarks<CR>
+nnoremap <silent> <leader>ms :action ShowBookmarks<CR>
+nnoremap <silent> <leader>mn :action GotoNextBookmark<CR>
+nnoremap <silent> <leader>mp :action GotoPrevBookmark<CR>
 
 " Projects
 "" ========================================================
 let g:WhichKeyDesc_projects_prefix = "<leader>p Projects"
+let g:WhichKeyDesc_projects_open_recent = "<leader>po Open recent project"
+let g:WhichKeyDesc_projects_previous = "<leader>pp Previous project window"
+let g:WhichKeyDesc_projects_next = "<leader>pn Next project window"
+let g:WhichKeyDesc_projects_close = "<leader>px Close project"
 
 nnoremap <silent> <leader>po :action $LRU<CR>
 nnoremap <silent> <leader>pp :action PreviousProjectWindow<CR>
@@ -384,11 +433,16 @@ nnoremap <silent> <leader>px :action CloseProject<CR>
 " LSP
 "" ========================================================
 let g:WhichKeyDesc_lsp_tools_prefix = "<leader>l LSP Tools"
+let g:WhichKeyDesc_lsp_file_structure = "<leader>ls File structure"
+let g:WhichKeyDesc_lsp_new_class = "<leader>ln New class"
+let g:WhichKeyDesc_lsp_toggle_inlay_hints = "<leader>lh Toggle inlay hints"
+let g:WhichKeyDesc_lsp_find_bean = "<leader>lf Find bean"
 map <silent> <leader>ls :action FileStructurePopup<CR>
 map <silent> <leader>ln :action NewClass<CR>
 map <silent> <leader>lh :action ToggleInlayHintsGloballyAction<CR>
 map <silent> <leader>lf :action com.haulmont.ampsbb.show.bean.navigation.pop.up<CR>
 
+let g:WhichKeyDesc_highlight_usages = "<leader>h Highlight usages in file"
 nmap <leader>h :action HighlightUsagesInFile<CR>
 
 nnoremap L $
@@ -396,6 +450,8 @@ nnoremap H ^
 vnoremap L $
 vnoremap H ^
 
+let g:WhichKeyDesc_project_tool_window = "<leader>e Open project tool window"
+let g:WhichKeyDesc_netrw = "<leader>n Open netrw"
 nnoremap <silent> <leader>e :action ActivateProjectToolWindow<CR>
 nnoremap <silent> <leader>n :action OpenNetrw<CR>
 
