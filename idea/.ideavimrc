@@ -247,22 +247,34 @@ let g:WhichKeyDesc_build_debug_break_point= "<leader>bl Toggle line breakpoint"
 
 map <silent> <leader>br :action Run<CR>
 map <silent> <leader>bd :action Debug<CR>
-map <silent> <leader>bs :action Stop<CR>
-map <silent> <leader>bt :action MoreRunToolbarActions<CR>
+map <silent> <leader>bs :action MoreRunToolbarActions<CR>
 map <silent> <leader>bl :action ToggleLineBreakpoint<CR>
+map <silent> <leader>bt :action ChooseRunConfiguration<CR>
+
+
+" Tools
+"" ========================================================
+let g:WhichKeyDesc_build_windows_prefix = "<leader>bw Build tool windows"
+let g:WhichKeyDesc_tools_debug = "<leader>bwd Open debug window"
+let g:WhichKeyDesc_tools_run = "<leader>bwr Open run window"
+let g:WhichKeyDesc_tools_structure = "<leader>bws Open structure window"
+
+nnoremap <silent> <leader>bwd :action ActivateDebugToolWindow<CR>
+nnoremap <silent> <leader>bws :action ActivateStructureToolWindow<CR>
+
 
 " Tests
 "" ========================================================
-let g:WhichKeyDesc_test_prefix = "<leader>m Test"
-let g:WhichKeyDesc_test_run_class = "<leader>mt Run current test/class"
-let g:WhichKeyDesc_test_run_context = "<leader>mn Run context"
-let g:WhichKeyDesc_test_debug_class = "<leader>md Debug current test/class"
-let g:WhichKeyDesc_test_rerun = "<leader>mr Rerun"
+let g:WhichKeyDesc_test_prefix = "<leader>t Test"
+let g:WhichKeyDesc_test_run_class = "<leader>tt Run current test/class"
+let g:WhichKeyDesc_test_run_context = "<leader>tn Run context"
+let g:WhichKeyDesc_test_debug_class = "<leader>td Debug current test/class"
+let g:WhichKeyDesc_test_rerun = "<leader>tr Rerun"
 
-nnoremap <silent> <leader>mt :action RunClass<CR>
-nnoremap <silent> <leader>mn :action RunContextGroup<CR>
-nnoremap <silent> <leader>md :action DebugClass<CR>
-nnoremap <silent> <leader>mr :action Rerun<CR>
+nnoremap <silent> <leader>tt :action RunClass<CR>
+nnoremap <silent> <leader>tn :action RunContextGroup<CR>
+nnoremap <silent> <leader>td :action DebugClass<CR>
+nnoremap <silent> <leader>tr :action Rerun<CR>
 
 " File navigation
 "" ========================================================
@@ -387,36 +399,27 @@ let g:WhichKeyDesc_method_down = "]m Method Down"
 
 nnoremap <silent> [m :<C-u>action MethodUp<CR>
 nnoremap <silent> ]m :<C-u>action MethodDown<CR>
-
-" Tools
+" Terminal
 "" ========================================================
-let g:WhichKeyDesc_tools_prefix = "<leader>t Tools navigation"
-let g:WhichKeyDesc_tools_term = "<leader>tt Open terminal window"
-let g:WhichKeyDesc_tools_debug = "<leader>td Open debug window"
-let g:WhichKeyDesc_tools_run = "<leader>tr Open run window"
-let g:WhichKeyDesc_tools_structure = "<leader>ts Open structure window"
-
-nnoremap <silent> <leader>tt :action ActivateTerminalToolWindow<CR>
-nnoremap <silent> <leader>tr :action ChooseRunConfiguration<CR>
+let g:WhichKeyDesc_tools_term = "<leader>x Open terminal window"
+nnoremap <silent> <leader>x :action ActivateTerminalToolWindow<CR>
 
 " Bookmarks
 "" ========================================================
-let g:WhichKeyDesc_bookmark_prefix = "<leader>B Bookmarks"
-let g:WhichKeyDesc_bookmark_toggle_mnemonic = "<leader>Bm Toggle mnemonic bookmark"
-let g:WhichKeyDesc_bookmark_toggle = "<leader>Bt Toggle bookmark"
-let g:WhichKeyDesc_bookmark_list = "<leader>Bl Bookmarks"
-let g:WhichKeyDesc_bookmark_popup = "<leader>Bb Show bookmarks"
-let g:WhichKeyDesc_bookmark_next = "<leader>Bn Next bookmark"
-let g:WhichKeyDesc_bookmark_prev = "<leader>Bp Previous bookmark"
+let g:WhichKeyDesc_bookmark_prefix = "<leader>m Bookmarks"
+let g:WhichKeyDesc_bookmark_toggle_mnemonic = "<leader>mm Toggle mnemonic bookmark"
+let g:WhichKeyDesc_bookmark_toggle = "<leader>mt Toggle bookmark"
+let g:WhichKeyDesc_bookmark_list = "<leader>ml Bookmarks"
+let g:WhichKeyDesc_bookmark_popup = "<leader>mb Show bookmarks"
+let g:WhichKeyDesc_bookmark_next = "<leader>mn Next bookmark"
+let g:WhichKeyDesc_bookmark_prev = "<leader>mp Previous bookmark"
 
-nnoremap <silent> <leader>Bm :action ToggleBookmarkWithMnemonic<CR>
-nnoremap <silent> <leader>Bt :action ToggleBookmark<CR>
-nnoremap <silent> <leader>Bl :action Bookmarks<CR>
-nnoremap <silent> <leader>Bb :action ShowBookmarks<CR>
-nnoremap <silent> <leader>Bn :action GotoNextBookmark<CR>
-nnoremap <silent> <leader>Bp :action GotoPrevBookmark<CR>
-
-
+nnoremap <silent> <leader>mm :action ToggleBookmarkWithMnemonic<CR>
+nnoremap <silent> <leader>mt :action ToggleBookmark<CR>
+nnoremap <silent> <leader>ml :action Bookmarks<CR>
+nnoremap <silent> <leader>ms :action ShowBookmarks<CR>
+nnoremap <silent> <leader>mn :action GotoNextBookmark<CR>
+nnoremap <silent> <leader>mp :action GotoPrevBookmark<CR>
 
 " Projects
 "" ========================================================
