@@ -339,12 +339,13 @@ map <silent> gt :action GotoTest<CR>
 " Git windows
 "" ========================================================
 let g:WhichKeyDesc_git_prefix = "<leader>g Git Operations"
+let g:WhichKeyDesc_git_lazygit = "<leader>gg Lazygit"
 let g:WhichKeyDesc_git_fetch = "<leader>gf Fetch"
 let g:WhichKeyDesc_git_status = "<leader>gs Open status dialog"
 let g:WhichKeyDesc_git_commit = "<leader>gc Open Commit dialog"
 let g:WhichKeyDesc_git_new_branch = "<leader>gn New Branch"
-let g:WhichKeyDesc_git_push = "<leader>gk Push committed"
-let g:WhichKeyDesc_git_pull = "<leader>gt Pull"
+let g:WhichKeyDesc_git_push = "<leader>gP Push committed"
+let g:WhichKeyDesc_git_pull = "<leader>gp Pull"
 let g:WhichKeyDesc_git_annotate = "<leader>ga Annotate"
 let g:WhichKeyDesc_git_rollback = "<leader>gu Rollback changes in line"
 let g:WhichKeyDesc_git_branches = "<leader>gb Open branches list"
@@ -360,8 +361,8 @@ nnoremap <silent> <leader>gc :action CheckinProject<CR>
 nnoremap <silent> <leader>gf :action Git.Fetch<CR>
 nnoremap <silent> <leader>gs :action ActivateVersionControlToolWindow<CR>
 nnoremap <silent> <leader>gn :action Git.CreateNewBranch<CR>
-nnoremap <silent> <leader>gk :action Vcs.Push<CR>
-nnoremap <silent> <leader>gt :action Vcs.UpdateProject<CR>
+nnoremap <silent> <leader>gP :action Vcs.Push<CR>
+nnoremap <silent> <leader>gp :action Vcs.UpdateProject<CR>
 nnoremap <silent> <leader>ga :action Annotate<CR>
 nnoremap <silent> <leader>gu :action Vcs.RollbackChangedLines<CR>
 nnoremap <silent> <leader>gb :action Git.Branches<CR>
