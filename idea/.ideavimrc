@@ -285,36 +285,18 @@ nnoremap <silent> <leader>tr :action Rerun<CR>
 
 " File navigation
 "" ========================================================
-let g:WhichKeyDesc_file_nav = "<leader>g File navigation"
-let g:WhichKeyDesc_file_nav_goto_file = "<leader>gf Go to file"
-let g:WhichKeyDesc_file_nav_goto_content = "<leader>gc Search for file content"
-let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>gr Show recent files"
-let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>gl Show recent locations"
-let g:WhichKeyDesc_file_nav_new_scratch = "<leader>gs New scratch file"
 let g:WhichKeyDesc_file_nav_find_in_path = "<leader>/ Find in path"
 let g:WhichKeyDesc_file_nav_find_word = "<leader>* Find word at caret"
-let g:WhichKeyDesc_file_nav_recent_locations = "<leader>j Recent locations"
-let g:WhichKeyDesc_file_nav_structure = "<leader>o File structure"
 let g:WhichKeyDesc_file_nav_recent_files = "<leader><Tab> Recent files"
-let g:WhichKeyDesc_file_nav_next_tab = "<leader>] Next tab"
-let g:WhichKeyDesc_file_nav_prev_tab = "<leader>[ Previous tab"
 
-map <silent> <leader>gf :action GotoFile<CR>
-map <silent> <leader>gr :action RecentFiles<CR>
-map <silent> <leader>gc :action FindInPath<CR>
-map <silent> <leader>gl :action RecentLocations<CR>
-map <silent> <leader>gs :action NewScratchFile<CR>
 nnoremap <silent> <leader>/ :action FindInPath<CR>
 nnoremap <silent> <leader>* :action FindWordAtCaret<CR>
-nnoremap <silent> <leader>j :action RecentLocations<CR>
-nnoremap <silent> <leader>o :action FileStructurePopup<CR>
 nnoremap <silent> <leader><Tab> :action RecentFiles<CR>
-nnoremap <silent> <leader>] :action NextTab<CR>
-nnoremap <silent> <leader>[ :action PreviousTab<CR>
 
 " Refactoring
 "" ========================================================
 let g:WhichKeyDesc_refactoring_prefix = "<leader>r Refactoring actions"
+let g:WhichKeyDesc_refactoring_prefix = "<leader>rr Refactorings list "
 let g:WhichKeyDesc_refactoring_reformat_code = "<leader>rf Reformat code"
 let g:WhichKeyDesc_refactoring_optimize_imports = "<leader>ro Optimize imports"
 let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
@@ -329,6 +311,7 @@ let g:WhichKeyDesc_refactoring_surround = "<leader>rw Surround with"
 let g:WhichKeyDesc_refactoring_change_case = "<leader>ru Change case"
 let g:WhichKeyDesc_refactoring_string_manipulation = "<leader>rt String manipulation"
 
+map <silent> <leader>rr :action Refactorings.QuickListPopupAction<CR>
 map <silent> <leader>ro :action OptimizeImports<CR>
 map <silent> <leader>rf :action ReformatCode<CR>:action OptimizeImports<CR>
 map <silent> <leader>rn :action RenameElement<CR>
@@ -355,36 +338,37 @@ map <silent> gt :action GotoTest<CR>
 
 " Git windows
 "" ========================================================
-let g:WhichKeyDesc_git_prefix = "<leader>v Git Operations"
-let g:WhichKeyDesc_git_fetch = "<leader>vf Fetch"
-let g:WhichKeyDesc_git_status = "<leader>vs Open status dialog"
-let g:WhichKeyDesc_git_commit = "<leader>vc Open Commit dialog"
-let g:WhichKeyDesc_git_new_branch = "<leader>vn New Branch"
-let g:WhichKeyDesc_git_push = "<leader>vk Push committed"
-let g:WhichKeyDesc_git_pull = "<leader>vt Pull"
-let g:WhichKeyDesc_git_annotate = "<leader>va Annotate"
-let g:WhichKeyDesc_git_rollback = "<leader>vu Rollback changes in line"
-let g:WhichKeyDesc_git_branches = "<leader>vb Open branches list"
-let g:WhichKeyDesc_git_diff_current = "<leader>vd Show diff"
-let g:WhichKeyDesc_git_history = "<leader>vh Show file history"
-let g:WhichKeyDesc_git_edit_source = "<leader>ve Edit source"
-let g:WhichKeyDesc_git_rollback_alt = "<leader>vr Rollback changes in line"
+let g:WhichKeyDesc_git_prefix = "<leader>g Git Operations"
+let g:WhichKeyDesc_git_fetch = "<leader>gf Fetch"
+let g:WhichKeyDesc_git_status = "<leader>gs Open status dialog"
+let g:WhichKeyDesc_git_commit = "<leader>gc Open Commit dialog"
+let g:WhichKeyDesc_git_new_branch = "<leader>gn New Branch"
+let g:WhichKeyDesc_git_push = "<leader>gk Push committed"
+let g:WhichKeyDesc_git_pull = "<leader>gt Pull"
+let g:WhichKeyDesc_git_annotate = "<leader>ga Annotate"
+let g:WhichKeyDesc_git_rollback = "<leader>gu Rollback changes in line"
+let g:WhichKeyDesc_git_branches = "<leader>gb Open branches list"
+let g:WhichKeyDesc_git_diff_current = "<leader>gd Show diff"
+let g:WhichKeyDesc_git_history = "<leader>gh Show file history"
+let g:WhichKeyDesc_git_edit_source = "<leader>ge Edit source"
+let g:WhichKeyDesc_git_rollback_alt = "<leader>gr Rollback changes in line"
 let g:WhichKeyDesc_git_prev_change = "[c Previous change"
 let g:WhichKeyDesc_git_next_change = "]c Next change"
 
-nnoremap <silent> <leader>vc :action CheckinProject<CR>
-nnoremap <silent> <leader>vf :action Git.Fetch<CR>
-nnoremap <silent> <leader>vs :action ActivateVersionControlToolWindow<CR>
-nnoremap <silent> <leader>vn :action Git.CreateNewBranch<CR>
-nnoremap <silent> <leader>vk :action Vcs.Push<CR>
-nnoremap <silent> <leader>vt :action Vcs.UpdateProject<CR>
-nnoremap <silent> <leader>va :action Annotate<CR>
-nnoremap <silent> <leader>vu :action Vcs.RollbackChangedLines<CR>
-nnoremap <silent> <leader>vb :action Git.Branches<CR>
-nnoremap <silent> <leader>ve :action EditSource<CR>
-nnoremap <silent> <leader>vh :action Vcs.ShowTabbedFileHistory<CR>
-nnoremap <silent> <leader>vd :action Compare.SameVersion<CR>
-nnoremap <silent> <leader>vr :action Vcs.RollbackChangedLines<CR>
+map <silent> <leader>gg :action Lazygit.Toggle<CR>
+nnoremap <silent> <leader>gc :action CheckinProject<CR>
+nnoremap <silent> <leader>gf :action Git.Fetch<CR>
+nnoremap <silent> <leader>gs :action ActivateVersionControlToolWindow<CR>
+nnoremap <silent> <leader>gn :action Git.CreateNewBranch<CR>
+nnoremap <silent> <leader>gk :action Vcs.Push<CR>
+nnoremap <silent> <leader>gt :action Vcs.UpdateProject<CR>
+nnoremap <silent> <leader>ga :action Annotate<CR>
+nnoremap <silent> <leader>gu :action Vcs.RollbackChangedLines<CR>
+nnoremap <silent> <leader>gb :action Git.Branches<CR>
+nnoremap <silent> <leader>ge :action EditSource<CR>
+nnoremap <silent> <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <silent> <leader>gd :action Compare.SameVersion<CR>
+nnoremap <silent> <leader>gr :action Vcs.RollbackChangedLines<CR>
 nnoremap <silent> [c :action VcsShowPrevChangeMarker<CR>
 nnoremap <silent> ]c :action VcsShowNextChangeMarker<CR>
 
