@@ -241,8 +241,8 @@ map <silent> <leader>usi :action Rainbow.ScopeHighlightingAction<CR>
 let g:WhichKeyDesc_build = "<leader>b Build tools"
 let g:WhichKeyDesc_build_run = "<leader>br Run"
 let g:WhichKeyDesc_build_debug = "<leader>bd Debug"
-let g:WhichKeyDesc_build_stop = "<leader>bs Stop"
-let g:WhichKeyDesc_build_more = "<leader>bt More Actions"
+let g:WhichKeyDesc_build_more = "<leader>bs More Actions"
+let g:WhichKeyDesc_build_choose_run_configuration = "<leader>bt Choose run configuration"
 let g:WhichKeyDesc_build_debug_break_point= "<leader>bl Toggle line breakpoint"
 
 map <silent> <leader>br :action Run<CR>
@@ -256,7 +256,6 @@ map <silent> <leader>bt :action ChooseRunConfiguration<CR>
 "" ========================================================
 let g:WhichKeyDesc_build_windows_prefix = "<leader>bw Build tool windows"
 let g:WhichKeyDesc_tools_debug = "<leader>bwd Open debug window"
-let g:WhichKeyDesc_tools_run = "<leader>bwr Open run window"
 let g:WhichKeyDesc_tools_structure = "<leader>bws Open structure window"
 
 nnoremap <silent> <leader>bwd :action ActivateDebugToolWindow<CR>
@@ -410,7 +409,7 @@ let g:WhichKeyDesc_bookmark_prefix = "<leader>m Bookmarks"
 let g:WhichKeyDesc_bookmark_toggle_mnemonic = "<leader>mm Toggle mnemonic bookmark"
 let g:WhichKeyDesc_bookmark_toggle = "<leader>mt Toggle bookmark"
 let g:WhichKeyDesc_bookmark_list = "<leader>ml Bookmarks"
-let g:WhichKeyDesc_bookmark_popup = "<leader>mb Show bookmarks"
+let g:WhichKeyDesc_bookmark_popup = "<leader>ms Show bookmarks"
 let g:WhichKeyDesc_bookmark_next = "<leader>mn Next bookmark"
 let g:WhichKeyDesc_bookmark_prev = "<leader>mp Previous bookmark"
 
