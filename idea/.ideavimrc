@@ -340,6 +340,7 @@ map <silent> gt :action GotoTest<CR>
 "" ========================================================
 let g:WhichKeyDesc_git_prefix = "<leader>g Git Operations"
 let g:WhichKeyDesc_git_lazygit = "<leader>gg Lazygit"
+let g:WhichKeyDesc_git_lazygit_currDir = "<leader>gG Lazygit in current dir"
 let g:WhichKeyDesc_git_fetch = "<leader>gf Fetch"
 let g:WhichKeyDesc_git_status = "<leader>gs Open status dialog"
 let g:WhichKeyDesc_git_commit = "<leader>gc Open Commit dialog"
@@ -347,6 +348,7 @@ let g:WhichKeyDesc_git_new_branch = "<leader>gn New Branch"
 let g:WhichKeyDesc_git_push = "<leader>gP Push committed"
 let g:WhichKeyDesc_git_pull = "<leader>gp Pull"
 let g:WhichKeyDesc_git_annotate = "<leader>ga Annotate"
+let g:WhichKeyDesc_git_add_file = "<leader>gA Add unversioned file"
 let g:WhichKeyDesc_git_rollback = "<leader>gu Rollback changes in line"
 let g:WhichKeyDesc_git_branches = "<leader>gb Open branches list"
 let g:WhichKeyDesc_git_diff_current = "<leader>gd Show diff"
@@ -356,7 +358,8 @@ let g:WhichKeyDesc_git_rollback_alt = "<leader>gr Rollback changes in line"
 let g:WhichKeyDesc_git_prev_change = "[c Previous change"
 let g:WhichKeyDesc_git_next_change = "]c Next change"
 
-map <silent> <leader>gg :action Lazygit.Toggle<CR>
+nnoremap <silent> <leader>gg :action Lazygit.Toggle<CR>
+nnoremap <silent> <leader>gG :action Lazygit.ToggleCurrentDir<CR>
 nnoremap <silent> <leader>gc :action CheckinProject<CR>
 nnoremap <silent> <leader>gf :action Git.Fetch<CR>
 nnoremap <silent> <leader>gs :action ActivateVersionControlToolWindow<CR>
@@ -364,6 +367,7 @@ nnoremap <silent> <leader>gn :action Git.CreateNewBranch<CR>
 nnoremap <silent> <leader>gP :action Vcs.Push<CR>
 nnoremap <silent> <leader>gp :action Vcs.UpdateProject<CR>
 nnoremap <silent> <leader>ga :action Annotate<CR>
+nnoremap <silent> <leader>gA :action ChangesView.AddUnversioned<CR>
 nnoremap <silent> <leader>gu :action Vcs.RollbackChangedLines<CR>
 nnoremap <silent> <leader>gb :action Git.Branches<CR>
 nnoremap <silent> <leader>ge :action EditSource<CR>
