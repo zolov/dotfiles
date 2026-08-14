@@ -39,7 +39,7 @@ set nerdtree
 set argtextobj
 let g:argtextobj_pairs="(:),{:},<:>"
 set textobj-entire
-set anyobject
+"" set anyobject
 set surround
 set mini-ai
 set functiontextobj
@@ -59,16 +59,16 @@ set which-key
 set notimeout
 set timeoutlen=5000
 
-set foldmethod=syntax
-set nofoldenable
-set nocompatible
-syntax enable
-syntax on
-set wildmenu
-set laststatus=2
-set ruler
+"" set foldmethod=syntax
+"" set nofoldenable
+"" set nocompatible
+"" syntax enable
+"" syntax on
+"" set wildmenu
+"" set laststatus=2
+"" set ruler
+"" set expandtab
 set nowrap
-set expandtab
 
 " Включаем блочный режим по Ctrl+V
 nnoremap <silent> <C-V> <C-Q>
@@ -76,11 +76,11 @@ xnoremap <silent> <C-V> <C-Q>
 nnoremap <silent> <C-Q> <C-V>
 xnoremap <silent> <C-Q> <C-V>
 
-let g:WhichKey_DefaultDelay = 600
-let g:WhichKey_FontSize = 19
+"" let g:WhichKey_DefaultDelay = 300
+let g:WhichKey_FontSize = 17
 let g:WhichKey_ShowVimActions = "true"
-let g:WhichKey_CommandColor = "#a3be8c"
-let g:WhichKey_PrefixColor = "#81a1c1"
+"" let g:WhichKey_CommandColor = "#a3be8c"
+"" let g:WhichKey_PrefixColor = "#81a1c1"
 let g:WhichKey_SortOrder = "by_key_prefix_first"
 
 "" Key mappings
@@ -251,12 +251,14 @@ map <silent> <leader>uf :action ToggleFullScreen<CR>
 let g:WhichKeyDesc_build = "<leader>b Build tools"
 let g:WhichKeyDesc_build_run = "<leader>br Run"
 let g:WhichKeyDesc_build_debug = "<leader>bd Debug"
+let g:WhichKeyDesc_build_run_current = "<leader>bc Run current"
 let g:WhichKeyDesc_build_more = "<leader>bs More Actions"
 let g:WhichKeyDesc_build_choose_run_configuration = "<leader>bt Choose run configuration"
 let g:WhichKeyDesc_build_debug_break_point= "<leader>bl Toggle line breakpoint"
 
 map <silent> <leader>br :action Run<CR>
 map <silent> <leader>bd :action Debug<CR>
+map <silent> <leader>bc :action RunClass<CR>
 map <silent> <leader>bs :action MoreRunToolbarActions<CR>
 map <silent> <leader>bl :action ToggleLineBreakpoint<CR>
 map <silent> <leader>bt :action ChooseRunConfiguration<CR>
@@ -390,7 +392,7 @@ nnoremap <silent> ]e :action GotoNextError<CR>
 nnoremap <silent> [d :action GotoPreviousError<CR>
 nnoremap <silent> ]d :action GotoNextError<CR>
 nnoremap <silent> <leader>ld :action ShowErrorDescription<CR>
-map gh <Action>(ShowHoverInfo)
+nnoremap <silent> gk :action ShowHoverInfo<CR>
 
 " Method
 "" ========================================================
@@ -453,6 +455,11 @@ nnoremap L $
 nnoremap H ^
 vnoremap L $
 vnoremap H ^
+
+nnoremap gl $
+nnoremap gh ^
+vnoremap gl $
+vnoremap gh ^
 
 let g:WhichKeyDesc_project_tool_window = "<leader>e Open project tool window"
 let g:WhichKeyDesc_netrw = "<leader>n Open netrw"
