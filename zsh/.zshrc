@@ -99,3 +99,7 @@ export PATH="$PATH:$GOROOT/bin"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/tofu tofu
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
