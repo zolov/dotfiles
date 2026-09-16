@@ -20,8 +20,8 @@
 # Execute interactive container, e.g., $dex base /bin/bash
  alias dex="docker exec -i -t"
 # Execute zip db data
- alias dzip="docker exec -t -u postgres $(docker ps --no-trunc --filter name=dev_postgres_1 | awk '$2 ~ /postgres/ {print $1}') pg_dumpall -c | gzip > postgres.sql.gz"
- alias dunzip="gunzip -c postgres.sql.gz | docker exec -i $(docker ps --no-trunc --filter name=dev_postgres_1 | awk '$2 ~ /postgres/ {print $1}') psql -Upostgres"
+ dzip() { docker exec -t -u postgres "$(docker ps --no-trunc --filter name=dev_postgres_1 | awk '$2 ~ /postgres/ {print $1}')" pg_dumpall -c | gzip > postgres.sql.gz; }
+ dunzip() { gunzip -c postgres.sql.gz | docker exec -i "$(docker ps --no-trunc --filter name=dev_postgres_1 | awk '$2 ~ /postgres/ {print $1}')" psql -Upostgres; }
 # Stop all containers
  dstop() { docker stop $(docker ps -a -q); }
  # Remove all containers

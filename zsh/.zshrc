@@ -5,7 +5,6 @@ source_if_exists () {
 }
 
 source_if_exists $HOME/.env.sh
-source_if_exists ~/.fzf.zsh
 source_if_exists ~/.config/zsh/extensions/aliases.zsh
 source_if_exists ~/.config/zsh/extensions/history.sh
 source_if_exists ~/.config/zsh/extensions/git.sh
@@ -14,16 +13,10 @@ source_if_exists ~/.config/zsh/extensions/nvimswitcher.zsh
 source_if_exists ~/.config/zsh/extensions/docker-aliases.sh
 source_if_exists ~/.config/zsh/extensions/sdkman.sh
 
-autoload -Uz compinit && compinit
-
 export ZSH="$HOME/.oh-my-zsh"
-
-source <(kubectl completion zsh)
-compdef kubecolor=kubectl
 
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-source <(carapace _carapace)
 
 precmd() {
     source ~/.config/zsh/extensions/aliases.zsh
@@ -58,8 +51,10 @@ ZSH_DISABLE_COMPFIX="true"
 
 export EZA_COLORS="$(vivid generate catppuccin-mocha)"
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-autoload -U compinit && compinit
 source "$ZSH/oh-my-zsh.sh"
+
+compdef kubecolor=kubectl
+source <(carapace _carapace)
 
 # FZF-TAB CONFIGURATION
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
@@ -72,9 +67,7 @@ function zvm_after_init() {
   zvm_bindkey viins 'jj' vi-cmd-mode
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
-source <(fzf --zsh)
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 

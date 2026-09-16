@@ -24,9 +24,9 @@ function nvims() {
   NVIM_APPNAME=$config nvim $@
 }
 
-if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
+if [[ -n "${ZSH_VERSION:-}" ]]; then
    bindkey -s ^n "nvims\n"
-elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
+elif [[ -n "${BASH_VERSION:-}" ]]; then
    bind -x '"\C-n": nvims'
 else
    bindkey -s ^n "nvims\n"
