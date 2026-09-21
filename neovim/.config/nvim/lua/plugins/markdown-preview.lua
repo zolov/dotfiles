@@ -1,5 +1,5 @@
 return {
-    "iamcco/markdown-preview.nvim",
+    "sammaji/markdown-preview.nvim",
     cmd = {
         "MarkdownPreviewToggle",
         "MarkdownPreview",

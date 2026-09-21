@@ -4,6 +4,7 @@
 # ------------------------------------
 #               ALIASES
 # ------------------------------------
+alias kd="killall Dock"
 alias s="source $HOME/.zshrc"
 alias o="open ."
 alias zshrc="nvim $HOME/.zshrc"
