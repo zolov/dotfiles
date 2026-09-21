@@ -32,6 +32,9 @@ local keymaps = {
         ["H"] = "^",
         ["L"] = "$",
 
+        ["gh"] = "^",
+        ["gl"] = "$",
+
         -- Better window navigation
         ["<C-j>"] = "<C-w>j",
         ["<C-k>"] = "<C-w>k",

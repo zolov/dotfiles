@@ -27,7 +27,7 @@ local function lsp_keymaps(bufnr)
     map("gd", "<cmd>Lspsaga goto_definition<CR>", "Goto Definition")
     map("gi", "<cmd>Telescope lsp_implementations<CR>", "Goto Implementation")
     map("gr", "<cmd>Telescope lsp_references<CR>", "References")
-    map("gl", vim.diagnostic.open_float, "Open float")
+    -- map("gl", vim.diagnostic.open_float, "Open float")
     map("gy", vim.lsp.buf.type_definition, "Goto T[y]pe Definition")
     map("gk", vim.lsp.buf.signature_help, "Signature Help")
 end
