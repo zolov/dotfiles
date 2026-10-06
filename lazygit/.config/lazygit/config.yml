@@ -39,7 +39,7 @@ gui:
       - '#cdd6f4'
     searchingActiveBorderColor:
       - '#f9e2af'
-  authorColors:
-    'zolov': '#89b4fa'
-    'Igor Zolov': '#89dceb'
-    '*': '#b4befe'
+    authorColors:
+      'zolov': '#89b4fa'
+      'Igor Zolov': '#89dceb'
+      '*': '#b4befe'
