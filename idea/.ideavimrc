@@ -442,11 +442,11 @@ let g:WhichKeyDesc_lsp_tools_prefix = "<leader>l LSP Tools"
 let g:WhichKeyDesc_lsp_file_structure = "<leader>ls File structure"
 let g:WhichKeyDesc_lsp_new_class = "<leader>ln New class"
 let g:WhichKeyDesc_lsp_toggle_inlay_hints = "<leader>lh Toggle inlay hints"
-let g:WhichKeyDesc_lsp_find_bean = "<leader>lf Find bean"
+let g:WhichKeyDesc_lsp_find_bean = "<leader>lf List structure"
 map <silent> <leader>ls :action FileStructurePopup<CR>
 map <silent> <leader>ln :action NewClass<CR>
 map <silent> <leader>lh :action ToggleInlayHintsGloballyAction<CR>
-map <silent> <leader>lf :action com.haulmont.ampsbb.show.bean.navigation.pop.up<CR>
+map <silent> <leader>lf :action ActivateStructureToolWindow<CR>
 
 let g:WhichKeyDesc_highlight_usages = "<leader>h Highlight usages in file"
 nmap <leader>h :action HighlightUsagesInFile<CR>
